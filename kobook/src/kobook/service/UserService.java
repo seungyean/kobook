@@ -1,5 +1,7 @@
 package kobook.service;
 
+import kobook.domain.User;
+
 public interface UserService {
 	
 	/** 회원정보 수정*/

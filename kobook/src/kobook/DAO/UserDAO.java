@@ -14,15 +14,16 @@ public class UserDAO {
 		return dao;
 	}
 
-	public SqlSessionFactory getSqlSessionFactory(){
-	      String resource = "mybatis-config.xml";
-	      InputStream in = null;
-	      try {
-	         in = Resources.getResourceAsStream(resource);   
-	      } catch (Exception e) {
-	         e.printStackTrace();
-	      }
-	      
-	      return new SqlSessionFactoryBuilder().build(in);  
+	public SqlSessionFactory getSqlSessionFactory() {
+		String resource = "mybatis-config.xml";
+		InputStream in = null;
+		try {
+			in = Resources.getResourceAsStream(resource);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 
+		return new SqlSessionFactoryBuilder().build(in);
+
+	}
 }
