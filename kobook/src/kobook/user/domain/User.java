@@ -1,4 +1,4 @@
-package kobook.domain;
+package kobook.user.domain;
 
 public class User {
 

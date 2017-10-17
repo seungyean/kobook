@@ -1,4 +1,4 @@
-package kobook.controller;
+package kobook.user.controller;
 
 import java.io.IOException;
 import javax.servlet.ServletException;

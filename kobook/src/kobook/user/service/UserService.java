@@ -1,4 +1,4 @@
-package kobook.service;
+package kobook.user.service;
 
 import kobook.domain.User;
 

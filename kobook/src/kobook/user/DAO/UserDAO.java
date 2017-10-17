@@ -1,4 +1,4 @@
-package kobook.DAO;
+package kobook.user.DAO;
 
 import java.io.InputStream;
 

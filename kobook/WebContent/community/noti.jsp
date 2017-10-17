@@ -9,12 +9,12 @@
 	<meta name="description" content="">
 
     <!-- CSS FILES -->
-    <link rel="stylesheet" href="css/bootstrap.min.css"/>
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" type="text/css" href="css/style.css" media="screen" data-name="skins">
-    <link rel="stylesheet" href="css/layout/wide.css" data-name="layout">
+    <link rel="stylesheet" href="../css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" type="text/css" href="../css/style.css" media="screen" data-name="skins">
+    <link rel="stylesheet" href="../css/layout/wide.css" data-name="layout">
 
-    <link rel="stylesheet" type="text/css" href="css/switcher.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="../css/switcher.css" media="screen" />
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
