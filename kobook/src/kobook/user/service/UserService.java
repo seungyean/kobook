@@ -1,6 +1,6 @@
 package kobook.user.service;
 
-import kobook.domain.User;
+import kobook.user.domain.User;
 
 public interface UserService {
 	
