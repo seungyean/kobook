@@ -15,7 +15,7 @@ public class Controller extends HttpServlet {
 	private BookController bookController = new BookController();
 	private DonateController donateController = new DonateController();
 	private MessageController messageController = new MessageController();
-    private MyPageController mypageController = new MyPageController();
+    private MypageController mypageController = new MypageController();
     private RecomController recomController = new RecomController();
        
     public Controller() {

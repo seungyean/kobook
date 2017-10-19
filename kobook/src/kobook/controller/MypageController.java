@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 import kobook.action.Action;
 import kobook.action.ActionForward;
 
-public class MyPageController {
+public class MypageController {
 	public void doProcess(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
