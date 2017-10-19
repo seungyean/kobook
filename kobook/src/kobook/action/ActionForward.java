@@ -1,9 +1,9 @@
 package kobook.action;
 
 public class ActionForward {
+	
 	   private boolean isRedirect;
 	   private String path;
-	   
 	   
 	   public boolean isRedirect() {
 	      return isRedirect;
