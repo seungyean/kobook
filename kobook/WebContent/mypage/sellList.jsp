@@ -5,7 +5,7 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>Pricing Tables - Electrify Responsive Multipurpose Template</title>
+	<title>판매내역</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 
@@ -29,12 +29,13 @@
                 <div class="row">
                     <div class="col-lg-12 col-md-12 col-sm-12">
                         <div class="page_title">
-                            <h2>Pricing Tables</h2>
+                            <h2>판매 내역</h2>
                         </div>
                         <nav id="breadcrumbs">
                             <ul>
-                                <li><a href="index.html">Home</a>/</li>
-                                <li>Shortcodes</li>
+                                <li><a href="index.html">홈</a>/</li>
+                                <li>마이페이지 /</li>
+                                <li>판매내역</li>
                             </ul>
                         </nav>
                     </div>
@@ -47,244 +48,40 @@
 				<div class="row sub_content">
 					<div class="col-lg-12 col-md-12 col-sm-12">
 						<div class="dividerHeading">
-							<h4><span>Pricing Tables 1</span></h4>
-
+							<h4><span>판매내역 리스트</span></h4>
+							<br>
+							<br>
+								<form>
+									<table class="table table-hover">
+										<thead>
+											<tr>
+												<td align="center">No</td>
+												<td>책 제목</td>
+												<td align="center">등록날짜</td>
+												<td align="center">가격</td>
+												<td align="center">판매상태 변경</td>
+												<td align="center">현재상태</td>
+											</tr>
+										</thead>
+										<tbody>
+											<tr>
+												<td align="center">1</td>
+												<td>프링글스는 마시썽</td>
+												<td align="center">2017-10-18</td>
+												<td align="center">1000원</td>
+												<td align="center"><input type="radio" name="state" checked >판매중 &nbsp;&nbsp;<input type="radio" name="state">판매완료 &nbsp;&nbsp;<input type="submit" value="변경" class="btn-default"></td>
+												<td align="center">판매중</td>
+											</tr>
+										</tbody>
+										</table>
+									</form>
 						</div>
-					</div>
-					<div class="mrgb-50 clearfix"></div>
-					<div class="pricingBlock theme-color-pt">
-						<!--  DARK-BLUE PRICE ITEM  -->
-						<div class="col-lg-3 col-md-3 col-sm-3">
-							<div class="pricingTable"><!-- BODY BOX-->
-								<div class="pricingTable-header"><!-- HEADER BOX-->
-									<span class="heading">Standard</span>
-									<span class="price-value">$<span>14,50</span><span class="mo">/mo</span></span>
-								</div><!--/ BODY BOX-->
-
-								<div class="pricingContent">
-									<ul>
-										<li><strong>50GB</strong> Disk Space</li>
-										<li><strong>50</strong> Email Accounts</li>
-										<li><strong>50GB</strong> Monthly Bandwidth</li>
-										<li><strong>50</strong> Domains</li>
-										<li><strong>Unlimited</strong> Subdomains</li>
-									</ul>
-								</div><!-- /  CONTENT BOX-->
-
-								<div class="pricingTable-sign-up"><!-- BUTTON BOX-->
-									<a href="#" class="btn btn-block btn-default">BUY NOW!</a>
-								</div><!-- BUTTON BOX-->
-
-							</div><!--/ BODY BOX-->
-						</div>
-						<!--  DARK-BLUE PRICE ITEM  -->
-
-						<!--  DARK-BLUE PRICE ITEM  -->
-						<div class="col-lg-3 col-md-3 col-sm-3">
-							<div class="pricingTable"><!-- BODY BOX-->
-								<div class="pricingTable-header"><!-- HEADER BOX-->
-
-									<span class="heading">Business</span>
-									<span class="price-value">$<span>24,50</span><span class="mo">/mo</span></span>
-
-								</div><!--/ BODY BOX-->
-
-								<div class="pricingContent">
-									<ul>
-										<li><strong>50GB</strong> Disk Space</li>
-										<li><strong>50</strong> Email Accounts</li>
-										<li><strong>50GB</strong> Monthly Bandwidth</li>
-										<li><strong>50</strong> Domains</li>
-										<li><strong>Unlimited</strong> Subdomains</li>
-									</ul>
-								</div><!-- /  CONTENT BOX-->
-
-								<div class="pricingTable-sign-up"><!-- BUTTON BOX-->
-									<a href="#" class="btn btn-block btn-default">BUY NOW!</a>
-								</div><!-- BUTTON BOX-->
-
-							</div><!--/ BODY BOX-->
-						</div>
-						<!--  DARK-BLUE PRICE ITEM  -->
-
-						<!--  DARK-BLUE PRICE ITEM  -->
-						<div class="col-lg-3 col-md-3 col-sm-3">
-							<div class="pricingTable"><!-- BODY BOX-->
-								<div class="pricingTable-header"><!-- HEADER BOX-->
-
-									<span class="heading">Premium</span>
-									<span class="price-value">$<span>34,50</span><span class="mo">/mo</span></span>
-
-								</div><!--/ BODY BOX-->
-
-								<div class="pricingContent">
-									<ul>
-										<li><strong>50GB</strong> Disk Space</li>
-										<li><strong>50</strong> Email Accounts</li>
-										<li><strong>50GB</strong> Monthly Bandwidth</li>
-										<li><strong>50</strong> Domains</li>
-										<li><strong>Unlimited</strong> Subdomains</li>
-									</ul>
-								</div><!-- /  CONTENT BOX-->
-
-								<div class="pricingTable-sign-up"><!-- BUTTON BOX-->
-									<a href="#" class="btn btn-block btn-default">BUY NOW!</a>
-								</div><!-- BUTTON BOX-->
-
-							</div><!--/ BODY BOX-->
-						</div>
-						<!--  DARK-BLUE PRICE ITEM  -->
-
-						<!--  DARK-BLUE PRICE ITEM  -->
-						<div class="col-lg-3 col-md-3 col-sm-3">
-							<div class="pricingTable"><!-- BODY BOX-->
-								<div class="pricingTable-header"><!-- HEADER BOX-->
-
-									<span class="heading">Extra</span>
-									<span class="price-value">$<span>44,50</span><span class="mo">/mo</span></span>
-
-								</div><!--/ BODY BOX-->
-
-								<div class="pricingContent">
-									<ul>
-										<li><strong>50GB</strong> Disk Space</li>
-										<li><strong>50</strong> Email Accounts</li>
-										<li><strong>50GB</strong> Monthly Bandwidth</li>
-										<li><strong>50</strong> Domains</li>
-										<li><strong>Unlimited</strong> Subdomains</li>
-									</ul>
-								</div><!-- /  CONTENT BOX-->
-
-								<div class="pricingTable-sign-up"><!-- BUTTON BOX-->
-									<a href="#" class="btn btn-block btn-default">BUY NOW!</a>
-								</div><!-- BUTTON BOX-->
-
-							</div><!--/ BODY BOX-->
-						</div>
-						<!--  DARK-BLUE PRICE ITEM  -->
-					</div>
-				</div>
-
-				<div class="row sub_content">
-					<div class="col-lg-12 col-md-12 col-sm-12">
-						<div class="dividerHeading">
-							<h4><span>Pricing Tables 2</span></h4>
-						</div>
-					</div>
-					<div class="mrgb-50 clearfix"></div>
-					<div class="pricingBlock">
-						<!--  DARK-BLUE PRICE ITEM  -->
-						<div class="col-lg-3 col-md-3 col-sm-3">
-							<div class="pricingTable"><!-- BODY BOX-->
-								<div class="pricingTable-header"><!-- HEADER BOX-->
-										
-									<span class="heading">Standard</span>
-									<span class="price-value">$<span>14,50</span><span class="mo">/mo</span></span>
-									   
-								</div><!--/ BODY BOX-->
-								
-								<div class="pricingContent">
-									<ul>
-										<li><strong>50GB</strong> Disk Space</li>
-										<li><strong>50</strong> Email Accounts</li>
-										<li><strong>50GB</strong> Monthly Bandwidth</li>
-										<li><strong>50</strong> Domains</li>
-										<li><strong>Unlimited</strong> Subdomains</li>
-									</ul>
-								</div><!-- /  CONTENT BOX-->
-								
-								<div class="pricingTable-sign-up"><!-- BUTTON BOX-->
-									<a href="#" class="btn btn-block btn-default">BUY NOW!</a>
-								</div><!-- BUTTON BOX-->
-								
-							</div><!--/ BODY BOX-->
-						</div>
-						<!-- -BLUE PRICE ITEM  -->
-
-						<!--  DARK-BLUE PRICE ITEM  -->
-						<div class="col-lg-3 col-md-3 col-sm-3">
-							<div class="pricingTable"><!-- BODY BOX-->
-								<div class="pricingTable-header"><!-- HEADER BOX-->
-										
-									<span class="heading">Business</span>
-									<span class="price-value">$<span>24,50</span><span class="mo">/mo</span></span>
-									   
-								</div><!--/ BODY BOX-->
-								
-								<div class="pricingContent">
-									<ul>
-										<li><strong>50GB</strong> Disk Space</li>
-										<li><strong>50</strong> Email Accounts</li>
-										<li><strong>50GB</strong> Monthly Bandwidth</li>
-										<li><strong>50</strong> Domains</li>
-										<li><strong>Unlimited</strong> Subdomains</li>
-									</ul>
-								</div><!-- /  CONTENT BOX-->
-								
-								<div class="pricingTable-sign-up"><!-- BUTTON BOX-->
-									<a href="#" class="btn btn-block btn-default">BUY NOW!</a>
-								</div><!-- BUTTON BOX-->
-								
-							</div><!--/ BODY BOX-->
-						</div>
-						<!--  DARK-BLUE PRICE ITEM  -->
-
-						<!--  DARK-BLUE PRICE ITEM  -->
-						<div class="col-lg-3 col-md-3 col-sm-3">
-							<div class="pricingTable"><!-- BODY BOX-->
-								<div class="pricingTable-header"><!-- HEADER BOX-->
-										
-									<span class="heading">Premium</span>
-									<span class="price-value">$<span>34,50</span><span class="mo">/mo</span></span>
-									   
-								</div><!--/ BODY BOX-->
-								
-								<div class="pricingContent">
-									<ul>
-										<li><strong>50GB</strong> Disk Space</li>
-										<li><strong>50</strong> Email Accounts</li>
-										<li><strong>50GB</strong> Monthly Bandwidth</li>
-										<li><strong>50</strong> Domains</li>
-										<li><strong>Unlimited</strong> Subdomains</li>
-									</ul>
-								</div><!-- /  CONTENT BOX-->
-								
-								<div class="pricingTable-sign-up"><!-- BUTTON BOX-->
-									<a href="#" class="btn btn-block btn-default">BUY NOW!</a>
-								</div><!-- BUTTON BOX-->
-								
-							</div><!--/ BODY BOX-->
-						</div>
-						<!--  DARK-BLUE PRICE ITEM  -->
-                        <div class="col-lg-3 col-md-3 col-sm-3">
-                            <div class="pricingTable"><!-- BODY BOX-->
-                                <div class="pricingTable-header"><!-- HEADER BOX-->
-
-                                    <span class="heading">Extra</span>
-                                    <span class="price-value">$<span>44,50</span><span class="mo">/mo</span></span>
-
-                                </div><!--/ BODY BOX-->
-
-                                <div class="pricingContent">
-                                    <ul>
-                                        <li><strong>50GB</strong> Disk Space</li>
-                                        <li><strong>50</strong> Email Accounts</li>
-                                        <li><strong>50GB</strong> Monthly Bandwidth</li>
-                                        <li><strong>50</strong> Domains</li>
-                                        <li><strong>Unlimited</strong> Subdomains</li>
-                                    </ul>
-                                </div><!-- /  CONTENT BOX-->
-
-                                <div class="pricingTable-sign-up"><!-- BUTTON BOX-->
-                                    <a href="#" class="btn btn-block btn-default">BUY NOW!</a>
-                                </div><!-- BUTTON BOX-->
-
-                            </div><!--/ BODY BOX-->
-                        </div>
 					</div>
 				</div>
 			</div>
 		</section>
+        
+        
         <section class="promo_box">
             <div class="container">
                 <div class="row">
@@ -333,21 +130,21 @@
 		</div>
 	</section>
 
-    <script type="text/javascript" src="js/jquery-1.10.2.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/jquery.easing.1.3.js"></script>
-    <script src="js/retina-1.1.0.min.js"></script>
-    <script type="text/javascript" src="js/jquery.cookie.js"></script> <!-- jQuery cookie -->
-    <script type="text/javascript" src="js/styleswitch.js"></script> <!-- Style Colors Switcher -->
-    <script type="text/javascript" src="js/jquery.smartmenus.min.js"></script>
-    <script type="text/javascript" src="js/jquery.smartmenus.bootstrap.min.js"></script>
-        <script type="text/javascript" src="js/jflickrfeed.js"></script>
-    <script type="text/javascript" src="js/jquery.magnific-popup.min.js"></script>
-    <script type="text/javascript" src="js/jquery.isotope.min.js"></script>
-    <script type="text/javascript" src="js/swipe.js"></script>
-    <script type="text/javascript" src="js/jquery-scrolltofixed-min.js"></script>
+    <script type="text/javascript" src="../js/jquery-1.10.2.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/jquery.easing.1.3.js"></script>
+    <script src="../js/retina-1.1.0.min.js"></script>
+    <script type="text/javascript" src="../js/jquery.cookie.js"></script> <!-- jQuery cookie -->
+    <script type="text/javascript" src="../js/styleswitch.js"></script> <!-- Style Colors Switcher -->
+    <script type="text/javascript" src="../js/jquery.smartmenus.min.js"></script>
+    <script type="text/javascript" src="../js/jquery.smartmenus.bootstrap.min.js"></script>
+        <script type="text/javascript" src="../js/jflickrfeed.js"></script>
+    <script type="text/javascript" src="../js/jquery.magnific-popup.min.js"></script>
+    <script type="text/javascript" src="../js/jquery.isotope.min.js"></script>
+    <script type="text/javascript" src="../js/swipe.js"></script>
+    <script type="text/javascript" src="../js/jquery-scrolltofixed-min.js"></script>
 
-    <script src="js/main.js"></script>
+    <script src="../js/main.js"></script>
 
     <!-- Start Style Switcher -->
     <div class="switcher"></div>

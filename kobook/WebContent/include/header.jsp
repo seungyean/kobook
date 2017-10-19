@@ -69,11 +69,11 @@
                                     
                                     <li><a href="../mypage/cart.jsp" >마이페이지</a>
                                         <ul class="dropdown-menu">
-                                            		<li><a href="../mypage/cart.jsp">회원정보수정</a></li>
+                                            		<li><a href="../mypage/userUpdate.jsp">회원정보수정</a></li>
                                             		<li><a href="../mypage/cart.jsp">장바구니</a></li>
                                                     <li><a href="../mypage/mileage.jsp">마일리지</a></li>
                                                     <li><a href="../mypage/pickList.jsp">찜 리스트</a></li>
-                                                    <li><a href="../mypage/cart.jsp">구매내역</a></li>
+                                                    <li><a href="../mypage/buyList.jsp">구매내역</a></li>
                                                     <li><a href="../mypage/sellList.jsp">판매내역</a></li>
                                                     <li><a href="../mypage/reviewList.jsp">판매후기</a></li>
                                         </ul>
