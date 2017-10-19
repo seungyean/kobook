@@ -43,6 +43,8 @@ public class AdminController {
 		if (command2.equals("bookDetail.do")) {
 			
 			// action 객체 생성
+			// 이부분만 수정해서 복붙하면 됨
+			
 			try {
 				forward = action.execute(request, response);
 			} catch (Exception e) {

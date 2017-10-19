@@ -19,7 +19,7 @@ public class MyPageController {
 
 		
 		//	밑의 줄이 출력되면 해당 controller로 잘 진입한것!
-		System.out.println("==========bookCon==========");
+		System.out.println("==========mypageCon==========");
 		// /kobook/mypage/insertForm.do
 		String requestURI = request.getRequestURI();
 		System.out.println("requestURI: " + requestURI);
@@ -28,7 +28,7 @@ public class MyPageController {
 		String contextPath = request.getContextPath();
 		System.out.println("contextPath: " + contextPath);
 
-		// main/insertForm.do
+		// mypage/insertForm.do
 		String command1 = requestURI.substring(contextPath.length() + 1);
 		System.out.println("command1: " + command1);
 
@@ -43,6 +43,8 @@ public class MyPageController {
 		if (command2.equals("bookDetail.do")) {
 			
 			// action 객체 생성
+			// 이부분만 수정해서 복붙하면 됨
+			
 			try {
 				forward = action.execute(request, response);
 			} catch (Exception e) {
