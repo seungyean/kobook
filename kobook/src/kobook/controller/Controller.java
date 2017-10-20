@@ -13,7 +13,7 @@ public class Controller extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private AdminController adminController = new AdminController();
 	private BookController bookController = new BookController();
-	private DonateController donateController = new DonateController();
+	private CommunityController communityController = new CommunityController();
 	private MessageController messageController = new MessageController();
     private MypageController mypageController = new MypageController();
     private RecomController recomController = new RecomController();
@@ -47,8 +47,8 @@ public class Controller extends HttpServlet {
     		adminController.doProcess(request, response);
     	} else if(command2.equals("book")){
     		bookController.doProcess(request, response);
-    	} else if(command2.equals("donate")){
-    		donateController.doProcess(request, response);
+    	} else if(command2.equals("community")){
+    		communityController.doProcess(request, response);
     	} else if(command2.equals("message")){
     		messageController.doProcess(request, response);
     	} else if(command2.equals("mypage")){

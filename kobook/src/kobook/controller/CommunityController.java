@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 import kobook.action.Action;
 import kobook.action.ActionForward;
 
-public class DonateController {
+public class CommunityController {
 	public void doProcess(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
@@ -19,8 +19,8 @@ public class DonateController {
 
 		
 		//	밑의 줄이 출력되면 해당 controller로 잘 진입한것!
-		System.out.println("==========donateController==========");
-		// /kobook/donate/insertForm.do
+		System.out.println("==========communityController==========");
+		// /kobook/community/insertForm.do
 		String requestURI = request.getRequestURI();
 		System.out.println("requestURI: " + requestURI);
 
@@ -28,7 +28,7 @@ public class DonateController {
 		String contextPath = request.getContextPath();
 		System.out.println("contextPath: " + contextPath);
 
-		// donate/insertForm.do
+		// community/insertForm.do
 		String command1 = requestURI.substring(contextPath.length() + 1);
 		System.out.println("command1: " + command1);
 
