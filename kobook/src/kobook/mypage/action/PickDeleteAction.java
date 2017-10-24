@@ -1,13 +1,9 @@
 package kobook.mypage.action;
 
-import java.util.List;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
 import kobook.action.Action;
 import kobook.action.ActionForward;
-import kobook.mypage.domain.Book;
 import kobook.mypage.service.MypageService;
 
 public class PickDeleteAction implements Action {
@@ -25,7 +21,7 @@ public class PickDeleteAction implements Action {
 		
 		ActionForward forward = new ActionForward();
 		forward.setRedirect(false);
-		forward.setPath("/mypage/pickList.do");
+		forward.setPath("kobook/mypage/pickList.do");
 		
 		return forward;
 	}

@@ -54,7 +54,19 @@
 							<h4><span>판매내역 리스트</span></h4>
 							<br>
 							<br>
-								<form action="kobook2/mypage/sellUpdate.do" method="post">
+							
+							
+							<c:choose>
+									<c:when test="${empty payList }">
+
+									<div class="media-body">
+										<div class="well" style="margin-left: 170px;">
+											<h2 align="center">판매 상품이 존재하지 않습니다.</h2>
+										</div>
+									</div>
+									</c:when>
+									<c:otherwise>
+										<form action="kobook2/mypage/sellUpdate.do" method="post">
 									<table class="table table-hover">
 										<thead>
 											<tr>
@@ -103,6 +115,14 @@
 										</tbody>
 										</table>
 								</form>
+									</c:otherwise>
+								</c:choose>
+							
+							
+							
+							
+							
+								
 						</div>
 					</div>
 				</div>

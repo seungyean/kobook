@@ -2,6 +2,8 @@ package kobook.mypage.domain;
 
 import java.util.List;
 
+import kobook.book.domain.Book;
+
 
 public class Mypage {
 	

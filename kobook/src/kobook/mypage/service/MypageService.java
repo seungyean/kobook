@@ -3,8 +3,8 @@ package kobook.mypage.service;
 import java.util.HashMap;
 import java.util.List;
 
+import kobook.book.domain.Book;
 import kobook.mypage.dao.MypageDAO;
-import kobook.mypage.domain.Book;
 
 public class MypageService {
 	

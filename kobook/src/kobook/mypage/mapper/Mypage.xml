@@ -11,7 +11,7 @@
 <select id="sellList" resultType="Book">
 	select *
 	from book
-	where person_id = 1
+	where person_id = #{person_id}
 </select>
 
 <!-- 판매상태 업데이트 -->
@@ -28,7 +28,7 @@
   where p.person_id =  c.person_id
   and c.cart_id = p2.cart_id
   and b.book_id =  c.book_id
-  and p.person_id = 2
+  and p.person_id = #{person_id}
 </select>
 
 <!-- 마일리지 리스트 -->
@@ -36,7 +36,7 @@
  select m.mileage_date,m.mileage_kind,m.mileage_point, p.person_id,m.MILEAGE_ID
  from person p, MILEAGE m
  where p.person_id = m.person_id
- and p.person_id = 2
+ and p.person_id = #{person_id}
 </select>
 
 <!-- 찜리 -->
@@ -45,7 +45,7 @@
 	from pick p, book b, person p2
 	WHERE p.book_id = b.book_id
 	and b.person_id = p2.person_id
-	and p.person_id = 1
+	and p.person_id = #{person_id}
 </select>
 
 <!-- 찜리삭제 -->

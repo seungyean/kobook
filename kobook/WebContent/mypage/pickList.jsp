@@ -87,7 +87,7 @@
 									<c:when test="${empty pickList }">
 										<div class="media-body">
 											<div class="well" style="margin-left: 170px;">
-												<h2 align="center">구매 상품이 존재하지 않습니다.</h2>
+												<h2 align="center">찜 상품이 존재하지 않습니다.</h2>
 											</div>
 										</div>
 									</c:when>

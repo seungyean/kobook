@@ -25,7 +25,7 @@ public class MileageAction implements Action {
 		
 		ActionForward forward = new ActionForward();
 		forward.setRedirect(false);
-		forward.setPath("/mypage/mileage.jsp");
+		forward.setPath("kobook/mypage/mileage.jsp");
 		
 		return forward;
 	}

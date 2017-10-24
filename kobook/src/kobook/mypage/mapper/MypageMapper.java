@@ -3,9 +3,8 @@ package kobook.mypage.mapper;
 import java.util.HashMap;
 import java.util.List;
 
-import com.sun.javafx.collections.MappingChange.Map;
+import kobook.book.domain.Book;
 
-import kobook.mypage.domain.Book;
 
 public interface MypageMapper {
   

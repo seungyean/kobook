@@ -7,7 +7,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import kobook.action.Action;
 import kobook.action.ActionForward;
-import kobook.mypage.domain.Book;
+import kobook.book.domain.Book;
 import kobook.mypage.service.MypageService;
 
 public class SellUpdateAction implements Action {

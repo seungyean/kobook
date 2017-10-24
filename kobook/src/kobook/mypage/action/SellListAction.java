@@ -7,7 +7,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import kobook.action.Action;
 import kobook.action.ActionForward;
-import kobook.mypage.domain.Book;
+import kobook.book.domain.Book;
 import kobook.mypage.service.MypageService;
 
 public class SellListAction implements Action {
@@ -22,7 +22,7 @@ public class SellListAction implements Action {
 		
 		ActionForward forward = new ActionForward();
 		forward.setRedirect(false);
-		forward.setPath("/mypage/sellList.jsp");
+		forward.setPath("kobook/mypage/sellList.jsp");
 		
 		return forward;
 	}

@@ -9,7 +9,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 
-import kobook.mypage.domain.Book;
+import kobook.book.domain.Book;
 import kobook.mypage.mapper.MypageMapper;
 
 public class MypageDAO {
