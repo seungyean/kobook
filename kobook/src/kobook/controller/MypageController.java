@@ -9,6 +9,13 @@ import javax.servlet.http.HttpServletResponse;
 
 import kobook.action.Action;
 import kobook.action.ActionForward;
+import kobook.mypage.action.BuyListAction;
+import kobook.mypage.action.MileageAction;
+import kobook.mypage.action.PayAction;
+import kobook.mypage.action.PickAction;
+import kobook.mypage.action.PickDeleteAction;
+import kobook.mypage.action.SellListAction;
+import kobook.mypage.action.SellUpdateAction;
 
 public class MypageController {
 	public void doProcess(HttpServletRequest request, HttpServletResponse response)
@@ -40,11 +47,54 @@ public class MypageController {
 		
 		// 여기서 각각의 Action으로 보낸다.
 		// .do 수정하고 각자 연결시킨 곳으로 
-		if (command2.equals("bookDetail.do")) {
-			
+		if (command2.equals("sellList.do")) {
 			// action 객체 생성
+			
+			action = new SellListAction();
 			// 이부분만 수정해서 복붙하면 됨
 			
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}else if(command2.equals("sellUpdate.do")) {
+			action = new SellUpdateAction();
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}else if(command2.equals("buyList.do")) {
+			action = new BuyListAction();
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}else if(command2.equals("mileage.do")) {
+			action = new MileageAction();
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}else if(command2.equals("pay.do")) {
+			action = new PayAction();
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}else if(command2.equals("pickList.do")) {
+			action = new PickAction();
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}else if(command2.equals("pickDelete.do")) {
+			action = new PickDeleteAction();
 			try {
 				forward = action.execute(request, response);
 			} catch (Exception e) {
