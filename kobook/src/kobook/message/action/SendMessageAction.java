@@ -27,7 +27,7 @@ public class SendMessageAction implements Action {
 		
 		if(receiver_id == -1){		//받는 사람이 리스트에 없을 경우
 			System.out.println("사람없음");
-			forward.setRedirect(false);
+			forward.setRedirect(true);
 			forward.setPath("/kobook/message/sendFail.jsp");
 			
 		} else {
