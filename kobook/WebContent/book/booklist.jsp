@@ -69,7 +69,7 @@
 					<div class="col-lg-3 col-sm-3 ">
 						<div id="logo">
 							<h1>
-								<a href="index.html"><img alt="logo" src="/BoardProject1/images/logo.png" /></a>
+								<a href="index.html"><img alt="logo" src="/kobook/images/logo.png" /></a>
 							</h1>
 						</div>
 					</div>
@@ -247,7 +247,7 @@
 										<figure class="touching ">
 										
 										<img src="/kobook/upload/${b.book_img}" alt="aa"/>
-											<a href="/kobook/book/detailAction.do?book_id=${b.book_id}"></a>
+											<a href="/book/detailAction.do?book_id=${b.book_id}"></a>
 											<div class="option inner">
 												<div>
 													<h5>${b.book_name}</h5>
@@ -286,12 +286,12 @@
 										<figure class="touching ">
 										
 										<img src="/kobook/upload/${b.book_img}" alt="aa"/>
-											<a href="/kobook/book/detailAction.do?book_id=${b.book_id}"></a>
+											<a href="/book/detailAction.do?book_id=${b.book_id}"></a>
 											<div class="option inner">
 												<div>
 													<h5>${b.book_name}</h5>
 													<a href="/kobook/upload/${b.book_img}" class="fa fa-search mfp-image"></a> 
-													<a href="/kobook/book/detailAction.do?book_id=${b.book_id}" class="fa fa-link"></a> 
+													<a href="/book/detailAction.do?book_id=${b.book_id}" class="fa fa-link"></a> 
 													 <c:choose>
 													 
 													<c:when test="${b.book_sell_state=='I'}">

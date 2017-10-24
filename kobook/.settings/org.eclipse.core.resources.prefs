@@ -2,3 +2,5 @@ eclipse.preferences.version=1
 encoding//WebContent/main.jsp=UTF-8
 encoding//src/kobook/book/action/BookdetailAction.java=UTF-8
 encoding//src/kobook/book/service/BookService.java=UTF-8
+encoding//src/kobook/controller/BookController.java=UTF-8
+encoding//src/kobook/recom/service/RecomService.java=UTF-8

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="kobook.recom.mapper.RecomMapper">
+	<cache />
+
+	<select id="getFavorite" resultType="FavoriteBook" parameterType="int">
+		SELECT BOOKAREUM.BOOK_NAME,BOOKAREUM.BOOK_KIND,BOOKAREUM.BOOK_ID,FAVORITEAREUM.FAVORITE_ID,FAVORITEAREUM.FAVORITE_NAME,FAVORITEAREUM.PERSON_ID,FAVORITEAREUM.FAVORITE_MAJOR
+		FROM FAVORITEAREUM ,BOOKAREUM 
+		WHERE FAVORITEAREUM.PERSON_ID = #{person_id}
+		AND BOOKAREUM.BOOK_ID = FAVORITEAREUM.BOOK_ID
+	</select>
+	
+	<delete id="deleteFavorite" parameterType="Favorite">
+		DELETE FROM FAVORITEAREUM
+		WHERE PERSON_ID=#{person_id}
+		AND BOOK_ID=#{book_id}
+	</delete>
+
+	<select id="alarmList" resultType="Alarm" parameterType="NewAlarm">
+		SELECT *
+		FROM ALARMAREUM
+		WHERE PERSON_ID=#{person_id}
+		ORDER BY ALARM_ID DESC
+	</select>
+
+</mapper>
