@@ -36,11 +36,11 @@ public class MypageDAO {
 	// ------------------------------------------------------------------------------------
 
 	/* 판매내역 리스트 */
-	public List<Book> sellList() {
+	public List<Book> sellList(int person_id) {
 		SqlSession sqlSession = getSqlSessionFactory().openSession();
 		List<Book> list = null;
 		try {
-			list = sqlSession.getMapper(MypageMapper.class).sellList();
+			list = sqlSession.getMapper(MypageMapper.class).sellList(person_id);
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
@@ -69,11 +69,11 @@ public class MypageDAO {
 	}
 
 	/* 구매내역 리스트 */
-	public List<HashMap<String, String>> buyList() {
+	public List<HashMap<String, String>> buyList(int person_id) {
 		SqlSession sqlSession = getSqlSessionFactory().openSession();
 		List<HashMap<String, String>> list = null;
 		try {
-			list = sqlSession.getMapper(MypageMapper.class).buyList();
+			list = sqlSession.getMapper(MypageMapper.class).buyList(person_id);
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
@@ -83,11 +83,11 @@ public class MypageDAO {
 	}
 	
 	/* 마일리지 리스트 */
-	public  List<HashMap<String, String>> mileageList() {
+	public  List<HashMap<String, String>> mileageList(int person_id) {
 		SqlSession sqlSession = getSqlSessionFactory().openSession();
 		List<HashMap<String, String>> list = null;
 		try {
-			list = sqlSession.getMapper(MypageMapper.class).mileageList();
+			list = sqlSession.getMapper(MypageMapper.class).mileageList(person_id);
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
@@ -96,11 +96,11 @@ public class MypageDAO {
 		return list;
 	}
 	
-	public List<HashMap<String, String>> cart() {
+	public List<HashMap<String, String>> cart(int person_id) {
 		SqlSession sqlSession = getSqlSessionFactory().openSession();
 		List<HashMap<String, String>> list = null;
 		try {
-			list = sqlSession.getMapper(MypageMapper.class).mileageList();
+			list = sqlSession.getMapper(MypageMapper.class).mileageList(person_id);
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
@@ -110,11 +110,11 @@ public class MypageDAO {
 	}
 	
 	/* 찜 리스트 */
-	public List<HashMap<String, String>> pickList() {
+	public List<HashMap<String, String>> pickList(int person_id) {
 		SqlSession sqlSession = getSqlSessionFactory().openSession();
 		List<HashMap<String, String>> list = null;
 		try {
-			list = sqlSession.getMapper(MypageMapper.class).pickList();
+			list = sqlSession.getMapper(MypageMapper.class).pickList(person_id);
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {

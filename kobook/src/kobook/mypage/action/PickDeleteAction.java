@@ -21,7 +21,7 @@ public class PickDeleteAction implements Action {
 		
 		ActionForward forward = new ActionForward();
 		forward.setRedirect(false);
-		forward.setPath("kobook/mypage/pickList.do");
+		forward.setPath("pickList.do");
 		
 		return forward;
 	}

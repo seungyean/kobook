@@ -8,7 +8,7 @@
   <cache />
 
 <!-- 판매내역 리스트 -->
-<select id="sellList" resultType="Book">
+<select id="sellList" resultType="Book" parameterType="int">
 	select *
 	from book
 	where person_id = #{person_id}
@@ -22,13 +22,14 @@
 </update>
 
 <!-- 구매내역 리스트 -->
-<select id="buyList" resultType="hashMap">
-	select c.person_id,b.book_img, b.book_name, b.book_m_price, p2.pay_id, p2.pay_date, b.person_id
-	from person p, cart c, pay p2, book b
-  where p.person_id =  c.person_id
-  and c.cart_id = p2.cart_id
-  and b.book_id =  c.book_id
-  and p.person_id = #{person_id}
+<select id="buyList" resultType="hashMap" parameterType="int">
+	select person.person_id, b.book_img, b.book_name,b.book_m_price,
+	pay.pay_id, pay.pay_date, b.person_id
+	from person person, book b, pay pay, pick pick
+	where person.person_id = pick.person_id
+	and pick.book_id = b.book_id
+	and pick.pick_id = pay.pick_id
+	and person.person_id = #{person_id};
 </select>
 
 <!-- 마일리지 리스트 -->

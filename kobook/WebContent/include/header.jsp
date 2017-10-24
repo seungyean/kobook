@@ -54,28 +54,27 @@
                                     <li ><a href="/kobook/index.do">Home</a>
                                     </li>
 
-                                    <li><a href="/kobook/search/allSearch.jsp">전체검색</a></li>
-                                    <li><a href="/kobook/search/major.jsp">전공검색</a></li>
-                                    <li><a href="/kobook/search/location.jsp">지역검색</a></li>
+                                    <li><a href="/kobook/search/allSearch.do">전체검색</a></li>
+                                    <li><a href="/kobook/search/major.do">전공검색</a></li>
+                                    <li><a href="/kobook/search/location.do">지역검색</a></li>
 
-                                    <li><a href="/kobook/community/blackList.jsp" >커뮤니티</a>
+                                    <li><a href="/kobook/community/blackList.do" >커뮤니티</a>
                                         <ul class="dropdown-menu">
-                                            <li><a href="/kobook/community/blackList.jsp">신고합니다</a></li>
-                                            <li><a href="/kobook/community/donate.jsp">무료나눔</a></li>
-                                            <li><a href="/kobook/community/photoReview.jsp">포토리뷰</a></li>
-                                            <li><a href="/kobook/community/noti.jsp">공지사항</a></li>
+                                            <li><a href="/kobook/community/blackList.do">신고합니다</a></li>
+                                            <li><a href="/kobook/community/donate.do">무료나눔</a></li>
+                                            <li><a href="/kobook/community/photoReview.do">포토리뷰</a></li>
+                                            <li><a href="/kobook/community/noti.do">공지사항</a></li>
                                         </ul>
                                     </li>
                                     
-                                    <li><a href="/kobook/mypage/cart.jsp" >마이페이지</a>
+                                    <li><a href="/kobook/mypage/userUpdate.do" >마이페이지</a>
                                         <ul class="dropdown-menu">
-                                            		<li><a href="/kobook/mypage/userUpdate.jsp">회원정보수정</a></li>
-                                            		<li><a href="/kobook/mypage/cart.jsp">장바구니</a></li>
-                                                    <li><a href="/kobook/mypage/mileage.jsp">마일리지</a></li>
-                                                    <li><a href="/kobook/mypage/pickList.jsp">찜 리스트</a></li>
-                                                    <li><a href="/kobook/mypage/buyList.jsp">구매내역</a></li>
-                                                    <li><a href="/kobook/mypage/sellList.jsp">판매내역</a></li>
-                                                    <li><a href="/kobook/mypage/reviewList.jsp">판매후기</a></li>
+                                            		<li><a href="/kobook/mypage/userUpdate.do">회원정보수정</a></li>
+                                                    <li><a href="/kobook/mypage/mileage.do">마일리지</a></li>
+                                                    <li><a href="/kobook/mypage/pickList.do">찜 리스트</a></li>
+                                                    <li><a href="/kobook/mypage/buyList.do">구매내역</a></li>
+                                                    <li><a href="/kobook/mypage/sellList.do">판매내역</a></li>
+                                                    <li><a href="/kobook/mypage/reviewList.do">판매후기</a></li>
                                         </ul>
                                     </li>
                                 </ul>

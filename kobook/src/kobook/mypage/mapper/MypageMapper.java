@@ -9,19 +9,19 @@ import kobook.book.domain.Book;
 public interface MypageMapper {
   
 	/* 판매내역 리스트 */
-	public List<Book> sellList();
+	public List<Book> sellList(int person_id);
 	
 	/* 판매상태 업데이트 */
 	public int sellStateUpdate(Book book);
 	
 	/* 구매내역 리스트 */
-	public List<HashMap<String, String>> buyList();
+	public List<HashMap<String, String>> buyList(int person_id);
 	
 	/* 마일리지 리스트 */
-	public List<HashMap<String, String>> mileageList();
+	public List<HashMap<String, String>> mileageList(int person_id);
 	
 	/* 픽 리스트 */
-	public List<HashMap<String, String>> pickList();
+	public List<HashMap<String, String>> pickList(int person_id);
 	
 	/* 픽 삭제 */
 	public int pickDelete(int pick_id);

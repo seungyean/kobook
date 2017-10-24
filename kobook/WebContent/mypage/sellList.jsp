@@ -54,19 +54,20 @@
 							<h4><span>판매내역 리스트</span></h4>
 							<br>
 							<br>
-							
-							
 							<c:choose>
-									<c:when test="${empty payList }">
+									<c:when test="${empty sellList }">
 
 									<div class="media-body">
-										<div class="well" style="margin-left: 170px;">
+										<div class="well" style="margin-left: 50px;">
 											<h2 align="center">판매 상품이 존재하지 않습니다.</h2>
 										</div>
 									</div>
 									</c:when>
 									<c:otherwise>
-										<form action="kobook2/mypage/sellUpdate.do" method="post">
+										<form action="sellUpdate.do" method="post">
+										<input type="submit" value="변경" class="btn-default" style="margin-left: 1050px">
+										<br>
+										<br>
 									<table class="table table-hover">
 										<thead>
 											<tr>
@@ -111,7 +112,6 @@
 												</td>
 											</tr>
 										</c:forEach>
-										<input type="submit" value="변경" class="btn-default">
 										</tbody>
 										</table>
 								</form>

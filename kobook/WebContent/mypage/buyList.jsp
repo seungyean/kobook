@@ -60,10 +60,10 @@
 							<br>
 							
 							<c:choose>
-									<c:when test="${empty payList }">
+									<c:when test="${empty buyList }">
 
 									<div class="media-body">
-										<div class="well" style="margin-left: 170px;">
+										<div class="well" style="margin-left: 50px;">
 											<h2 align="center">구매 상품이 존재하지 않습니다.</h2>
 										</div>
 									</div>

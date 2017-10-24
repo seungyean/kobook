@@ -19,8 +19,8 @@ public class MypageService {
 	}
 	
 	/* 판매내역 리스트 */
-	public List<Book> sellList(){
-		List<Book> list = dao.sellList();
+	public List<Book> sellList(int person_id){
+		List<Book> list = dao.sellList(person_id);
 		return list;
 	}
 	
@@ -31,20 +31,20 @@ public class MypageService {
 	}
 	
 	/* 구매내역 리스트  */
-	public List<HashMap<String, String>> buyList(){
-		List<HashMap<String, String>> list = dao.buyList();
+	public List<HashMap<String, String>> buyList(int person_id){
+		List<HashMap<String, String>> list = dao.buyList(person_id);
 		return list;
 	}
 	
 	/* 마일리지 리스트  */
-	public List<HashMap<String, String>> mileageList(){
-		List<HashMap<String, String>> list = dao.mileageList();
+	public List<HashMap<String, String>> mileageList(int person_id){
+		List<HashMap<String, String>> list = dao.mileageList(person_id);
 		return list;
 	}
 	
 	/* 찜 리스트 */
-	public List<HashMap<String, String>> pickList(){
-		List<HashMap<String, String>> list = dao.pickList();
+	public List<HashMap<String, String>> pickList(int person_id){
+		List<HashMap<String, String>> list = dao.pickList(person_id);
 		return list;
 	}
 	

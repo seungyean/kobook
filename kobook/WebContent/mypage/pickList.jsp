@@ -38,7 +38,7 @@
     	 $(".btn-danger").click(function(){
     		var pick_id = $(this).parent().parent().find('td:first').text().trim();
     		 
-            location.href="/kobook2/main/mypage/pickDelete.do?pick_id=" + pick_id;
+            location.href="/kobook/mypage/pickDelete.do?pick_id=" + pick_id;
          });
     
     
