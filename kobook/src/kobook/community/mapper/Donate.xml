@@ -8,11 +8,11 @@
 	<cache />
 	
 	<select id="selectDonate_id" resultType="Integer">
-		select max(donate_id) from donate1
+		select max(donate_id) from donate
 	</select>
 	
 	<insert id="insertDonate" parameterType="Donate">
-		insert into donate1(
+		insert into donate(
 			donate_id, donate_title, donate_date, donate_content
 			<if test="donate_img != null">, donate_img</if>, user_id
 			)values(
@@ -22,8 +22,8 @@
 			)
 	</insert>
 	
-	<select id="listDonate" resultType="Donate" parameterType="DonateSearch">
-		select * from donate1 
+	<select id="listDonate" resultType="Donate" parameterType="CommunitySearch">
+		select * from donate 
 		<if test="area != null">
 			<where>
 				<foreach collection="area" item="item" separator="OR" open="(" close=")">
@@ -34,8 +34,8 @@
 		order by donate_id DESC
 	</select>
 	
-	<select id="countDonate" resultType="int" parameterType="DonateSearch">
-		select count(*) from donate1
+	<select id="countDonate" resultType="int" parameterType="CommunitySearch">
+		select count(*) from donate
 		<if test="area != null">
 			<where>
 				<foreach collection="area" item="item" separator="OR" open="(" close=")">
@@ -46,32 +46,32 @@
 	</select>
 	
 	<select id="selectDonateDetail" parameterType="int" resultType="Donate">
-		select * from donate1 where donate_id = #{donate_id}
+		select * from donate where donate_id = #{donate_id}
 	</select>
 	
 	<update id="donateHitCount" parameterType="int">
-		update donate1 set donate_hit=donate_hit+1 where donate_id = #{donate_id}
+		update donate set donate_hit=donate_hit+1 where donate_id = #{donate_id}
 	</update>
 	
 	<update id="updateDonate" parameterType="Donate">
-		update donate1 set donate_title=#{donate_title}, donate_content=#{donate_content}
+		update donate set donate_title=#{donate_title}, donate_content=#{donate_content}
 		<if test="donate_img != null">, donate_img = #{donate_img}</if>  where donate_id = #{donate_id}
 	</update>
 	
 	<delete id="deleteDonate" parameterType="int">
-		DELETE FROM donate1 WHERE donate_id=#{donate_id}
+		DELETE FROM donate WHERE donate_id=#{donate_id}
 	</delete>
 	
 	<update id="updateDonate_id" parameterType="int">
-		update donate1 set donate_id = donate_id-1 where donate_id > #{donate_id}
+		update donate set donate_id = donate_id-1 where donate_id > #{donate_id}
 	</update>
 	
 	<select id="selectReply_id" resultType="Integer" parameterType="DonateReply">
-		select max(reply_id) from reply1
+		select max(reply_id) from reply
 	</select>
 	
 	<insert id="insertDonateReply" parameterType="DonateReply">
-		insert into reply1(
+		insert into reply(
 			reply_id, reply_content, reply_date, donate_id, user_id
 		)values(
 			#{reply_id}, #{reply_content}, SYSDATE, #{donate_id}, #{user_id}
@@ -79,28 +79,28 @@
 	</insert>
 	
 	<select id="listDonateReply" resultType="DonateReply" parameterType="int">
-		select * from reply1 where donate_id = #{donate_id}
+		select * from reply where donate_id = #{donate_id}
 	</select>
 	
 	<update id="updateDonateReply" parameterType="DonateReply">
-		update reply1 set reply_content=#{reply_content}
+		update reply set reply_content=#{reply_content}
 			where reply_id = #{reply_id}
 	</update>
 	
 	<delete id="deleteDonateReply" parameterType="int">
-		DELETE FROM reply1 WHERE reply_id=#{reply_id}
+		DELETE FROM reply WHERE reply_id=#{reply_id}
 	</delete>
 	
 	<update id="updateReply_id" parameterType="int">
-		update reply1 set donate_id = donate_id-1 where donate_id > #{donate_id}
+		update reply set donate_id = donate_id-1 where donate_id > #{donate_id}
 	</update>
 	
 	<select id="countReply" resultType="int" parameterType="int">
-		SELECT count(*) FROM reply1 WHERE donate_id = #{donate_id}
+		SELECT count(*) FROM reply WHERE donate_id = #{donate_id}
 	</select>
 	
 	<delete id="deleteAllReply" parameterType="int">
-		DELETE FROM reply1 WHERE donate_id=#{donate_id}
+		DELETE FROM reply WHERE donate_id=#{donate_id}
 	</delete>
 	
 </mapper>

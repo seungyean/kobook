@@ -12,8 +12,8 @@ public interface DonateMapper {
 
 	public Integer selectDonate_id();
 	public int insertDonate(Donate donate);
-	public List<Donate> listDonate(RowBounds row, CommunitySearch search);
-	public int countDonate(CommunitySearch search);
+	public List<Donate> listDonate(RowBounds row, CommunitySearch communitySearch);
+	public int countDonate(CommunitySearch communitySearch);
 	public Donate selectDonateDetail(int donate_id);
 	public int donateHitCount(int donate_id);
 	public int updateDonate(Donate donate);

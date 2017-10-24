@@ -67,11 +67,11 @@ public class DonateDAO {
 		return re;
 	}
 	
-	public List<Donate> listDonate(int startRow, CommunitySearch search){
+	public List<Donate> listDonate(int startRow, CommunitySearch communitySearch){
 		SqlSession sqlSession = getSqlSessionFactory().openSession();
 		List<Donate> list = null;
 		try {
-			list = sqlSession.getMapper(DonateMapper.class).listDonate(new RowBounds(startRow, 5), search);
+			list = sqlSession.getMapper(DonateMapper.class).listDonate(new RowBounds(startRow, 5), communitySearch);
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
@@ -80,11 +80,11 @@ public class DonateDAO {
 		return list;
 	}
 	
-	public int countDonate(CommunitySearch search) {
+	public int countDonate(CommunitySearch communitySearch) {
 		SqlSession sqlSession = getSqlSessionFactory().openSession();
 		int re = 0;
 		try {
-			re = sqlSession.getMapper(DonateMapper.class).countDonate(search);
+			re = sqlSession.getMapper(DonateMapper.class).countDonate(communitySearch);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}finally {

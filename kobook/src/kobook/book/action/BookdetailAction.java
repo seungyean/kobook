@@ -25,7 +25,7 @@ public class BookdetailAction implements Action {
       request.setAttribute("book", book);
       
       ActionForward forward=new ActionForward();
-      forward.setRedirect(false);
+      forward.setRedirect(true);
       forward.setPath("/koobook/book/bookdetail.jsp");
       
       return forward;

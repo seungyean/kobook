@@ -20,23 +20,30 @@
       	<typeAlias alias="Message" type="kobook.message.domain.Message"/>
       	
       	<!-- 메인: 아름 -->
-		<typeAlias alias="FavoriteBook" type="kobook.recom.domain.FavoriteBook"/>
     	<typeAlias alias="Favorite" type="kobook.recom.domain.Favorite" />
+		<typeAlias alias="FavoriteBook" type="kobook.recom.domain.FavoriteBook"/>
      	<typeAlias alias="Alarm" type="kobook.recom.domain.Alarm" />
-     	<typeAlias type="kobook.recom.domain.NewAlarm" alias="NewAlarm"/>
+     	<typeAlias alias="NewAlarm" type="kobook.recom.domain.NewAlarm" />
       	
       	<!-- 책: 민주 -->
 		<typeAlias alias="BookSearch" type="kobook.book.domain.BookSearch"/>
-		<typeAlias alias="Reply" type="kobook.book.domain.Reply"/>
 		<typeAlias alias="Book" type="kobook.book.domain.Book"/>
 		
 		<!-- 커뮤니티: 동길 -->
 		<typeAlias alias="Donate" type="kobook.community.domain.Donate"/>
 		<typeAlias alias="DonateReply" type="kobook.community.domain.DonateReply"/>
+		<typeAlias alias="CommunityListModel" type="kobook.community.domain.CommunityListModel"/>
+		<typeAlias alias="CommunitySearch" type="kobook.community.domain.CommunitySearch"/>
 				
 
 		<!-- 회원 -->
 		<typeAlias alias="Person" type="kobook.admin.domain.Person"/>
+		
+		<!-- 파일업로드/다운로드 -->
+		<typeAlias alias="FileDownloadHelper" type="kobook.community.domain.FileDownloadHelper"/>
+		
+		<!-- 이미지유틸 -->
+		<typeAlias alias="ImageUtil" type="kobook.common.domain.ImageUtil"/>
 		
 	</typeAliases>
 	

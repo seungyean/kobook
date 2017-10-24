@@ -5,11 +5,11 @@
 <mapper namespace="kobook.book.mapper.BookMapper">
 	<cache />
 	<select id="selectBook_id" resultType="Integer">
-		select max(book_id) from minjubook
+		select max(book_id) from book
 	</select>
 	
 	<insert id="insertBook" parameterType="Book">
-		insert into minjubook(
+		insert into book(
 			book_id,book_name,book_o_price,book_m_price,book_kind,book_edition,book_publish,book_hash,book_safe_yn,book_sell_state,book_content,
 			book_img,book_date,book_status, person_id
 			
@@ -20,8 +20,8 @@
 		)		
 	</insert>
 	
-	<select id="listBook" resultType="Book" parameterType="Search">
-		select * from minjubook
+	<select id="listBook" resultType="Book" parameterType="BookSearch">
+		select * from book
 			<choose>
 				<when test="area != null">
 					<where>
@@ -40,12 +40,12 @@
 				</choose>
 	</select>	
 	
-	  <select id="locationBook" parameterType="Search" resultType="Book">
+	  <select id="locationBook" parameterType="BookSearch" resultType="Book">
 		select 
 					b.book_id, b.book_name, b.book_o_price,b.book_m_price,b.book_kind,b.book_edition, b.book_publish, 
 					b.book_hash, b.book_safe_yn,b.book_sell_state, b.book_content,b.book_img,
 					b.book_date,b.book_status,p.person_id
-		from minjubook b, person1 p
+		from book b, person p
 		where b.person_id=p.person_id
 		<!-- <choose>
 		<when test="location != null"> -->
@@ -66,7 +66,7 @@
 					b.book_id, b.book_name, b.book_o_price,b.book_m_price,b.book_kind,b.book_edition, b.book_publish, 
 					b.book_hash, b.book_safe_yn,b.book_sell_state, b.book_content,b.book_img,
 					b.book_date,b.book_status,p.person_id
-					from minjubook b, person1 p
+					from book b, person p
 					<where>
 						b.person_id=p.person_id
 						
@@ -97,8 +97,8 @@
 
 	
 	
-	<select id="countBook" resultType="int" parameterType="Search">
-		select count(*) from minjubook
+	<select id="countBook" resultType="int" parameterType="BookSearch">
+		select count(*) from book
 		<if test="area != null">
 			<where>
 				<!-- book_name LIKE %검색하고자하는 제목(입력값)% OR person_id LIKE %검색하고싶은 작성자(입력값)% -->
@@ -116,11 +116,11 @@
 	
 	
 	<select id="selectBook" parameterType="int" resultType="Book">
-		select * from minjubook where book_id = #{book_id}
+		select * from book where book_id = #{book_id}
 	</select>
 	
 	<update id="updateBook" parameterType="Book">
-		UPDATE MINJUBOOK SET BOOK_NAME=#{book_name},BOOK_M_PRICE=#{book_m_price}
+		UPDATE book SET BOOK_NAME=#{book_name},BOOK_M_PRICE=#{book_m_price}
 		, BOOK_O_PRICE=#{book_o_price}, BOOK_SELL_STATE=#{book_sell_state}, BOOK_STATUS=#{book_status},
 		BOOK_SAFE_YN=#{book_safe_yn}, BOOK_CONTENT=#{book_content},BOOK_EDITION=#{book_edition},
 		BOOK_PUBLISH=#{book_publish}, BOOK_IMG=#{book_img}
@@ -128,7 +128,7 @@
 	</update>
 	
 <!-- 	<update id="updateBook" parameterType="Book">
-		update minjubook set book_name=#{book_name}
+		update book set book_name=#{book_name}
 		, book_m_price=#{book_m_price}, book_o_price=#{book_o_price},book_sell_state=#{book_sell_state},
 		book_status=#{book_status},book_safe_yn=#{book_safe_yn}, book_content=#{book_content}, book_img=#{book_img}
 		 where book_id = #{book_id}

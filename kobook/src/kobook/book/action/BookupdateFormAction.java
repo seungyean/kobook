@@ -22,7 +22,7 @@ public class BookupdateFormAction implements Action {
 		
 		request.setAttribute("book", book);
 		
-		forward.setRedirect(false);
+		forward.setRedirect(true);
 		forward.setPath("/kobook/book/bookupdateForm.jsp");
 		
 		return forward;

@@ -79,11 +79,11 @@ public class BookDAO {
 	      return list;
 	   }
 	   
-	   public List<Book> locationBook(int startRow, BookSearch search) {
+	   public List<Book> locationBook(int startRow, BookSearch bookSearch) {
 	      SqlSession sqlSession = getSqlSessionFactory().openSession();
 	      List<Book> list = null;
 	      try {
-	         list = sqlSession.getMapper(BookMapper.class).locationBook(new RowBounds(startRow, 8), search);
+	         list = sqlSession.getMapper(BookMapper.class).locationBook(new RowBounds(startRow, 8), bookSearch);
 	      } catch (Exception e) {
 	         e.printStackTrace();
 	      } finally {
@@ -159,11 +159,11 @@ public class BookDAO {
 	      }
 	   }*/
 	   
-	   public int countBook(BookSearch search){
+	   public int countBook(BookSearch bookSearch){
 	      SqlSession sqlSession = getSqlSessionFactory().openSession();
 	      int re = -1;
 	      try {
-	         re = sqlSession.getMapper(BookMapper.class).countBook(search);
+	         re = sqlSession.getMapper(BookMapper.class).countBook(bookSearch);
 	      } catch (Exception e) {
 	         e.printStackTrace();
 	      }finally {

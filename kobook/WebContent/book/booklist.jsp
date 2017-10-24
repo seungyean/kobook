@@ -1,5 +1,5 @@
 
-<%@page import="kobook.book.domain.Search"%>
+<%@page import="kobook.book.domain.BookSearch"%>
 <%@page import="kobook.book.domain.Book"%>
 <%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
