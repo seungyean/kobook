@@ -6,9 +6,9 @@
 <configuration>
 	<typeAliases>
 		<!-- 마이페이지: 승연 -->
-		<typeAlias type="kobook.mypage.domain.Book" alias="Book"/>
-		<typeAlias type="kobook.mypage.domain.Mypage" alias="Mypage"/>
-		<typeAlias type="kobook.mypage.domain.BookBuyElement" alias="BookBuyElement"/>
+		<typeAlias alias="Book" type="kobook.mypage.domain.Book"/>
+		<typeAlias alias="Mypage" type="kobook.mypage.domain.Mypage"/>
+		<typeAlias alias="BookBuyElement" type="kobook.mypage.domain.BookBuyElement"/>
 		
 		<!-- 관리자: 지호-->
 		<typeAlias alias="Board" type="kobook.admin.domain.Board"/>
@@ -17,12 +17,12 @@
 		<typeAlias alias="UserModel" type="kobook.admin.domain.UserModel"/>
 		
 		<!-- 쪽지,채팅: 재승 -->
-      	<typeAlias type="kobooktest.message.domain.Message" alias="Message"/>
+      	<typeAlias alias="Message" type="kobook.message.domain.Message"/>
       	
       	<!-- 메인: 아름 -->
-     	<typeAlias type="kobook.recom.domain.FavoriteBook" alias="FavoriteBook"/>
-    	<typeAlias type="kobook.recom.domain.Favorite" alias="Favorite"/>
-     	<typeAlias type="kobook.recom.domain.Alarm" alias="Alarm"/>
+     	<typeAlias alias="FavoriteBook" type="kobook.recom.domain.FavoriteBook"/>
+    	<typeAlias alias="Favorite" type="kobook.recom.domain.Favorite" />
+     	<typeAlias alias="Alarm" type="kobook.recom.domain.Alarm" />
       	
       	<!-- 책: 민주 -->
 		<typeAlias alias="Search" type="kobook.book.domain.Search"/>
@@ -32,7 +32,8 @@
 		
 		
 		<!-- 회원 -->
-		<typeAlias type="kobook.person.domain.Person" alias="Person"/>
+		<typeAlias alias="Person" type="kobook.person.domain.Person"/>
+		
 	</typeAliases>
 	
 	<environments default="development">
