@@ -5,11 +5,8 @@ import javax.servlet.http.HttpServletResponse;
 
 import kobook.book.domain.*;
 import kobook.action.*;
-import kobook.book.controller.*;
-import kobook.book.dao.*;
-import kobook.book.mapper.*;
 import kobook.book.service.*;
-import oracle.net.aso.b;
+
 
 public class BookinsertFormAction implements Action {
 

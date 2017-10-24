@@ -3,12 +3,8 @@ package kobook.book.action;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
 import kobook.book.domain.*;
 import kobook.action.*;
-import kobook.book.controller.*;
-import kobook.book.dao.*;
-import kobook.book.mapper.*;
 import kobook.book.service.*;
 
 
@@ -24,7 +20,7 @@ public class BookdetailAction implements Action {
       int book_id = Integer.parseInt(request.getParameter("book_id"));
       BookService service = BookService.getInstance();
      
-      Book book = service.selectBookService(book_id, false);  //false가 맞나용???
+      Book book = service.selectBookService(book_id, false);  //false媛� 留욌굹�슜???
       
       request.setAttribute("book", book);
       
