@@ -1,11 +1,17 @@
 package kobook.controller;
 
 import java.io.IOException;
+
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import kobook.action.Action;
+import kobook.action.ActionForward;
+import kobook.action.ViewMainAction;
 
 
 @WebServlet("*.do")
@@ -17,7 +23,6 @@ public class Controller extends HttpServlet {
 	private MessageController messageController = new MessageController();
     private MypageController mypageController = new MypageController();
     private RecomController recomController = new RecomController();
-    private IndexController indexController = new IndexController();
        
     public Controller() {
         super();
@@ -25,39 +30,69 @@ public class Controller extends HttpServlet {
     
     public void doProcess(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
     	
-    	//	/ControllerTest/main/insertForm.do
+    	ActionForward forward = null;
+		Action action = null;
+    	
+    	//	/kobook/admin/insertForm.do
     	String requestURI = request.getRequestURI();
     	System.out.println("==========controller==========");
     	System.out.println("requestURI: " + requestURI);
     	
-    	//	/ControllerTest
+    	//	/kobook
     	String contextPath = request.getContextPath();
     	System.out.println("contextPath: " + contextPath);
     	
-    	//	main/insertForm.do
+    	//	admin/insertForm.do
     	String command1 = requestURI.substring(contextPath.length() + 1);
     	System.out.println("command1: " + command1);
     	
-    	//	main
-    	String command2 = command1.substring(0, command1.indexOf("/"));
-    	System.out.println("command2: " + command2);
     	
-    	
-    	if(command2.equals("admin")){
-    		adminController.doProcess(request, response);
-    	} else if(command2.equals("book")){
-    		bookController.doProcess(request, response);
-    	} else if(command2.equals("community")){
-    		communityController.doProcess(request, response);
-    	} else if(command2.equals("message")){
-    		messageController.doProcess(request, response);
-    	} else if(command2.equals("mypage")){
-    		mypageController.doProcess(request, response);
-    	} else if(command2.equals("recom")){
-    		recomController.doProcess(request, response);
-    	} else if(command2.equals("main")){
-    		indexController.doProcess(request, response);
+    	// main페이지로 진입
+    	if(command1.equals("index.do")){
+    		
+    		// action 객체 생성
+			action = new ViewMainAction();
+		
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+			
+			// forward를 해체하는 과정 
+			if(forward != null){
+				if(forward.isRedirect()){	// rediredct로 페이지 이동
+					response.sendRedirect(forward.getPath());
+				} else {	//dispatcher로 페이지 이동
+					RequestDispatcher dispatcher = 
+							request.getRequestDispatcher(forward.getPath());
+					dispatcher.forward(request, response);
+				}
+			}
     	}
+    	
+    	// 메인페이지를 제외한 나머지 기능 페이지
+    	else {
+    		
+        	String command2 = command1.substring(0, command1.indexOf("/"));
+        	System.out.println("command2: " + command2);
+        	
+        	
+        	if(command2.equals("admin")){
+        		adminController.doProcess(request, response);
+        	} else if(command2.equals("book")){
+        		bookController.doProcess(request, response);
+        	} else if(command2.equals("community")){
+        		communityController.doProcess(request, response);
+        	} else if(command2.equals("message")){
+        		messageController.doProcess(request, response);
+        	} else if(command2.equals("mypage")){
+        		mypageController.doProcess(request, response);
+        	} else if(command2.equals("recom")){
+        		recomController.doProcess(request, response);
+        	}
+    	}
+    	
         
     }
 

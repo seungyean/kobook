@@ -10,7 +10,7 @@ public class ViewMainAction implements Action {
 		
 		ActionForward forward = new ActionForward();
 		forward.setRedirect(true);
-		forward.setPath("/kobook/main/main.jsp");
+		forward.setPath("/kobook/main.jsp");
 		
 		return forward;
 	}
