@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+
+<mapper namespace="kobook.message.mapper.MessageMapper">
+	<cache />
+	
+	<select id="selectM_id" resultType="Integer">
+		select max(message_id) from message
+	</select>
+	
+	<insert id="sendMessage" parameterType="Message">
+		insert into message(
+			message_id, message_date, message_content, message_hit, person_id, receiver_id
+		)values(
+			#{message_id}, SYSDATE, #{message_content}, 0, #{person_id}, #{receiver_id}
+		)
+	</insert>
+	
+</mapper>
+
+
+

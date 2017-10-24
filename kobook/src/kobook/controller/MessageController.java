@@ -9,6 +9,8 @@ import javax.servlet.http.HttpServletResponse;
 
 import kobook.action.Action;
 import kobook.action.ActionForward;
+import kobook.message.action.SendMessageAction;
+import kobook.message.action.SendReadyAction;
 
 public class MessageController {
 	public void doProcess(HttpServletRequest request, HttpServletResponse response)
@@ -19,7 +21,7 @@ public class MessageController {
 
 		
 		//	밑의 줄이 출력되면 해당 controller로 잘 진입한것!
-		System.out.println("==========bookCon==========");
+		System.out.println("==========msgCon==========");
 		// /kobook/message/insertForm.do
 		String requestURI = request.getRequestURI();
 		System.out.println("requestURI: " + requestURI);
@@ -40,10 +42,19 @@ public class MessageController {
 		
 		// 여기서 각각의 Action으로 보낸다.
 		// .do 수정하고 각자 연결시킨 곳으로 
-		if (command2.equals("bookDetail.do")) {
+		if (command2.equals("sendReady.do")) {
 			
 			// action 객체 생성
-			// 이부분만 수정해서 복붙하면 됨
+			action = new SendReadyAction();
+			
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		} else if (command2.equals("sendOk.do")) {
+			
+				action = new SendMessageAction();
 			
 			try {
 				forward = action.execute(request, response);
