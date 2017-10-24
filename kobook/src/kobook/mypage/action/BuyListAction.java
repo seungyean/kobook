@@ -21,7 +21,6 @@ public class BuyListAction implements Action {
 		MypageService service = MypageService.getInstance();
 		request.setCharacterEncoding("utf-8");
 		
-		System.out.println("¤§¤©¾î¿È");
 		List<HashMap<String, String>> buyList = service.buyList(person_id);
 		
 		System.out.println(buyList);

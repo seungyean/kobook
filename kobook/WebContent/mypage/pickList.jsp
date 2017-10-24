@@ -29,23 +29,40 @@
 
     $(function(){
     	
+    	var sum_mileage = ${sumMileage};
+    	var book_m_price = "";
     	// 결제창 모달 
     	 $(".btn-default").click(function(){
-             $('#payModal').modal();
+     		var pick_id = $(this).parent().parent().find('td:first').text().trim();
+     		$('#pick_id').val(pick_id);
+     		var book_name = $(this).parent().parent().find('td:eq(2)').text().trim();
+    		book_m_price = $(this).parent().parent().find('td:eq(4)').text().trim();
+    		$('#book_name').text('결제상품 : '+book_name);
+    		$('#book_m_price').text('결제금액 : '+book_m_price+'원');
+    		$('#sum_mileage').text('마일리지 : '+sum_mileage+'원');
+            $('#payModal').modal();
          });
     	 
     	// 찜 삭제 버튼 
     	 $(".btn-danger").click(function(){
     		var pick_id = $(this).parent().parent().find('td:first').text().trim();
     		 
-            location.href="/kobook/mypage/pickDelete.do?pick_id=" + pick_id;
+            location.href="/kobook/mypage/pickUpdate.do?pick_id=" + pick_id;
          });
-    
-    
-    
+    	
+    	$("#use_mileage").keyup(function() {
+    		var use_mileage = $('#use_mileage').val();
+    		$('#all_price').val(book_m_price - use_mileage);
+		});
+    	
+    	$("#pay_success").click(function() {
+    		var pay_amount = $('#all_price').val();
+    		console.log($(this));
+//             location.href="/kobook/mypage/paySuccess.do?pay_amount="+ pay_amount + "&pick_id="+pick_id;
+
+		});
+    	 
     });
-    
-    
     </script>
     
 </head>
@@ -156,32 +173,33 @@
 					<!-- content goes here -->
 					<form>
 						<div class="form-group">
-							<label>결제상품 : </label> 
+							<label id="book_name">결제상품 : </label>
 						</div>
 						<div class="form-group">
-							<label>결제금액 : </label> 
+							<label id="book_m_price">결제금액 : </label> 
 						</div>
 						<div class="form-group">
-							<label>마일리지 : 1000원</label> 
+							<label id="sum_mileage">마일리지 : </label> 
 						</div>
 						<div class="form-group">
-							<label>사용 마일리지 :</label> <input type="text" class="form-control" >
+							<label>사용 마일리지 :</label><input type="text" class="form-control" id="use_mileage">
 						</div>
 						<div class="form-group">
-							<h3>총 결제 금액: </h3>
+							<h3>총 결제 금액: </h3><input type="text" class="form-control" id="all_price">
+													<input type="text" id="pick_id">
 						</div>
 					</form>
 				</div>
 				<div class="modal-footer">
-					<div class="btn-group btn-group-justified" role="group" aria-label="group button">
-						<div class="btn-group" role="group">
-							<button type="button" class="btn btn-default" data-dismiss="modal" role="button">취소</button>
+					<div class="btn-group btn-group-justified" >
+						<div class="btn-group">
+							<button type="button" class="btn btn-default" >취소</button>
 						</div>
-						<div class="btn-group btn-delete hidden" role="group">
-							<button type="button" id="delImage" class="btn btn-default btn-hover-red" data-dismiss="modal" role="button">취소</button>
+						<div class="btn-group btn-delete hidden" >
+							<button type="button" id="delImage" class="btn btn-default btn-hover-red">취소</button>
 						</div>
 						<div class="btn-group" role="group">
-							<button type="button" id="saveImage" class="btn btn-default btn-hover-green" data-action="save" role="button">결제</button>
+							<button type="button" id="pay_success" class="btn btn-default btn-hover-green" data-action="save" role="button">결제</button>
 						</div>
 					</div>
 				</div>

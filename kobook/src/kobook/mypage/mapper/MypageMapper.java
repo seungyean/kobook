@@ -24,7 +24,9 @@ public interface MypageMapper {
 	public List<HashMap<String, String>> pickList(int person_id);
 	
 	/* «» ªË¡¶ */
-	public int pickDelete(int pick_id);
+	public int pickUpdate(int pick_id);
+	
+	public int sumMileage(int pick_id);
   
 
 }

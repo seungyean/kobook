@@ -49,7 +49,14 @@ public class MypageService {
 	}
 	
 	/* Âò »èÁ¦ */
-	public int pickDelete(int pick_id){
-		return dao.pickDelete(pick_id);
+	public int pickUpdate(int pick_id){
+		int result = dao.pickUpdate(pick_id);
+		return result;
+	}
+	
+	/* Âò ¸®½ºÆ® */
+	public int sumMileage(int person_id){
+		int sum = dao.sumMileage(person_id);
+		return sum;
 	}
 }

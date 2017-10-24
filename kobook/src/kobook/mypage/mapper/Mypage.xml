@@ -29,7 +29,7 @@
 	where person.person_id = pick.person_id
 	and pick.book_id = b.book_id
 	and pick.pick_id = pay.pick_id
-	and person.person_id = #{person_id};
+	and person.person_id = #{person_id}
 </select>
 
 <!-- 마일리지 리스트 -->
@@ -41,18 +41,27 @@
 </select>
 
 <!-- 찜리 -->
-<select id="pickList" resultType="hashMap">
-	SELECT b.book_img, b.book_name, p2.person_name,b.BOOK_M_PRICE,b.BOOK_SELL_STATE, p.pick_state,p.pick_id
+<select id="pickList" resultType="hashMap" parameterType="int" >
+	 SELECT b.book_img, b.book_name, p2.person_name,b.BOOK_M_PRICE,b.BOOK_SELL_STATE, p.pick_state,p.pick_id
 	from pick p, book b, person p2
 	WHERE p.book_id = b.book_id
 	and b.person_id = p2.person_id
+	and p.pick_state = 'Y'
 	and p.person_id = #{person_id}
 </select>
 
+<select id="sumMileage" resultType="int" parameterType="int">
+	select sum(mileage_point) as mileage_point
+	 from mileage
+	 where person_id = #{person_id}
+</select>
+
 <!-- 찜리삭제 -->
-<delete id="pickDelete" parameterType="int">
-delete from pick where pick_id = ${pick_id};
-</delete>
+<update id="pickUpdate" parameterType="int">
+	update pick
+	set pick_state = 'N'
+	where pick_id = #{pick_id}
+</update>
 
 
 </mapper>

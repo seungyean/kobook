@@ -124,12 +124,12 @@ public class MypageDAO {
 	}
 	
 	/* 찜 삭제 */
-	public int pickDelete(int pick_id){
+	public int pickUpdate(int pick_id){
 		SqlSession sqlSession = getSqlSessionFactory().openSession();
 		int re = -1;
 		
 		try {
-			re = sqlSession.getMapper(MypageMapper.class).pickDelete(pick_id);
+			re = sqlSession.getMapper(MypageMapper.class).pickUpdate(pick_id);
 			if(re > 0){
 				sqlSession.commit();
 			} else {
@@ -142,6 +142,20 @@ public class MypageDAO {
 		}
 		
 		return re;
+	}
+	
+	/* 마일리지 리스트 */
+	public int sumMileage(int person_id) {
+		SqlSession sqlSession = getSqlSessionFactory().openSession();
+		int sum = 0;
+		try {
+			sum = sqlSession.getMapper(MypageMapper.class).sumMileage(person_id);
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			sqlSession.close();
+		}
+		return sum;
 	}
 	
 }

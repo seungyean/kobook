@@ -12,8 +12,9 @@ import kobook.action.ActionForward;
 import kobook.mypage.action.BuyListAction;
 import kobook.mypage.action.MileageAction;
 import kobook.mypage.action.PayAction;
+import kobook.mypage.action.PaySuccessAction;
 import kobook.mypage.action.PickAction;
-import kobook.mypage.action.PickDeleteAction;
+import kobook.mypage.action.PickUpdateAction;
 import kobook.mypage.action.SellListAction;
 import kobook.mypage.action.SellUpdateAction;
 
@@ -93,8 +94,15 @@ public class MypageController {
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
-		}else if(command2.equals("pickDelete.do")) {
-			action = new PickDeleteAction();
+		}else if(command2.equals("pickUpdate.do")) {
+			action = new PickUpdateAction();
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}else if(command2.equals("paySuccess.do")) {
+			action = new PaySuccessAction();
 			try {
 				forward = action.execute(request, response);
 			} catch (Exception e) {

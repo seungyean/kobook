@@ -22,8 +22,10 @@ public class PickAction implements Action {
 		request.setCharacterEncoding("utf-8");
 		
 		List<HashMap<String, String>> pickList = service.pickList(person_id);
+		int sum = service.sumMileage(person_id);
 		
 		request.setAttribute("pickList", pickList);	
+		request.setAttribute("sumMileage", sum);
 		
 		ActionForward forward = new ActionForward();
 		forward.setRedirect(false);
