@@ -6,10 +6,9 @@ import kobook.recom.dao.RecommendDAO;
 import kobook.recom.domain.Alarm;
 import kobook.recom.domain.Favorite;
 import kobook.recom.domain.FavoriteBook;
-import kobook.recom.domain.NewAlarm;
 
 public class RecomService {
-
+	
 	private static RecomService service = new RecomService();
 	private static RecommendDAO dao;
 	
@@ -29,19 +28,32 @@ public class RecomService {
 		int re = dao.deleteFavorite(favorite);
 		
 		if(re > 0){
-			System.out.println("Â¼ÂºÂ°Ã¸Ã€Ã»Ã€Ã ÂµÃ´Â¸Â®Ã†Â®");
+			System.out.println("¼º°øÀûÀÎ µô¸®Æ®");
 		}
 		else{
-			System.out.println("ÂµÃ´Â¸Â®Ã†Â® Â½Ã‡Ã†Ã");
+			System.out.println("µô¸®Æ® ½ÇÆĞ");
 		}
 		
 		return re;
 	}
 
-	public List<Alarm> AlarmListService(NewAlarm newAlarm){
+	public List<Alarm> AlarmListService(int person_id){
 
-		List<Alarm> alarmList = dao.alarmList(newAlarm);
+		List<Alarm> alarmList = dao.alarmList(person_id);
 		return alarmList;
 	}
 	
+	public int alarmUpdate(Alarm alarm){
+		
+		int re = dao.alarmUpdate(alarm);
+		
+		if(re > 0){
+			System.out.println("Á¶È¸ÇØ¾¸");
+		}
+		else{
+			System.out.println("Á¶È¸ ¹Ù²Ù±â ½ÇÆĞ ¤Ğ¤Ğ¤Ğ¤Ğ¤Ğ¤Ğ");
+		}
+		
+		return re;
+	}
 }
