@@ -10,7 +10,7 @@ import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 
 import kobook.book.domain.Book;
-import kobook.book.domain.Search;
+import kobook.book.domain.BookSearch;
 import kobook.book.mapper.BookMapper;
 
 public class BookDAO {
@@ -66,11 +66,11 @@ public class BookDAO {
 	      return re;
 	   }
 	   
-	   public List<Book> listBook(int startRow, Search search) {
+	   public List<Book> listBook(int startRow, BookSearch bookSearch) {
 	      SqlSession sqlSession = getSqlSessionFactory().openSession();
 	      List<Book> list = null;
 	      try {
-	         list = sqlSession.getMapper(BookMapper.class).listBook(new RowBounds(startRow, 8), search);
+	         list = sqlSession.getMapper(BookMapper.class).listBook(new RowBounds(startRow, 8), bookSearch);
 	      } catch (Exception e) {
 	         e.printStackTrace();
 	      } finally {
@@ -79,7 +79,7 @@ public class BookDAO {
 	      return list;
 	   }
 	   
-	   public List<Book> locationBook(int startRow, Search search) {
+	   public List<Book> locationBook(int startRow, BookSearch search) {
 	      SqlSession sqlSession = getSqlSessionFactory().openSession();
 	      List<Book> list = null;
 	      try {
@@ -159,7 +159,7 @@ public class BookDAO {
 	      }
 	   }*/
 	   
-	   public int countBook(Search search){
+	   public int countBook(BookSearch search){
 	      SqlSession sqlSession = getSqlSessionFactory().openSession();
 	      int re = -1;
 	      try {

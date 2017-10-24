@@ -5,9 +5,9 @@ import javax.servlet.http.HttpServletResponse;
 
 import kobook.action.Action;
 import kobook.action.ActionForward;
+import kobook.admin.service.AdminService;
 import kobook.message.domain.Message;
 import kobook.message.service.MessageService;
-import kobook.person.service.PersonService;
 
 public class SendMessageAction implements Action {
 
@@ -19,11 +19,11 @@ public class SendMessageAction implements Action {
 		int person_id = Integer.parseInt(request.getParameter("person_id"));
 		String receiver_email = request.getParameter("receiver_email");
 		
-		PersonService pservice = PersonService.getInstance();
+		AdminService aservice = AdminService.getInstance();
 		MessageService mservice = MessageService.getInstance();
 		ActionForward forward = new ActionForward();
 		
-		int receiver_id = pservice.searchP_idService(receiver_email);
+		int receiver_id = aservice.searchP_idService(receiver_email);
 		
 		if(receiver_id == -1){		//받는 사람이 리스트에 없을 경우
 			System.out.println("사람없음");

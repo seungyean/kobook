@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<mapper namespace="kobook.admin.mapper.BoardMapper">
+	<cache />
+	
+	<insert id="insertBoard" parameterType="Board">
+		insert into board(
+			board_id, board_hit, board_date, board_content, board_title, board_writer
+		)values(
+			#{board_id}, #{board_hit}, SYSDATE, #{board_content}, #{board_title}, #{board_writer}
+		)
+	</insert>
+	
+ 	<select id="listBoard" resultType="Board" parameterType="Search">
+		select * from board 
+		<if test ="area != null">
+			<where>
+				<foreach collection="area" item="item" separator ="or"
+				open ="(" close=")">
+<!-- 				 title Like %aa% or writer Like %aa% -->
+				${item} LIKE #{searchKey}
+				</foreach>
+			</where>
+		</if>
+		order by board_id desc
+	</select>
+	
+	<select id="selectB_id" resultType="Integer">
+		select max(board_id) from board
+	</select>
+	
+	
+ 	<select id="selectBoard" parameterType="int" resultType="Board">
+		select * from board where board_id = #{board_id}
+	</select> 
+	
+ 	<select id="countBoard" resultType="int" parameterType="Search">
+		select count(*) from board
+		<if test="area != null">
+			<where>
+				<foreach collection="area" item="item" separator="OR"
+					open="(" close=")">
+					${item} LIKE #{searchKey}
+				</foreach>
+			</where>
+		</if>
+	</select>
+	
+<update id="increaseHit" parameterType="int">
+	update board set board_hit = #{board_hit} where board_id = #{board_id}
+</update>	
+	
+	<select id="detailNoti" parameterType="int" resultType="Board">
+		select * from board where board_id = #{board_id}
+	</select>
+
+	<delete id="deleteNoti" parameterType="int" >
+		delete from board where board_id = #{board_id}
+	</delete>	
+
+	<update id="updateNoti" parameterType="int">
+		update board set board_title = #{board_title}, board_content = #{board_content} where board_id = #{board_id}
+	</update>
+
+
+</mapper>

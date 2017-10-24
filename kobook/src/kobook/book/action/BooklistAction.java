@@ -12,12 +12,12 @@ public class BooklistAction implements Action {
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		request.setCharacterEncoding("utf-8");
-		Search search = new Search();
-		search.setArea(request.getParameterValues("area"));				
-		search.setSafe_yn(request.getParameterValues("safe_yn"));
-		search.setSearchKey("%"+request.getParameter("searchKey")+"%");
+		BookSearch bookSearch = new BookSearch();
+		bookSearch.setArea(request.getParameterValues("area"));				
+		bookSearch.setSafe_yn(request.getParameterValues("safe_yn"));
+		bookSearch.setSearchKey("%"+request.getParameter("searchKey")+"%");
 
-		System.out.println(search.toString());
+		System.out.println(bookSearch.toString());
 		
 		
 		String pageNum = request.getParameter("pageNum");

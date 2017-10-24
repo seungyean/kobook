@@ -14,7 +14,7 @@
 		<typeAlias alias="Board" type="kobook.admin.domain.Board"/>
 		<typeAlias alias="Search" type="kobook.admin.domain.Search"/>
 		<typeAlias alias="ListModel" type="kobook.admin.domain.ListModel"/>
-		<typeAlias alias="UserModel" type="kobook.admin.domain.UserModel"/>
+		<typeAlias alias="PersonModel" type="kobook.admin.domain.PersonModel"/>
 		
 		<!-- 쪽지,채팅: 재승 -->
       	<typeAlias alias="Message" type="kobook.message.domain.Message"/>
@@ -26,14 +26,14 @@
      	<typeAlias type="kobook.recom.domain.NewAlarm" alias="NewAlarm"/>
       	
       	<!-- 책: 민주 -->
-		<typeAlias alias="Search" type="kobook.book.domain.Search"/>
+		<typeAlias alias="BookSearch" type="kobook.book.domain.BookSearch"/>
 		<typeAlias alias="Reply" type="kobook.book.domain.Reply"/>
 		<typeAlias alias="Book" type="kobook.book.domain.Book"/>
 		
 		
 		
 		<!-- 회원 -->
-		<typeAlias alias="Person" type="kobook.person.domain.Person"/>
+		<typeAlias alias="Person" type="kobook.admin.domain.Person"/>
 		
 	</typeAliases>
 	
@@ -48,11 +48,12 @@
 	
 	<mappers>
 	
+     	<mapper resource="kobook/admin/mapper/Person.xml"/>
 		<mapper resource="kobook/admin/mapper/Board.xml"/>
      	<mapper resource="kobook/message/mapper/Message.xml"/>
      	<mapper resource="kobook/recom/mapper/Recommend.xml"/>
      	<mapper resource="kobook/book/mapper/Book.xml"/>
-     	<mapper resource="kobook/person/mapper/Person.xml"/>
+     	<mapper resource="kobook/mypage/mapper/Mypage.xml" />
       
 	</mappers>
 	

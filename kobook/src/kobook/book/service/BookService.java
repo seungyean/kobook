@@ -12,7 +12,7 @@ import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 import kobook.book.dao.BookDAO;
 import kobook.book.domain.Book;
 import kobook.book.domain.ListModel;
-import kobook.book.domain.Search;
+import kobook.book.domain.BookSearch;
 import kobook.common.domain.ImageUtil;
 
 public class BookService {
@@ -101,7 +101,7 @@ public class BookService {
 	   
 	   public ListModel listBookService(HttpServletRequest request, int requestPage){
 	      
-	      Search search = new Search();
+	      BookSearch search = new BookSearch();
 	      HttpSession session = request.getSession();
 	      
 	      //�깉濡쒖슫 寃��깋�떆�룄
@@ -121,7 +121,7 @@ public class BookService {
 	      
 	      //寃��깋�썑 �럹�씠吏� �럹�씠吏� �겢由�(�럹�씠吏� �씠�룞)
 	      else if (session.getAttribute("search") != null) {
-	         search = (Search) session.getAttribute("search");
+	         search = (BookSearch) session.getAttribute("search");
 	      }
 	      
 	      
@@ -154,7 +154,7 @@ public class BookService {
 	   
 	   public ListModel locationBookService(HttpServletRequest request, int requestPage){
 	      
-	      Search search = new Search();
+	      BookSearch search = new BookSearch();
 	      HttpSession session = request.getSession();
 	      
 	      //�깉濡쒖슫 寃��깋�떆�룄
@@ -170,7 +170,7 @@ public class BookService {
 	      
 	      //寃��깋�썑 �럹�씠吏� �럹�씠吏� �겢由�(�럹�씠吏� �씠�룞)
 	      else if (session.getAttribute("search") != null) {
-	         search = (Search) session.getAttribute("search");
+	         search = (BookSearch) session.getAttribute("search");
 	      }
 	      
 	      

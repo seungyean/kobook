@@ -12,7 +12,7 @@ public class BooklocationAction implements Action {
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		request.setCharacterEncoding("utf-8");
-		Search search = new Search();
+		BookSearch bookSearch = new BookSearch();
 		
 		//search.setArea(request.getParameterValues("area"));
 		
@@ -20,7 +20,7 @@ public class BooklocationAction implements Action {
 		//search.setSafe_yn(request.getParameterValues("safe_yn"));
 		//search.setLocation(request.getParameterValues("location"));
 		
-		search.setSearchKey("%"+request.getParameter("searchKey")+"%");
+		bookSearch.setSearchKey("%"+request.getParameter("searchKey")+"%");
 
 		
 		
