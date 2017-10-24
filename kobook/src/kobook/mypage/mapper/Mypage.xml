@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<!-- 맵퍼 의 네임스페이스는 mapper 패키지와 클래스이름으로 해야 한다 -->
+<mapper namespace="kobook.mypage.mapper.MypageMapper">
+  <cache />
+
+<!-- 판매내역 리스트 -->
+<select id="sellList" resultType="Book">
+	select *
+	from book
+	where person_id = 1
+</select>
+
+<!-- 판매상태 업데이트 -->
+<update id="sellStateUpdate" parameterType="book">
+	update book
+	   set book_sell_state = #{book_sell_state}
+	 where book_id = #{book_id}
+</update>
+
+<!-- 구매내역 리스트 -->
+<select id="buyList" resultType="hashMap">
+	select c.person_id,b.book_img, b.book_name, b.book_m_price, p2.pay_id, p2.pay_date, b.person_id
+	from person p, cart c, pay p2, book b
+  where p.person_id =  c.person_id
+  and c.cart_id = p2.cart_id
+  and b.book_id =  c.book_id
+  and p.person_id = 2
+</select>
+
+<!-- 마일리지 리스트 -->
+<select id="mileageList" resultType="hashMap">
+ select m.mileage_date,m.mileage_kind,m.mileage_point, p.person_id,m.MILEAGE_ID
+ from person p, MILEAGE m
+ where p.person_id = m.person_id
+ and p.person_id = 2
+</select>
+
+<!-- 찜리 -->
+<select id="pickList" resultType="hashMap">
+	SELECT b.book_img, b.book_name, p2.person_name,b.BOOK_M_PRICE,b.BOOK_SELL_STATE, p.pick_state,p.pick_id
+	from pick p, book b, person p2
+	WHERE p.book_id = b.book_id
+	and b.person_id = p2.person_id
+	and p.person_id = 1
+</select>
+
+<!-- 찜리삭제 -->
+<delete id="pickDelete" parameterType="int">
+delete from pick where pick_id = ${pick_id};
+</delete>
+
+
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

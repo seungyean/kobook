@@ -1,4 +1,4 @@
-package kobook.user.controller;
+package kobook.person.controller;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
@@ -11,10 +11,10 @@ import kobook.action.Action;
 import kobook.action.ActionForward;
 
 @WebServlet("/UserController")
-public class UserController extends HttpServlet {
+public class PersonController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
-    public UserController() {
+    public PersonController() {
         super();
     }
     

@@ -1,3 +1,6 @@
+<%@ page import="kobook.mypage.domain.*" %>
+<%@ page import="kobook.mypage.dao.*" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <!--[if IE 8 ]><html class="ie ie8" class="no-js" lang="en"> <![endif]-->
@@ -10,12 +13,12 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 
     <!-- CSS FILES -->
-    <link rel="stylesheet" href="../css/bootstrap.min.css"/>
-    <link rel="stylesheet" href="../css/style.css">
-    <link rel="stylesheet" type="text/css" href="../css/style.css" media="screen" data-name="skins">
-    <link rel="stylesheet" href="../css/layout/wide.css" data-name="layout">
+    <link rel="stylesheet" href="/kobook2/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="/kobook2/css/style.css">
+    <link rel="stylesheet" type="text/css" href="/kobook2/css/style.css" media="screen" data-name="skins">
+    <link rel="stylesheet" href="/kobook2/css/layout/wide.css" data-name="layout">
 
-    <link rel="stylesheet" type="text/css" href="../css/switcher.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="/kobook2/css/switcher.css" media="screen" />
 </head>
 <body>
 	<!-- 헤더 -->
@@ -51,7 +54,7 @@
 							<h4><span>판매내역 리스트</span></h4>
 							<br>
 							<br>
-								<form>
+								<form action="kobook2/mypage/sellUpdate.do" method="post">
 									<table class="table table-hover">
 										<thead>
 											<tr>
@@ -64,17 +67,42 @@
 											</tr>
 										</thead>
 										<tbody>
+										<c:forEach var="bookSellList" items="${sellList }" >
 											<tr>
-												<td align="center">1</td>
-												<td>프링글스는 마시썽</td>
-												<td align="center">2017-10-18</td>
-												<td align="center">1000원</td>
-												<td align="center"><input type="radio" name="state" checked >판매중 &nbsp;&nbsp;<input type="radio" name="state">판매완료 &nbsp;&nbsp;<input type="submit" value="변경" class="btn-default"></td>
-												<td align="center">판매중</td>
+												<td align="center">${bookSellList.book_id }</td>
+												<td>${bookSellList.book_name  }</td>
+												<td align="center">${bookSellList.book_date  }</td>
+												<td align="center">${bookSellList.book_id }</td>
+												<td align="center">
+													<c:set var="name" value="${bookSellList.book_sell_state}" />
+														<c:choose>
+   															<c:when test="${name eq 'I' }">
+      														    <input type="radio" name="${bookSellList.book_id}" value="I" checked>판매중 &nbsp;&nbsp;
+																<input type="radio" name="${bookSellList.book_id}" value="C">판매완료 &nbsp;&nbsp;
+   															</c:when>
+   															<c:when test="${name eq 'C' }">
+     												 		    <input type="radio" name="${bookSellList.book_id}" value="I">판매중 &nbsp;&nbsp;
+																<input type="radio" name="${bookSellList.book_id}" value="C" checked>판매완료 &nbsp;&nbsp;
+  															</c:when>
+  														</c:choose>
+												</td>
+												<td align="center">
+												<c:set var="name" value="${bookSellList.book_sell_state}" />
+												<c:choose>
+   													<c:when test="${bookSellList.book_sell_state eq 'I' }">
+      												    판매중
+   													</c:when>
+   													<c:when test="${bookSellList.book_sell_state eq 'C' }">
+     												   판매완료
+  													</c:when>
+  												</c:choose>
+												</td>
 											</tr>
+										</c:forEach>
+										<input type="submit" value="변경" class="btn-default">
 										</tbody>
 										</table>
-									</form>
+								</form>
 						</div>
 					</div>
 				</div>
@@ -130,24 +158,29 @@
 		</div>
 	</section>
 
-    <script type="text/javascript" src="../js/jquery-1.10.2.min.js"></script>
-    <script src="../js/bootstrap.min.js"></script>
-    <script src="../js/jquery.easing.1.3.js"></script>
-    <script src="../js/retina-1.1.0.min.js"></script>
-    <script type="text/javascript" src="../js/jquery.cookie.js"></script> <!-- jQuery cookie -->
-    <script type="text/javascript" src="../js/styleswitch.js"></script> <!-- Style Colors Switcher -->
-    <script type="text/javascript" src="../js/jquery.smartmenus.min.js"></script>
-    <script type="text/javascript" src="../js/jquery.smartmenus.bootstrap.min.js"></script>
-        <script type="text/javascript" src="../js/jflickrfeed.js"></script>
-    <script type="text/javascript" src="../js/jquery.magnific-popup.min.js"></script>
-    <script type="text/javascript" src="../js/jquery.isotope.min.js"></script>
-    <script type="text/javascript" src="../js/swipe.js"></script>
-    <script type="text/javascript" src="../js/jquery-scrolltofixed-min.js"></script>
+    <script type="text/javascript" src="/kobook2/js/jquery-1.10.2.min.js"></script>
+    <script src="/kobook2/js/bootstrap.min.js"></script>
+    <script src="/kobook2/js/jquery.easing.1.3.js"></script>
+    <script src="/kobook2/js/retina-1.1.0.min.js"></script>
+    <script type="text/javascript" src="/kobook2/js/jquery.cookie.js"></script> <!-- jQuery cookie -->
+    <script type="text/javascript" src="/kobook2/js/styleswitch.js"></script> <!-- Style Colors Switcher -->
+    <script type="text/javascript" src="/kobook2/js/jquery.smartmenus.min.js"></script>
+    <script type="text/javascript" src="/kobook2/js/jquery.smartmenus.bootstrap.min.js"></script>
+        <script type="text/javascript" src="/kobook2/js/jflickrfeed.js"></script>
+    <script type="text/javascript" src="/kobook2/js/jquery.magnific-popup.min.js"></script>
+    <script type="text/javascript" src="/kobook2/js/jquery.isotope.min.js"></script>
+    <script type="text/javascript" src="/kobook2/js/swipe.js"></script>
+    <script type="text/javascript" src="/kobook2/js/jquery-scrolltofixed-min.js"></script>
 
-    <script src="../js/main.js"></script>
+    <script src="/kobook2/js/main.js"></script>
 
     <!-- Start Style Switcher -->
     <div class="switcher"></div>
     <!-- End Style Switcher -->
 </body>
+
+<script>
+	
+
+</script>
 </html>

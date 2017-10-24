@@ -1,4 +1,4 @@
-package kobook.user.DAO;
+package kobook.person.DAO;
 
 import java.io.InputStream;
 
@@ -6,11 +6,11 @@ import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 
-public class UserDAO {
+public class PersonDAO {
 
-	private static UserDAO dao = new UserDAO();
+	private static PersonDAO dao = new PersonDAO();
 
-	public static UserDAO getInstance() {
+	public static PersonDAO getInstance() {
 		return dao;
 	}
 

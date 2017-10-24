@@ -12,7 +12,7 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>찜리스트</title>
+	<title>결제</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 
@@ -21,33 +21,8 @@
     <link rel="stylesheet" href="/kobook2/css/style.css">
     <link rel="stylesheet" type="text/css" href="/kobook2/css/style.css" media="screen" data-name="skins">
     <link rel="stylesheet" href="/kobook2/css/layout/wide.css" data-name="layout">
-    <link rel="stylesheet" type="text/css" href="/kobook2/css/switcher.css" media="screen" />
-    <script type="text/javascript" src="/kobook2/js/jquery-1.10.2.min.js"></script>
-    
-    <script type="text/javascript">
-    
 
-    $(function(){
-    	
-    	// 결제창 모달 
-    	 $(".btn-default").click(function(){
-             $('#payModal').modal();
-         });
-    	 
-    	// 찜 삭제 버튼 
-    	 $(".btn-danger").click(function(){
-    		var pick_id = $(this).parent().parent().find('td:first').text().trim();
-    		 
-            location.href="/kobook2/main/mypage/pickDelete.do?pick_id=" + pick_id;
-         });
-    
-    
-    
-    });
-    
-    
-    </script>
-    
+    <link rel="stylesheet" type="text/css" href="/kobook2/css/switcher.css" media="screen" />
 </head>
 <body>
 	<!-- 헤더 -->
@@ -61,13 +36,12 @@
                 <div class="row">
                     <div class="col-lg-12 col-md-12 col-sm-12">
                         <div class="page_title">
-                            <h2>찜</h2>
+                            <h2>결제</h2>
                         </div>
                         <nav id="breadcrumbs">
                             <ul>
                                 <li><a href="index.html">홈</a>/</li>
-                                <li>마이페이지 /</li>
-                                <li>찜</li>
+                                <li>결제 /</li>
                             </ul>
                         </nav>
                     </div>
@@ -80,117 +54,89 @@
 				<div class="row sub_content">
 					<div class="col-lg-12 col-md-12 col-sm-12">
 						<div class="dividerHeading">
-							<h4><span>찜 리스트</span></h4>
+							<h4><span>결제</span></h4>
 							<br>
 							<br>
-							<c:choose>
-									<c:when test="${empty pickList }">
-										<div class="media-body">
-											<div class="well" style="margin-left: 170px;">
-												<h2 align="center">구매 상품이 존재하지 않습니다.</h2>
-											</div>
-										</div>
-									</c:when>
-									<c:otherwise>
-								<form>
-									<table class="table table-hover">
+
+							<div class="col-lg-3 col-sm-3">
+								<div class="dividerHeading">
+									<h4>
+										<span>배송지 정보</span>
+									</h4>
+								</div>
+								<form id="registerform" method="post" name="registerform" action="">
+									<div class="form-group">
+										이름: <input type="text" class="form-control" placeholder="이름">
+									</div>
+									<div class="form-group">
+										주소: <input type="text" class="form-control" placeholder="주소">
+									</div>
+									<div class="form-group">
+										휴대전화: <input type="tel" class="form-control" placeholder="'-'을 제외한 번호만 입력해주세요.">
+									</div>
+									<div class="form-group">
+										배송메시지: <input type="text" class="form-control" placeholder="Password">
+									</div>
+									<div class="form-group">
+										적립금: <input type="text" class="form-control" placeholder="Re-enter password">
+									</div>
+									<div class="form-group">
+										결제금액: <input type="submit" class="btn btn-default btn-lg button" value="Register an account">
+									</div>
+								</form>
+							</div>
+
+
+							<table class="table table-hover">
 										<thead>
 											<tr>
-												<td align="center">No</td>
-												<td align="center">썸네일</td>
+												<td align="center">이미지</td>
 												<td>책 제목</td>
-												<td align="center">판매자</td>
 												<td align="center">가격</td>
-												<td align="center">판매상태</td>
-												
+												<td align="center">결제번호</td>
+												<td align="center">결제날짜</td>
 												<td></td>
 											</tr>
 										</thead>
 										<tbody>
-											<c:forEach var="element" items="${pickList }" varStatus="s">
+											<c:forEach var="element" items="${buyList }" varStatus="s">
 												<tr>
-													<td align="center">	${element.PICK_ID} </td>
-													<td align="center">	${element.BOOK_IMG }</td>
-													<td>${element.BOOK_NAME }</td>
-													<td align="center">${element.PERSON_NAME }</td>
-													<td align="center">${element.BOOK_M_PRICE }</td>
 													<td align="center">
-													<c:set var="name" value="${element.BOOK_SELL_STATE}" />
+													<c:if test="${board.b_fname != null }">
+														<c:set var="head"
+															value="${fn:substring(element.BOOK_IMG, 0, fn:length(element.BOOK_IMG)-4) }"></c:set>
+														<c:set var="pattern"
+															value="${fn:substring(element.BOOK_IMG, fn:length(head) +1, fn:length(element.BOOK_IMG)) }"></c:set>
+
 														<c:choose>
-   															<c:when test="${element.BOOK_SELL_STATE eq 'I' }">
-      														    판매중
-   															</c:when>
-   															<c:when test="${element.BOOK_SELL_STATE eq 'C' }">
-     														   판매완료
-  															</c:when>
-  														</c:choose>
-													</td>
-													<td>_
-													<input type="button" value="삭제" class="btn-danger" id="del" >
-													<input type="button" value="결제" class="btn-default" id="popPay">
-													</td>
+															<c:when test="${pattern == 'jpg' || pattern == 'gif' }">
+																<img src="../upload/${head }_small.${pattern}">
+															</c:when>
+															<c:otherwise>
+																<c:out value="NO IMAGE"></c:out>
+															</c:otherwise>
+														</c:choose>
+													</c:if> ${element.BOOK_IMG}</td>
+													
+													
+													<td>${element.BOOK_NAME}</td>
+													<td align="center">${element.BOOK_M_PRICE}</td>
+													<td align="center">${element.PAY_ID}</td>
+													<td align="center">${element.PAY_DATE}</td>
+													<td><input type="button" value="후기작성" class="btn-default" src=""></td>
 												</tr>
 											</c:forEach>
 										</tbody>
 										</table>
 									</form>
-									</c:otherwise>
-								</c:choose>
 						</div>
 					</div>
 				</div>
 			</div>
 		</section>
 		
-		<!-- 모달 -->
-	<div class="modal fade" id="payModal" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
-		<div class="modal-dialog">
-			<div class="modal-content">
-				<div class="modal-header">
-					<button type="button" class="close" data-dismiss="modal">
-						<span aria-hidden="true">×</span><span class="sr-only">취소</span>
-					</button>
-					<h3 class="modal-title" id="lineModalLabel">결제창</h3>
-				</div>
-				<div class="modal-body">
-					<!-- content goes here -->
-					<form>
-						<div class="form-group">
-							<label>결제상품 : </label> 
-						</div>
-						<div class="form-group">
-							<label>결제금액 : </label> 
-						</div>
-						<div class="form-group">
-							<label>마일리지 : 1000원</label> 
-						</div>
-						<div class="form-group">
-							<label>사용 마일리지 :</label> <input type="text" class="form-control" >
-						</div>
-						<div class="form-group">
-							<h3>총 결제 금액: </h3>
-						</div>
-					</form>
-				</div>
-				<div class="modal-footer">
-					<div class="btn-group btn-group-justified" role="group" aria-label="group button">
-						<div class="btn-group" role="group">
-							<button type="button" class="btn btn-default" data-dismiss="modal" role="button">취소</button>
-						</div>
-						<div class="btn-group btn-delete hidden" role="group">
-							<button type="button" id="delImage" class="btn btn-default btn-hover-red" data-dismiss="modal" role="button">취소</button>
-						</div>
-						<div class="btn-group" role="group">
-							<button type="button" id="saveImage" class="btn btn-default btn-hover-green" data-action="save" role="button">결제</button>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-	
-	
-		<section class="promo_box">
+		
+        <section class="promo_box">
             <div class="container">
                 <div class="row">
                     <div class="col-sm-9 col-md-9 col-lg-9">
@@ -211,11 +157,6 @@
             </div>
         </section>
 	</section><!--end wrapper-->
-	
-
-
-
-	
 
 	<!-- 푸터 -->
  		 <jsp:include page="/include/footer.jsp" />

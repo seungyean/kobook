@@ -5,7 +5,34 @@
 <!-- ㅇ -->
 <configuration>
 	<typeAliases>
-		<typeAlias type="kobook.model.user" alias="User"/>
+		<!-- 마이페이지: 승연 -->
+		<typeAlias type="kobook.mypage.domain.Book" alias="Book"/>
+		<typeAlias type="kobook.mypage.domain.Mypage" alias="Mypage"/>
+		<typeAlias type="kobook.mypage.domain.BookBuyElement" alias="BookBuyElement"/>
+		
+		<!-- 관리자: 지호-->
+		<typeAlias alias="Board" type="kobook.admin.domain.Board"/>
+		<typeAlias alias="Search" type="kobook.admin.domain.Search"/>
+		<typeAlias alias="ListModel" type="kobook.admin.domain.ListModel"/>
+		<typeAlias alias="UserModel" type="kobook.admin.domain.UserModel"/>
+		
+		<!-- 쪽지,채팅: 재승 -->
+      	<typeAlias type="kobooktest.message.domain.Message" alias="Message"/>
+      	
+      	<!-- 메인: 아름 -->
+     	<typeAlias type="kobook.recom.domain.FavoriteBook" alias="FavoriteBook"/>
+    	<typeAlias type="kobook.recom.domain.Favorite" alias="Favorite"/>
+     	<typeAlias type="kobook.recom.domain.Alarm" alias="Alarm"/>
+      	
+      	<!-- 책: 민주 -->
+		<typeAlias alias="Search" type="kobook.book.domain.Search"/>
+		<typeAlias alias="Reply" type="kobook.book.domain.Reply"/>
+		<typeAlias alias="Book" type="kobook.book.domain.Book"/>
+		
+		
+		
+		<!-- 회원 -->
+		<typeAlias type="kobook.person.domain.Person" alias="Person"/>
 	</typeAliases>
 	
 	<environments default="development">
@@ -18,8 +45,13 @@
 	</environments>
 	
 	<mappers>
-		<mapper resource="kosta/mapper/Reply.xml"/>
-		<mapper resource="kosta/mapper/Board.xml"/>
+	
+		<mapper resource="kobook/admin/mapper/Board.xml"/>
+     	<mapper resource="kobook/message/mapper/Message.xml"/>
+     	<mapper resource="kobook/person/mapper/Person.xml"/>
+     	<mapper resource="kobook/recom/mapper/Recommend.xml"/>
+     	<mapper resource="kobook/book/mapper/Book.xml"/>
+      
 	</mappers>
 	
 </configuration>
