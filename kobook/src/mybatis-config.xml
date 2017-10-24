@@ -30,8 +30,11 @@
 		<typeAlias alias="Reply" type="kobook.book.domain.Reply"/>
 		<typeAlias alias="Book" type="kobook.book.domain.Book"/>
 		
-		
-		
+		<!-- 커뮤니티: 동길 -->
+		<typeAlias alias="Donate" type="kobook.community.domain.Donate"/>
+		<typeAlias alias="DonateReply" type="kobook.community.domain.DonateReply"/>
+				
+
 		<!-- 회원 -->
 		<typeAlias alias="Person" type="kobook.admin.domain.Person"/>
 		
@@ -54,6 +57,7 @@
      	<mapper resource="kobook/recom/mapper/Recommend.xml"/>
      	<mapper resource="kobook/book/mapper/Book.xml"/>
      	<mapper resource="kobook/mypage/mapper/Mypage.xml" />
+     	<mapper resource="kobook/community/mapper/Donate.xml" />
       
 	</mappers>
 	

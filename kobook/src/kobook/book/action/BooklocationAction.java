@@ -34,7 +34,7 @@ public class BooklocationAction implements Action {
 		
 		BookService service=BookService.getInstance();
 		//ListModel listModel = service.listBookService(request, requestPage);
-		ListModel listModel2 = service.locationBookService(request, requestPage);
+		BookListModel listModel2 = service.locationBookService(request, requestPage);
 		
 		//request.setAttribute("listModel", listModel);
 		request.setAttribute("listModel2", listModel2);

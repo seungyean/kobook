@@ -28,7 +28,7 @@ public class BooklistAction implements Action {
 	
 		
 		BookService service=BookService.getInstance();
-		ListModel listModel = service.listBookService(request, requestPage);
+		BookListModel listModel = service.listBookService(request, requestPage);
 		//ListModel listModel2 = service.locationBookService(request, requestPage);
 		
 		request.setAttribute("listModel", listModel);

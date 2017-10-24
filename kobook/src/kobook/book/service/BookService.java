@@ -11,7 +11,7 @@ import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 
 import kobook.book.dao.BookDAO;
 import kobook.book.domain.Book;
-import kobook.book.domain.ListModel;
+import kobook.book.domain.BookListModel;
 import kobook.book.domain.BookSearch;
 import kobook.common.domain.ImageUtil;
 
@@ -99,7 +99,7 @@ public class BookService {
 	   
 	   
 	   
-	   public ListModel listBookService(HttpServletRequest request, int requestPage){
+	   public BookListModel listBookService(HttpServletRequest request, int requestPage){
 	      
 	      BookSearch search = new BookSearch();
 	      HttpSession session = request.getSession();
@@ -141,7 +141,7 @@ public class BookService {
 	      int startRow = (requestPage -1) * PAGE_SIZE;
 	      List<Book> list = dao.listBook(startRow, search);
 	      
-	      return new ListModel(list, requestPage, totalPageCount, startPage, endPage);
+	      return new BookListModel(list, requestPage, totalPageCount, startPage, endPage);
 	   }
 	   
 	   
@@ -152,7 +152,7 @@ public class BookService {
 	   
 	   
 	   
-	   public ListModel locationBookService(HttpServletRequest request, int requestPage){
+	   public BookListModel locationBookService(HttpServletRequest request, int requestPage){
 	      
 	      BookSearch search = new BookSearch();
 	      HttpSession session = request.getSession();
@@ -190,7 +190,7 @@ public class BookService {
 	      int startRow = (requestPage -1) * PAGE_SIZE;
 	      List<Book> list = dao.locationBook(startRow, search);
 	      
-	      return new ListModel(list, requestPage, totalPageCount, startPage, endPage);
+	      return new BookListModel(list, requestPage, totalPageCount, startPage, endPage);
 	   }
 	   
 	   
