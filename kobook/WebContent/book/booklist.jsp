@@ -1,4 +1,5 @@
-<%-- <%@page import="kobook.book.domain.Search"%>
+
+<%@page import="kobook.book.domain.Search"%>
 <%@page import="kobook.book.domain.Book"%>
 <%@page import="java.util.List"%>
 <%@page import="kobook.book.dao.BookDao"%>
@@ -21,13 +22,13 @@
 <meta name="description" content="">
 
 <!-- CSS FILES -->
-<link rel="stylesheet" href="../css/bootstrap.min.css" />
-<link rel="stylesheet" href="../css/style.css">
-<link rel="stylesheet" type="text/css" href="../css/style.css"
+<link rel="stylesheet" href="/kobook/css/bootstrap.min.css" />
+<link rel="stylesheet" href="/kobook/css/style.css">
+<link rel="stylesheet" type="text/css" href="/kobook/css/style.css"
 	media="screen" data-name="skins">
-<link rel="stylesheet" href="../css/layout/wide.css" data-name="layout">
+<link rel="stylesheet" href="/kobook/css/layout/wide.css" data-name="layout">
 
-<link rel="stylesheet" type="text/css" href="../css/switcher.css"
+<link rel="stylesheet" type="text/css" href="/kobook/css/switcher.css"
 	media="screen" />
 <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
 <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -69,7 +70,7 @@
 					<div class="col-lg-3 col-sm-3 ">
 						<div id="logo">
 							<h1>
-								<a href="index.html"><img alt="logo" src="images/logo.png" /></a>
+								<a href="index.html"><img alt="logo" src="/BoardProject1/images/logo.png" /></a>
 							</h1>
 						</div>
 					</div>
@@ -200,7 +201,7 @@
 				<div class="row">
 					<div class="col-lg-12 col-md-12 col-sm-12">
 						<div class="page_title">
-							<h2>도서목록</h2>
+							<h2>도서목록[전공에따른 분류]</h2>
 						</div>
 						<nav id="breadcrumbs">
 							<ul>
@@ -213,135 +214,326 @@
 			</div>
 		</section>
 
-		 <section class="content left_sidebar">
+
+		<section class="content portfolio small-images">
 			<div class="container">
 				<div class="row">
-					<!-- Sidebar Widget -->
-					<div class="col-lg-4 col-md-4 col-sm-4">
-						<div class="sidebar">
-							<div class="widget widget_search">
-								<div class="site-search-area">
-									<form method="get" id="site-searchform" action="#">
-										<div>
-
-											제목: <input type="checkbox" name="area" value="title"/>
-
-
-
-											<input type="text" class="input-text" name="searchKey" id="s"
-												placeholder="책제목을 입력하세요" /> <input type="submit"
-												id="searchsubmit" value="search" />
-										</div>
-									</form>
-								</div>
-								<!-- end site search -->
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</section> 
-
-		<div class="widget widget_categories">
-			<div class="widget_title">
-				<h4>
-					<span>Categories</span>
-				</h4>
-			</div>
-			<ul class="arrows_list list_style">
-				<li><a href="#"> Grapic Design (10)</a></li>
-				<li><a href="#"> Web Design & Development (25)</a></li>
-				<li><a href="#"> Photography (29)</a></li>
-				<li><a href="#"> Custom Illustrations (19)</a></li>
-				<li><a href="#"> Wordpress Themes(38)</a></li>
-				<li><a href="#"> Videography (33)</a></li>
-			</ul>
-		</div>
-		
-
-	 	<section class="content portfolio small-images">
-			<div class="container">
-				<div class="row">
-				
-				<!--begin portfolio_list -->
-						<ul id="list" class="portfolio_list clearfix ">
-							<!--begin List Item -->
-							<c:forEach var="b" items="${listModel.list}">
-								<li class="list_item col-lg-3 col-md-4 col-sm-6 branding">
-									<div class="recent-item box">
-										<figure class="touching ">
-											<a href="detailAction.do?book_id=${b.book_id}"> <img
-												alt="aa" src="../upload/${b.book_img}" height="350"
-												width="400"></a>
-											<div class="option inner">
-												<div>
-													<h5>${b.book_name}</h5>
-													<a href="images/portfolio/full/portfolio_1.png"
-														class="fa fa-search mfp-image"> <img alt="aa"
-														src="../upload/${b.book_img}">
-													</a> <a href="detailAction.do?book_id=${b.book_id}"
-														class="fa fa-link"></a> <span>${b.book_sell_state}</span>
-												</div>
-											</div>
-										</figure>
-									</div>
-								</li>
-							</c:forEach>
-						<!--end List Item -->
-				
-				
 					<!--begin isotope -->
 					<div class="isotope col-lg-12">
 						<!--begin portfolio filter -->
 						<ul id="filter" class="option-set clearfix">
+							<!-- <li data-filter="*" class="selected"><a href="#">All</a></li> -->
 							<li data-filter="*" class="selected"><a href="#">All</a></li>
-							<li data-filter=".sell_state_y"><a href="#">판매중인것만</a></li>
-							<li data-filter=".mobile"><a href="#">ㅁㅁ</a></li>
-							<li data-filter=".branding"><a href="#">ㅂㅂㅂ</a></li>
+							<li data-filter=".Business"><a href="#">Business</a></li>
+							<li data-filter=".Economy"><a href="#">Economy</a></li>
+							<li data-filter=".Computer"><a href="#">Computer</a></li>
+							<li data-filter=".Deutsch"><a href="#">Deutsch</a></li>
+							<li data-filter=".Law"><a href="#">Law</a></li>
+							<li data-filter=".History"><a href="#">History</a></li>
+							<li data-filter=".Physics"><a href="#">Physics</a></li>
+							
+							
+							<li data-sort-by="name"><a href="#">name</a></li>
 						</ul>
-						<!--end portfolio filter -->
-
-
-
-
-
-
-					<!--begin portfolio_list -->
-						<ul id="list" class="portfolio_list clearfix ">
-
-							<!--begin List Item -->
+						
+						<!--begin portfolio_list -->   
+				<ul id="list" class="portfolio_list clearfix ">		
+						 
+						  <!--begin List Item -->
 							<c:forEach var="b" items="${listModel.list}">
-								<li class="list_item col-lg-3 col-md-4 col-sm-6 branding">
+							<c:set var="b.book_kind" value="Business" />
+							 <c:if test="${b.book_kind=='Business'}">
+								<li class="list_item col-lg-3 col-md-4 col-sm-6 Business">
 									<div class="recent-item box">
 										<figure class="touching ">
-											<a href="detailAction.do?book_id=${b.book_id}"> <img
-												alt="aa" src="../upload/${b.book_img}" height="350"
-												width="400"></a>
+										
+										<img src="/kobook/upload/${b.book_img}" alt="aa"/>
+											<a href="/kobook/book/detailAction.do?book_id=${b.book_id}"></a>
 											<div class="option inner">
 												<div>
 													<h5>${b.book_name}</h5>
-													<a href="images/portfolio/full/portfolio_1.png"
-														class="fa fa-search mfp-image"> <img alt="aa"
-														src="../upload/${b.book_img}">
-													</a> <a href="detailAction.do?book_id=${b.book_id}"
-														class="fa fa-link"></a> <span>${b.book_sell_state=='I'}</span>
+													<a href="/kobook/upload/${b.book_img}" class="fa fa-search mfp-image"></a> 
+													<a href="/kobook/book/detailAction.do?book_id=${b.book_id}" class="fa fa-link"></a> 
+													
+													 <c:choose>
+													<c:when test="${b.book_sell_state=='I'}">
+													<span>판매중</span>
+													</c:when>
+													
+													<c:when test="${b.book_sell_state=='C'}">
+													<span>판매완료</span>
+													</c:when>
+													
+													</c:choose>
+													
+													
+											<!-- 	 <span>Business</span> -->
 												</div>
 											</div>
 										</figure>
 									</div>
 								</li>
-								<!--end List Item -->
-
-							</c:forEach>
-
+								</c:if>
+								</c:forEach>
+						<!--end List Item --> 
+						
+						
+						<!--begin List Item -->
+							<c:forEach var="b" items="${listModel.list}">
+							<c:set var="b.book_kind" value="Economy" />
+							 <c:if test="${b.book_kind=='Economy'}">
+								<li class="list_item col-lg-3 col-md-4 col-sm-6 Economy">
+									<div class="recent-item box">
+										<figure class="touching ">
+										
+										<img src="/kobook/upload/${b.book_img}" alt="aa"/>
+											<a href="/kobook/book/detailAction.do?book_id=${b.book_id}"></a>
+											<div class="option inner">
+												<div>
+													<h5>${b.book_name}</h5>
+													<a href="/kobook/upload/${b.book_img}" class="fa fa-search mfp-image"></a> 
+													<a href="/kobook/book/detailAction.do?book_id=${b.book_id}" class="fa fa-link"></a> 
+													 <c:choose>
+													 
+													<c:when test="${b.book_sell_state=='I'}">
+													<span>판매중</span>
+													</c:when>
+													
+													<c:when test="${b.book_sell_state=='C'}">
+													<span>판매완료</span>
+													</c:when>
+													
+													</c:choose>
+													<!-- <span>Economy</span> -->
+												</div>
+											</div>
+										</figure>
+									</div>
+								</li>
+								</c:if>
+								</c:forEach>
+						<!--end List Item --> 
+						
+						<!--begin List Item -->
+							<c:forEach var="b" items="${listModel.list}">
+							<c:set var="b.book_kind" value="Computer" />
+							 <c:if test="${b.book_kind=='Computer'}">
+								<li class="list_item col-lg-3 col-md-4 col-sm-6 Computer">
+									<div class="recent-item box">
+										<figure class="touching ">
+										
+										<img src="/kobook/upload/${b.book_img}" alt="aa"/>
+											<a href="/kobook/book/detailAction.do?book_id=${b.book_id}"></a>
+											<div class="option inner">
+												<div>
+													<h5>${b.book_name}</h5>
+													<a href="/kobook/upload/${b.book_img}" class="fa fa-search mfp-image"></a> 
+													<a href="/kobook/bookdetailAction.do?book_id=${b.book_id}" class="fa fa-link"></a> 
+													
+													 <c:choose>
+													<c:when test="${b.book_sell_state=='I'}">
+													<span>판매중</span>
+													</c:when>
+													
+													<c:when test="${b.book_sell_state=='C'}">
+													<span>판매완료</span>
+													</c:when>
+													
+													</c:choose>
+													<!-- <span>Computer</span> -->
+												</div>
+											</div>
+										</figure>
+									</div>
+								</li>
+								</c:if>
+								</c:forEach>
+						<!--end List Item --> 
+						
+						<!--begin List Item -->
+							<c:forEach var="b" items="${listModel.list}">
+							<c:set var="b.book_kind" value="Deutsch" />
+							 <c:if test="${b.book_kind=='Deutsch'}">
+								<li class="list_item col-lg-3 col-md-4 col-sm-6 Deutsch">
+									<div class="recent-item box">
+										<figure class="touching ">
+										
+										<img src="/kobook/upload/${b.book_img}" alt="aa"/>
+											<a href="/kobook/book/detailAction.do?book_id=${b.book_id}"></a>
+											<div class="option inner">
+												<div>
+													<h5>${b.book_name}</h5>
+													<a href="/kobook/upload/${b.book_img}" class="fa fa-search mfp-image"></a> 
+													<a href="/kobook/book/detailAction.do?book_id=${b.book_id}" class="fa fa-link"></a> 
+												
+												 <c:choose>
+													<c:when test="${b.book_sell_state=='I'}">
+													<span>판매중</span>
+													</c:when>
+													
+													<c:when test="${b.book_sell_state=='C'}">
+													<span>판매완료</span>
+													</c:when>
+													
+													</c:choose>
+													<!-- <span>Deutsch</span> -->
+												</div>
+											</div>
+										</figure>
+									</div>
+								</li>
+								</c:if>
+								</c:forEach>
+						<!--end List Item --> 
+						
+						<!--begin List Item -->
+							<c:forEach var="b" items="${listModel.list}">
+							<c:set var="b.book_kind" value="Law" />
+							 <c:if test="${b.book_kind=='Law'}">
+								<li class="list_item col-lg-3 col-md-4 col-sm-6 Law">
+									<div class="recent-item box">
+										<figure class="touching ">
+										
+										<img src="/kobook/upload/${b.book_img}" alt="aa"/>
+											<a href="/kobook/book/detailAction.do?book_id=${b.book_id}"></a>
+											<div class="option inner">
+												<div>
+													<h5>${b.book_name}</h5>
+													<a href="/kobook/upload/${b.book_img}" class="fa fa-search mfp-image"></a> 
+													<a href="/kobook/book/detailAction.do?book_id=${b.book_id}" class="fa fa-link"></a> 
+													
+													 <c:choose>
+													<c:when test="${b.book_sell_state=='I'}">
+													<span>판매중</span>
+													</c:when>
+													
+													<c:when test="${b.book_sell_state=='C'}">
+													<span>판매완료</span>
+													</c:when>
+													
+													</c:choose>
+													<!-- <span>Law</span> -->
+												</div>
+											</div>
+										</figure>
+									</div>
+								</li>
+								</c:if>
+								</c:forEach>
+						<!--end List Item --> 
+						
+						<!--begin List Item -->
+							<c:forEach var="b" items="${listModel.list}">
+							<c:set var="b.book_kind" value="History" />
+							 <c:if test="${b.book_kind=='History'}">
+								<li class="list_item col-lg-3 col-md-4 col-sm-6 History">
+									<div class="recent-item box">
+										<figure class="touching ">
+										
+										<img src="/kobook/upload/${b.book_img}" alt="aa"/>
+											<a href="/kobook/book/detailAction.do?book_id=${b.book_id}"></a>
+											<div class="option inner">
+												<div>
+													<h5>${b.book_name}</h5>
+													<a href="/kobook/upload/${b.book_img}" class="fa fa-search mfp-image"></a> 
+													<a href="/kobook/book/detailAction.do?book_id=${b.book_id}" class="fa fa-link"></a> 
+													
+													 <c:choose>
+													<c:when test="${b.book_sell_state=='I'}">
+													<span>판매중</span>
+													</c:when>
+													
+													<c:when test="${b.book_sell_state=='C'}">
+													<span>판매완료</span>
+													</c:when>
+													
+													</c:choose>
+													<!-- <span>History</span> -->
+												</div>
+											</div>
+										</figure>
+									</div>
+								</li>
+								</c:if>
+								</c:forEach>
+						<!--end List Item --> 
+						
+						<!--begin List Item -->
+							<c:forEach var="b" items="${listModel.list}">
+							<c:set var="b.book_kind" value="Physics" />
+							 <c:if test="${b.book_kind=='Physics'}">
+								<li class="list_item col-lg-3 col-md-4 col-sm-6 Physics">
+									<div class="recent-item box">
+										<figure class="touching ">
+										
+										<img src="/kobook/upload/${b.book_img}" alt="aa"/>
+											<a href="/kobook/book/detailAction.do?book_id=${b.book_id}"></a>
+											<div class="option inner">
+												<div>
+													<h5>${b.book_name}</h5>
+													<a href="/kobook/upload/${b.book_img}" class="fa fa-search mfp-image"></a> 
+													<a href="/kobook/book/detailAction.do?book_id=${b.book_id}" class="fa fa-link"></a> 
+												
+												 <c:choose>
+													<c:when test="${b.book_sell_state=='I'}">
+													<span>판매중</span>
+													</c:when>
+													
+													<c:when test="${b.book_sell_state=='C'}">
+													<span>판매완료</span>
+													</c:when>
+													
+													</c:choose>
+													<!-- <span>Physics</span> -->
+												</div>
+											</div>
+										</figure>
+									</div>
+								</li>
+								</c:if>
+								</c:forEach>
+						<!--end List Item --> 
 						</ul>
-						<!--end portfolio_list -->
+						<!--end portfolio_list -->	
 					</div>
 					<!--end isotope -->
 
 
+					<form method="post" id="site-searchform" action="/kobook/book/listAction.do">
+					
+						<div>
+						 <input type="hidden" name="temp" value="temp">
+
+							제목: <input type="checkbox" name="area" value="book_name" /> 
+							안심거래사용: <input type="checkbox" name="safe_yn" value="book_safe_yn" />
+							<!-- 지역명검색: <input type="checkbox" name="location" value="book_location" />  -->
+							<input type="text" class="input-text" name="searchKey" id="s" placeholder="책제목 을 입력하세요" />
+							<input type="submit" id="searchsubmit" value="search" />
+							
+			<!-- 	<br><br>
+				 			
+                 		 범위 : <input type = "range" min = "0" max = "10000" step = "10" name = "range">  
+                 		  
+            		<br><br> -->
+         		  
+						</div>
+					</form>
+					
+			<!-- 		 <form method="post" id="sorting" action="listAction.do">
+					
+						<div>
+						 <input type="hidden" name="temp" value="temp">
+
+						<input type="button" name="price" value="가격순"/>
+						<input type="button" name="name" value="가나다순"/>
+							
+						</div>
+					</form> -->
+					
+					
+
 					<div class="col-sm-12 text-center">
-						<!--                         <ul class="pagination">
+						<!-- <ul class="pagination">
                             <li><a href="#">&laquo;</a></li>
                             <li class="active"><a href="#">1</a></li>
                             <li><a href="#">2</a></li>
@@ -350,10 +542,12 @@
                             <li><a href="#">5</a></li>
                             <li><a href="#">&raquo;</a></li>
                         </ul> -->
+                        
+                        
 						<!-- 페이징 -->
 						<!-- 이전영역 생성(start page) -->
 						<c:if test="${listModel.startPage > 5 }">
-							<a href="listAction.do?pageNum=${listModel.startPage -1}">[이전]</a>
+							<a href="/kobook/book/listAction.do?pageNum=${listModel.startPage -1}">[이전]</a>
 						</c:if>
 
 						<!-- 페이지 목록 -->
@@ -362,7 +556,7 @@
 							<c:if test="${listModel.requestPage == pageNo }">
 								<b>
 							</c:if>
-							<a href="listAction.do?pageNum=${pageNo}">[ ${pageNo} ]</a>
+							<a href="/kobook/book/listAction.do?pageNum=${pageNo}">[ ${pageNo} ]</a>
 							<c:if test="${listModel.requestPage == pageNo }">
 								</b>
 							</c:if>
@@ -370,17 +564,16 @@
 
 						<!-- 이후영역 생성(end) -->
 						<c:if test="${listModel.endPage < listModel.totalPageCount}">
-							<a href="listAction.do?pageNum=${listModel.endPage +1}">[이후]</a>
+							<a href="/kobook/book/listAction.do?pageNum=${listModel.endPage +1}">[이후]</a>
 						</c:if>
 						<br>
 
-					</div>
-				</div>
-				<!--./row-->
-			</div>
-			<!--./div-->
+					</div> <!--text container -->
+				
+				</div> <!--./row-->
+			</div> <!--./container-->
 		</section>
-		<!--end small images  --> --%>
+		<!--end small images  -->
 
 
 	</section>
@@ -517,27 +710,27 @@
 		</div>
 	</section>
 
-	<script type="text/javascript" src="../js/jquery-1.10.2.min.js"></script>
-	<script src="../js/bootstrap.min.js"></script>
-	<script src="../js/jquery.easing.1.3.js"></script>
-	<script src="../js/retina-1.1.0.min.js"></script>
-	<script type="text/javascript" src="../js/jquery.cookie.js"></script>
+	<script type="text/javascript" src="/kobook/js/jquery-1.10.2.min.js"></script>
+	<script src="/kobook/js/bootstrap.min.js"></script>
+	<script src="/kobook/js/jquery.easing.1.3.js"></script>
+	<script src="/kobook/js/retina-1.1.0.min.js"></script>
+	<script type="text/javascript" src="/kobook/js/jquery.cookie.js"></script>
 	<!-- jQuery cookie -->
-	<script type="text/javascript" src="../js/styleswitch.js"></script>
+	<script type="text/javascript" src="/kobook/js/styleswitch.js"></script>
 	<!-- Style Colors Switcher -->
-	<script type="text/javascript" src="../js/jquery.smartmenus.min.js"></script>
+	<script type="text/javascript" src="/kobook/js/jquery.smartmenus.min.js"></script>
 	<script type="text/javascript"
-		src="../js/jquery.smartmenus.bootstrap.min.js"></script>
-	<script type="text/javascript" src="../js/jflickrfeed.js"></script>
-	<script type="text/javascript" src="../js/jquery.magnific-popup.min.js"></script>
-	<script type="text/javascript" src="../js/jquery.isotope.min.js"></script>
-	<script type="text/javascript" src="../js/swipe.js"></script>
-	<script type="text/javascript" src="../js/jquery-scrolltofixed-min.js"></script>
-	<script type="text/javascript" src="../js/jquery-hoverdirection.min.js"></script>
+		src="/kobook/js/jquery.smartmenus.bootstrap.min.js"></script>
+	<script type="text/javascript" src="/kobook/js/jflickrfeed.js"></script>
+	<script type="text/javascript" src="/kobook/js/jquery.magnific-popup.min.js"></script>
+	<script type="text/javascript" src="/kobook/js/jquery.isotope.min.js"></script>
+	<script type="text/javascript" src="/kobook/js/swipe.js"></script>
+	<script type="text/javascript" src="/kobook/js/jquery-scrolltofixed-min.js"></script>
+	<script type="text/javascript" src="/kobook/js/jquery-hoverdirection.min.js"></script>
 
-	<script src="../js/main.js"></script>
+	<script src="js/main.js"></script>
 	<!-- Start Style Switcher -->
 	<div class="switcher"></div>
 	<!-- End Style Switcher -->
 </body>
-</html> --%>
+</html>

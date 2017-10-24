@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="kobook.book.mapper.BookMapper">
+	<cache />
+	<select id="selectBook_id" resultType="Integer">
+		select max(book_id) from minjubook
+	</select>
+	
+	<insert id="insertBook" parameterType="Book">
+		insert into minjubook(
+			book_id,book_name,book_o_price,book_m_price,book_kind,book_edition,book_publish,book_hash,book_safe_yn,book_sell_state,book_content,
+			book_img,book_date,book_status, person_id
+			
+		)values(
+			#{book_id}, #{book_name}, #{book_o_price}, #{book_m_price},#{book_kind}, #{book_edition},#{book_publish},
+			#{book_hash}, #{book_safe_yn}, #{book_sell_state}, #{book_content}, 
+			#{book_img},SYSDATE,#{book_status},#{person_id}
+		)		
+	</insert>
+	
+	<select id="listBook" resultType="Book" parameterType="Search">
+		select * from minjubook
+			<choose>
+				<when test="area != null">
+					<where>
+						<!-- book_name LIKE %검색하고자하는 제목(입력값)% OR person_id LIKE %검색하고싶은 작성자(입력값)% -->
+						<foreach collection="area" item="item" separator="OR" open="(" close=")">
+							${item} LIKE #{searchKey}
+						</foreach>
+					
+						<choose>
+							<when test="safe_yn!=null">
+								AND book_safe_yn='Y'
+							</when>
+						</choose>
+					</where>	
+				</when>
+				</choose>
+	</select>	
+	
+	  <select id="locationBook" parameterType="Search" resultType="Book">
+		select 
+					b.book_id, b.book_name, b.book_o_price,b.book_m_price,b.book_kind,b.book_edition, b.book_publish, 
+					b.book_hash, b.book_safe_yn,b.book_sell_state, b.book_content,b.book_img,
+					b.book_date,b.book_status,p.person_id
+		from minjubook b, person1 p
+		where b.person_id=p.person_id
+		<!-- <choose>
+		<when test="location != null"> -->
+							AND p.person_address LIKE #{searchKey}
+
+						<!-- <choose>
+							<when test="safe_yn!=null">
+								AND book_safe_yn='Y'
+							</when>
+						</choose> -->
+		
+		<!-- </when>
+		</choose> -->
+	</select>
+	 
+	
+				<!-- <when test="location != null">
+					b.book_id, b.book_name, b.book_o_price,b.book_m_price,b.book_kind,b.book_edition, b.book_publish, 
+					b.book_hash, b.book_safe_yn,b.book_sell_state, b.book_content,b.book_img,
+					b.book_date,b.book_status,p.person_id
+					from minjubook b, person1 p
+					<where>
+						b.person_id=p.person_id
+						
+							AND p.person_address LIKE #{searchKey}
+					
+					
+						<choose>
+							<when test="safe_yn!=null">
+								AND book_safe_yn='Y'
+							</when>
+						</choose>
+					</where>	
+				</when> -->
+				
+			
+			
+			<!-- <choose>
+				<when test="book_status 눌렀을때">
+					order by book_status
+				</when>
+				<when test="book_m_price 눌렀을때">
+					order by book_m_price
+				</when>
+				<when test="book_name 눌렀을때">
+					order by book_name
+				</when>
+			</choose> -->
+
+	
+	
+	<select id="countBook" resultType="int" parameterType="Search">
+		select count(*) from minjubook
+		<if test="area != null">
+			<where>
+				<!-- book_name LIKE %검색하고자하는 제목(입력값)% OR person_id LIKE %검색하고싶은 작성자(입력값)% -->
+				<foreach collection="area" item="item" separator="OR" open="(" close=")">
+					${item} LIKE #{searchKey}
+				</foreach>
+			</where>
+		</if>
+	</select>
+	
+	
+	
+	
+	
+	
+	
+	<select id="selectBook" parameterType="int" resultType="Book">
+		select * from minjubook where book_id = #{book_id}
+	</select>
+	
+	<update id="updateBook" parameterType="Book">
+		UPDATE MINJUBOOK SET BOOK_NAME=#{book_name},BOOK_M_PRICE=#{book_m_price}
+		, BOOK_O_PRICE=#{book_o_price}, BOOK_SELL_STATE=#{book_sell_state}, BOOK_STATUS=#{book_status},
+		BOOK_SAFE_YN=#{book_safe_yn}, BOOK_CONTENT=#{book_content},BOOK_EDITION=#{book_edition},
+		BOOK_PUBLISH=#{book_publish}, BOOK_IMG=#{book_img}
+		WHERE BOOK_ID=#{book_id}
+	</update>
+	
+<!-- 	<update id="updateBook" parameterType="Book">
+		update minjubook set book_name=#{book_name}
+		, book_m_price=#{book_m_price}, book_o_price=#{book_o_price},book_sell_state=#{book_sell_state},
+		book_status=#{book_status},book_safe_yn=#{book_safe_yn}, book_content=#{book_content}, book_img=#{book_img}
+		 where book_id = #{book_id}
+	</update> -->
+	
+	
+	
+	<!-- <update id="updateHit" parameterType="int">
+		update board2 set b_hit=b_hit+1 where b_id = #{b_id}
+	</update>
+	
+	<update id="updateStep" parameterType="java.util.HashMap">
+		update board2 set b_step=b_step+1 where b_ref = #{b_ref} and b_step > #{b_step}
+	</update>
+	
+	
+	
+	<select id="countBoard" resultType="int" parameterType="Search">
+		select count(*) from board2
+		<if test="area != null">
+			<where>
+				b_title LIKE %검색하고자하는 제목(입력값)% OR b_name LIKE %검색하고싶은 작성자(입력값)%
+				<foreach collection="area" item="item" separator="OR" open="(" close=")">
+					${item} LIKE #{searchKey}
+				</foreach>
+			</where>
+		</if>
+	</select>
+	
+	<select id="selectR_id" resultType="Integer" parameterType="Reply">
+		select max(r_id) from reply
+	</select>
+	
+	<insert id="insertReply" parameterType="Reply">
+		insert into reply(
+			r_id, r_name, r_title, r_content, r_date, b_id
+		)values(
+			#{r_id}, #{r_name}, #{r_title}, #{r_content}, SYSDATE, #{b_id}
+		)		
+	</insert>
+	
+	<select id="listReply" resultType="Reply" parameterType="int">
+		select * from reply where b_id = #{b_id}
+	</select>
+	
+	<delete id="deleteReply" parameterType="int">
+		DELETE FROM reply WHERE r_id=#{r_id}
+	</delete>
+	
+	<delete id="deleteBoard" parameterType="int">
+		DELETE FROM board2 WHERE b_id=#{b_id}
+	</delete> -->
+	
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

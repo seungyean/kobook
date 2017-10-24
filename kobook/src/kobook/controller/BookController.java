@@ -9,6 +9,13 @@ import javax.servlet.http.HttpServletResponse;
 
 import kobook.action.Action;
 import kobook.action.ActionForward;
+import kobook.action.BookdetailAction;
+import kobook.action.BookinsertAction;
+import kobook.action.BookinsertFormAction;
+import kobook.action.BooklistAction;
+import kobook.action.BooklocationAction;
+import kobook.action.BookupdateAction;
+import kobook.action.BookupdateFormAction;
 
 public class BookController {
 	public void doProcess(HttpServletRequest request, HttpServletResponse response)
@@ -18,7 +25,7 @@ public class BookController {
 		Action action = null;
 
 		
-		//	¹ØÀÇ ÁÙÀÌ Ãâ·ÂµÇ¸é ÇØ´ç controller·Î Àß ÁøÀÔÇÑ°Í!
+		//	ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ÂµÇ¸ï¿½ ï¿½Ø´ï¿½ controllerï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ñ°ï¿½!
 		System.out.println("==========bookController==========");
 		// /kobook/book/insertForm.do
 		String requestURI = request.getRequestURI();
@@ -37,28 +44,72 @@ public class BookController {
 		System.out.println("command2: " + command2);
 
 		
+		// å ì™ì˜™å ì©ì„œ å ì™ì˜™å ì™ì˜™å ì™ì˜™ Actionå ì™ì˜™å ì™ì˜™ å ì™ì˜™å ì™ì˜™å ì™ì˜™.
+				// å ìŒì‡½ì˜™ í’€å ì™ì˜™ å ì™ì˜™å ì™ì˜™ å ì™ì˜™å ì™ì˜™å ì‹ ï¿½ å ì™ì˜™å ì™ì˜™å ì™ì˜™ 
+				if (command2.equals("insertform.do")) {
+					action = new BookinsertFormAction(); // ï¿½ìŸ¾è‡¾ëª„ì‘æ¿¡ï¿½ ï¿½ë–ï¿½ë–¦ï¿½ë¸¯ï¿½ë’— insertFormActionï¿½ë¿‰ï¿½ê½Œ ï¿½ì ™ï¿½ì“½
+					try {
+						forward = action.execute(request, response);
 
-		// ¿©±â¼­ °¢°¢ÀÇ ActionÀ¸·Î º¸³½´Ù.
-		// ÁÖ¼® Ç®°í °¢ÀÚ ¿¬°á½ÃÅ² °÷À¸·Î 
-		if (command2.equals("bookDetail.do")) {
-			
-			// action °´Ã¼ »ı¼º
-			// ÀÌºÎºĞ¸¸ ¼öÁ¤ÇØ¼­ º¹ºÙÇÏ¸é µÊ
-			
-			try {
-				forward = action.execute(request, response);
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
-		} 
+					} catch (Exception e) {
+						e.printStackTrace();
+					}
+
+				} else if (command2.equals("insertAction.do")) {
+
+					
+					action = new BookinsertAction(); // ï¿½ìŸ¾è‡¾ëª„ì‘æ¿¡ï¿½ ï¿½ë–ï¿½ë–¦ï¿½ë¸¯ï¿½ë’— insertFormActionï¿½ë¿‰ï¿½ê½Œ ï¿½ì ™ï¿½ì“½
+				
+					try {
+						forward = action.execute(request, response);
+						
+					} catch (Exception e) {
+						e.printStackTrace();
+					}
+				} else if (command2.equals("listAction.do")) {
+					action = new BooklistAction();
+					try {
+						forward = action.execute(request, response);
+					} catch (Exception e) {
+						e.printStackTrace();
+					}
+				} else if (command2.equals("locationAction.do")) {
+					action = new BooklocationAction();
+					try {
+						forward = action.execute(request, response);
+					} catch (Exception e) {
+						e.printStackTrace();
+					}
+				} else if (command2.equals("detailAction.do")) {
+					action = new BookdetailAction();
+					try {
+						forward = action.execute(request, response);
+					} catch (Exception e) {
+						e.printStackTrace();
+					}
+				}  else if (command2.equals("updateForm.do")) {
+					action = new BookupdateFormAction();
+					try {
+						forward = action.execute(request, response);
+					} catch (Exception e) {
+						e.printStackTrace();
+					}
+				} else if (command2.equals("updateAction.do")) {
+					action = new BookupdateAction();
+					try {
+						forward = action.execute(request, response);
+					} catch (Exception e) {
+						e.printStackTrace();
+					}
+				} 
+				
 		
 		
-		
-		// 	forward¸¦ ÇØÃ¼ÇÏ´Â °úÁ¤ 
+		// 	forwardï¿½ï¿½ ï¿½ï¿½Ã¼ï¿½Ï´ï¿½ ï¿½ï¿½ï¿½ï¿½ 
 		if(forward != null){
-			if(forward.isRedirect()){	// rediredct·Î ÆäÀÌÁö ÀÌµ¿
+			if(forward.isRedirect()){	// rediredctï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ìµï¿½
 				response.sendRedirect(forward.getPath());
-			} else {	//dispatcher·Î ÆäÀÌÁö ÀÌµ¿
+			} else {	//dispatcherï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ìµï¿½
 				RequestDispatcher dispatcher = 
 						request.getRequestDispatcher(forward.getPath());
 				dispatcher.forward(request, response);
