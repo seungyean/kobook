@@ -1,10 +1,19 @@
 package kobook.person.service;
 
-import kobook.person.domain.Person;
+import kobook.person.dao.PersonDAO;
 
-public interface PersonService {
+public class PersonService {
+
+	private static PersonService service = new PersonService();
+	private static PersonDAO dao;
+
+	public static PersonService getInstance(){
+		dao = PersonDAO.getInstance();
+		return service;
+	}
 	
-	/** 회원정보 수정*/
-	   public void update(Person person);
-
+	public int searchP_idService(String person_email){
+		return dao.searchP_id(person_email);
+	}
+	
 }

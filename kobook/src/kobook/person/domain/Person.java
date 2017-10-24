@@ -13,15 +13,13 @@ public class Person {
 	private String person_sell_grade;
 	private String person_kind;
 	private String person_account;
-	private int personr_avg;
-
-	public Person() {
-
-	}
-
+	private int person_avg;
+	
+	public Person(){}
+	
 	public Person(int person_id, String person_email, String person_pwd, String person_name, String person_address,
 			String person_phone, int person_mileage, String person_school, String person_sell_grade, String person_kind,
-			String person_account, int personr_avg) {
+			String person_account, int person_avg) {
 		super();
 		this.person_id = person_id;
 		this.person_email = person_email;
@@ -34,7 +32,7 @@ public class Person {
 		this.person_sell_grade = person_sell_grade;
 		this.person_kind = person_kind;
 		this.person_account = person_account;
-		this.personr_avg = personr_avg;
+		this.person_avg = person_avg;
 	}
 
 	public int getPerson_id() {
@@ -125,14 +123,12 @@ public class Person {
 		this.person_account = person_account;
 	}
 
-	public int getPersonr_avg() {
-		return personr_avg;
+	public int getPerson_avg() {
+		return person_avg;
 	}
 
-	public void setPersonr_avg(int personr_avg) {
-		this.personr_avg = personr_avg;
+	public void setPerson_avg(int person_avg) {
+		this.person_avg = person_avg;
 	}
-
-	
 
 }

@@ -52,6 +52,7 @@
      	<mapper resource="kobook/person/mapper/Person.xml"/>
      	<mapper resource="kobook/recom/mapper/Recommend.xml"/>
      	<mapper resource="kobook/book/mapper/Book.xml"/>
+     	<mapper resource="kobook/person/mapper/Person.xml"/>
       
 	</mappers>
 	
