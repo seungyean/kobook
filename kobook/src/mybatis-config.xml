@@ -23,7 +23,6 @@
     	<typeAlias alias="Favorite" type="kobook.recom.domain.Favorite" />
 		<typeAlias alias="FavoriteBook" type="kobook.recom.domain.FavoriteBook"/>
      	<typeAlias alias="Alarm" type="kobook.recom.domain.Alarm" />
-     	<typeAlias alias="NewAlarm" type="kobook.recom.domain.NewAlarm" />
       	
       	<!-- 책: 민주 -->
 		<typeAlias alias="BookSearch" type="kobook.book.domain.BookSearch"/>

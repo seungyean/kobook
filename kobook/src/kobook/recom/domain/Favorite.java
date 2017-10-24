@@ -2,7 +2,7 @@ package kobook.recom.domain;
 
 import java.io.Serializable;
 
-public class Favorite implements Serializable {
+public class Favorite implements Serializable{
 
 	private int favorite_id;
 	private String favorite_name;
@@ -60,5 +60,6 @@ public class Favorite implements Serializable {
 	public void setBook_id(int book_id) {
 		this.book_id = book_id;
 	}
+	
 	
 }

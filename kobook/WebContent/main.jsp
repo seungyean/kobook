@@ -1,4 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%
+	session.setAttribute("person_id", "3");
+	int alarm_new=0;
+%>
 <!DOCTYPE html>
 <!--[if IE 8 ]><html class="ie ie8" class="no-js" lang="en"> <![endif]-->
 <!--[if (gte IE 9)|!(IE)]><!--><html class="no-js" lang="en"> <!--<![endif]-->
@@ -27,14 +32,15 @@
  		 <jsp:include page="/include/header.jsp" />
   	<!-- /헤더 -->
     
+    
     <section class="wrapper">
         <div class="slider-wrapper">
             <div class="slider">
                 <div class="fs_loader"></div>
                 <div class="slide">
-                    <img src="images/fraction-slider/base.jpg" width="1920" height="auto" data-in="fade" data-out="fade" />
+                    <img src="/kobook/images/main_1.png" width="1920" height="auto" data-in="fade" data-out="fade" />
 
-                    <img src="images/fraction-slider/slider-boy.png" width="600" height="600" data-position="30,1100" data-in="left" data-out="right" data-delay="700"/>
+                    <!-- <img src="images/fraction-slider/slider-boy.png" width="600" height="600" data-position="30,1100" data-in="left" data-out="right" data-delay="700"/>
 
                     <p class="slide-1" data-position="50,610" data-in="fade" data-out="fade" data-delay="800">fully responsive</p>
                     <p class="slide-1" data-position="100,560" data-in="fade" data-out="fade" data-delay="1200">Our latest designs </p>
@@ -43,23 +49,23 @@
                     <p class="slide-1a" data-position="220,770" data-in="bottom" data-out="bottom" data-delay="2000" data-ease-in="easeOutBounce">SEO Friendly Website</p>
                     <p class="slide-1a" data-position="267,698" data-in="bottom" data-out="bottom" data-delay="3200"  data-ease-in="easeOutBounce">7 combination color option</p>
                     <p class="slide-1a" data-position="314,760" data-in="bottom" data-out="bottom" data-delay="4200"  data-ease-in="easeOutBounce">Animated layer slider</p>
-                    <p class="slide-1a" data-position="361,753" data-in="bottom" data-out="bottom" data-delay="5200"  data-ease-in="easeOutBounce">Much More Featured...</p>
+                    <p class="slide-1a" data-position="361,753" data-in="bottom" data-out="bottom" data-delay="5200"  data-ease-in="easeOutBounce">Much More Featured...</p> -->
                 </div>
 
                 <div class="slide">
-                    <img src="images/fraction-slider/base_2.jpg" width="1920" height="auto" data-in="fade" data-out="fade" />
+                    <img src="/kobook/images/a.png" width="1920" height="auto" data-in="fade" data-out="fade" />
 
-                    <img src="images/fraction-slider/slider-girl.png" width="600" height="545" data-position="20,400" data-in="right" data-0ut="bottom" data-delay="500"/>
+                    <!-- <img src="images/fraction-slider/slider-girl.png" width="600" height="545" data-position="20,400" data-in="right" data-0ut="bottom" data-delay="500"/>
 
                     <p class="slide-2 " data-position="120,900" data-in="bottom" data-out="top" data-delay="2000">Your-Business</p>
                     <p class="slide-2a " data-position="210,900" data-in="left" data-out="right" data-delay="3000">A responsive multipurpose Theme</p>
-                    <p class="slide-2b " data-position="270,900" data-in="top" data-out="bottom" data-delay="4000" data-ease-in="easeOutBounce">For Your Prestigious World !</p>
+                    <p class="slide-2b " data-position="270,900" data-in="top" data-out="bottom" data-delay="4000" data-ease-in="easeOutBounce">For Your Prestigious World !</p> -->
                 </div>
 
                 <div class="slide">
                     <img src="images/fraction-slider/base_3.jpg"  width="1920" height="auto" data-in="fade" data-out="fade" />
 
-                    <p class="slide-heading" data-position="130,370" data-in="top" data-out="top" data-ease-in="easeOutBounce" data-delay="1500">Electrify theme</p>
+                    <!-- <p class="slide-heading" data-position="130,370" data-in="top" data-out="top" data-ease-in="easeOutBounce" data-delay="1500">Electrify theme</p>
 
                     <p class="sub-line" data-position="230,370" data-in="right" data-out="left" data-delay="2500">grid system and responsive design</p>
 
@@ -71,12 +77,261 @@
 
                     <img src="images/fraction-slider/gadgets/smartphone.png" width="70" height="140" data-position="270,1320" data-in="right" data-out="right" data-delay="300">
 
-                    <a href=""	class="btn btn-lg btn-default" data-position="320,370" data-in="bottom"  data-out="bottom" data-delay="3700" data-ease-in="easeOutBounce">Free Download</a>
+                    <a href=""	class="btn btn-lg btn-default" data-position="320,370" data-in="bottom"  data-out="bottom" data-delay="3700" data-ease-in="easeOutBounce">Free Download</a> -->
                 </div>
             </div>
         </div>
 
-        <div class="container">
+
+		<form action="/kobook/recom/recommendAction.do" method="post">
+			아이디 : <input type="text" name="person_id">
+			<input type="submit" value="등록">
+		</form> 
+		
+		<c:if test="${list != null}">
+            <h4>${list.get(0).person_id }님  환영합니다앙~^0^</h4>
+            <form action="/kobook/recom/alarmListAction.do">
+            	<input type="hidden" name="person_id" value="${list.get(0).person_id }">
+				<input type="submit" value="알림">
+			</form>
+        </c:if>
+        
+        <h2>알림 리스트</h2>
+        
+        <h4>현재 사용자 : ${list.get(0).person_id}</h4>
+ 	    <c:forEach var="z" items="${alarmList }">
+	    	<c:if test="${z.hit_yn == 'N' }">
+	             <% alarm_new += 1;%>
+	        </c:if> 
+	    </c:forEach>
+        <h4>새로운 알람의 갯수 : [ <%=alarm_new %> ]</h4>
+        
+        <table border="1">
+			<tr>
+				<td>알람아이디</td>
+				<td>알림종류</td>
+				<td>알림내용</td>
+				<td>회원아이디</td>
+				<td>조회여부</td>
+
+			</tr>	
+			<c:forEach var="a" items="${alarmList }">
+			<tr>
+				<td>${a.alarm_id }</td>
+				<td>${a.alarm_kind }</td>
+				<td>${a.alarm_content }</td>
+				<td>${a.person_id }</td>
+				<td>${a.hit_yn }</td>
+
+			</tr>
+			</c:forEach>
+		</table>
+		
+		
+		<br>
+      <h2>추천도서</h2>
+		<table border="1">
+			<tr>
+				<td>책이름</td>
+				<td>책종류</td>
+				<td>책ID</td>
+				<td>분야ID</td>
+				<td>분야이름</td>
+				<td>회원ID</td>
+				<td>회원전공여부</td>
+			</tr>	
+			<c:forEach var="f" items="${list }">
+			<tr>
+				<td>${f.book_name }</td>
+				<td>${f.book_kind }</td>
+				<td>${f.book_id }</td>
+				<td>${f.favorite_id }</td>
+				<td>${f.favorite_name }</td>
+				<td>${f.person_id }</td>
+				<td>${f.favorite_major }</td>
+
+			</tr>
+			</c:forEach>
+		</table>
+		
+		
+		
+		<section class="super_sub_content">
+            <div class="dividerHeading text-center">
+            	<c:if test="${list != null}">
+            		<h4>${list.get(0).person_id }님을 위한 추천도서</h4>
+            	</c:if>
+            	<c:if test="${list == null}">
+            		<h4><span>신규 등록 도서</span></h4>
+            	</c:if>
+            </div>
+
+            <nav class="clearfix">
+                <ul id="filter">
+                    <li data-filter="*" class="selected"><a href="#">전체보기</a></li>
+                    <li data-filter=".mockups"><a href="#">전공</a></li>
+                    <li data-filter=".graphic-design"><a href="#">기타</a></li>
+                </ul>
+            </nav>
+
+            <div class="portfolio-centered">
+                <div class="recentitems portfolio">
+	                <c:forEach var="f" items="${list }">
+	
+		                <c:if test="${f.favorite_major == 'M' }">
+			                	<div class="portfolio-item mockups">
+			                        <div class="box">
+			                            <img src="/kobook/images/${f.book_name }.png" alt="">
+			                            <div class="option inner">
+			                                <div>
+			                                    <h5>전공 상세보기</h5>
+			                                    <a href="/kobook/images/${f.book_name }.png" class="fa fa-search mfp-image"></a>
+			                                    <a href="/kobook/search/book_detail.jsp" class="fa fa-link"></a>
+			                                    <a href="/kobook/recom/recomDeleteAction.do?book_id=${f.book_id }&favorite_id=${f.favorite_id}&favorite_major=${f.favorite_major}&favorite_name=${f.favorite_name}" class="fa fa-times"></a>
+			                                </div>
+			                            </div>
+			                        </div>
+			                    </div>
+
+		                </c:if>
+		                
+		                
+		                <c:if test="${f.favorite_major == 'O' }">
+						
+						<input type="hidden" id="book_id" value="${f.book_id }">
+						
+		                	<div class="portfolio-item graphic-design">
+		                        <div class="box">
+		                            <img src="/kobook/images/${f.book_name }.png" alt="">
+		                            <div class="option inner">
+		                                <div>
+		                                    <h5>기타 상세보기</h5>
+		                                    <a href="/kobook/images/${f.book_name }.png" class="fa fa-search mfp-image"></a>
+		                                    <a href="/kobook/search/book_detail.jsp" class="fa fa-link"></a>
+		                                    <a href="/kobook/recom/recomDeleteAction.do?book_id=${f.book_id }&favorite_id=${f.favorite_id}&favorite_major=${f.favorite_major}&favorite_name=${f.favorite_name}" class="fa fa-times"></a>
+		                                </div>
+		                            </div>
+		                        </div>
+		                    </div>
+
+		                </c:if>
+	                	
+	                </c:forEach>  
+                
+
+
+
+                    <!-- <div class="portfolio-item graphic-design">
+                        <div class="box">
+                            <img src="images/portfolio/portfolio_3.png" alt="">
+                            <div class="option inner">
+                                <div>
+                                    <h5>Gray and Pink</h5>
+                                    <a href="images/portfolio/full/portfolio_3.png" class="fa fa-search mfp-image"></a>
+                                    <a href="portfolio_single.html" class="fa fa-link"></a>
+                                </div>
+                            </div>
+                        </div>box
+                    </div>
+
+                    <div class="portfolio-item mockups">
+                        <div class="box">
+                            <img src="images/portfolio/portfolio_4.png" alt="">
+                            <div class="option inner">
+                                <div>
+                                    <h5>Amazing Keyboard Desin</h5>
+                                    <a href="images/portfolio/full/portfolio_3.png" class="fa fa-search mfp-image"></a>
+                                    <a href="portfolio_single.html" class="fa fa-link"></a>
+                                </div>
+                            </div>
+                        </div>box
+                    </div>
+
+                    <div class="portfolio-item mockups">
+                        <div class="box">
+                            <img src="images/portfolio/portfolio_5.png" alt="">
+                            <div class="option inner">
+                                <div>
+                                    <h5>Our Favorite Colors</h5>
+                                    <a href="images/portfolio/full/portfolio_3.png" class="fa fa-search mfp-image"></a>
+                                    <a href="portfolio_single.html" class="fa fa-link"></a>
+                                </div>
+                            </div>
+                        </div>box
+                    </div>
+
+                    <div class="portfolio-item mockups">
+                        <div class="box">
+                            <img src="images/portfolio/portfolio_6.png" alt="">
+                            <div class="option inner">
+                                <div>
+                                    <h5>Not War Make Design</h5>
+                                    <a href="images/portfolio/full/portfolio_3.png" class="fa fa-search mfp-image"></a>
+                                    <a href="portfolio_single.html" class="fa fa-link"></a>
+                                </div>
+                            </div>
+                        </div>box
+                    </div>
+
+                    <div class="portfolio-item graphic-design">
+                        <div class="box">
+                            <img src="images/portfolio/portfolio_7.png" alt="">
+                            <div class="option inner">
+                                <div>
+                                    <h5>A GREAT MOCK-UPS</h5>
+                                    <a href="images/portfolio/full/portfolio_5.png" class="fa fa-search mfp-image"></a>
+                                    <a href="portfolio_single.html" class="fa fa-link"></a>
+                                </div>
+                            </div>
+                        </div>box
+                    </div>
+
+                    <div class="portfolio-item graphic-design">
+                        <div class="box">
+                            <img src="images/portfolio/portfolio_8.png" alt="">
+                            <div class="option inner">
+                                <div>
+                                    <h5>Missis Of 2014</h5>
+                                    <a href="images/portfolio/full/portfolio_4.png" class="fa fa-search mfp-image"></a>
+                                    <a href="portfolio_single.html" class="fa fa-link"></a>
+                                </div>
+                            </div>
+                        </div>box
+                    </div>
+
+                    <div class="portfolio-item graphic-design">
+                        <div class="box">
+                            <img src="images/portfolio/portfolio_9.png" alt="">
+                            <div class="option inner">
+                                <div>
+                                    <h5>Light Carpet</h5>
+                                    <a href="images/portfolio/full/portfolio_1.png" class="fa fa-search mfp-image"></a>
+                                    <a href="portfolio_single.html" class="fa fa-link"></a>
+                                </div>
+                            </div>
+                        </div>box
+                    </div>
+
+                    <div class="portfolio-item mockups">
+                        <div class="box">
+                            <img src="images/portfolio/portfolio_10.png" alt="">
+                            <div class="option inner">
+                                <div>
+                                    <h5>Business Card Mock-Up</h5>
+                                    <a href="images/portfolio/full/portfolio_8.png" class="fa fa-search mfp-image"></a>
+                                    <a href="portfolio_single.html" class="fa fa-link"></a>
+                                </div>
+                            </div>
+                        </div>box
+                    </div> -->
+
+                </div><!-- portfolio -->
+            </div><!-- portfolio container -->
+        </section>
+		
+		
+		
+        <!-- <div class="container">
             <div class="row super_sub_content">
                 <div class="col-md-3 col-sm-6">
                     <div class="serviceBox_2 green">
@@ -471,7 +726,7 @@
                                     <a href="portfolio_single.html" class="fa fa-link"></a>
                                 </div>
                             </div>
-                        </div><!-- box -->
+                        </div>box
                     </div>
 
                     <div class="portfolio-item web-design graphic-design">
@@ -484,7 +739,7 @@
                                     <a href="portfolio_single.html" class="fa fa-link"></a>
                                 </div>
                             </div>
-                        </div><!-- box -->
+                        </div>box
                     </div>
 
                     <div class="portfolio-item graphic-design">
@@ -497,7 +752,7 @@
                                     <a href="portfolio_single.html" class="fa fa-link"></a>
                                 </div>
                             </div>
-                        </div><!-- box -->
+                        </div>box
                     </div>
 
                     <div class="portfolio-item mockups">
@@ -510,7 +765,7 @@
                                     <a href="portfolio_single.html" class="fa fa-link"></a>
                                 </div>
                             </div>
-                        </div><!-- box -->
+                        </div>box
                     </div>
 
                     <div class="portfolio-item flayers">
@@ -523,7 +778,7 @@
                                     <a href="portfolio_single.html" class="fa fa-link"></a>
                                 </div>
                             </div>
-                        </div><!-- box -->
+                        </div>box
                     </div>
 
                     <div class="portfolio-item flayers">
@@ -536,7 +791,7 @@
                                     <a href="portfolio_single.html" class="fa fa-link"></a>
                                 </div>
                             </div>
-                        </div><!-- box -->
+                        </div>box
                     </div>
 
                     <div class="portfolio-item graphic-design mockups">
@@ -549,7 +804,7 @@
                                     <a href="portfolio_single.html" class="fa fa-link"></a>
                                 </div>
                             </div>
-                        </div><!-- box -->
+                        </div>box
                     </div>
 
                     <div class="portfolio-item web-design mockups">
@@ -562,7 +817,7 @@
                                     <a href="portfolio_single.html" class="fa fa-link"></a>
                                 </div>
                             </div>
-                        </div><!-- box -->
+                        </div>box
                     </div>
 
                     <div class="portfolio-item web-design mockups">
@@ -575,7 +830,7 @@
                                     <a href="portfolio_single.html" class="fa fa-link"></a>
                                 </div>
                             </div>
-                        </div><!-- box -->
+                        </div>box
                     </div>
 
                     <div class="portfolio-item web-design mockups">
@@ -588,11 +843,11 @@
                                     <a href="portfolio_single.html" class="fa fa-link"></a>
                                 </div>
                             </div>
-                        </div><!-- box -->
+                        </div>box
                     </div>
 
-                </div><!-- portfolio -->
-            </div><!-- portfolio container -->
+                </div>portfolio
+            </div>portfolio container
         </section>
 
         <div class="grey-content">
@@ -723,7 +978,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> -->
 
         <div class="container-fluid">
             <div class="row">
@@ -761,7 +1016,7 @@
             </div>
         </div>
 
-        <div class="super_sub_content grey_bg">
+        <!-- <div class="super_sub_content grey_bg">
             <div class="container">
                 <div class="row">
                     <div class="col-md-4 mrgt-70">
@@ -812,7 +1067,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> -->
 
         <!--</div>-->
 
@@ -895,7 +1150,7 @@
             </div>
         </div>
 
-        <section class="promo_box wow bounceInUp" data-wow-offset="50">
+<!--         <section class="promo_box wow bounceInUp" data-wow-offset="50">
             <div class="container">
                 <div class="row">
                     <div class="col-sm-9 col-md-9 col-lg-9">
@@ -915,7 +1170,7 @@
                 </div>
             </div>
         </section>
-    </section>
+    </section> -->
 
     <!-- 푸터 -->
  		 <jsp:include page="/include/footer.jsp" />
