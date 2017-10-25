@@ -10,12 +10,12 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 
     <!-- CSS FILES -->
-    <link rel="stylesheet" href="../css/bootstrap.min.css"/>
-    <link rel="stylesheet" href="../css/style.css">
-    <link rel="stylesheet" type="text/css" href="../css/style.css" media="screen" data-name="skins">
-    <link rel="stylesheet" href="../css/layout/wide.css" data-name="layout">
+    <link rel="stylesheet" href="/kobook/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="/kobook/css/style.css">
+    <link rel="stylesheet" type="text/css" href="/kobook/css/style.css" media="screen" data-name="skins">
+    <link rel="stylesheet" href="/kobook/css/layout/wide.css" data-name="layout">
 
-    <link rel="stylesheet" type="text/css" href="../css/switcher.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="/kobook/css/switcher.css" media="screen" />
 </head>
 <body>
 	<!-- 헤더 -->
@@ -141,21 +141,21 @@
 		</div>
 	</section>
 
-    <script type="text/javascript" src="../js/jquery-1.10.2.min.js"></script>
-    <script src="../js/bootstrap.min.js"></script>
-    <script src="../js/jquery.easing.1.3.js"></script>
-    <script src="../js/retina-1.1.0.min.js"></script>
-    <script type="text/javascript" src="../js/jquery.cookie.js"></script> <!-- jQuery cookie -->
-    <script type="text/javascript" src="../js/styleswitch.js"></script> <!-- Style Colors Switcher -->
-    <script type="text/javascript" src="../js/jquery.smartmenus.min.js"></script>
-    <script type="text/javascript" src="../js/jquery.smartmenus.bootstrap.min.js"></script>
-        <script type="text/javascript" src="../js/jflickrfeed.js"></script>
-    <script type="text/javascript" src="../js/jquery.magnific-popup.min.js"></script>
-    <script type="text/javascript" src="../js/jquery.isotope.min.js"></script>
-    <script type="text/javascript" src="../js/swipe.js"></script>
-    <script type="text/javascript" src="../js/jquery-scrolltofixed-min.js"></script>
+    <script type="text/javascript" src="/kobook/js/jquery-1.10.2.min.js"></script>
+    <script src="/kobook/js/bootstrap.min.js"></script>
+    <script src="/kobook/js/jquery.easing.1.3.js"></script>
+    <script src="/kobook/js/retina-1.1.0.min.js"></script>
+    <script type="text/javascript" src="/kobook/js/jquery.cookie.js"></script> <!-- jQuery cookie -->
+    <script type="text/javascript" src="/kobook/js/styleswitch.js"></script> <!-- Style Colors Switcher -->
+    <script type="text/javascript" src="/kobook/js/jquery.smartmenus.min.js"></script>
+    <script type="text/javascript" src="/kobook/js/jquery.smartmenus.bootstrap.min.js"></script>
+        <script type="text/javascript" src="/kobook/js/jflickrfeed.js"></script>
+    <script type="text/javascript" src="/kobook/js/jquery.magnific-popup.min.js"></script>
+    <script type="text/javascript" src="/kobook/js/jquery.isotope.min.js"></script>
+    <script type="text/javascript" src="/kobook/js/swipe.js"></script>
+    <script type="text/javascript" src="/kobook/js/jquery-scrolltofixed-min.js"></script>
 
-    <script src="../js/main.js"></script>>
+    <script src="/kobook/js/main.js"></script>>
 
     <!-- Start Style Switcher -->
     <div class="switcher"></div>
