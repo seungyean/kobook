@@ -10,12 +10,12 @@
 	<meta name="description" content="">
 
     <!-- CSS FILES -->
-    <link rel="stylesheet" href="/BoardProject1/css/bootstrap.min.css"/>
-    <link rel="stylesheet" href="/BoardProject1/css/style.css">
-    <link rel="stylesheet" type="text/css" href="/BoardProject1/css/style.css" media="screen" data-name="skins">
-    <link rel="stylesheet" href="/BoardProject1/css/layout/wide.css" data-name="layout">
+    <link rel="stylesheet" href="/kobook/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="/kobook/css/style.css">
+    <link rel="stylesheet" type="text/css" href="/kobook/css/style.css" media="screen" data-name="skins">
+    <link rel="stylesheet" href="/kobook/css/layout/wide.css" data-name="layout">
 
-    <link rel="stylesheet" type="text/css" href="/BoardProject1/css/switcher.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="/kobook/css/switcher.css" media="screen" />
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -203,7 +203,7 @@
     <script type="text/javascript" src="/kobook/js/swipe.js"></script>
     <script type="text/javascript" src="/kobook/js/jquery-scrolltofixed-min.js"></script>
 
-    <script src="js/main.js"></script>
+    <script src="/kobook/js/main.js"></script>
 
     <!-- Start Style Switcher -->
     <div class="switcher"></div>

@@ -8,7 +8,6 @@ import kobook.book.service.*;
 
 
 
-
 public class BookdetailAction implements Action {
 
    @Override
