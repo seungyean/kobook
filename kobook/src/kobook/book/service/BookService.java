@@ -175,6 +175,8 @@ public class BookService {
 	      
 	      
 	      //�럹�씠吏��떦 湲�媛��닔, 珥앷�媛��닔, 珥앺럹�씠吏��닔, �떆�옉�럹�씠吏�, 留덉�留됲럹�씠吏�, �쁽�옱�럹�씠吏�
+	    
+	      
 	      int totalCount = dao.countlocationBook(search);
 	      int totalPageCount = totalCount/PAGE_SIZE;
 	      if(totalCount%PAGE_SIZE >0){

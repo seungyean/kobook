@@ -217,8 +217,9 @@
 			</div>
 		</section>
 
-
+	
 		<section class="content portfolio small-images">
+		<form action="/kobook/book/insertform.do" method="post">
 			<div class="container">
 				<div class="row">
 					<!--begin isotope -->
@@ -504,6 +505,9 @@
 					</div>
 					<!--end isotope -->
 
+	<input type="submit" value="글쓰기" />
+	</form>
+	
 
 					<form method="post" id="site-searchform" action="/kobook/book/listAction.do">
 					
@@ -516,6 +520,7 @@
 							<!-- 지역명검색: <input type="checkbox" name="location" value="book_location" />  -->
 							<input type="text" class="input-text" name="searchKey" id="s" placeholder="책제목 을 입력하세요" />
 							<input type="submit" id="searchsubmit" value="search" />
+							
 							
 			<!-- 	<br><br>
 				 			

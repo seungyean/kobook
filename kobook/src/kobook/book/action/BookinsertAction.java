@@ -21,13 +21,15 @@ public class BookinsertAction implements Action {
 
 			System.out.println(re);
 			//forward.setPath("/booklist.jsp");
-			forward.setPath("/kobook/book/listAction.do");
-			forward.setRedirect(true);
-		}else {
+			forward.setPath("/book/listAction.do");
+			forward.setRedirect(false);
+		}
+		
+		/*else {
 			System.out.println(re);
 			forward.setPath("/kobook/book/bookinsertForm.jsp");
 			forward.setRedirect(true);
-		}
+		}*/
 
 		return forward;
 	}
