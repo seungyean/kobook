@@ -27,7 +27,7 @@
 					<where>
 						<!-- book_name LIKE %검색하고자하는 제목(입력값)% OR person_id LIKE %검색하고싶은 작성자(입력값)% -->
 						<foreach collection="area" item="item" separator="OR" open="(" close=")">
-							${item} LIKE #{searchKey}
+							${item} LIKE #{searchKey}<!--  or book_hash LIKE=#{searchKey} -->
 						</foreach>
 					
 						<choose>

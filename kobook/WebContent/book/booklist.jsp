@@ -250,7 +250,7 @@
 									<div class="recent-item box">
 										<figure class="touching ">
 										
-										<img src="/kobook/upload/${b.book_img}" alt="aa"/>
+										<img src="/kobook/upload/${b.book_img}" alt="aa" height="280" />
 											<a href="/kobook/book/detailAction.do?book_id=${b.book_id}"></a>
 											<div class="option inner">
 												<div>
@@ -289,7 +289,7 @@
 									<div class="recent-item box">
 										<figure class="touching ">
 										
-										<img src="/kobook/upload/${b.book_img}" alt="aa"/>
+										<img src="/kobook/upload/${b.book_img}" alt="aa" height="280"/>
 											<a href="/kobook/book/detailAction.do?book_id=${b.book_id}"></a>
 											<div class="option inner">
 												<div>
@@ -325,7 +325,7 @@
 									<div class="recent-item box">
 										<figure class="touching ">
 										
-										<img src="/kobook/upload/${b.book_img}" alt="aa"/>
+										<img src="/kobook/upload/${b.book_img}" height="280" alt="aa"/>
 											<a href="/kobook/book/detailAction.do?book_id=${b.book_id}"></a>
 											<div class="option inner">
 												<div>
@@ -361,7 +361,7 @@
 									<div class="recent-item box">
 										<figure class="touching ">
 										
-										<img src="/kobook/upload/${b.book_img}" alt="aa"/>
+										<img src="/kobook/upload/${b.book_img}" height="280" alt="aa"/>
 											<a href="/kobook/book/detailAction.do?book_id=${b.book_id}"></a>
 											<div class="option inner">
 												<div>
@@ -397,7 +397,7 @@
 									<div class="recent-item box">
 										<figure class="touching ">
 										
-										<img src="/kobook/upload/${b.book_img}" alt="aa"/>
+										<img src="/kobook/upload/${b.book_img}" height="280" alt="aa"/>
 											<a href="/kobook/book/detailAction.do?book_id=${b.book_id}"></a>
 											<div class="option inner">
 												<div>
@@ -433,7 +433,7 @@
 									<div class="recent-item box">
 										<figure class="touching ">
 										
-										<img src="/kobook/upload/${b.book_img}" alt="aa"/>
+										<img src="/kobook/upload/${b.book_img}" height="280" alt="aa"/>
 											<a href="/kobook/book/detailAction.do?book_id=${b.book_id}"></a>
 											<div class="option inner">
 												<div>
@@ -469,7 +469,7 @@
 									<div class="recent-item box">
 										<figure class="touching ">
 										
-										<img src="/kobook/upload/${b.book_img}" alt="aa"/>
+										<img src="/kobook/upload/${b.book_img}" height="280"  alt="aa"/>
 											<a href="/kobook/book/detailAction.do?book_id=${b.book_id}"></a>
 											<div class="option inner">
 												<div>
@@ -508,6 +508,7 @@
 						 <input type="hidden" name="temp" value="temp">
 
 							제목: <input type="checkbox" name="area" value="book_name" /> 
+							해시태그포함하여 검색유무: <input type="checkbox" name="area" value="book_hash" /> 
 							안심거래사용: <input type="checkbox" name="safe_yn" value="book_safe_yn" />
 							<!-- 지역명검색: <input type="checkbox" name="location" value="book_location" />  -->
 							<input type="text" class="input-text" name="searchKey" id="s" placeholder="책제목 을 입력하세요" />
@@ -550,7 +551,7 @@
 						<!-- 페이징 -->
 						<!-- 이전영역 생성(start page) -->
 						<c:if test="${listModel.startPage > 5 }">
-							<a href="/book/listAction.do?pageNum=${listModel.startPage -1}">[이전]</a>
+							<a href="/kobook/book/listAction.do?pageNum=${listModel.startPage -1}">[이전]</a>
 						</c:if>
 
 						<!-- 페이지 목록 -->
@@ -559,7 +560,7 @@
 							<c:if test="${listModel.requestPage == pageNo }">
 								<b>
 							</c:if>
-							<a href="/book/listAction.do?pageNum=${pageNo}">[ ${pageNo} ]</a>
+							<a href="/kobook/book/listAction.do?pageNum=${pageNo}">[ ${pageNo} ]</a>
 							<c:if test="${listModel.requestPage == pageNo }">
 								</b>
 							</c:if>
@@ -567,7 +568,7 @@
 
 						<!-- 이후영역 생성(end) -->
 						<c:if test="${listModel.endPage < listModel.totalPageCount}">
-							<a href="/book/listAction.do?pageNum=${listModel.endPage +1}">[이후]</a>
+							<a href="/kobook/book/listAction.do?pageNum=${listModel.endPage +1}">[이후]</a>
 						</c:if>
 						<br>
 

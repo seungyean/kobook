@@ -63,7 +63,7 @@
                 <div class="table-responsive">
                 
                 
-                <form action="/book/locationAction.do" method="post">
+                <form action="/kobook/book/locationAction.do" method="post">
                 <div>
 					<input type="hidden" name="temp" value="temp">
 					<input type="text" class="input-text" name="searchKey" id="s" placeholder="지역을 입력하세요" />
@@ -90,7 +90,7 @@
                  <c:forEach var="b" items="${listModel2.list}">
 				<tr>
 				<td>${b.book_id}</td>
-				<td><a href="/book/detailAction.do?book_id=${b.book_id}">${b.book_name}</a></td>
+				<td><a href="/kobook/book/detailAction.do?book_id=${b.book_id}">${b.book_name}</a></td>
 				
 				<td>
 				<c:if test="${b.book_status !=null}">
