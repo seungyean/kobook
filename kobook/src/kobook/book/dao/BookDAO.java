@@ -173,6 +173,22 @@ public class BookDAO {
 	      return re;
 	   }   
 	   
+	   public int countlocationBook(BookSearch bookSearch){
+		      SqlSession sqlSession = getSqlSessionFactory().openSession();
+		      int re = -1;
+		      try {
+		         re = sqlSession.getMapper(BookMapper.class).countlocationBook(bookSearch);
+		      } catch (Exception e) {
+		         e.printStackTrace();
+		      }finally {
+		         sqlSession.close();
+		      }
+
+		      return re;
+		   }   
+	   
+	   
+	   
 	   public int updateBook(Book book) {
 	      int re = -1;
 	      SqlSession sqlSession = getSqlSessionFactory().openSession();

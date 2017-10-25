@@ -66,14 +66,22 @@
                 <form action="/kobook/book/locationAction.do" method="post">
                 <div>
 					<input type="hidden" name="temp" value="temp">
+					<input type="hidden" name="check" value="-1">
 					<input type="text" class="input-text" name="searchKey" id="s" placeholder="지역을 입력하세요" />
-					<input type="submit" id="searchsubmit" value="search" />		
+					<input type="submit" id="searchsubmit" value="search"/>		
+					<!-- 안심거래사용: <input type="checkbox" name="safe_yn" value="book_safe_yn" /> -->
+
 				</div>
                 </form>
                 
-
+				
                 
-                    <table class="table table-striped table-hover">
+                    
+                      
+				<c:choose>
+				<c:when test="${check<0}">
+				
+				<table class="table table-striped table-hover">
                         <thead>
                         <tr>
                             <th>글번호</th>
@@ -85,9 +93,7 @@
                             <th>날짜</th>
                         </tr>
                         </thead>
-                      
-                        
-                 <c:forEach var="b" items="${listModel2.list}">
+				      <c:forEach var="b" items="${listModel.list}">
 				<tr>
 				<td>${b.book_id}</td>
 				<td><a href="/kobook/book/detailAction.do?book_id=${b.book_id}">${b.book_name}</a></td>
@@ -132,6 +138,131 @@
 			
 		</c:forEach> 
                     </table>
+                    
+                    
+                    <!-- 페이징 -->
+						<!-- 이전영역 생성(start page) -->
+						<c:if test="${listModel.startPage > 5 }">
+							<a href="/kobook/book/locationAction.do?pageNum=${listModel.startPage -1}&check=1">[이전]</a>
+						</c:if>
+
+						<!-- 페이지 목록 -->
+						<c:forEach var="pageNo" begin="${listModel.startPage}"
+							end="${listModel.endPage}">
+							<c:if test="${listModel.requestPage == pageNo }">
+								<b>
+							</c:if>
+							<a href="/kobook/book/locationAction.do?pageNum=${pageNo}&check=1">[ ${pageNo} ]</a>
+							<c:if test="${listModel.requestPage == pageNo }">
+								</b>
+							</c:if>
+						</c:forEach>
+
+						<!-- 이후영역 생성(end) -->
+						<c:if test="${listModel.endPage < listModel.totalPageCount}">
+							<a href="/kobook/book/locationAction.do?pageNum=${listModel.endPage +1}&check=1">[이후]</a>
+						</c:if>
+						<br>
+				</c:when>
+				
+				
+				<c:otherwise>
+				<table class="table table-striped table-hover">
+                        <thead>
+                        <tr>
+                            <th>글번호</th>
+                            <th>책제목</th>
+                            <th>책상태</th>
+                            <th>판매상태</th>
+                            <th>책가격</th>
+                            <th>안심유무</th>
+                            <th>날짜</th>
+                        </tr>
+                        </thead>
+				      <c:forEach var="b" items="${listModel2.list}">
+				<tr>
+				<td>${b.book_id}</td>
+				<td><a href="/kobook/book/detailAction.do?book_id=${b.book_id}">${b.book_name}</a></td>
+				
+				<td>
+				<c:if test="${b.book_status !=null}">
+				<c:choose>
+				<c:when test="${b.book_status=='G'}">
+				양호
+				</c:when>
+				<c:when test="${b.book_status=='B'}">
+				나쁨
+				</c:when>
+				<c:otherwise>
+				보통
+				</c:otherwise>
+				</c:choose>
+				</c:if>
+				</td>
+				
+				
+				<td>
+				<c:if test="${b.book_sell_state !=null}">
+				<c:choose>
+				<c:when test="${b.book_sell_state=='I'}">
+				판매중
+				</c:when>
+				<c:when test="${b.book_sell_state=='C'}">
+				판매완료
+				</c:when>
+				</c:choose>
+				</c:if>
+				</td>
+				
+				
+				<td>${b.book_m_price}</td>
+				<td>${b.book_safe_yn}</td>
+				<td><fmt:formatDate value="${b.book_date}"
+						pattern='yyyy-MM-dd' /></td>
+			
+			</tr>
+			
+		</c:forEach> 
+                    </table>
+                    
+                    
+                    			<!-- 페이징 -->
+						<!-- 이전영역 생성(start page) -->
+						<c:if test="${listModel2.startPage > 5 }">
+							<a href="/kobook/book/locationAction.do?pageNum=${listModel2.startPage -1}&check=-1">[이전]</a>
+						</c:if>
+
+						<!-- 페이지 목록 -->
+						<c:forEach var="pageNo" begin="${listModel2.startPage}"
+							end="${listModel2.endPage}">
+							<c:if test="${listModel2.requestPage == pageNo }">
+								<b>
+							</c:if>
+							<a href="/kobook/book/locationAction.do?pageNum=${pageNo}&check=-1">[ ${pageNo} ]</a>
+							<c:if test="${listModel2.requestPage == pageNo }">
+								</b>
+							</c:if>
+						</c:forEach>
+
+						<!-- 이후영역 생성(end) -->
+						<c:if test="${listModel2.endPage < listModel2.totalPageCount}">
+							<a href="/kobook/book/locationAction.do?pageNum=${listModel2.endPage +1}&check=-1">[이후]</a>
+						</c:if>
+						<br>
+				
+				</c:otherwise>
+				
+				</c:choose>
+				
+				
+				
+           
+						
+						
+						
+						
+
+					</div> <!--text container -->
                     
                     
                 </div>

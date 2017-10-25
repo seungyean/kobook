@@ -257,6 +257,7 @@
 													<h5>${b.book_name}</h5>
 													<a href="/kobook/upload/${b.book_img}" class="fa fa-search mfp-image"></a> 
 													<a href="/kobook/book/detailAction.do?book_id=${b.book_id}" class="fa fa-link"></a> 
+													<span>${b.book_m_price}원</span>
 													
 													 <c:choose>
 													<c:when test="${b.book_sell_state=='I'}">
@@ -296,6 +297,8 @@
 													<h5>${b.book_name}</h5>
 													<a href="/kobook/upload/${b.book_img}" class="fa fa-search mfp-image"></a> 
 													<a href="/kobook/book/detailAction.do?book_id=${b.book_id}" class="fa fa-link"></a> 
+													<span>${b.book_m_price}원</span>
+													
 													 <c:choose>
 													 
 													<c:when test="${b.book_sell_state=='I'}">
@@ -332,7 +335,7 @@
 													<h5>${b.book_name}</h5>
 													<a href="/kobook/upload/${b.book_img}" class="fa fa-search mfp-image"></a> 
 													<a href="/kobook/book/bookdetailAction.do?book_id=${b.book_id}" class="fa fa-link"></a> 
-													
+													<span>${b.book_m_price}원</span>
 													 <c:choose>
 													<c:when test="${b.book_sell_state=='I'}">
 													<span>판매중</span>
@@ -368,7 +371,7 @@
 													<h5>${b.book_name}</h5>
 													<a href="/kobook/upload/${b.book_img}" class="fa fa-search mfp-image"></a> 
 													<a href="/kobook/book/detailAction.do?book_id=${b.book_id}" class="fa fa-link"></a> 
-												
+												<span>${b.book_m_price}원</span>
 												 <c:choose>
 													<c:when test="${b.book_sell_state=='I'}">
 													<span>판매중</span>
@@ -404,7 +407,7 @@
 													<h5>${b.book_name}</h5>
 													<a href="/kobook/upload/${b.book_img}" class="fa fa-search mfp-image"></a> 
 													<a href="/kobook/book/detailAction.do?book_id=${b.book_id}" class="fa fa-link"></a> 
-													
+													<span>${b.book_m_price}원</span>
 													 <c:choose>
 													<c:when test="${b.book_sell_state=='I'}">
 													<span>판매중</span>
@@ -440,7 +443,7 @@
 													<h5>${b.book_name}</h5>
 													<a href="/kobook/upload/${b.book_img}" class="fa fa-search mfp-image"></a> 
 													<a href="/kobook/book/detailAction.do?book_id=${b.book_id}" class="fa fa-link"></a> 
-													
+													<span>${b.book_m_price}원</span>
 													 <c:choose>
 													<c:when test="${b.book_sell_state=='I'}">
 													<span>판매중</span>
@@ -476,7 +479,7 @@
 													<h5>${b.book_name}</h5>
 													<a href="/kobook/upload/${b.book_img}" class="fa fa-search mfp-image"></a> 
 													<a href="/kobook/book/detailAction.do?book_id=${b.book_id}" class="fa fa-link"></a> 
-												
+												<span>${b.book_m_price}원</span>
 												 <c:choose>
 													<c:when test="${b.book_sell_state=='I'}">
 													<span>판매중</span>
@@ -508,7 +511,7 @@
 						 <input type="hidden" name="temp" value="temp">
 
 							제목: <input type="checkbox" name="area" value="book_name" /> 
-							해시태그포함하여 검색유무: <input type="checkbox" name="area" value="book_hash" /> 
+							해시태그포함 검색유무: <input type="checkbox" name="area" value="book_hash" /> 
 							안심거래사용: <input type="checkbox" name="safe_yn" value="book_safe_yn" />
 							<!-- 지역명검색: <input type="checkbox" name="location" value="book_location" />  -->
 							<input type="text" class="input-text" name="searchKey" id="s" placeholder="책제목 을 입력하세요" />
