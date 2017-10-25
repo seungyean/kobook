@@ -163,9 +163,9 @@ public class BookService {
 	      }
 	      //寃��깋 submit�떆
 	      if(request.getParameter("searchKey")!=null){
-	    	  if(request.getParameterValues("m_price")!=null){
+	    	  if(request.getParameter("sort")!=null){
 	         //search.setArea(request.getParameterValues("area"));
-	    	 search.setm_price(request.getParameter("m_price"));
+	    	 search.setSort(request.getParameter("sort"));
 	         search.setSearchKey("%"+request.getParameter("searchKey")+"%");
 	         session.setAttribute("search", search);
 	      }else{

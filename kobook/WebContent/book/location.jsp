@@ -70,8 +70,8 @@
 					<input type="text" class="input-text" name="searchKey" id="s" placeholder="지역을 입력하세요" />
 					<input type="submit" id="searchsubmit" value="search"/>	
 					
-					가격순 <input type="checkbox" name="m_price" value="book_m_price"/>			
-		
+					가격순 <input type="radio" name="sort" value="book_m_price"/>			
+					상태순 <input type="radio" name="sort" value="book_status"/>			
 
 				</div>
                 </form>
@@ -103,10 +103,10 @@
 				<td>
 				<c:if test="${b.book_status !=null}">
 				<c:choose>
-				<c:when test="${b.book_status=='G'}">
+				<c:when test="${b.book_status=='A'}">
 				양호
 				</c:when>
-				<c:when test="${b.book_status=='B'}">
+				<c:when test="${b.book_status=='C'}">
 				나쁨
 				</c:when>
 				<c:otherwise>
@@ -189,10 +189,10 @@
 				<td>
 				<c:if test="${b.book_status !=null}">
 				<c:choose>
-				<c:when test="${b.book_status=='G'}">
+				<c:when test="${b.book_status=='A'}">
 				양호
 				</c:when>
-				<c:when test="${b.book_status=='B'}">
+				<c:when test="${b.book_status=='C'}">
 				나쁨
 				</c:when>
 				<c:otherwise>

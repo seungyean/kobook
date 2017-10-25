@@ -62,8 +62,12 @@
 		<!-- </when>
 		</choose> -->
 		<choose>
-		<when test="m_price!=null">
-			order by b.book_m_price DESC
+		<when test="sort=='book_m_price'">
+			order by b.book_m_price ASC
+		</when>
+		
+		<when test="sort=='book_status'">
+			order by b.book_status DESC
 		</when>
 		</choose>
 	</select>

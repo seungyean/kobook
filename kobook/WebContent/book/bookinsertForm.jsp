@@ -69,9 +69,9 @@
 					<input type="radio" name="safe_yn" value="N">N &nbsp&nbsp
 					
 				책상태: <select name="status" id="status">
-					<option value="N" >보통</option>
-					<option value="G">양호</option>
-					<option value="B">미흡</option>
+					<option value="B" >보통</option>
+					<option value="A">양호</option>
+					<option value="C">미흡</option>
 			</select> &nbsp&nbsp
 			
 				판매상태: <select name="sell_state" id="sell_state">

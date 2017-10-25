@@ -7,7 +7,7 @@ public class BookSearch {
 	private String[] safe_yn;
 	private String[] location;
 	private String searchKey;
-	private String m_price;
+	private String sort;
 	
 	
 	public BookSearch() {
@@ -15,9 +15,11 @@ public class BookSearch {
 
 	
 
+
 	public String[] getArea() {
 		return area;
 	}
+
 
 
 
@@ -27,9 +29,11 @@ public class BookSearch {
 
 
 
+
 	public String[] getSafe_yn() {
 		return safe_yn;
 	}
+
 
 
 
@@ -39,9 +43,11 @@ public class BookSearch {
 
 
 
+
 	public String[] getLocation() {
 		return location;
 	}
+
 
 
 
@@ -51,9 +57,11 @@ public class BookSearch {
 
 
 
+
 	public String getSearchKey() {
 		return searchKey;
 	}
+
 
 
 
@@ -63,34 +71,42 @@ public class BookSearch {
 
 
 
-	public String getm_price() {
-		return m_price;
+
+	public String getSort() {
+		return sort;
 	}
 
 
 
-	public void setm_price(String m_price) {
-		this.m_price = m_price;
+
+	public void setSort(String sort) {
+		this.sort = sort;
 	}
 
 
 
-	public BookSearch(String[] area, String[] safe_yn, String[] location, String searchKey, String m_price) {
+
+	public BookSearch(String[] area, String[] safe_yn, String[] location, String searchKey, String sort) {
 		super();
 		this.area = area;
 		this.safe_yn = safe_yn;
 		this.location = location;
 		this.searchKey = searchKey;
-		this.m_price = m_price;
+		this.sort = sort;
 	}
+
 
 
 
 	@Override
 	public String toString() {
-		return "Search [area=" + Arrays.toString(area) + ", safe_yn=" + Arrays.toString(safe_yn) + ", location="
-				+ Arrays.toString(location) + ", searchKey=" + searchKey + "]";
+		return "BookSearch [area=" + Arrays.toString(area) + ", safe_yn=" + Arrays.toString(safe_yn) + ", location="
+				+ Arrays.toString(location) + ", searchKey=" + searchKey + ", sort=" + sort + "]";
 	}
+
+
+
+
 
 	
 }

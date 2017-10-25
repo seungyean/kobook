@@ -274,15 +274,15 @@
 								<li><span>안심여부사용 :</span>${book.book_safe_yn}</li>
 								<li><span>책상태 :</span>
 								<c:choose>
-								<c:when test="${book.book_status=='G'}">
+								<c:when test="${book.book_status=='A'}">
 								양호
 								</c:when>
 								
-								<c:when test="${book.book_status=='N'}">
+								<c:when test="${book.book_status=='B'}">
 								보통
 								</c:when>
 								
-								<c:when test="${book.book_status=='B'}">
+								<c:when test="${book.book_status=='C'}">
 								나쁨
 								</c:when>
 								
