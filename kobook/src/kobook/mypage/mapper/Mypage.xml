@@ -63,6 +63,12 @@
 	where pick_id = #{pick_id}
 </update>
 
+<!-- 결제 등록 -->
+<insert id="insertPay" parameterType="paySuccess">
+INSERT INTO pay VALUES(#{pay_id},#{pay_amount},TO_DATE(SYSDATE,'YYYY-MM-DD'),#{pick_id})
+
+
+</insert>
 
 </mapper>
 

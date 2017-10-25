@@ -9,6 +9,7 @@
 		<!-- 마이페이지: 승연 -->
 		<typeAlias alias="Mypage" type="kobook.mypage.domain.Mypage"/>
 		<typeAlias alias="BookBuyElement" type="kobook.mypage.domain.BookBuyElement"/>
+		<typeAlias alias="PaySuccess" type="kobook.mypage.domain.PaySuccess"/>
 		
 		<!-- 관리자: 지호-->
 		<typeAlias alias="Board" type="kobook.admin.domain.Board"/>

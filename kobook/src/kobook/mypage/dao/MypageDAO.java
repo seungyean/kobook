@@ -10,6 +10,7 @@ import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 
 import kobook.book.domain.Book;
+import kobook.mypage.domain.PaySuccess;
 import kobook.mypage.mapper.MypageMapper;
 
 public class MypageDAO {
@@ -156,6 +157,27 @@ public class MypageDAO {
 			sqlSession.close();
 		}
 		return sum;
+	}
+	
+	/* 결제 등록 */
+	public int insertPay(PaySuccess paySuccess){
+		SqlSession sqlSession = getSqlSessionFactory().openSession();
+		int re = -1;
+		
+		try {
+			re = sqlSession.getMapper(MypageMapper.class).insertPay(paySuccess);
+			if(re > 0){
+				sqlSession.commit();
+			} else {
+				sqlSession.rollback();
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			sqlSession.close();
+		}
+		
+		return re;
 	}
 	
 }

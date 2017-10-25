@@ -11,7 +11,6 @@ import kobook.action.Action;
 import kobook.action.ActionForward;
 import kobook.mypage.action.BuyListAction;
 import kobook.mypage.action.MileageAction;
-import kobook.mypage.action.PayAction;
 import kobook.mypage.action.PaySuccessAction;
 import kobook.mypage.action.PickAction;
 import kobook.mypage.action.PickUpdateAction;
@@ -75,13 +74,6 @@ public class MypageController {
 			}
 		}else if(command2.equals("mileage.do")) {
 			action = new MileageAction();
-			try {
-				forward = action.execute(request, response);
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
-		}else if(command2.equals("pay.do")) {
-			action = new PayAction();
 			try {
 				forward = action.execute(request, response);
 			} catch (Exception e) {

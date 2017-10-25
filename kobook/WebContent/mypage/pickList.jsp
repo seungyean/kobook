@@ -30,37 +30,53 @@
     $(function(){
     	
     	var sum_mileage = ${sumMileage};
+    	var pick_id = "";
+    	var book_name = "";
     	var book_m_price = "";
+    	var pay_amount = "";
+    	var total_pick_id = "";
+    	
+    	$("#pay_success").click(function() {
+    		pay_amount = $('#total_price').val();
+    		var pick_id = $('#pick_id').val();
+    		//total_pick_id = 10;
+    		//alert(total_pick_id);
+    		alert(pick_id)
+            location.href="/kobook/mypage/paySuccess.do?pay_amount="+ pay_amount + "&pick_id="+pick_id;
+		});
+    	
     	// 결제창 모달 
     	 $(".btn-default").click(function(){
-     		var pick_id = $(this).parent().parent().find('td:first').text().trim();
+     		pick_id = $(this).parent().parent().find('td:first').text().trim();
+     		
      		$('#pick_id').val(pick_id);
-     		var book_name = $(this).parent().parent().find('td:eq(2)').text().trim();
+     		//total_pick_id = pick_id;
+     		//alert(total_pick_id);
+     		
+     		book_name = $(this).parent().parent().find('td:eq(2)').text().trim();
+     		$('#book_name').val(book_name);
+     		
     		book_m_price = $(this).parent().parent().find('td:eq(4)').text().trim();
-    		$('#book_name').text('결제상품 : '+book_name);
-    		$('#book_m_price').text('결제금액 : '+book_m_price+'원');
-    		$('#sum_mileage').text('마일리지 : '+sum_mileage+'원');
+    		$('#book_m_price').val(book_m_price);
+    		
+    		$('#sum_mileage').val(sum_mileage);
             $('#payModal').modal();
          });
     	 
     	// 찜 삭제 버튼 
     	 $(".btn-danger").click(function(){
     		var pick_id = $(this).parent().parent().find('td:first').text().trim();
-    		 
+//     		pick_id = $('#pick_id').val();
             location.href="/kobook/mypage/pickUpdate.do?pick_id=" + pick_id;
          });
     	
     	$("#use_mileage").keyup(function() {
     		var use_mileage = $('#use_mileage').val();
-    		$('#all_price').val(book_m_price - use_mileage);
+    		$('#total_price').val(book_m_price - use_mileage);
 		});
     	
-    	$("#pay_success").click(function() {
-    		var pay_amount = $('#all_price').val();
-    		console.log($(this));
-//             location.href="/kobook/mypage/paySuccess.do?pay_amount="+ pay_amount + "&pick_id="+pick_id;
-
-		});
+    	
+    
     	 
     });
     </script>
@@ -173,20 +189,26 @@
 					<!-- content goes here -->
 					<form>
 						<div class="form-group">
-							<label id="book_name">결제상품 : </label>
+							<label>- 결제상품  </label>
+							<input type="text" name="text" size="20" style="width:100%; border: 0;" id="book_name"> 
 						</div>
 						<div class="form-group">
-							<label id="book_m_price">결제금액 : </label> 
+							<label >- 결제금액  </label> 
+							<input type="text" name="text" size="20" style="width:100%; border: 0;" id="book_m_price"> 
 						</div>
 						<div class="form-group">
-							<label id="sum_mileage">마일리지 : </label> 
+							<label >- 마일리지  </label> 
+							<input type="text" name="text" size="20" style="width:100%; border: 0;" id="sum_mileage"> 
 						</div>
 						<div class="form-group">
-							<label>사용 마일리지 :</label><input type="text" class="form-control" id="use_mileage">
+							<label>- 사용 마일리지 </label>
+							<input type="text" name="text" size="20" style="width:100%; border: 0;" id="use_mileage"class="form-control" placeholder="사용할 적립금액을 입력하세요"> 
 						</div>
 						<div class="form-group">
-							<h3>총 결제 금액: </h3><input type="text" class="form-control" id="all_price">
-													<input type="text" id="pick_id">
+							<h3>- 총 결제 금액 </h3>
+							<input type="text" name="text" size="20" style="width:100%; border: 0;" id="total_price"  class="form-control"> 
+							<input type="text" name="text" id="pick_id" class="form-control"> 
+							
 						</div>
 					</form>
 				</div>

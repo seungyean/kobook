@@ -10,12 +10,15 @@ public class PickUpdateAction implements Action {
 
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
+		
+		System.out.println("Âò¸® ¾÷µ¥ÀÌÆ® µé¾î¿È");
+		
 		MypageService service = MypageService.getInstance();
 		request.setCharacterEncoding("utf-8");
-//		String id = request.getParameter("pick_id");
-//		int pick_id = Integer.parseInt(request.getParameter("pick_id"));
-		System.out.println("µé¾î¿È");
-		service.pickUpdate(2);
+		String id = request.getParameter("pick_id");
+		int pick_id = Integer.parseInt(id);
+		System.out.println(pick_id);
+		service.pickUpdate(pick_id);
 		
 		ActionForward forward = new ActionForward();
 		forward.setRedirect(false);
