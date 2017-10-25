@@ -1,8 +1,9 @@
 package kobook.mypage.domain;
 
+import java.io.Serializable;
 import java.sql.Timestamp;
 
-public class PaySuccess {
+public class PaySuccess implements Serializable {
 	
 	private int pay_id;
 	private int pay_amount;

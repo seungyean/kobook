@@ -66,9 +66,27 @@
 <!-- 결제 등록 -->
 <insert id="insertPay" parameterType="paySuccess">
 INSERT INTO pay VALUES(#{pay_id},#{pay_amount},TO_DATE(SYSDATE,'YYYY-MM-DD'),#{pick_id})
-
-
 </insert>
+
+<!-- 결제번호 증가 -->
+<select id="selectPay_id" resultType="Integer">
+	select max(pay_id) from pay
+</select>
+
+<!-- 마일리지 등록 -->
+<insert id="insertMileage" parameterType="Mileage">
+INSERT INTO mileage VALUES(#{mileage_id},#{mileage_kind},TO_DATE(SYSDATE,'YYYY-MM-DD'),#{mileage_point},#{pay_id},#{person_id})
+</insert>
+
+<!-- 마일리지번호 증가 -->
+<select id="selectM_id" resultType="Integer">
+	select max(mileage_id) from mileage
+</select>
+
+<!-- 마일리지 업데이트 -->
+<update id="mileagePointUpdate" parameterType="person">
+UPDATE person SET person_mileage = person_mileage + #{mileage_point} WHERE person_id = #{person_id}
+</update>
 
 </mapper>
 

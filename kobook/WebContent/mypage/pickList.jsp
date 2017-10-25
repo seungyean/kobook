@@ -39,9 +39,6 @@
     	$("#pay_success").click(function() {
     		pay_amount = $('#total_price').val();
     		var pick_id = $('#pick_id').val();
-    		//total_pick_id = 10;
-    		//alert(total_pick_id);
-    		alert(pick_id)
             location.href="/kobook/mypage/paySuccess.do?pay_amount="+ pay_amount + "&pick_id="+pick_id;
 		});
     	
@@ -66,7 +63,6 @@
     	// 찜 삭제 버튼 
     	 $(".btn-danger").click(function(){
     		var pick_id = $(this).parent().parent().find('td:first').text().trim();
-//     		pick_id = $('#pick_id').val();
             location.href="/kobook/mypage/pickUpdate.do?pick_id=" + pick_id;
          });
     	
