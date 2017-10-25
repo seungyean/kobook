@@ -75,7 +75,7 @@ public class BookupdateAction implements Action {
 		if(re>0){		
 		
 			forward.setRedirect(false);  //�³���??
-			forward.setPath("/kobook/book/listAction.do");
+			forward.setPath("/book/listAction.do");
 		}/*else{
 			System.out.println(re);
 			forward.setPath("/book/bookupdateForm.jsp");

@@ -237,7 +237,7 @@
 				
 							<input type="hidden" name="book_id" value="${book.book_id}" />
 						
-									<img alt="" class="carousel-item" src="/kobook/upload/${book.book_img}" height="350" width="400">
+									<img alt="" class="carousel-item" src="/kobook/upload/${book.book_img}" width="10px" height="800px">
 								<!--<img class="carousel-item" src="images/portfolio/portfolio_slider1.png" alt="">
 								<img class="carousel-item" src="images/portfolio/portfolio_slider2.png" alt="">
 								<img class="carousel-item" src="images/portfolio/portfolio_slider3.png" alt=""> -->

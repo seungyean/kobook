@@ -35,8 +35,8 @@ public class BooklistAction implements Action {
 		//request.setAttribute("listModel2", listModel2);
 		
 		ActionForward forward = new ActionForward();
-		forward.setRedirect(true);
-		forward.setPath("/kobook/book/booklist.jsp");
+		forward.setRedirect(false);
+		forward.setPath("/book/booklist.jsp");
 		
 		return forward;
 	}
