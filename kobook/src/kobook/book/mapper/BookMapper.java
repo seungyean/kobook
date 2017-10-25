@@ -14,5 +14,7 @@ public interface BookMapper {
 	   public List<Book> locationBook(RowBounds row, BookSearch bookSearch);
 	   public Book selectBook(int book_id);
 	   public int countBook(BookSearch bookSearch);
+	   public int countlocationBook(BookSearch bookSearch);
+	   
 	   public int updateBook(Book book);
 }

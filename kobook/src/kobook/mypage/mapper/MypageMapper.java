@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.List;
 
 import kobook.book.domain.Book;
+import kobook.mypage.domain.PaySuccess;
 
 
 public interface MypageMapper {
@@ -26,7 +27,11 @@ public interface MypageMapper {
 	/* 픽 삭제 */
 	public int pickUpdate(int pick_id);
 	
+	/* 마일리지 합계 */
 	public int sumMileage(int pick_id);
+	
+	/* 결제등록 */
+	public int insertPay(PaySuccess paySuccess);
   
 
 }

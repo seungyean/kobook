@@ -5,6 +5,7 @@ import java.util.List;
 
 import kobook.book.domain.Book;
 import kobook.mypage.dao.MypageDAO;
+import kobook.mypage.domain.PaySuccess;
 
 public class MypageService {
 	
@@ -57,6 +58,12 @@ public class MypageService {
 	/* 찜 리스트 */
 	public int sumMileage(int person_id){
 		int sum = dao.sumMileage(person_id);
+		return sum;
+	}
+	
+	/* 결제 등록 */
+	public int insertPay(PaySuccess paySuccess){
+		int sum = dao.insertPay(paySuccess);
 		return sum;
 	}
 }

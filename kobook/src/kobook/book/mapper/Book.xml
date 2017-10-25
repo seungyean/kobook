@@ -16,7 +16,7 @@
 		)values(
 			#{book_id}, #{book_name}, #{book_o_price}, #{book_m_price},#{book_kind}, #{book_edition},#{book_publish},
 			#{book_hash}, #{book_safe_yn}, #{book_sell_state}, #{book_content}, 
-			#{book_img},SYSDATE,#{book_status},1
+			#{book_img},SYSDATE,#{book_status},#{person_id}
 		)		
 	</insert>
 	
@@ -27,7 +27,7 @@
 					<where>
 						<!-- book_name LIKE %검색하고자하는 제목(입력값)% OR person_id LIKE %검색하고싶은 작성자(입력값)% -->
 						<foreach collection="area" item="item" separator="OR" open="(" close=")">
-							${item} LIKE #{searchKey}<!--  or book_hash LIKE=#{searchKey} -->
+							${item} LIKE #{searchKey} or book_hash =#{searchKey}
 						</foreach>
 					
 						<choose>
@@ -105,6 +105,19 @@
 				<foreach collection="area" item="item" separator="OR" open="(" close=")">
 					${item} LIKE #{searchKey}
 				</foreach>
+			</where>
+		</if>
+	</select>
+	
+		<select id="countlocationBook" resultType="int" parameterType="BookSearch">
+		select count(*) 
+		from book b join person p
+		on b.person_id=p.person_id
+		
+		<if test="area != null">
+			<where>
+				<!-- book_name LIKE %검색하고자하는 제목(입력값)% OR person_id LIKE %검색하고싶은 작성자(입력값)% -->
+				 p.person_address LIKE #{searchKey}
 			</where>
 		</if>
 	</select>
