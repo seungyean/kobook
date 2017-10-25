@@ -9,6 +9,17 @@ import javax.servlet.http.HttpServletResponse;
 
 import kobook.action.Action;
 import kobook.action.ActionForward;
+import kobook.admin.action.DeleteAction;
+import kobook.admin.action.DetailAction;
+import kobook.admin.action.DetailNotiAction;
+import kobook.admin.action.GradeUpdateAction;
+import kobook.admin.action.ListBlackPersonAction;
+import kobook.admin.action.ListBoardAction;
+import kobook.admin.action.ListPersonAction;
+import kobook.admin.action.UpdateNotiAction;
+import kobook.admin.action.deleteNotiAction;
+import kobook.admin.action.insertBoardAction;
+import kobook.admin.action.insertBoardFormAction;
 
 public class AdminController {
 	public void doProcess(HttpServletRequest request, HttpServletResponse response)
@@ -16,9 +27,8 @@ public class AdminController {
 
 		ActionForward forward = null;
 		Action action = null;
-
 		
-		//	¹ØÀÇ ÁÙÀÌ Ãâ·ÂµÇ¸é ÇØ´ç controller·Î Àß ÁøÀÔÇÑ°Í!
+		//	ë°‘ì˜ ì¤„ì´ ì¶œë ¥ë˜ë©´ í•´ë‹¹ controllerë¡œ ì˜ ì§„ì…í•œê²ƒ!
 		System.out.println("==========bookCon==========");
 		// /kobook/admin/insertForm.do
 		String requestURI = request.getRequestURI();
@@ -38,27 +48,141 @@ public class AdminController {
 
 		
 		
-		// ¿©±â¼­ °¢°¢ÀÇ ActionÀ¸·Î º¸³½´Ù.
-		// .do ¼öÁ¤ÇÏ°í °¢ÀÚ ¿¬°á½ÃÅ² °÷À¸·Î 
-		if (command2.equals("bookDetail.do")) {
-			
-			// action °´Ã¼ »ı¼º
-			// ÀÌºÎºĞ¸¸ ¼öÁ¤ÇØ¼­ º¹ºÙÇÏ¸é µÊ
+		// ì—¬ê¸°ì„œ ê°ê°ì˜ Actionìœ¼ë¡œ ë³´ë‚¸ë‹¤.
+		// .do ìˆ˜ì •í•˜ê³  ê°ì ì—°ê²°ì‹œí‚¨ ê³³ìœ¼ë¡œ
+		
+		// íšŒì›ë¦¬ìŠ¤íŠ¸ì¶œë ¥ .do
+		if (command2.equals("listUser.do")) {
+
+			action = new ListPersonAction();
+
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+
+			// íšŒì›ìƒì„¸ë³´ê¸° .do
+		} else if (command2.equals("detail.do")) {
+
+			action = new DetailAction();
+
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+
+			// íšŒì›ë“±ê¸‰ .do
+		} else if (command2.equals("gradeUser.do")) {
+
+			action = new GradeUpdateAction();
 			
 			try {
 				forward = action.execute(request, response);
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
+			
+			// íšŒì›ì •ë³´ì‚­ì œ .do
+		} else if (command2.equals("delete.do")) {
+
+			action = new DeleteAction();
+
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+				
+			}
+			//ë¸”ë™ìœ ì € ê¸€ë¦¬ìŠ¤íŠ¸
+		} else if(command2.equals("blackUser.do")){
+			
+			action = new ListBlackPersonAction();
+			
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+			
+			
+	//-------------------------------------ê³µì§€ì‚¬í•­-------------------------------------
+
+			//ê³µì§€ì‚¬í•­ ê¸€ëª©ë¡
+		} else if (command2.equals("noti.do")) {
+
+			action = new ListBoardAction();
+			
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+
+			//ê³µì§€ì‚¬í•­ ê¸€ì…ë ¥ ì¶œë ¥
+		} else if (command2.equals("insertBoard.do")) {
+
+			action = new insertBoardAction();
+
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+			
+			//ê³µì§€ì‚¬í•­ ê¸€ì…ë ¥í¼
+		} else if (command2.equals("insertformBoard.do")) {
+
+			action = new insertBoardFormAction();
+
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+			
+			//ê³µì§€ì‚¬í•­ ìƒì„¸ë³´ê¸°
+		} else if(command2.equals("boardDetail.do")) {
+			
+			action = new DetailNotiAction();
+
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+			
+			//ê³µì§€ì‚¬í•­ê¸€ì‚­ì œ
+		} else if(command2.equals("deleteNoti.do")){
+			
+			action = new deleteNotiAction();
+			
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+			
+			//ê³µì§€ì‚¬í•­ ìˆ˜ì •
+		} else if(command2.equals("updateNoti.do")){
+			
+			action = new UpdateNotiAction();
+			
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+			
 		}
 		
 		
-		
-		// 	forward¸¦ ÇØÃ¼ÇÏ´Â °úÁ¤ 
+		// 	forwardë¥¼ í•´ì²´í•˜ëŠ” ê³¼ì •
 		if(forward != null){
-			if(forward.isRedirect()){	// rediredct·Î ÆäÀÌÁö ÀÌµ¿
+			if(forward.isRedirect()){	// rediredctï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ìµï¿½
 				response.sendRedirect(forward.getPath());
-			} else {	//dispatcher·Î ÆäÀÌÁö ÀÌµ¿
+			} else {	//dispatcherï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ìµï¿½
 				RequestDispatcher dispatcher = 
 						request.getRequestDispatcher(forward.getPath());
 				dispatcher.forward(request, response);
