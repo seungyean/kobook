@@ -31,15 +31,15 @@
 <meta name="description" content="">
 
 <!-- CSS FILES -->
-<link rel="stylesheet" href="/Testtt/css/bootstrap.min.css" />
-<link rel="stylesheet" href="/Testtt/css/style.css">
-<link rel="stylesheet" type="/Testtt/text/css"
-	href="/Testtt/css/style.css" media="screen" data-name="skins">
-<link rel="stylesheet" href="/Testtt/css/layout/wide.css"
+<link rel="stylesheet" href="/kobook/css/bootstrap.min.css" />
+<link rel="stylesheet" href="/kobook/css/style.css">
+<link rel="stylesheet" type="/kobook/text/css"
+	href="/kobook/css/style.css" media="screen" data-name="skins">
+<link rel="stylesheet" href="/kobook/css/layout/wide.css"
 	data-name="layout">
 
-<link rel="stylesheet" type="/Testtt/text/css"
-	href="/Testtt/css/switcher.css" media="screen" />
+<link rel="stylesheet" type="/kobook/text/css"
+	href="/kobook/css/switcher.css" media="screen" />
 <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
 <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
 <!--[if lt IE 9]>
@@ -81,7 +81,7 @@
 						<div id="logo">
 							<h1>
 								<a href="index.html"><img alt="KOBOOK - 관리자"
-									src="/Testtt/images/logo.png" /></a>
+									src="/kobook/images/logo.png" /></a>
 							</h1>
 						</div>
 					</div>
@@ -101,7 +101,7 @@
 							</div>
 							<div class="navbar-collapse collapse">
 								<ul class="nav navbar-nav">
-									<li><a href="/Testtt/admin/listUser.do">회원관리</a>
+									<li><a href="/kobook/admin/listUser.do">회원관리</a>
 										<ul class="dropdown-menu">
 											<li><a href="index.html">회원수정</a></li>
 											<li><a href="index_2.html">회원등급</a></li>
@@ -129,7 +129,7 @@
 											<li><a href="404-page.html">404 Page</a></li>
 										</ul></li>
 
-									<li><a href="/Testtt/admin/noti.do">공지사항관리</a>
+									<li><a href="/kobook/admin/noti.do">공지사항관리</a>
 										<ul class="dropdown-menu">
 											<li><a href="#">Portfolio Classic</a>
 												<ul class="dropdown-menu">
@@ -159,7 +159,7 @@
 						</div>
 						<nav id="breadcrumbs">
 							<ul>
-								<li><a href="/Testtt/admin/blackUser.do">블랙회원</a>/</li>
+								<li><a href="/kobook/admin/blackUser.do">블랙회원</a>/</li>
 							</ul>
 						</nav>
 					</div>
@@ -203,7 +203,7 @@
 									<td align="center" height="30">${p.person_email}</td>
 									<td align="center" height="30">${p.person_name}</td>
 									<td align="center" height="30"><a
-										href="/Testtt/admin/detail.do?person_id=${p.person_id}">${p.person_address}</a></td>
+										href="/kobook/admin/detail.do?person_id=${p.person_id}">${p.person_address}</a></td>
 									<td align="center" height="30">${p.person_phone}</td>
 									<td align="center" height="30">${p.person_mileage}</td>
 									<td align="center" height="30">${p.person_sell_grade}</td>
@@ -220,7 +220,7 @@
 			<!-- 이전(기준은 start page) -->
 			<c:if test="${personModel.startPage > 5 }">
 				<a
-					href="/Testtt/admin/listUser.do?pageNum=${personModel.startPage - 1 }">[이전]</a>
+					href="/kobook/admin/listUser.do?pageNum=${personModel.startPage - 1 }">[이전]</a>
 			</c:if>
 
 			<!-- 페이지 목록 -->
@@ -229,7 +229,7 @@
 				<c:if test="${personModel.requestPage == pageNo }">
 					<b>
 				</c:if>
-				<a href="/Testtt/admin/listUser.do?pageNum=${pageNo }">[${pageNo }]</a>
+				<a href="/kobook/admin/listUser.do?pageNum=${pageNo }">[${pageNo }]</a>
 				<c:if test="${personModel.requestPage == pageNo }">
 					</b>
 				</c:if>
@@ -237,11 +237,11 @@
 			<!-- 이후 -->
 			<c:if test="${personModel.endPage < personModel.totalPageCount }">
 				<a
-					href="/Testtt/admin/listUser.do?pageNum=${personModel.endPage + 1 }">[이후]</a>
+					href="/kobook/admin/listUser.do?pageNum=${personModel.endPage + 1 }">[이후]</a>
 			</c:if>
 
 			<br>
-			<form action="/Testtt/admin/listUser.do" method="post">
+			<form action="/kobook/admin/listUser.do" method="post">
 				<input type="hidden" name="temp" value="temp" /> <input
 					type="checkbox" name="area" value="person_id" />아이디 <input
 					type="checkbox" name="area" value="person_name" />회원이름 <input

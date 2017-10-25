@@ -1,6 +1,8 @@
 package kobook.admin.domain;
 
-public class Person {
+import java.io.Serializable;
+
+public class Person implements Serializable{
 
 	private int person_id;
 	private String person_email;

@@ -177,7 +177,6 @@ public class AdminController {
 			
 		}
 		
-		
 		// 	forward를 해체하는 과정
 		if(forward != null){
 			if(forward.isRedirect()){	// rediredct�� ������ �̵�

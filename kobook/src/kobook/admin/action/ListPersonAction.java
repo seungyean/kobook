@@ -38,9 +38,8 @@ public class ListPersonAction implements Action{
 		request.setAttribute("personModel", personModel);
 
 
-		forward.setPath("/userAdmin.jsp");
 		forward.setRedirect(false);  
-		System.out.println("listPerson Action=====================");
+		forward.setPath("/admin/userAdmin.jsp");
 		return forward;
 	}
 }
