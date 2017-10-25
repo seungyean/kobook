@@ -68,8 +68,10 @@
 					<input type="hidden" name="temp" value="temp">
 					<input type="hidden" name="check" value="-1">
 					<input type="text" class="input-text" name="searchKey" id="s" placeholder="지역을 입력하세요" />
-					<input type="submit" id="searchsubmit" value="search"/>		
-					<!-- 안심거래사용: <input type="checkbox" name="safe_yn" value="book_safe_yn" /> -->
+					<input type="submit" id="searchsubmit" value="search"/>	
+					
+					가격순 <input type="checkbox" name="m_price" value="book_m_price"/>			
+		
 
 				</div>
                 </form>

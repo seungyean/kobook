@@ -162,10 +162,16 @@ public class BookService {
 	         session.removeAttribute("search");
 	      }
 	      //寃��깋 submit�떆
-	      if(request.getParameterValues("searchKey")!=null){
+	      if(request.getParameter("searchKey")!=null){
+	    	  if(request.getParameterValues("m_price")!=null){
 	         //search.setArea(request.getParameterValues("area"));
+	    	 search.setm_price(request.getParameter("m_price"));
 	         search.setSearchKey("%"+request.getParameter("searchKey")+"%");
 	         session.setAttribute("search", search);
+	      }else{
+	    	  search.setSearchKey("%"+request.getParameter("searchKey")+"%");
+		         session.setAttribute("search", search);
+	      }
 	      }
 	      
 	      //寃��깋�썑 �럹�씠吏� �럹�씠吏� �겢由�(�럹�씠吏� �씠�룞)
