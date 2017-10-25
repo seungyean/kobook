@@ -24,7 +24,7 @@ public class PaySuccessAction implements Action {
 		System.out.println(pay_amount);
 
 		// pick update
-		service.pickUpdate(pick_id);
+//		service.pickUpdate(pick_id);
 		
 		// pay insert
 		
