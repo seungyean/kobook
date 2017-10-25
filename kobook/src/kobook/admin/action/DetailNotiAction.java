@@ -23,7 +23,7 @@ public class DetailNotiAction implements Action{
 		
 		ActionForward forward = new ActionForward();
 		forward.setRedirect(false);
-		forward.setPath("/detailNoti.jsp");
+		forward.setPath("/admin/detailNoti.jsp");
 		return forward;
 
 	}

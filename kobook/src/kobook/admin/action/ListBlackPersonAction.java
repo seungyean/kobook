@@ -40,7 +40,7 @@ public class ListBlackPersonAction implements Action{
 		request.setAttribute("blackList", blackList);
 		
 
-		forward.setPath("/blackAdmin.jsp");
+		forward.setPath("/admin/blackAdmin.jsp");
 		forward.setRedirect(false);  
 	
 		return forward;

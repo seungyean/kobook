@@ -21,7 +21,7 @@ public class SelectBoardAction implements Action{
 		
 		ActionForward forward = new ActionForward();
 		forward.setRedirect(false);
-		forward.setPath("/noti.jsp");
+		forward.setPath("/admin/noti.jsp");
 		return forward;
 
 	}

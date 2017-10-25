@@ -28,7 +28,7 @@ public class DetailAction implements Action {
 		
 		ActionForward forward = new ActionForward();
 		forward.setRedirect(false);
-		forward.setPath("/detail.jsp");
+		forward.setPath("/admin/detail.jsp");
 		return forward;
 
 	}

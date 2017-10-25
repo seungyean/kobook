@@ -19,7 +19,7 @@ public class insertBoardFormAction implements Action {
 		
 		ActionForward forward =  new ActionForward();
 		forward.setRedirect(false);
-		forward.setPath("/noti_insert.jsp");
+		forward.setPath("/admin/noti_insert.jsp");
 		
 		return forward;
 }
