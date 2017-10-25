@@ -6,6 +6,7 @@ import kobook.recom.dao.RecommendDAO;
 import kobook.recom.domain.Alarm;
 import kobook.recom.domain.Favorite;
 import kobook.recom.domain.FavoriteBook;
+import kobook.admin.domain.Person;
 
 public class RecomService {
 	
@@ -55,5 +56,21 @@ public class RecomService {
 		}
 		
 		return re;
+	}
+	
+	public int loginService(String person_email){
+		System.out.println("서비스 진입");
+		
+		int re =  dao.login(person_email);
+		if(re >= 0){
+			System.out.println("회원 id있음");
+		}else {
+			System.out.println("회원 id없음");
+		}
+		return re;
+	}
+	
+	public Person loginCheck(String person_email){
+		return dao.loginCheck(person_email);
 	}
 }

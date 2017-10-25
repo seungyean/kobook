@@ -11,6 +11,7 @@ import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 import kobook.recom.domain.Alarm;
 import kobook.recom.domain.Favorite;
 import kobook.recom.domain.FavoriteBook;
+import kobook.admin.domain.Person;
 import kobook.recom.mapper.RecomMapper;
 
 
@@ -100,6 +101,38 @@ public class RecommendDAO {
 			sqlSession.close();
 		}
 		return re;
+	}
+	
+public int login(String person_email){
+		
+		SqlSession sqlSession = getSqlSessionFactory().openSession();
+		int re = -1;
+		try {
+			System.out.println("dao진입");
+			re = sqlSession.getMapper(RecomMapper.class).login(person_email);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+			sqlSession.close();
+		}
+		
+		return re;
+	}
+
+	
+	public Person loginCheck(String person_email){
+		SqlSession sqlSession = getSqlSessionFactory().openSession();
+		Person person = new Person();
+		try {
+			System.out.println(" check dao진입");
+			person = sqlSession.getMapper(RecomMapper.class).loginCheck(person_email);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+			sqlSession.close();
+		}
+		
+		return person;
 	}
 
 }

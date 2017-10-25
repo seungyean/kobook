@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 import kobook.action.Action;
 import kobook.action.ActionForward;
 import kobook.recom.action.AlarmListAction;
+import kobook.recom.action.LoginAction;
 import kobook.recom.action.RecomDeleteAction;
 import kobook.recom.action.RecommendAction;
 
@@ -69,6 +70,15 @@ public class RecomController {
 		else if(command2.equals("alarmListAction.do")){
 			
 			action = new AlarmListAction();
+			
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}else if(command2.equals("loginAction.do")){
+			
+			action = new LoginAction();
 			
 			try {
 				forward = action.execute(request, response);

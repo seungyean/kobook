@@ -1,7 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%
-	session.setAttribute("person_id", "1");
 	int alarm_new=0;
 %>
 <!DOCTYPE html>
@@ -25,13 +24,22 @@
     <link rel="stylesheet" href="/kobook/css/animate.css"/>
 
     <link rel="stylesheet" type="text/css" href="/kobook/css/switcher.css" media="screen" />
+
+
+	<script type="text/javascript">
+	   function fn_login(){
+			window.open("login.jsp","","width=400,height=300,left=550,top=200");
+		}
+	   function fn_logout(){
+			location.href="/kobook/logout.jsp";
+		}
+	</script>
 </head>
 
 <body class="home">
     <!-- 헤더 -->
  		 <jsp:include page="/include/header.jsp" />
   	<!-- /헤더 -->
-    
     
     <section class="wrapper">
         <div class="slider-wrapper">
@@ -82,23 +90,25 @@
             </div>
         </div>
 
-
-		<form action="/kobook/recom/recommendAction.do" method="post">
-			아이디 : <input type="text" name="person_id">
-			<input type="submit" value="등록">
-		</form> 
-		
-		<c:if test="${list != null}">
-            <h4>${list.get(0).person_id }님  환영합니다앙~^0^</h4>
-            <form action="/kobook/recom/alarmListAction.do">
-            	<input type="hidden" name="person_id" value="${list.get(0).person_id }">
-				<input type="submit" value="알림">
-			</form>
-        </c:if>
+		<br>
+							
+							<c:if test="${person_id == null }">
+								<a href="#" onclick="fn_login()">로그인</a>
+							</c:if>
+							
+							
+							<c:if test="${person_id != null }">
+								<a href="#" onclick="fn_logout()">로그아웃</a>
+            					<h4>${person_id }님  환영합니다앙~^0^</h4>
+            					  	<form action="/kobook/recom/alarmListAction.do">
+            					  		<input type="hidden" name="person_id" value="${person_id }">
+										<input type="submit" value="알림">
+									</form>
+        					</c:if>
         
         <h2>알림 리스트</h2>
         
-        <h4>현재 사용자 : ${list.get(0).person_id}</h4>
+        <h4>현재 사용자 : ${person_id}</h4>
  	    <c:forEach var="z" items="${alarmList }">
 	    	<c:if test="${z.hit_yn == 'N' }">
 	             <% alarm_new += 1;%>

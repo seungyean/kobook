@@ -29,4 +29,15 @@
 		UPDATE ALARM SET HIT_YN='Y' WHERE PERSON_ID=#{person_id}
 	</update>
 
+	<select id="login" parameterType="String" resultType="int">
+		SELECT PERSON_ID 
+		FROM PERSON
+		WHERE PERSON_EMAIL=#{person_email}
+	</select>
+	
+	<select id="loginCheck" parameterType="String" resultType="Person">
+		SELECT *
+		FROM PERSON
+		WHERE PERSON_EMAIL=#{person_email}
+	</select>
 </mapper>
