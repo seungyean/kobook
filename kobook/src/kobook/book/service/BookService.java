@@ -108,22 +108,26 @@ public class BookService {
 	      if(request.getParameter("temp") != null || request.getParameter("pageNum") == null) {
 	         session.removeAttribute("search");
 	      }
-	      //寃��깋 submit�떆
-	      if(request.getParameterValues("area") != null) { /*&& request.getParameterValues("safe_yn")!=null*/
-	         if(request.getParameterValues("safe_yn")!=null){
-	            search.setSafe_yn(request.getParameterValues("safe_yn"));
-	         }
-	         search.setArea(request.getParameterValues("area"));
-	         search.setSearchKey("%"+request.getParameter("searchKey")+"%");
-	         session.setAttribute("search", search);
+	     
+	      if(request.getParameterValues("area") != null){
+	    	 search.setArea(request.getParameterValues("area"));
 	      }
-
-	      
+	       if(request.getParameterValues("safe_yn") != null){
+	    	 search.setSafe_yn(request.getParameterValues("safe_yn"));
+	       }
+	       if(request.getParameter("sort") != null){
+	    	  search.setSort(request.getParameter("sort"));
+	       }
+	       
+	
 	      //寃��깋�썑 �럹�씠吏� �럹�씠吏� �겢由�(�럹�씠吏� �씠�룞)
 	      else if (session.getAttribute("search") != null) {
 	         search = (BookSearch) session.getAttribute("search");
 	      }
-	      
+	      else {
+		       	search.setSearchKey("%"+request.getParameter("searchKey")+"%");
+		         session.setAttribute("search", search);
+		       }
 	      
 	      //�럹�씠吏��떦 湲�媛��닔, 珥앷�媛��닔, 珥앺럹�씠吏��닔, �떆�옉�럹�씠吏�, 留덉�留됲럹�씠吏�, �쁽�옱�럹�씠吏�
 	      int totalCount = dao.countBook(search);

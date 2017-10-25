@@ -521,11 +521,11 @@
 							<input type="text" class="input-text" name="searchKey" id="s" placeholder="책제목 을 입력하세요" />
 							<input type="submit" id="searchsubmit" value="search" />
 							
+							가격순 <input type="radio" name="sort" value="book_m_price"/>			
+							상태순 <input type="radio" name="sort" value="book_status"/>		
 							
-			<!-- 	<br><br>
-				 			
-                 		 범위 : <input type = "range" min = "0" max = "10000" step = "10" name = "range">  
-                 		  
+					<!-- 	<br><br>
+                 		 범위 : <input type = "range" min = "0" max = "10000" step = "10" name = "range">                   		  
             		<br><br> -->
          		  
 						</div>
