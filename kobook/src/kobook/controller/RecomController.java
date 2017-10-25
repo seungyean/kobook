@@ -9,6 +9,9 @@ import javax.servlet.http.HttpServletResponse;
 
 import kobook.action.Action;
 import kobook.action.ActionForward;
+import kobook.recom.action.AlarmListAction;
+import kobook.recom.action.RecomDeleteAction;
+import kobook.recom.action.RecommendAction;
 
 public class RecomController {
 	public void doProcess(HttpServletRequest request, HttpServletResponse response)
@@ -40,9 +43,11 @@ public class RecomController {
 		
 		// 여기서 각각의 Action으로 보낸다.
 		// .do 수정하고 각자 연결시킨 곳으로 
-		if (command2.equals("bookDetail.do")) {
+		
+		if (command2.equals("recommendAction.do")) {
 			
 			// action 객체 생성
+			action = new RecommendAction();
 			// 이부분만 수정해서 복붙하면 됨
 			
 			try {
@@ -50,9 +55,27 @@ public class RecomController {
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
-		} 
-		
-		
+		}
+		else if(command2.equals("recomDeleteAction.do")){
+			
+			action = new RecomDeleteAction();
+			
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+		else if(command2.equals("alarmListAction.do")){
+			
+			action = new AlarmListAction();
+			
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
 		
 		// 	forward를 해체하는 과정 
 		if(forward != null){

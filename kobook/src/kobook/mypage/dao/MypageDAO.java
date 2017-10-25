@@ -36,11 +36,11 @@ public class MypageDAO {
 	// ------------------------------------------------------------------------------------
 
 	/* 판매내역 리스트 */
-	public List<Book> sellList() {
+	public List<Book> sellList(int person_id) {
 		SqlSession sqlSession = getSqlSessionFactory().openSession();
 		List<Book> list = null;
 		try {
-			list = sqlSession.getMapper(MypageMapper.class).sellList();
+			list = sqlSession.getMapper(MypageMapper.class).sellList(person_id);
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
@@ -69,11 +69,11 @@ public class MypageDAO {
 	}
 
 	/* 구매내역 리스트 */
-	public List<HashMap<String, String>> buyList() {
+	public List<HashMap<String, String>> buyList(int person_id) {
 		SqlSession sqlSession = getSqlSessionFactory().openSession();
 		List<HashMap<String, String>> list = null;
 		try {
-			list = sqlSession.getMapper(MypageMapper.class).buyList();
+			list = sqlSession.getMapper(MypageMapper.class).buyList(person_id);
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
@@ -83,11 +83,11 @@ public class MypageDAO {
 	}
 	
 	/* 마일리지 리스트 */
-	public  List<HashMap<String, String>> mileageList() {
+	public  List<HashMap<String, String>> mileageList(int person_id) {
 		SqlSession sqlSession = getSqlSessionFactory().openSession();
 		List<HashMap<String, String>> list = null;
 		try {
-			list = sqlSession.getMapper(MypageMapper.class).mileageList();
+			list = sqlSession.getMapper(MypageMapper.class).mileageList(person_id);
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
@@ -96,11 +96,11 @@ public class MypageDAO {
 		return list;
 	}
 	
-	public List<HashMap<String, String>> cart() {
+	public List<HashMap<String, String>> cart(int person_id) {
 		SqlSession sqlSession = getSqlSessionFactory().openSession();
 		List<HashMap<String, String>> list = null;
 		try {
-			list = sqlSession.getMapper(MypageMapper.class).mileageList();
+			list = sqlSession.getMapper(MypageMapper.class).mileageList(person_id);
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
@@ -110,11 +110,11 @@ public class MypageDAO {
 	}
 	
 	/* 찜 리스트 */
-	public List<HashMap<String, String>> pickList() {
+	public List<HashMap<String, String>> pickList(int person_id) {
 		SqlSession sqlSession = getSqlSessionFactory().openSession();
 		List<HashMap<String, String>> list = null;
 		try {
-			list = sqlSession.getMapper(MypageMapper.class).pickList();
+			list = sqlSession.getMapper(MypageMapper.class).pickList(person_id);
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
@@ -124,12 +124,12 @@ public class MypageDAO {
 	}
 	
 	/* 찜 삭제 */
-	public int pickDelete(int pick_id){
+	public int pickUpdate(int pick_id){
 		SqlSession sqlSession = getSqlSessionFactory().openSession();
 		int re = -1;
 		
 		try {
-			re = sqlSession.getMapper(MypageMapper.class).pickDelete(pick_id);
+			re = sqlSession.getMapper(MypageMapper.class).pickUpdate(pick_id);
 			if(re > 0){
 				sqlSession.commit();
 			} else {
@@ -142,6 +142,20 @@ public class MypageDAO {
 		}
 		
 		return re;
+	}
+	
+	/* 마일리지 리스트 */
+	public int sumMileage(int person_id) {
+		SqlSession sqlSession = getSqlSessionFactory().openSession();
+		int sum = 0;
+		try {
+			sum = sqlSession.getMapper(MypageMapper.class).sumMileage(person_id);
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			sqlSession.close();
+		}
+		return sum;
 	}
 	
 }

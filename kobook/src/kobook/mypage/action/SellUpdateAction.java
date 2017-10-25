@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import kobook.action.Action;
 import kobook.action.ActionForward;
@@ -14,10 +15,13 @@ public class SellUpdateAction implements Action {
 
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
+		HttpSession session = request.getSession();
+		int person_id = Integer.parseInt((String)session.getAttribute("person_id"));
+		
 		MypageService service = MypageService.getInstance();
 		request.setCharacterEncoding("utf-8");
 		
-		List<Book> sellList = service.sellList();
+		List<Book> sellList = service.sellList(person_id);
 		
 		for (Book book : sellList) {
 			int book_id = book.getBook_id();
@@ -34,12 +38,12 @@ public class SellUpdateAction implements Action {
 		}
 		
 		
-		sellList = service.sellList();
+		sellList = service.sellList(person_id);
 		request.setAttribute("sellList", sellList);
 		
 		ActionForward forward = new ActionForward();
 		forward.setRedirect(false);
-		forward.setPath("/mypage/sellList.jsp");
+		forward.setPath("sellList.jsp");
 		
 		return forward;
 	}

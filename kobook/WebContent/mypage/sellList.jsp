@@ -13,12 +13,12 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 
     <!-- CSS FILES -->
-    <link rel="stylesheet" href="/kobook2/css/bootstrap.min.css"/>
-    <link rel="stylesheet" href="/kobook2/css/style.css">
-    <link rel="stylesheet" type="text/css" href="/kobook2/css/style.css" media="screen" data-name="skins">
-    <link rel="stylesheet" href="/kobook2/css/layout/wide.css" data-name="layout">
+    <link rel="stylesheet" href="/kobook/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="/kobook/css/style.css">
+    <link rel="stylesheet" type="text/css" href="/kobook/css/style.css" media="screen" data-name="skins">
+    <link rel="stylesheet" href="/kobook/css/layout/wide.css" data-name="layout">
 
-    <link rel="stylesheet" type="text/css" href="/kobook2/css/switcher.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="/kobook/css/switcher.css" media="screen" />
 </head>
 <body>
 	<!-- 헤더 -->
@@ -54,19 +54,20 @@
 							<h4><span>판매내역 리스트</span></h4>
 							<br>
 							<br>
-							
-							
 							<c:choose>
-									<c:when test="${empty payList }">
+									<c:when test="${empty sellList }">
 
 									<div class="media-body">
-										<div class="well" style="margin-left: 170px;">
+										<div class="well" style="margin-left: 50px;">
 											<h2 align="center">판매 상품이 존재하지 않습니다.</h2>
 										</div>
 									</div>
 									</c:when>
 									<c:otherwise>
-										<form action="kobook2/mypage/sellUpdate.do" method="post">
+										<form action="sellUpdate.do" method="post">
+										<input type="submit" value="변경" class="btn-default" style="margin-left: 1050px">
+										<br>
+										<br>
 									<table class="table table-hover">
 										<thead>
 											<tr>
@@ -111,7 +112,6 @@
 												</td>
 											</tr>
 										</c:forEach>
-										<input type="submit" value="변경" class="btn-default">
 										</tbody>
 										</table>
 								</form>
@@ -178,21 +178,21 @@
 		</div>
 	</section>
 
-    <script type="text/javascript" src="/kobook2/js/jquery-1.10.2.min.js"></script>
-    <script src="/kobook2/js/bootstrap.min.js"></script>
-    <script src="/kobook2/js/jquery.easing.1.3.js"></script>
-    <script src="/kobook2/js/retina-1.1.0.min.js"></script>
-    <script type="text/javascript" src="/kobook2/js/jquery.cookie.js"></script> <!-- jQuery cookie -->
-    <script type="text/javascript" src="/kobook2/js/styleswitch.js"></script> <!-- Style Colors Switcher -->
-    <script type="text/javascript" src="/kobook2/js/jquery.smartmenus.min.js"></script>
-    <script type="text/javascript" src="/kobook2/js/jquery.smartmenus.bootstrap.min.js"></script>
-        <script type="text/javascript" src="/kobook2/js/jflickrfeed.js"></script>
-    <script type="text/javascript" src="/kobook2/js/jquery.magnific-popup.min.js"></script>
-    <script type="text/javascript" src="/kobook2/js/jquery.isotope.min.js"></script>
-    <script type="text/javascript" src="/kobook2/js/swipe.js"></script>
-    <script type="text/javascript" src="/kobook2/js/jquery-scrolltofixed-min.js"></script>
+    <script type="text/javascript" src="/kobook/js/jquery-1.10.2.min.js"></script>
+    <script src="/kobook/js/bootstrap.min.js"></script>
+    <script src="/kobook/js/jquery.easing.1.3.js"></script>
+    <script src="/kobook/js/retina-1.1.0.min.js"></script>
+    <script type="text/javascript" src="/kobook/js/jquery.cookie.js"></script> <!-- jQuery cookie -->
+    <script type="text/javascript" src="/kobook/js/styleswitch.js"></script> <!-- Style Colors Switcher -->
+    <script type="text/javascript" src="/kobook/js/jquery.smartmenus.min.js"></script>
+    <script type="text/javascript" src="/kobook/js/jquery.smartmenus.bootstrap.min.js"></script>
+        <script type="text/javascript" src="/kobook/js/jflickrfeed.js"></script>
+    <script type="text/javascript" src="/kobook/js/jquery.magnific-popup.min.js"></script>
+    <script type="text/javascript" src="/kobook/js/jquery.isotope.min.js"></script>
+    <script type="text/javascript" src="/kobook/js/swipe.js"></script>
+    <script type="text/javascript" src="/kobook/js/jquery-scrolltofixed-min.js"></script>
 
-    <script src="/kobook2/js/main.js"></script>
+    <script src="/kobook/js/main.js"></script>
 
     <!-- Start Style Switcher -->
     <div class="switcher"></div>

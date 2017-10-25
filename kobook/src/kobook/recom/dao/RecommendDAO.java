@@ -11,12 +11,12 @@ import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 import kobook.recom.domain.Alarm;
 import kobook.recom.domain.Favorite;
 import kobook.recom.domain.FavoriteBook;
-import kobook.recom.domain.NewAlarm;
 import kobook.recom.mapper.RecomMapper;
+
 
 public class RecommendDAO {
 
-private static RecommendDAO dao = new RecommendDAO();
+	private static RecommendDAO dao = new RecommendDAO();
 	
 	public static RecommendDAO getinstance(){
 		return dao;
@@ -68,12 +68,12 @@ private static RecommendDAO dao = new RecommendDAO();
 		return re;
 	}	
 	
-	public List<Alarm> alarmList(NewAlarm newAlarm){
+	public List<Alarm> alarmList(int person_id){
 		
 		SqlSession sqlSession = getSqlSessionFactory().openSession();
 		
 		try {
-			return sqlSession.getMapper(RecomMapper.class).alarmList(newAlarm);
+			return sqlSession.getMapper(RecomMapper.class).alarmList(person_id);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}finally {
@@ -83,4 +83,23 @@ private static RecommendDAO dao = new RecommendDAO();
 		return null;
 	}
 	
+	public int alarmUpdate(Alarm alarm){
+		SqlSession sqlSession = getSqlSessionFactory().openSession();
+		int re = -1;
+		
+		try {
+			re = sqlSession.getMapper(RecomMapper.class).alarmUpdate(alarm);
+			if(re > 0) {
+	            sqlSession.commit();
+	         }else {
+	            sqlSession.rollback();
+	         }
+		} catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+			sqlSession.close();
+		}
+		return re;
+	}
+
 }

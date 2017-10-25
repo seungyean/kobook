@@ -6,23 +6,27 @@
 	<cache />
 
 	<select id="getFavorite" resultType="FavoriteBook" parameterType="int">
-		SELECT BOOKAREUM.BOOK_NAME,BOOKAREUM.BOOK_KIND,BOOKAREUM.BOOK_ID,FAVORITEAREUM.FAVORITE_ID,FAVORITEAREUM.FAVORITE_NAME,FAVORITEAREUM.PERSON_ID,FAVORITEAREUM.FAVORITE_MAJOR
-		FROM FAVORITEAREUM ,BOOKAREUM 
-		WHERE FAVORITEAREUM.PERSON_ID = #{person_id}
-		AND BOOKAREUM.BOOK_ID = FAVORITEAREUM.BOOK_ID
+		SELECT BOOK.BOOK_NAME,BOOK.BOOK_KIND,BOOK.BOOK_ID,FAVORITE.FAVORITE_ID,FAVORITE.FAVORITE_NAME,FAVORITE.PERSON_ID,FAVORITE.FAVORITE_MAJOR
+		FROM FAVORITE ,BOOK 
+		WHERE FAVORITE.PERSON_ID = #{person_id}
+		AND BOOK.BOOK_ID = FAVORITE.BOOK_ID
 	</select>
 	
 	<delete id="deleteFavorite" parameterType="Favorite">
-		DELETE FROM FAVORITEAREUM
+		DELETE FROM FAVORITE
 		WHERE PERSON_ID=#{person_id}
 		AND BOOK_ID=#{book_id}
 	</delete>
 
-	<select id="alarmList" resultType="Alarm" parameterType="NewAlarm">
+	<select id="alarmList" resultType="Alarm" parameterType="int">
 		SELECT *
-		FROM ALARMAREUM
+		FROM ALARM
 		WHERE PERSON_ID=#{person_id}
 		ORDER BY ALARM_ID DESC
 	</select>
+	
+	<update id="alarmUpdate" parameterType="Alarm">
+		UPDATE ALARM SET HIT_YN='Y' WHERE PERSON_ID=#{person_id}
+	</update>
 
 </mapper>

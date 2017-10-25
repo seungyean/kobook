@@ -16,7 +16,7 @@ public class PayAction implements Action {
 		
 		ActionForward forward = new ActionForward();
 		forward.setRedirect(false);
-		forward.setPath("kobook/mypage/pay.jsp");
+		forward.setPath("pay.jsp");
 		
 		return forward;
 	}
