@@ -33,12 +33,12 @@ public class PersonDAO {
 		return new SqlSessionFactoryBuilder().build(in);
 	}
 	
-	// DB¿¡ µî·ÏµÇ¾îÀÖ´Â È¸¿ø¿¡°Ô¸¸ ÂÊÁö¸¦ º¸³»±â À§ÇØ email·Î È¸¿øÀ» Ã£´Â °úÁ¤ 
+	// DBï¿½ï¿½ ï¿½ï¿½ÏµÇ¾ï¿½ï¿½Ö´ï¿½ È¸ï¿½ï¿½ï¿½ï¿½ï¿½Ô¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ emailï¿½ï¿½ È¸ï¿½ï¿½ï¿½ï¿½ Ã£ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ 
 		public int searchP_id(String person_email){
 			SqlSession sqlSession = getSqlSessionFactory().openSession();
 			
 			try {
-				if(sqlSession.getMapper(PersonMapper.class).searchP_id(person_email) == null){	//±× emailÀ» °¡Áø È¸¿øÀÌ ¾øÀ» °æ¿ì
+				if(sqlSession.getMapper(PersonMapper.class).searchP_id(person_email) == null){	//ï¿½ï¿½ emailï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ È¸ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
 					return -1;
 				} else{
 					return sqlSession.getMapper(PersonMapper.class).searchP_id(person_email);
@@ -164,7 +164,7 @@ public class PersonDAO {
 	public int selectP_id(){
 		SqlSession sqlSession = getSqlSessionFactory().openSession();
 		try {
-			if(sqlSession.getMapper(PersonMapper.class).selectP_id() == null){	//±ÛÀÌ ÇÏ³ªµµ ¾ø±¸³ª
+			if(sqlSession.getMapper(PersonMapper.class).selectP_id() == null){	//ï¿½ï¿½ï¿½ï¿½ ï¿½Ï³ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 				return 0;
 			} else{
 				return sqlSession.getMapper(PersonMapper.class).selectP_id();
@@ -177,4 +177,16 @@ public class PersonDAO {
 		}
 	}
 	
+	public List<Person> blackPerson() {
+		SqlSession sqlSession = getSqlSessionFactory().openSession();
+		List<Person> list = null;
+		try {
+			list = sqlSession.getMapper(PersonMapper.class).blackPerson();
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			sqlSession.close();
+		}
+		return list;
+	}
 }

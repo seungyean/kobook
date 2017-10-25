@@ -16,7 +16,6 @@
 			<where>
 				<foreach collection="area" item="item" separator ="or"
 				open ="(" close=")">
-				<!--  title Like %aa% or writer Like %aa% -->
 				${item} LIKE #{searchKey}
 				</foreach>
 			</where>
@@ -38,22 +37,27 @@
 	
 	<select id="countPerson" resultType="int" parameterType="Search">
 		select count(*) from person
-		<if test="area != null">
+	 	<if test="area != null">
 			<where>
 				<foreach collection="area" item="item" separator="OR"
 					open="(" close=")">
 					${item} LIKE #{searchKey}
 				</foreach>
 			</where>
-		</if>
+		</if> 
 	</select>
 	
-	<select id="selectU_id" resultType="Integer">
+	<select id="selectP_id" resultType="Integer">
 		select max(person_id) from person
 	</select>
 	
 	 <select id="selectPerson" parameterType="int" resultType="Person">
 		select * from person where person_id = #{person_id}
+	</select>
+	
+	<select id="blackPerson" resultType="Person">
+<!-- 		select * from black INNER JOIN person ON person.person_id = black.black_id where person_kind = 'B' -->
+		select * from person where person_kind = 'B' order by person_id desc
 	</select>
 	
 </mapper>

@@ -30,17 +30,17 @@ public class AdminService {
 		return pdao.searchP_id(person_email);
 	}
 	
-	public PersonModel listUserService(HttpServletRequest request, int requestPage){
-/*		List<User> list = pdao.listUser(search);*/
+	public PersonModel listPersonService(HttpServletRequest request, int requestPage){
+
 		Search search = new Search();
 		HttpSession session = request.getSession();
 		
-		//»õ·Î¿î °Ë»ö ½Ãµµ(temp°ªÀÌ ³Ñ¾î¿À´Â°Í)
+		//ï¿½ï¿½ï¿½Î¿ï¿½ ï¿½Ë»ï¿½ ï¿½Ãµï¿½(tempï¿½ï¿½ï¿½ï¿½ ï¿½Ñ¾ï¿½ï¿½ï¿½Â°ï¿½)
 		if(request.getParameter("temp") != null || request.getParameter("pageNum")==null){
 			session.removeAttribute("search");
 		}
 		
-		//°Ë»ö½Ã
+		//ï¿½Ë»ï¿½ï¿½ï¿½
 		if(request.getParameterValues("area") != null){
 			search.setArea(request.getParameterValues("area"));
 			search.setSearchKey("%"+request.getParameter("searchKey")+"%");
@@ -49,14 +49,14 @@ public class AdminService {
 			search = (Search)session.getAttribute("search");
 		}
 		
-		//ÆäÀÌÁö´ç ±Û°¹¼ö, ÃÑ±Û°¹¼ö, ÃÑÆäÀÌÁö¼ö, ½ÃÀÛÆäÀÌÁö, ¸¶Áö¸·ÆäÀÌÁö, ÇöÀçÆäÀÌÁö
+		//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Û°ï¿½ï¿½ï¿½, ï¿½Ñ±Û°ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 		int totalCount = pdao.countPerson(search);
 		int totalPageCount = totalCount/PAGE_SIZE;
 		if(totalCount%PAGE_SIZE > 0){
 			totalPageCount++;
 		}
 		
-		int startPage = requestPage - (requestPage - 1)%5;	//start page ¸¸µå´Â °ø½Ä
+		int startPage = requestPage - (requestPage - 1)%5;	//start page ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 		int endPage = startPage + 4;
 		if(endPage > totalPageCount){
 			endPage = totalPageCount;
@@ -68,7 +68,7 @@ public class AdminService {
 		
 		return new PersonModel(list, requestPage, totalPageCount, startPage, endPage);
 		
-	/*	return pdao.listUser(search);*/
+
 	}
 
 	public Person detailPersonService(int person_id){
@@ -87,29 +87,34 @@ public class AdminService {
 		return pdao.kindupdatePerson(person);
 	}
 	
-	//°øÁö»çÇ× ±Û¾²±â 
+	public List<Person> blackPersonService(){
+		return pdao.blackPerson();
+	}
+	
+	//--------------------ê³µì§€ì‚¬í•­-------------------------		
+	
+	//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Û¾ï¿½ï¿½ï¿½ 
 	public int insertBoardService(Board board){
 		board.setBoard_id(bdao.selectB_id() + 1);
 		return bdao.insertBoard(board);
 	}
 	
 	public Person selectPersonService(int person_id, boolean bool){
-		
 		return pdao.selectPerson(person_id);
 	}
 	
-	//°øÁö»çÇ× ±Ûº¸¿©ÁÖ±â
+	//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ûºï¿½ï¿½ï¿½ï¿½Ö±ï¿½
 	public ListModel listBoardService(HttpServletRequest request, int requestPage){
-/*		List<Board> list = daoo.listBoard();*/
+		
 		Search search = new Search();
 		HttpSession session = request.getSession();
 		
-		//»õ·Î¿î °Ë»ö ½Ãµµ(temp°ªÀÌ ³Ñ¾î¿À´Â°Í)
+		//ìƒˆë¡œìš´ ê²€ìƒ‰ ì‹œë„(tempê°’ì´ ë„˜ì–´ì˜¤ëŠ”ê²ƒ)
 		if(request.getParameter("temp") != null || request.getParameter("pageNum")==null){
 			session.removeAttribute("search");
 		}
 		
-		//°Ë»ö½Ã
+		//ê²€ìƒ‰ì‹œ
 		if(request.getParameterValues("area") != null){
 			search.setArea(request.getParameterValues("area"));
 			search.setSearchKey("%"+request.getParameter("searchKey")+"%");
@@ -118,14 +123,14 @@ public class AdminService {
 			search = (Search)session.getAttribute("search");
 		}
 		
-		//ÆäÀÌÁö´ç ±Û°¹¼ö, ÃÑ±Û°¹¼ö, ÃÑÆäÀÌÁö¼ö, ½ÃÀÛÆäÀÌÁö, ¸¶Áö¸·ÆäÀÌÁö, ÇöÀçÆäÀÌÁö
+		//í˜ì´ì§€ë‹¹ ê¸€ê°¯ìˆ˜, ì´ê¸€ê°¯ìˆ˜, ì´í˜ì´ì§€ìˆ˜, ì‹œì‘í˜ì´ì§€, ë§ˆì§€ë§‰í˜ì´ì§€, í˜„ì¬í˜ì´ì§€
 		int totalCount = bdao.countBoard(search);
 		int totalPageCount = totalCount/PAGE_SIZE;
 		if(totalCount%PAGE_SIZE > 0){
 			totalPageCount++;
 		}
 		
-		int startPage = requestPage - (requestPage - 1)%5;	//start page ¸¸µå´Â °ø½Ä
+		int startPage = requestPage - (requestPage - 1)%5;	//start page ë§Œë“œëŠ” ê³µì‹
 		int endPage = startPage + 4;
 		if(endPage > totalPageCount){
 			endPage = totalPageCount;
@@ -134,11 +139,12 @@ public class AdminService {
 		int startRow = (requestPage-1) * PAGE_SIZE;
 		List<Board> list = bdao.listBoard(startRow, search);
 		
-		return new ListModel(list, requestPage, totalPageCount, startPage, endPage);
+		return new ListModel (list, requestPage, totalPageCount, startPage, endPage);
 		/*return daoo.listBoard();*/
 	}
+
 	
-	//°øÁö»çÇ× ±Û¼±ÅÃ
+	//ê³µì§€ì‚¬í•­ ê¸€ì„ íƒ
 	public Board selectBoardService(int board_id, boolean bool){
 		if(bool){
 			bdao.increaseHit(board_id);
@@ -146,14 +152,18 @@ public class AdminService {
 		return bdao.selectBoard(board_id);
 	}
 	
+	//ê³µì§€ì‚¬í•­ ìƒì„¸ë³´ê¸°
 	public Board detailNotiService(int board_id){
+		bdao.increaseHit(board_id);
 		return bdao.detailNoti(board_id);
 	}
 	
+	//ê³µì§€ì‚¬í•­ ê¸€ì‚­ì œ
 	public int deleteNotiService(int board_id){
 		return bdao.deleteNoti(board_id);
 	}
 	
+	//ê³µì§€ì‚¬í•­ ìˆ˜ì •
 	public int updateNoti(int board_id){
 		return bdao.updateNoti(board_id);
 	}

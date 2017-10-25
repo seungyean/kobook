@@ -23,5 +23,6 @@ public interface PersonMapper {
 	int countPerson(Search search);
 	public Integer selectP_id();
 	public Person selectPerson(int person_id);
+	public List<Person> blackPerson();
 	
 }
