@@ -1,4 +1,3 @@
-
 package kobook.book.action;
 
 import javax.servlet.http.HttpServletRequest;
@@ -25,8 +24,8 @@ public class BookdetailAction implements Action {
       request.setAttribute("book", book);
       
       ActionForward forward=new ActionForward();
-      forward.setRedirect(true);
-      forward.setPath("/koobook/book/bookdetail.jsp");
+      forward.setRedirect(false);
+      forward.setPath("/book/bookdetail.jsp");
       
       return forward;
    }

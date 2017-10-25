@@ -32,8 +32,8 @@ public class BookinsertFormAction implements Action {
 		
 		
 		ActionForward forward = new ActionForward();
-		forward.setRedirect(true);
-		forward.setPath("/kobook/book/bookinsertForm.jsp");
+		forward.setRedirect(false);
+		forward.setPath("/book/bookinsertForm.jsp");
 		
 		return forward;
 	}

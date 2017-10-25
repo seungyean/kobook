@@ -40,8 +40,8 @@ public class BooklocationAction implements Action {
 		request.setAttribute("listModel2", listModel2);
 		
 		ActionForward forward = new ActionForward();
-		forward.setRedirect(true);
-		forward.setPath("/kobook/book/location.jsp");
+		forward.setRedirect(false);
+		forward.setPath("/book/location.jsp");
 		
 		return forward;
 	}
