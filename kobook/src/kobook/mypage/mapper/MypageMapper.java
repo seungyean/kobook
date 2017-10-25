@@ -3,6 +3,7 @@ package kobook.mypage.mapper;
 import java.util.HashMap;
 import java.util.List;
 
+import kobook.admin.domain.Person;
 import kobook.book.domain.Book;
 import kobook.mypage.domain.Mileage;
 import kobook.mypage.domain.PaySuccess;
@@ -42,6 +43,9 @@ public interface MypageMapper {
 	
 	/* Max(mileage_id) */
 	public Integer selectM_id();
+	
+	/* 마일리지 업데이트(적립) */
+	public int mileagePointUpdate(HashMap<String, Integer> map);
 	
 	
 	

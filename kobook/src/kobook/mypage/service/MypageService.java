@@ -71,4 +71,10 @@ public class MypageService {
 	public int insertMileage(Mileage mileage){
 		return dao.insertMileage(mileage);
 	}
+	
+	/* 마일리지 적립 */
+	public int mileagePointUpdate(HashMap<String, Integer> map){
+		return dao.mileagePointUpdate(map);
+	}
+
 }
