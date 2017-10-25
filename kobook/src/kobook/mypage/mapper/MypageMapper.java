@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.List;
 
 import kobook.book.domain.Book;
+import kobook.mypage.domain.Mileage;
 import kobook.mypage.domain.PaySuccess;
 
 
@@ -29,9 +30,20 @@ public interface MypageMapper {
 	
 	/* 마일리지 합계 */
 	public int sumMileage(int pick_id);
-	
+
 	/* 결제등록 */
 	public int insertPay(PaySuccess paySuccess);
-  
+	
+	/* Max(pay_id) */
+	public Integer selectPay_id();
+	
+	/* 마일리지등록 */
+	public int insertMileage(Mileage mileage);
+	
+	/* Max(mileage_id) */
+	public Integer selectM_id();
+	
+	
+	
 
 }

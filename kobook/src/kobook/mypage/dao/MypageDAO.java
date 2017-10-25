@@ -10,6 +10,7 @@ import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 
 import kobook.book.domain.Book;
+import kobook.mypage.domain.Mileage;
 import kobook.mypage.domain.PaySuccess;
 import kobook.mypage.mapper.MypageMapper;
 
@@ -179,5 +180,71 @@ public class MypageDAO {
 		
 		return re;
 	}
+	
+	/* 결제번호 증가 */
+	public int selectPay_id(){
+		SqlSession sqlSession = getSqlSessionFactory().openSession();
+		try {
+			if(sqlSession.getMapper(MypageMapper.class).selectPay_id() == null){
+				return 0;
+			}else {
+				return sqlSession.getMapper(MypageMapper.class).selectPay_id();
+			}
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+			return 0;
+		} finally {
+			sqlSession.close();
+		}
+	}
+	
+	/* 결제 등록 */
+	public int insertMileage(Mileage mileage){
+		SqlSession sqlSession = getSqlSessionFactory().openSession();
+		int re = -1;
+		
+		try {
+			re = sqlSession.getMapper(MypageMapper.class).insertMileage(mileage);
+			if(re > 0){
+				sqlSession.commit();
+			} else {
+				sqlSession.rollback();
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			sqlSession.close();
+		}
+		
+		return re;
+	}
+	
+	/* 마일리지번호 증가 */
+	public int selectM_id(){
+		SqlSession sqlSession = getSqlSessionFactory().openSession();
+		try {
+			if(sqlSession.getMapper(MypageMapper.class).selectM_id() == null){
+				return 0;
+			}else {
+				return sqlSession.getMapper(MypageMapper.class).selectM_id();
+			}
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+			return 0;
+		} finally {
+			sqlSession.close();
+		}
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 }
