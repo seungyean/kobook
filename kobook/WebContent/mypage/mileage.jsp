@@ -1,4 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page import="kobook.mypage.domain.*" %>
+<%@ page import="kobook.mypage.dao.*" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <!--[if IE 8 ]><html class="ie ie8" class="no-js" lang="en"> <![endif]-->
 <!--[if (gte IE 9)|!(IE)]><!--><html class="no-js" lang="en"> <!--<![endif]-->
@@ -51,14 +54,14 @@
 									<br>
 									<br>
 							<!-- 간략 마일리지 -->
-							<div class="col-sm-5" style="margin: 20px">
+							<!-- <div class="col-sm-5" style="margin: 20px">
 								<table>
 									<tr>
 										<td class="col-sm-3">총 적립금 :</td>
 										<td class="col-sm-2">5160원</td>
 									</tr>
 								</table>
-							</div>
+							</div> -->
 							<!-- 간략 마일리지 끝 -->
 							<br>
 							<br>
@@ -66,24 +69,28 @@
 										<thead>
 											<tr>
 												<td align="center">No</td>
-												<td align="center">주문날짜</td>
+												<td align="center">적립날짜</td>
 												<td align="center">적립내용</td>
 												<td align="center">마일리지</td>
 											</tr>
 										</thead>
 										<tbody>
+										<c:forEach var="element" items="${mileageList }" >
 											<tr>
-												<td align="center">2</td>
-												<td align="center">2017-10-18</td>
-												<td align="center">포토리뷰에 대한 적립</td>
-												<td align="center">5000원</td>
+												<td align="center">${element.MILEAGE_ID }</td>
+												<td align="center">${element.MILEAGE_DATE  }</td>
+												<c:set var="name" value="${element.MILEAGE_KIND  }" />
+														<c:choose>
+   															<c:when test="${name eq 'P' }">
+      														    <td align="center">안심결제 구매에 의한 적립</td>
+   															</c:when>
+   															<c:when test="${name eq 'R' }">
+     												 		   <td align="center">포토리뷰에 의한 적립</td>
+  															</c:when>
+  														</c:choose>
+												<td align="center">${element.MILEAGE_POINT }P</td>
 											</tr>
-											<tr>
-												<td align="center">1</td>
-												<td align="center">2017-10-18</td>
-												<td align="center">구매에 대한 적립</td>
-												<td align="center">160원</td>
-											</tr>
+										</c:forEach>
 										</tbody>
 										</table>
 						</div>
