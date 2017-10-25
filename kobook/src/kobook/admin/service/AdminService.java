@@ -27,17 +27,21 @@ public class AdminService {
 		return service;
 	}
 	
+	public int searchP_idService(String person_email){
+		return pdao.searchP_id(person_email);
+	}
+	
 	public PersonModel listPersonService(HttpServletRequest request, int requestPage){
 
 		Search search = new Search();
 		HttpSession session = request.getSession();
 		
-		//새로운 검색 시도(temp값이 넘어오는것)
+		//�깉濡쒖슫 寃��깋 �떆�룄(temp媛믪씠 �꽆�뼱�삤�뒗寃�)
 		if(request.getParameter("temp") != null || request.getParameter("pageNum")==null){
 			session.removeAttribute("search");
 		}
 		
-		//검색시
+		//寃��깋�떆
 		if(request.getParameterValues("area") != null){
 			search.setArea(request.getParameterValues("area"));
 			search.setSearchKey("%"+request.getParameter("searchKey")+"%");
@@ -47,14 +51,14 @@ public class AdminService {
 			search = (Search)session.getAttribute("search");
 		} 
 		
-		//페이지당 글갯수, 총글갯수, 총페이지수, 시작페이지, 마지막페이지, 현재페이지
+		//�럹�씠吏��떦 湲�媛��닔, 珥앷�媛��닔, 珥앺럹�씠吏��닔, �떆�옉�럹�씠吏�, 留덉�留됲럹�씠吏�, �쁽�옱�럹�씠吏�
 		int totalCount = pdao.countPerson(search);
 		int totalPageCount = totalCount/PAGE_SIZE;
 		if(totalCount%PAGE_SIZE > 0){
 			totalPageCount++;
 		}
 		
-		int startPage = requestPage - (requestPage - 1)%5;	//start page 만드는 공식
+		int startPage = requestPage - (requestPage - 1)%5;	//start page 留뚮뱶�뒗 怨듭떇
 		int endPage = startPage + 4;
 		if(endPage > totalPageCount){
 			endPage = totalPageCount;
@@ -88,9 +92,9 @@ public class AdminService {
 		return pdao.blackPerson();
 	}
 	
-//--------------------공지사항-------------------------	
+//--------------------怨듭��궗�빆-------------------------	
 	
-	//공지사항 글쓰기 
+	//怨듭��궗�빆 湲��벐湲� 
 	public int insertBoardService(Board board){
 		board.setBoard_id(bdao.selectB_id() + 1);
 		return bdao.insertBoard(board);
@@ -100,18 +104,18 @@ public class AdminService {
 		return pdao.selectPerson(person_id);
 	}
 	
-	//공지사항 글보여주기
+	//怨듭��궗�빆 湲�蹂댁뿬二쇨린
 	public ListModel listBoardService(HttpServletRequest request, int requestPage){
 
 		Search search = new Search();
 		HttpSession session = request.getSession();
 		
-		//새로운 검색 시도(temp값이 넘어오는것)
+		//�깉濡쒖슫 寃��깋 �떆�룄(temp媛믪씠 �꽆�뼱�삤�뒗寃�)
 		if(request.getParameter("temp") != null || request.getParameter("pageNum")==null){
 			session.removeAttribute("search");
 		}
 		
-		//검색시
+		//寃��깋�떆
 		if(request.getParameterValues("area") != null){
 			search.setArea(request.getParameterValues("area"));
 			search.setSearchKey("%"+request.getParameter("searchKey")+"%");
@@ -120,14 +124,14 @@ public class AdminService {
 			search = (Search)session.getAttribute("search");
 		}
 		
-		//페이지당 글갯수, 총글갯수, 총페이지수, 시작페이지, 마지막페이지, 현재페이지
+		//�럹�씠吏��떦 湲�媛��닔, 珥앷�媛��닔, 珥앺럹�씠吏��닔, �떆�옉�럹�씠吏�, 留덉�留됲럹�씠吏�, �쁽�옱�럹�씠吏�
 		int totalCount = bdao.countBoard(search);
 		int totalPageCount = totalCount/PAGE_SIZE;
 		if(totalCount%PAGE_SIZE > 0){
 			totalPageCount++;
 		}
 		
-		int startPage = requestPage - (requestPage - 1)%5;	//start page 만드는 공식
+		int startPage = requestPage - (requestPage - 1)%5;	//start page 留뚮뱶�뒗 怨듭떇
 		int endPage = startPage + 4;
 		if(endPage > totalPageCount){
 			endPage = totalPageCount;
@@ -140,7 +144,7 @@ public class AdminService {
 		/*return daoo.listBoard();*/
 	}
 	
-	//공지사항 글선택
+	//怨듭��궗�빆 湲��꽑�깮
 	public Board selectBoardService(int board_id, boolean bool){
 		if(bool){
 			bdao.increaseHit(board_id);
@@ -148,18 +152,18 @@ public class AdminService {
 		return bdao.selectBoard(board_id);
 	}
 	
-	//공지사항 상세보기
+	//怨듭��궗�빆 �긽�꽭蹂닿린
 	public Board detailNotiService(int board_id){
 		bdao.increaseHit(board_id);
 		return bdao.detailNoti(board_id);
 	}
 	
-	//공지사항 글삭제
+	//怨듭��궗�빆 湲��궘�젣
 	public int deleteNotiService(int board_id){
 		return bdao.deleteNoti(board_id);
 	}
 	
-	//공지사항 수정
+	//怨듭��궗�빆 �닔�젙
 	public int updateNoti(int board_id){
 		return bdao.updateNoti(board_id);
 	}
