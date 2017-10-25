@@ -18,7 +18,7 @@ import kobook.common.domain.ImageUtil;
 public class BookService {
 	private static BookService service = new BookService();
 	   private static BookDAO dao;
-	   private static final int PAGE_SIZE = 8;
+	   private static final int PAGE_SIZE = 9;
 
 	   
 	   public static BookService getInstance() {
@@ -31,7 +31,7 @@ public class BookService {
 	      
 	      //�뙆�씪 �뾽濡쒕뱶(寃쎈줈�뙆�븙, �겕湲�, �씤肄붾뵫���엯, �뙆�씪�씠由꾩쨷泥⑸릺�뿀�쓣�븣 �젙梨�(?))
 	      String uploadPath = request.getRealPath("upload");//寃쎈줈
-	      int size = 20 * 1024 * 1024; //20Mb
+	      int size = 30 * 1024 * 1024; //20Mb
 	      
 	      MultipartRequest multi = 
 	            new MultipartRequest(request, uploadPath, size, "utf-8", new DefaultFileRenamePolicy());
@@ -206,7 +206,7 @@ public class BookService {
 	      
 	      //�뙆�씪 �뾽濡쒕뱶(寃쎈줈�뙆�븙, �겕湲�, �씤肄붾뵫���엯, �뙆�씪�씠由꾩쨷泥⑸릺�뿀�쓣�븣 �젙梨�(?))
 	            String uploadPath = request.getRealPath("upload");//寃쎈줈
-	            int size = 20 * 1024 * 1024; //20Mb
+	            int size = 30 * 1024 * 1024; //20Mb
 	            
 	            MultipartRequest multi = 
 	                  new MultipartRequest(request, uploadPath, size, "utf-8", new DefaultFileRenamePolicy());

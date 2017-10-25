@@ -70,7 +70,7 @@ public class BookDAO {
 	      SqlSession sqlSession = getSqlSessionFactory().openSession();
 	      List<Book> list = null;
 	      try {
-	         list = sqlSession.getMapper(BookMapper.class).listBook(new RowBounds(startRow, 8), bookSearch);
+	         list = sqlSession.getMapper(BookMapper.class).listBook(new RowBounds(startRow, 9), bookSearch);
 	      } catch (Exception e) {
 	         e.printStackTrace();
 	      } finally {
@@ -83,7 +83,7 @@ public class BookDAO {
 	      SqlSession sqlSession = getSqlSessionFactory().openSession();
 	      List<Book> list = null;
 	      try {
-	         list = sqlSession.getMapper(BookMapper.class).locationBook(new RowBounds(startRow, 8), bookSearch);
+	         list = sqlSession.getMapper(BookMapper.class).locationBook(new RowBounds(startRow, 9), bookSearch);
 	      } catch (Exception e) {
 	         e.printStackTrace();
 	      } finally {

@@ -1,4 +1,4 @@
-
+<%-- <%@page import="kobook.book.dao.BookDAO"%> --%>
 <%@page import="kobook.book.domain.BookSearch"%>
 <%@page import="kobook.book.domain.Book"%>
 <%@page import="java.util.List"%>
@@ -6,6 +6,10 @@
 	pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+
+
+
+
 
 <!DOCTYPE html>
 <!--[if IE 8 ]><html class="ie ie8" class="no-js" lang="en"> <![endif]-->
@@ -246,8 +250,8 @@
 									<div class="recent-item box">
 										<figure class="touching ">
 										
-										<img src="/kobook/upload/${b.book_img}" alt="aa"/>
-											<a href="/book/detailAction.do?book_id=${b.book_id}"></a>
+										<img src="/kobook/upload/${b.book_img}" alt="aa" height="280" />
+											<a href="/kobook/book/detailAction.do?book_id=${b.book_id}"></a>
 											<div class="option inner">
 												<div>
 													<h5>${b.book_name}</h5>
@@ -285,13 +289,13 @@
 									<div class="recent-item box">
 										<figure class="touching ">
 										
-										<img src="/kobook/upload/${b.book_img}" alt="aa"/>
-											<a href="/book/detailAction.do?book_id=${b.book_id}"></a>
+										<img src="/kobook/upload/${b.book_img}" alt="aa" height="280"/>
+											<a href="/kobook/book/detailAction.do?book_id=${b.book_id}"></a>
 											<div class="option inner">
 												<div>
 													<h5>${b.book_name}</h5>
 													<a href="/kobook/upload/${b.book_img}" class="fa fa-search mfp-image"></a> 
-													<a href="/book/detailAction.do?book_id=${b.book_id}" class="fa fa-link"></a> 
+													<a href="/kobook/book/detailAction.do?book_id=${b.book_id}" class="fa fa-link"></a> 
 													 <c:choose>
 													 
 													<c:when test="${b.book_sell_state=='I'}">
@@ -321,13 +325,13 @@
 									<div class="recent-item box">
 										<figure class="touching ">
 										
-										<img src="/kobook/upload/${b.book_img}" alt="aa"/>
+										<img src="/kobook/upload/${b.book_img}" height="280" alt="aa"/>
 											<a href="/kobook/book/detailAction.do?book_id=${b.book_id}"></a>
 											<div class="option inner">
 												<div>
 													<h5>${b.book_name}</h5>
 													<a href="/kobook/upload/${b.book_img}" class="fa fa-search mfp-image"></a> 
-													<a href="/kobook/bookdetailAction.do?book_id=${b.book_id}" class="fa fa-link"></a> 
+													<a href="/kobook/book/bookdetailAction.do?book_id=${b.book_id}" class="fa fa-link"></a> 
 													
 													 <c:choose>
 													<c:when test="${b.book_sell_state=='I'}">
@@ -357,7 +361,7 @@
 									<div class="recent-item box">
 										<figure class="touching ">
 										
-										<img src="/kobook/upload/${b.book_img}" alt="aa"/>
+										<img src="/kobook/upload/${b.book_img}" height="280" alt="aa"/>
 											<a href="/kobook/book/detailAction.do?book_id=${b.book_id}"></a>
 											<div class="option inner">
 												<div>
@@ -393,7 +397,7 @@
 									<div class="recent-item box">
 										<figure class="touching ">
 										
-										<img src="/kobook/upload/${b.book_img}" alt="aa"/>
+										<img src="/kobook/upload/${b.book_img}" height="280" alt="aa"/>
 											<a href="/kobook/book/detailAction.do?book_id=${b.book_id}"></a>
 											<div class="option inner">
 												<div>
@@ -429,7 +433,7 @@
 									<div class="recent-item box">
 										<figure class="touching ">
 										
-										<img src="/kobook/upload/${b.book_img}" alt="aa"/>
+										<img src="/kobook/upload/${b.book_img}" height="280" alt="aa"/>
 											<a href="/kobook/book/detailAction.do?book_id=${b.book_id}"></a>
 											<div class="option inner">
 												<div>
@@ -465,7 +469,7 @@
 									<div class="recent-item box">
 										<figure class="touching ">
 										
-										<img src="/kobook/upload/${b.book_img}" alt="aa"/>
+										<img src="/kobook/upload/${b.book_img}" height="280"  alt="aa"/>
 											<a href="/kobook/book/detailAction.do?book_id=${b.book_id}"></a>
 											<div class="option inner">
 												<div>
@@ -504,6 +508,7 @@
 						 <input type="hidden" name="temp" value="temp">
 
 							제목: <input type="checkbox" name="area" value="book_name" /> 
+							해시태그포함하여 검색유무: <input type="checkbox" name="area" value="book_hash" /> 
 							안심거래사용: <input type="checkbox" name="safe_yn" value="book_safe_yn" />
 							<!-- 지역명검색: <input type="checkbox" name="location" value="book_location" />  -->
 							<input type="text" class="input-text" name="searchKey" id="s" placeholder="책제목 을 입력하세요" />
@@ -727,7 +732,7 @@
 	<script type="text/javascript" src="/kobook/js/jquery-scrolltofixed-min.js"></script>
 	<script type="text/javascript" src="/kobook/js/jquery-hoverdirection.min.js"></script>
 
-	<script src="js/main.js"></script>
+	<script src="/kobook/js/main.js"></script>
 	<!-- Start Style Switcher -->
 	<div class="switcher"></div>
 	<!-- End Style Switcher -->

@@ -22,8 +22,8 @@ public class BookupdateFormAction implements Action {
 		
 		request.setAttribute("book", book);
 		
-		forward.setRedirect(true);
-		forward.setPath("/kobook/book/bookupdateForm.jsp");
+		forward.setRedirect(false);
+		forward.setPath("/book/bookupdateForm.jsp");
 		
 		return forward;
 	}
