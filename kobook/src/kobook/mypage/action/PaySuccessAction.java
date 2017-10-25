@@ -1,5 +1,8 @@
 package kobook.mypage.action;
 
+import java.util.HashMap;
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -7,6 +10,7 @@ import javax.servlet.http.HttpSession;
 import kobook.action.Action;
 import kobook.action.ActionForward;
 import kobook.admin.domain.Person;
+import kobook.book.domain.Book;
 import kobook.mypage.dao.MypageDAO;
 import kobook.mypage.domain.Mileage;
 import kobook.mypage.domain.PaySuccess;
@@ -57,8 +61,11 @@ public class PaySuccessAction implements Action {
 		service.insertMileage(mileage);
 		
 		// person update
+		HashMap<String, Integer> map = new HashMap<String, Integer>();
+		map.put("mileage_point", mileage_point);
+		map.put("person_id", person_id);
 		
-		
+		service.mileagePointUpdate(map);
 		
 		ActionForward forward = new ActionForward();
 		forward.setRedirect(false);

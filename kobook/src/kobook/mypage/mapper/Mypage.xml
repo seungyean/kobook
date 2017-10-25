@@ -51,9 +51,9 @@
 </select>
 
 <select id="sumMileage" resultType="int" parameterType="int">
-	select sum(mileage_point) as mileage_point
-	 from mileage
-	 where person_id = #{person_id}
+	select person_mileage 
+	from person 
+	where person_id = #{person_id}
 </select>
 
 <!-- 찜리삭제 -->
@@ -83,10 +83,13 @@ INSERT INTO mileage VALUES(#{mileage_id},#{mileage_kind},TO_DATE(SYSDATE,'YYYY-M
 	select max(mileage_id) from mileage
 </select>
 
-<!-- 마일리지 업데이트 -->
-<update id="mileagePointUpdate" parameterType="person">
+<!-- 마일리지 업데이트(적립) -->
+<update id="mileagePointUpdate" parameterType="hashMap">
 UPDATE person SET person_mileage = person_mileage + #{mileage_point} WHERE person_id = #{person_id}
 </update>
+
+<!-- 마일리지 업데이트(차감) -->
+
 
 </mapper>
 

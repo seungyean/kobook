@@ -43,7 +43,7 @@
 	</select>	
 	
 	  <select id="locationBook" parameterType="BookSearch" resultType="Book">
-		select 
+		select
 					b.book_id, b.book_name, b.book_o_price,b.book_m_price,b.book_kind,b.book_edition, b.book_publish, 
 					b.book_hash, b.book_safe_yn,b.book_sell_state, b.book_content,b.book_img,
 					b.book_date,b.book_status,p.person_id
@@ -61,6 +61,11 @@
 		
 		<!-- </when>
 		</choose> -->
+		<choose>
+		<when test="m_price!=null">
+			order by b.book_m_price DESC
+		</when>
+		</choose>
 	</select>
 	 
 	

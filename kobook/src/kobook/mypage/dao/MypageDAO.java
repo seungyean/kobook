@@ -238,6 +238,27 @@ public class MypageDAO {
 		}
 	}
 	
+	/* 마일리지 적립 */
+	public int mileagePointUpdate(HashMap<String, Integer> map){
+		SqlSession sqlSession = getSqlSessionFactory().openSession();
+		int re = -1;
+		
+		try {
+			re = sqlSession.getMapper(MypageMapper.class).mileagePointUpdate(map);
+			if(re > 0){
+				sqlSession.commit();
+			} else {
+				sqlSession.rollback();
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			sqlSession.close();
+		}
+		
+		return re;
+	}
+	
 	
 	
 	
