@@ -203,24 +203,24 @@
 						<div class="form-group">
 							<h3>- 총 결제 금액 </h3>
 							<input type="text" name="text" size="20" style="width:100%; border: 0;" id="total_price"  class="form-control"> 
-							<input type="text" name="text" id="pick_id" class="form-control"> 
+							<input type="hidden" name="text" id="pick_id" class="form-control"> 
 							
 						</div>
 					</form>
 				</div>
 				<div class="modal-footer">
-					<div class="btn-group btn-group-justified" >
-						<div class="btn-group">
-							<button type="button" class="btn btn-default" >취소</button>
-						</div>
-						<div class="btn-group btn-delete hidden" >
-							<button type="button" id="delImage" class="btn btn-default btn-hover-red">취소</button>
-						</div>
-						<div class="btn-group" role="group">
-							<button type="button" id="pay_success" class="btn btn-default btn-hover-green" data-action="save" role="button">결제</button>
-						</div>
-					</div>
+			<div class="btn-group btn-group-justified" role="group" aria-label="group button">
+				<div class="btn-group" role="group">
+					<button type="button" class="btn btn-default" data-dismiss="modal"  role="button">취소</button>
 				</div>
+				<div class="btn-group btn-delete hidden" role="group">
+					<button type="button" id="delImage" class="btn btn-default btn-hover-red" data-dismiss="modal"  role="button">취소</button>
+				</div>
+				<div class="btn-group" role="group">
+					<button type="button" id="pay_success" class="btn btn-default btn-hover-green" data-action="save" role="button">결제</button>
+				</div>
+			</div>
+		</div>
 			</div>
 		</div>
 	</div>
