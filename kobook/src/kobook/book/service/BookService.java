@@ -12,6 +12,7 @@ import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 import kobook.book.dao.BookDAO;
 import kobook.book.domain.Book;
 import kobook.book.domain.BookListModel;
+import kobook.book.domain.BookPick;
 import kobook.book.domain.BookSearch;
 import kobook.common.domain.ImageUtil;
 
@@ -206,13 +207,13 @@ public class BookService {
 	   }
 	   
 	   
+
 	   
-	   public Book pickBookService(int book_id){
-		   return dao.pickBook(book_id);
-	   }
-	   
-	   
-	   
+
+	   public int insertPick(BookPick bookpick){
+		   bookpick.setPick_id(dao.selectPick_id()+1);
+		return dao.insertPick(bookpick);
+	}
 	   
 	   
 	   

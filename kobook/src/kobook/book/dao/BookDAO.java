@@ -10,6 +10,7 @@ import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 
 import kobook.book.domain.Book;
+import kobook.book.domain.BookPick;
 import kobook.book.domain.BookSearch;
 import kobook.book.mapper.BookMapper;
 
@@ -107,18 +108,59 @@ public class BookDAO {
 	   
 	   
 	   
-	   public Book pickBook(int book_id) {
+//	   public Integer Book_id(int book_id) {
+//		      SqlSession sqlSession = getSqlSessionFactory().openSession();
+//		      try {
+//		         if (sqlSession.getMapper(BookMapper.class).Book_id(book_id) == null) {
+//		            return 0;
+//		         } else {
+//		            return sqlSession.getMapper(BookMapper.class).Book_id(book_id);
+//		         }
+//		      } catch (Exception e) {
+//		         e.printStackTrace();
+//		         return 0;
+//		      } finally {
+//		         sqlSession.close();
+//		      }
+//		   }
+	   
+	   public Integer selectPick_id() {
 		      SqlSession sqlSession = getSqlSessionFactory().openSession();
-		      Book book = null;
 		      try {
-		         book = sqlSession.getMapper(BookMapper.class).pickBook(book_id);
+		         if (sqlSession.getMapper(BookMapper.class).selectPick_id() == null) {
+		            return 0;
+		         } else {
+		            return sqlSession.getMapper(BookMapper.class).selectPick_id();
+		         }
+		      } catch (Exception e) {
+		         e.printStackTrace();
+		         return 0;
+		      } finally {
+		         sqlSession.close();
+		      }
+		   }
+	   
+	   public int insertPick(BookPick bookpick) {
+		      SqlSession sqlSession = getSqlSessionFactory().openSession();
+		      int re=-1;
+
+		      try {
+		    	  re = sqlSession.getMapper(BookMapper.class).insertPick(bookpick);
+
+			      if(re>0) {
+			    	  sqlSession.commit();
+			      }else {
+			    	  sqlSession.rollback();
+			      }
 		      } catch (Exception e) {
 		         e.printStackTrace();
 		      } finally {
 		         sqlSession.close();
 		      }
-		      return book;
+		      return re;
 		   }
+	   
+	   
 	   
 	   
 	/*   public int searchBook(Book book){

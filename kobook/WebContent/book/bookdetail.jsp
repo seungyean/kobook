@@ -307,6 +307,7 @@
 	
 							<form action="/kobook/book/pickAction.do" method="post">
 							<input type="hidden" name="book_id" value="${book.book_id}" />
+							<input type="text" name = "person_id" value="3" >
 							<input type="submit" value="찜하기" id="submit" class="btn btn-default btn-lg button">
 							</form>
 							

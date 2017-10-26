@@ -20,16 +20,18 @@
 		)		
 	</insert>
 	
-	<insert id="pickBook"  parameterType="int">
-	insert into pick(pick_id,book_id, person_id)
-
-	values((select max(pick_id) from pick)+1,
-	(select book.book_id from book join person on book.person_id = person.person_id 
-	<where>
-	 book.book_id = #{book_id}
-	</where>
-	),1)
+	<insert id="insertPick"  parameterType="BookPick">
+		insert into pick(pick_id,book_id, person_id)
+	values(#{pick_id},#{book_id},#{person_id})
 	</insert>
+	
+<!-- 	<select id="Book_id" resultType="Integer"  parameterType="int">
+	select book.book_id from book join person on book.person_id = person.person_id where book.book_id = #{book_id}
+	</select> -->
+	
+	<select id="selectPick_id" resultType="Integer" >
+		select max(pick_id) from pick
+	</select>
 	
 	
 	<select id="listBook" resultType="Book" parameterType="BookSearch">
