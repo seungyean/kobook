@@ -23,7 +23,7 @@
                     </div>
                     <div class="col-sm-4 top-info">
                         <ul>
-                            <li><a href="" class="my-envelope"><i class="fa fa-envlope" onclick="popup()"></i></a></li>
+                            <li><a href="" class="my-envelope"><i class="fa fa-envelope" onclick="popup()"></i></a></li>
                             <li><a href="" class="my-facebook"><i class="fa fa-facebook"></i></a></li>
                             <li><a href="" class="my-skype"><i class="fa fa-skype"></i></a></li>
                             <li><a href="" class="my-pint"><i class="fa fa-pinterest"></i></a></li>
