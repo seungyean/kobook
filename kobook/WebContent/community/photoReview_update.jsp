@@ -146,7 +146,7 @@
 						<!--Project Details Page-->
 						<div class="porDetCarousel">
 							<div class="carousel-content">
-								<img src="/BoardProject/upload/${photo.photo_img}" alt="NO IMAGE" height="500" width="700">
+								<img src="/kobook/upload/${photo.photo_img}" alt="NO IMAGE" height="500" width="700">
 							</div>
 						</div>
 					</div>

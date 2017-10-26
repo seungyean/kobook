@@ -13,7 +13,7 @@ public class QnaAction implements Action {
 		request.setCharacterEncoding("utf-8");
 		
 		ActionForward forward = new ActionForward();
-		forward.setPath("/BoardProject/community/qna.jsp");
+		forward.setPath("/kobook/community/qna.jsp");
 		forward.setRedirect(true);
 
 		return forward;

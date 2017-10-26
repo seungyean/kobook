@@ -13,7 +13,7 @@ public class PhotoInsertFormAction implements Action {
 		request.setCharacterEncoding("utf-8");
 		
 		ActionForward forward = new ActionForward();
-		forward.setPath("/BoardProject/community/photoReview_insert.jsp");
+		forward.setPath("/kobook/community/photoReview_insert.jsp");
 		forward.setRedirect(true);
 
 		return forward;

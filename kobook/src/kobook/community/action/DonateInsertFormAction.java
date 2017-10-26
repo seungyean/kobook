@@ -13,7 +13,7 @@ public class DonateInsertFormAction implements Action {
 		request.setCharacterEncoding("utf-8");
 		
 		ActionForward forward = new ActionForward();
-		forward.setPath("/BoardProject/community/donate_insert.jsp");
+		forward.setPath("/kobook/community/donate_insert.jsp");
 		forward.setRedirect(true);
 
 		return forward;

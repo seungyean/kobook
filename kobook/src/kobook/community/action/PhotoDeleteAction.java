@@ -19,7 +19,7 @@ public class PhotoDeleteAction implements Action {
 		int re = service.photoDeleteService(photo_id);
 		if(re>0) {
 			forward.setRedirect(true);
-			forward.setPath("/BoardProject/community/photoReviewList.do");
+			forward.setPath("/kobook/community/photoReviewList.do");
 		}
 		
 		return forward;

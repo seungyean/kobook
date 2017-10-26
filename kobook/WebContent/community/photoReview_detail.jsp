@@ -17,14 +17,14 @@
 	content="width=device-width, initial-scale=1, maximum-scale=1" />
 
 <!-- CSS FILES -->
-<link rel="stylesheet" href="/BoardProject/css/bootstrap.min.css" />
-<link rel="stylesheet" href="/BoardProject/css/style.css">
-<link rel="stylesheet" type="text/css" href="/BoardProject/css/style.css"
+<link rel="stylesheet" href="../css/bootstrap.min.css" />
+<link rel="stylesheet" href="../css/style.css">
+<link rel="stylesheet" type="text/css" href="../css/style.css"
 	media="screen" data-name="skins">
-<link rel="stylesheet" href="/BoardProject/css/layout/wide.css" data-name="layout">
-<link rel="stylesheet" href="/BoardProject/css/animate.css" type="text/css" />
+<link rel="stylesheet" href="../css/layout/wide.css" data-name="layout">
+<link rel="stylesheet" href="../css/animate.css" type="text/css" />
 
-<link rel="stylesheet" type="text/css" href="/BoardProject/css/switcher.css"
+<link rel="stylesheet" type="text/css" href="../css/switcher.css"
 	media="screen" />
 <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
 <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -74,7 +74,7 @@
 					<div class="col-lg-3 col-sm-3 ">
 						<div id="logo">
 							<h1>
-								<a href="/BoardProject/main/main.jsp">KOBOOK</a>
+								<a href="../main/main.jsp">KOBOOK</a>
 							</h1>
 						</div>
 					</div>
@@ -93,30 +93,30 @@
 							</div>
 							<div class="navbar-collapse collapse">
 								<ul class="nav navbar-nav">
-									<li><a href="/BoardProject/main/main.jsp">Home</a></li>
+									<li><a href="../main/main.jsp">Home</a></li>
 
-									<li><a href="/BoardProject/search/allSearch.jsp">전체검색</a></li>
-									<li><a href="/BoardProject/search/major.jsp">전공검색</a></li>
-									<li><a href="/BoardProject/search/location.jsp">지역검색</a></li>
+									<li><a href="../search/allSearch.jsp">전체검색</a></li>
+									<li><a href="../search/major.jsp">전공검색</a></li>
+									<li><a href="../search/location.jsp">지역검색</a></li>
 
-									<li><a href="/BoardProject/community/blackList.jsp">커뮤니티</a>
+									<li><a href="../community/blackList.jsp">커뮤니티</a>
 										<ul class="dropdown-menu">
 											<li><a href="blackList.do">신고합니다</a></li>
 											<li><a href="donateList.do">무료나눔</a></li>
 											<li><a href="photoReviewList.do">포토리뷰</a></li>
-											<li><a href="/BoardProject/community/noti.jsp">공지사항</a></li>
+											<li><a href="../community/noti.jsp">공지사항</a></li>
 											<li><a href="qna.do">자주묻는질문</a></li>
 										</ul></li>
 
-									<li><a href="/BoardProject/mypage/cart.jsp">마이페이지</a>
+									<li><a href="../mypage/cart.jsp">마이페이지</a>
 										<ul class="dropdown-menu">
-											<li><a href="/BoardProject/mypage/userUpdate.jsp">회원정보수정</a></li>
-											<li><a href="/BoardProject/mypage/cart.jsp">장바구니</a></li>
-											<li><a href="/BoardProject/mypage/mileage.jsp">마일리지</a></li>
-											<li><a href="/BoardProject/mypage/pickList.jsp">찜 리스트</a></li>
-											<li><a href="/BoardProject/mypage/buyList.jsp">구매내역</a></li>
-											<li><a href="/BoardProject/mypage/sellList.jsp">판매내역</a></li>
-											<li><a href="/BoardProject/mypage/reviewList.jsp">판매후기</a></li>
+											<li><a href="../mypage/userUpdate.jsp">회원정보수정</a></li>
+											<li><a href="../mypage/cart.jsp">장바구니</a></li>
+											<li><a href="../mypage/mileage.jsp">마일리지</a></li>
+											<li><a href="../mypage/pickList.jsp">찜 리스트</a></li>
+											<li><a href="../mypage/buyList.jsp">구매내역</a></li>
+											<li><a href="../mypage/sellList.jsp">판매내역</a></li>
+											<li><a href="../mypage/reviewList.jsp">판매후기</a></li>
 										</ul></li>
 								</ul>
 							</div>
@@ -155,7 +155,7 @@
 						<!--Project Details Page-->
 						<div class="porDetCarousel">
 							<div class="carousel-content">
-								<img src="/BoardProject/upload/${photo.photo_img}" alt="NO IMAGE" height="500" width="700">
+								<img src="../upload/${photo.photo_img}" alt="NO IMAGE" height="500" width="700">
 							</div>
 						</div>
 					</div>
@@ -208,11 +208,11 @@
                         <div id="recent-work-slider" class="owl-carousel">
                             <div class="recent-item box">
                                 <figure class="touching ">
-                                    <img src="/BoardProject/images/portfolio/portfolio_1.png" alt=""/>
+                                    <img src="../images/portfolio/portfolio_1.png" alt=""/>
                                     <div class="option inner">
                                         <div>
                                             <h5>Touch and Swipe</h5>
-                                            <a href="/BoardProject/images/portfolio/full/portfolio_1.png" class="fa fa-search mfp-image"></a>
+                                            <a href="../images/portfolio/full/portfolio_1.png" class="fa fa-search mfp-image"></a>
                                             <a href="portfolio_single.html" class="fa fa-link"></a>
                                             <span>Mobile</span>
                                         </div>
@@ -221,11 +221,11 @@
                             </div>
                             <div class="recent-item box">
                                 <figure class="touching ">
-                                    <img src="/BoardProject/images/portfolio/portfolio_2.png" alt=""/>
+                                    <img src="../images/portfolio/portfolio_2.png" alt=""/>
                                     <div class="option inner">
                                         <div>
                                             <h5>Touch and Swipe</h5>
-                                            <a href="/BoardProject/images/portfolio/full/portfolio_2.png" class="fa fa-search mfp-image"></a>
+                                            <a href="../images/portfolio/full/portfolio_2.png" class="fa fa-search mfp-image"></a>
                                             <a href="portfolio_single.html" class="fa fa-link"></a>
                                             <span>Mobile</span>
                                         </div>
@@ -234,11 +234,11 @@
                             </div>
                             <div class="recent-item box">
                                 <figure class="touching ">
-                                    <img src="/BoardProject/images/portfolio/portfolio_3.png" alt=""/>
+                                    <img src="../images/portfolio/portfolio_3.png" alt=""/>
                                     <div class="option inner">
                                         <div>
                                             <h5>Touch and Swipe</h5>
-                                            <a href="/BoardProject/images/portfolio/full/portfolio_3.png" class="fa fa-search mfp-image"></a>
+                                            <a href="../images/portfolio/full/portfolio_3.png" class="fa fa-search mfp-image"></a>
                                             <a href="portfolio_single.html" class="fa fa-link"></a>
                                             <span>Mobile</span>
                                         </div>
@@ -247,11 +247,11 @@
                             </div>
                             <div class="recent-item box">
                                 <figure class="touching ">
-                                    <img src="/BoardProject/images/portfolio/portfolio_4.png" alt=""/>
+                                    <img src="../images/portfolio/portfolio_4.png" alt=""/>
                                     <div class="option inner">
                                         <div>
                                             <h5>Touch and Swipe</h5>
-                                            <a href="/BoardProject/images/portfolio/full/portfolio_4.png" class="fa fa-search mfp-image"></a>
+                                            <a href="../images/portfolio/full/portfolio_4.png" class="fa fa-search mfp-image"></a>
                                             <a href="portfolio_single.html" class="fa fa-link"></a>
                                             <span>Mobile</span>
                                         </div>
@@ -260,11 +260,11 @@
                             </div>
                             <div class="recent-item box">
                                 <figure class="touching ">
-                                    <img src="/BoardProject/images/portfolio/portfolio_5.png" alt=""/>
+                                    <img src="../images/portfolio/portfolio_5.png" alt=""/>
                                     <div class="option inner">
                                         <div>
                                             <h5>Touch and Swipe</h5>
-                                            <a href="/BoardProject/images/portfolio/full/portfolio_5.png" class="fa fa-search mfp-image"></a>
+                                            <a href="../images/portfolio/full/portfolio_5.png" class="fa fa-search mfp-image"></a>
                                             <a href="portfolio_single.html" class="fa fa-link"></a>
                                             <span>Mobile</span>
                                         </div>
@@ -273,25 +273,11 @@
                             </div>
                             <div class="recent-item box">
                                 <figure class="touching ">
-                                    <img src="/BoardProject/images/portfolio/portfolio_6.png" alt=""/>
+                                    <img src="../images/portfolio/portfolio_6.png" alt=""/>
                                     <div class="option inner">
                                         <div>
                                             <h5>Touch and Swipe</h5>
-                                            <a href="/BoardProject/images/portfolio/full/portfolio_6.png" class="fa fa-search mfp-image"></a>
-                                            <a href="portfolio_single.html" class="fa fa-link"></a>
-                                            <span>Mobile</span>
-                                        </div>
-                                    </div>
-                                </figure>
-                            </div>
-
-                            <div class="recent-item box">
-                                <figure class="touching ">
-                                    <img src="/BoardProject/images/portfolio/portfolio_7.png" alt=""/>
-                                    <div class="option inner">
-                                        <div>
-                                            <h5>Touch and Swipe</h5>
-                                            <a href="/BoardProject/images/portfolio/full/portfolio_7.png" class="fa fa-search mfp-image"></a>
+                                            <a href="../images/portfolio/full/portfolio_6.png" class="fa fa-search mfp-image"></a>
                                             <a href="portfolio_single.html" class="fa fa-link"></a>
                                             <span>Mobile</span>
                                         </div>
@@ -301,11 +287,25 @@
 
                             <div class="recent-item box">
                                 <figure class="touching ">
-                                    <img src="/BoardProject/images/portfolio/portfolio_8.png" alt=""/>
+                                    <img src="../images/portfolio/portfolio_7.png" alt=""/>
                                     <div class="option inner">
                                         <div>
                                             <h5>Touch and Swipe</h5>
-                                            <a href="/BoardProject/images/portfolio/full/portfolio_8.png" class="fa fa-search mfp-image"></a>
+                                            <a href="../images/portfolio/full/portfolio_7.png" class="fa fa-search mfp-image"></a>
+                                            <a href="portfolio_single.html" class="fa fa-link"></a>
+                                            <span>Mobile</span>
+                                        </div>
+                                    </div>
+                                </figure>
+                            </div>
+
+                            <div class="recent-item box">
+                                <figure class="touching ">
+                                    <img src="../images/portfolio/portfolio_8.png" alt=""/>
+                                    <div class="option inner">
+                                        <div>
+                                            <h5>Touch and Swipe</h5>
+                                            <a href="../images/portfolio/full/portfolio_8.png" class="fa fa-search mfp-image"></a>
                                             <a href="portfolio_single.html" class="fa fa-link"></a>
                                             <span>Mobile</span>
                                         </div>
@@ -454,26 +454,26 @@
 		</div>
 	</section>
 
-	<script type="text/javascript" src="/BoardProject/js/jquery-1.10.2.min.js"></script>
-	<script src="/BoardProject/js/bootstrap.min.js"></script>
-	<script src="/BoardProject/js/jquery.easing.1.3.js"></script>
-	<script src="/BoardProject/js/retina-1.1.0.min.js"></script>
-	<script type="text/javascript" src="/BoardProject/js/jquery.cookie.js"></script>
+	<script type="text/javascript" src="../js/jquery-1.10.2.min.js"></script>
+	<script src="../js/bootstrap.min.js"></script>
+	<script src="../js/jquery.easing.1.3.js"></script>
+	<script src="../js/retina-1.1.0.min.js"></script>
+	<script type="text/javascript" src="../js/jquery.cookie.js"></script>
 	<!-- jQuery cookie -->
-	<script type="text/javascript" src="/BoardProject/js/styleswitch.js"></script>
+	<script type="text/javascript" src="../js/styleswitch.js"></script>
 	<!-- Style Colors Switcher -->
-	<script type="text/javascript" src="/BoardProject/js/jquery.smartmenus.min.js"></script>
+	<script type="text/javascript" src="../js/jquery.smartmenus.min.js"></script>
 	<script type="text/javascript"
-		src="/BoardProject/js/jquery.smartmenus.bootstrap.min.js"></script>
-	<script type="text/javascript" src="/BoardProject/js/owl.carousel.js"></script>
+		src="../js/jquery.smartmenus.bootstrap.min.js"></script>
+	<script type="text/javascript" src="../js/owl.carousel.js"></script>
 	<!-- Popover-JS -->
-	<script type="text/javascript" src="/BoardProject/js/jflickrfeed.js"></script>
-	<script type="text/javascript" src="/BoardProject/js/jquery.magnific-popup.min.js"></script>
-	<script type="text/javascript" src="/BoardProject/js/jquery.isotope.min.js"></script>
-	<script type="text/javascript" src="/BoardProject/js/swipe.js"></script>
-	<script type="text/javascript" src="/BoardProject/js/jquery-scrolltofixed-min.js"></script>
+	<script type="text/javascript" src="../js/jflickrfeed.js"></script>
+	<script type="text/javascript" src="../js/jquery.magnific-popup.min.js"></script>
+	<script type="text/javascript" src="../js/jquery.isotope.min.js"></script>
+	<script type="text/javascript" src="../js/swipe.js"></script>
+	<script type="text/javascript" src="../js/jquery-scrolltofixed-min.js"></script>
 
-	<script src="/BoardProject/js/main.js"></script>
+	<script src="../js/main.js"></script>
 	<script type="text/javascript">
 		$(document).ready(function() {
 			$.fn.carousel = function(op) {

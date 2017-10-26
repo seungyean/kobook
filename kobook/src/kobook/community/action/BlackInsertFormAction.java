@@ -13,7 +13,7 @@ public class BlackInsertFormAction implements Action {
 		request.setCharacterEncoding("utf-8");
 		
 		ActionForward forward = new ActionForward();
-		forward.setPath("/BoardProject/community/blackList_insert.jsp");
+		forward.setPath("/kobook/community/blackList_insert.jsp");
 		forward.setRedirect(true);
 
 		return forward;
