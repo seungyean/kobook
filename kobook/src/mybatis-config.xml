@@ -45,7 +45,7 @@
 		<typeAlias alias="Person" type="kobook.admin.domain.Person" />
 
 		<!-- 파일업로드/다운로드 -->
-		<typeAlias alias="FileDownloadHelper" type="kobook.community.domain.FileDownloadHelper" />
+		<typeAlias alias="FileDownloadHelper" type="kobook.common.domain.FileDownloadHelper" />
 
 		<!-- 이미지유틸 -->
 		<typeAlias alias="ImageUtil" type="kobook.common.domain.ImageUtil" />
@@ -69,7 +69,7 @@
 		<mapper resource="kobook/recom/mapper/Recommend.xml" />
 		<mapper resource="kobook/book/mapper/Book.xml" />
 		<mapper resource="kobook/mypage/mapper/Mypage.xml" />
-		<mapper resource="kobook/community/mapper/BLackList.xml" />
+		<mapper resource="kobook/community/mapper/BlackList.xml" />
 		<mapper resource="kobook/community/mapper/Donate.xml" />
 		<mapper resource="kobook/community/mapper/Photo.xml" />
 
