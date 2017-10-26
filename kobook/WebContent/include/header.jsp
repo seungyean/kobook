@@ -61,9 +61,10 @@
                                     <li><a href="/kobook/community/blackList.do" >커뮤니티</a>
                                         <ul class="dropdown-menu">
                                             <li><a href="/kobook/community/blackList.do">신고합니다</a></li>
-                                            <li><a href="/kobook/community/donate.do">무료나눔</a></li>
-                                            <li><a href="/kobook/community/photoReview.do">포토리뷰</a></li>
-                                            <li><a href="/kobook/community/noti.do">공지사항</a></li>
+                                            <li><a href="/kobook/community/donateList.do">무료나눔</a></li>
+                                            <li><a href="/kobook/community/photoReviewList.do">포토리뷰</a></li>
+                                            <li><a href="/kobook/admin/noti.do">공지사항</a></li>
+                                            <li><a href="/kobook/community/qna.do">자주묻는질문</a></li>
                                         </ul>
                                     </li>
                                     
