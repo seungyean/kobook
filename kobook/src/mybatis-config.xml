@@ -5,74 +5,74 @@
 <!-- ㅇ -->
 <configuration>
 	<typeAliases>
-	
+
 		<!-- 마이페이지: 승연 -->
-		<typeAlias alias="Mypage" type="kobook.mypage.domain.Mypage"/>
-		<typeAlias alias="BookBuyElement" type="kobook.mypage.domain.BookBuyElement"/>
-		<typeAlias alias="PaySuccess" type="kobook.mypage.domain.PaySuccess"/>
-		<typeAlias alias="Mileage" type="kobook.mypage.domain.Mileage"/>
-		
-		<!-- 관리자: 지호-->
-		<typeAlias alias="Board" type="kobook.admin.domain.Board"/>
-		<typeAlias alias="Search" type="kobook.admin.domain.Search"/>
-		<typeAlias alias="ListModel" type="kobook.admin.domain.ListModel"/>
-		<typeAlias alias="PersonModel" type="kobook.admin.domain.PersonModel"/>
-		
+		<typeAlias alias="Mypage" type="kobook.mypage.domain.Mypage" />
+		<typeAlias alias="BookBuyElement" type="kobook.mypage.domain.BookBuyElement" />
+		<typeAlias alias="PaySuccess" type="kobook.mypage.domain.PaySuccess" />
+		<typeAlias alias="Mileage" type="kobook.mypage.domain.Mileage" />
+
+		<!-- 관리자: 지호 -->
+		<typeAlias alias="Board" type="kobook.admin.domain.Board" />
+		<typeAlias alias="Search" type="kobook.admin.domain.Search" />
+		<typeAlias alias="ListModel" type="kobook.admin.domain.ListModel" />
+		<typeAlias alias="PersonModel" type="kobook.admin.domain.PersonModel" />
+
 		<!-- 쪽지,채팅: 재승 -->
-      	<typeAlias alias="Message" type="kobook.message.domain.Message"/>
-      	
-      	<!-- 메인: 아름 -->
-    	<typeAlias alias="Favorite" type="kobook.recom.domain.Favorite" />
-		<typeAlias alias="FavoriteBook" type="kobook.recom.domain.FavoriteBook"/>
-     	<typeAlias alias="Alarm" type="kobook.recom.domain.Alarm" />
-      	
-      	<!-- 책: 민주 -->
-		<typeAlias alias="BookSearch" type="kobook.book.domain.BookSearch"/>
-		<typeAlias alias="Book" type="kobook.book.domain.Book"/>
-		
+		<typeAlias alias="Message" type="kobook.message.domain.Message" />
+
+		<!-- 메인: 아름 -->
+		<typeAlias alias="Favorite" type="kobook.recom.domain.Favorite" />
+		<typeAlias alias="FavoriteBook" type="kobook.recom.domain.FavoriteBook" />
+		<typeAlias alias="Alarm" type="kobook.recom.domain.Alarm" />
+
+		<!-- 책: 민주 -->
+		<typeAlias alias="BookSearch" type="kobook.book.domain.BookSearch" />
+		<typeAlias alias="Book" type="kobook.book.domain.Book" />
+
 		<!-- 커뮤니티: 동길 -->
-		<typeAlias alias="Donate" type="kobook.community.domain.Donate"/>
-		<typeAlias alias="DonateReply" type="kobook.community.domain.DonateReply"/>
-		<typeAlias alias="DonateListModel" type="kobook.community.domain.DonateListModel"/>
-		<typeAlias alias="CommunitySearch" type="kobook.community.domain.CommunitySearch"/>
+		<typeAlias alias="Donate" type="kobook.community.domain.Donate" />
+		<typeAlias alias="DonateReply" type="kobook.community.domain.DonateReply" />
+		<typeAlias alias="DonateListModel" type="kobook.community.domain.DonateListModel" />
+		<typeAlias alias="CommunitySearch" type="kobook.community.domain.CommunitySearch" />
 		<typeAlias alias="Black" type="kobook.community.domain.BlackList"/>
 		<typeAlias alias="BlackListModel" type="kobook.community.domain.BlackListModel"/>
-		<typeAlias alias="Photo" type="kobook.community.domain.Photo"/>'
+		<typeAlias alias="Photo" type="kobook.community.domain.Photo"/>
 		<typeAlias alias="PhotoListModel" type="kobook.community.domain.PhotoListModel"/>
-				
+
 
 		<!-- 회원 -->
-		<typeAlias alias="Person" type="kobook.admin.domain.Person"/>
-		
+		<typeAlias alias="Person" type="kobook.admin.domain.Person" />
+
 		<!-- 파일업로드/다운로드 -->
-		<typeAlias alias="FileDownloadHelper" type="kobook.community.domain.FileDownloadHelper"/>
-		
+		<typeAlias alias="FileDownloadHelper" type="kobook.community.domain.FileDownloadHelper" />
+
 		<!-- 이미지유틸 -->
-		<typeAlias alias="ImageUtil" type="kobook.common.domain.ImageUtil"/>
-		
+		<typeAlias alias="ImageUtil" type="kobook.common.domain.ImageUtil" />
+
 	</typeAliases>
-	
+
 	<environments default="development">
 		<environment id="development">
-			<transactionManager type="JDBC"/>
+			<transactionManager type="JDBC" />
 			<dataSource type="JNDI">
-				<property name="data_source" value="java:comp/env/jdbc/oracle"/>
+				<property name="data_source" value="java:comp/env/jdbc/oracle" />
 			</dataSource>
-		</environment>		
+		</environment>
 	</environments>
-	
+
 	<mappers>
-	
-     	<mapper resource="kobook/admin/mapper/Person.xml"/>
-		<mapper resource="kobook/admin/mapper/Board.xml"/>
-     	<mapper resource="kobook/message/mapper/Message.xml"/>
-     	<mapper resource="kobook/recom/mapper/Recommend.xml"/>
-     	<mapper resource="kobook/book/mapper/Book.xml"/>
-     	<mapper resource="kobook/mypage/mapper/Mypage.xml" />
-     	<mapper resource="kobook/community/mapper/BLackList.xml" />
-     	<mapper resource="kobook/community/mapper/Donate.xml" />
-     	<mapper resource="kobook/community/mapper/Photo.xml" />
-      
+
+		<mapper resource="kobook/admin/mapper/Person.xml" />
+		<mapper resource="kobook/admin/mapper/Board.xml" />
+		<mapper resource="kobook/message/mapper/Message.xml" />
+		<mapper resource="kobook/recom/mapper/Recommend.xml" />
+		<mapper resource="kobook/book/mapper/Book.xml" />
+		<mapper resource="kobook/mypage/mapper/Mypage.xml" />
+		<mapper resource="kobook/community/mapper/BLackList.xml" />
+		<mapper resource="kobook/community/mapper/Donate.xml" />
+		<mapper resource="kobook/community/mapper/Photo.xml" />
+
 	</mappers>
-	
+
 </configuration>
