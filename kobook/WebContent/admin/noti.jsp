@@ -72,7 +72,7 @@
 					<div class="col-lg-3 col-sm-3 ">
 						<div id="logo">
 							<h1>
-								<a href="index.html"><img alt="logo"
+								<a href="index.html"><img alt="KOBOOK - 관리자"
 									src="/kobook/images/logo.png" /></a>
 							</h1>
 						</div>
@@ -88,7 +88,7 @@
 									data-toggle="collapse" data-target=".navbar-collapse">
 									<span class="sr-only">Toggle navigation</span> <span
 										class="icon-bar"></span> <span class="icon-bar"></span> <span
-										class="icon-bar"></span>
+										class="icon-bar"></span>ㄻ
 								</button>
 							</div>
 							<div class="navbar-collapse collapse">
@@ -115,7 +115,7 @@
 													<li><a href="about-2.html">About Us 2</a></li>
 												</ul></li>
 											<li><a href="services.html">Services</a></li>
-											<li class="active"><a href="faq.html">FAQ</a></li>
+											<li class="active"><a href="faq.html">공지사항</a></li>
 											<li><a href="sidebar-right.html">Right Sidebar</a></li>
 											<li><a href="sidebar-left.html">Left Sidebar</a></li>
 											<li><a href="404-page.html">404 Page</a></li>
@@ -151,7 +151,7 @@
 						</div>
 						<nav id="breadcrumbs">
 							<ul>
-								<li><a href="noti.jsp">Home</a>/</li>
+								<li><a href="/kobook/admin/noti.jsp">Home</a>/</li>
 								<li>Pages</li>
 							</ul>
 						</nav>

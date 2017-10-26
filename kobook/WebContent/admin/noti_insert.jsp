@@ -52,7 +52,8 @@
                 <!-- Logo / Mobile Menu -->
                 <div  class="col-lg-3 col-sm-3 ">
                     <div id="KOBOOK">
-                        <h1><a href="index.html"><img alt="logo" src="images/logo.png"/></a></h1>
+                        <h1><a href="index.html"><img alt="KOBOOK - 관리자"
+                         src="images/logo.png"/></a></h1>
                     </div>
                 </div>
                 
@@ -129,7 +130,7 @@
                     </div>
                     <nav id="breadcrumbs">
                         <ul>
-                            <li><a href="index.html">Home</a>/</li>
+                            <li><a href="/kobook/admin/noti.jsp">Home</a>/</li>
                             <li>donate</li>
                         </ul>
                     </nav>

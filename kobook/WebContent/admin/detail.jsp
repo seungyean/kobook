@@ -39,6 +39,7 @@
 
 <script type="text/javascript">
 function delete_fn(){
+	alert("삭제가 완료되었습니다.");
 	location.href = "/kobook/admin/delete.do?person_id=${person.person_id}";
 }
 </script>
@@ -222,7 +223,7 @@ function delete_fn(){
 			<input name="person_id" value="${person.person_id }" type="hidden"/>
 			<input name="person_sell_grade" value="${person.person_sell_grade }" type="hidden"/>
 			<input name="person_kind" value="${person.person_kind }" type="hidden" />
-			<input type="submit" value="정보수정">
+			<input type="submit" value="정보수정" onclick="javascript:alert('수정 완료했습니다.');">
 		</form>
 
 </body>

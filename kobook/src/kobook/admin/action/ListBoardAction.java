@@ -42,7 +42,7 @@ public class ListBoardAction implements Action{
 		
 		ActionForward forward = new ActionForward();
 		forward.setRedirect(false);
-		forward.setPath("/admin/admin/noti.jsp");
+		forward.setPath("/admin/noti.jsp");
 
 		return forward;
 		

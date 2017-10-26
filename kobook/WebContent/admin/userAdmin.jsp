@@ -80,7 +80,7 @@
 					<div class="col-lg-3 col-sm-3 ">
 						<div id="logo">
 							<h1>
-								<a href="index.html"><img alt="KOBOOK - 관리자"
+								<a href="/kobook/admin/noti.jsp"><img alt="KOBOOK - 관리자"
 									src="/kobook/images/logo.png" /></a>
 							</h1>
 						</div>
