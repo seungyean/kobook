@@ -23,6 +23,7 @@ public class Controller extends HttpServlet {
 	private MessageController messageController = new MessageController();
     private MypageController mypageController = new MypageController();
     private RecomController recomController = new RecomController();
+    private ChatbotController chatbotController = new ChatbotController();
        
     public Controller() {
         super();
@@ -90,7 +91,9 @@ public class Controller extends HttpServlet {
         		mypageController.doProcess(request, response);
         	} else if(command2.equals("recom")){
         		recomController.doProcess(request, response);
-        	}
+        	} /*else if(command2.equals("chatbot")){
+        		chatbotController.doProcess(request, response);
+        	}*/
     	}
     	
         
