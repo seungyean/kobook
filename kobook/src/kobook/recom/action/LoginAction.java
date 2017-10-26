@@ -36,6 +36,8 @@ public class LoginAction implements Action {
 		
 		if(person_email.equals("admin") && person_pwd.equals("1234")){
 			System.out.println("관리자 로그인 성공");
+			String person_id = (service.loginService(person_email)) + "";
+			session.setAttribute("person_id", person_id);
 			forward.setPath("/admin/listUser.do");
 			forward.setRedirect(false);
 		}

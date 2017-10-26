@@ -5,7 +5,7 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%
 	ListModel listModel = (ListModel)request.getAttribute("listModel");
-	int person_id = Integer.parseInt((String)request.getSession().getAttribute("person_id"));
+/* 	int person_id = Integer.parseInt((String)request.getSession().getAttribute("person_id")); */
 %>
 
 <!DOCTYPE html>
@@ -71,19 +71,10 @@
 					<!-- Logo / Mobile Menu -->
 					<div class="col-lg-3 col-sm-3 ">
 						<div id="logo">
-							<c:choose>
-								<c:when test="${person_id == 0 }">
+
 									<h1>
 										<a href="index.html"><img alt="KOBOOK - 관리자" src="/kobook/images/logo.png" /></a>
-									</h1>
-								</c:when>
-								<c:otherwise>
-									<h1>
-										<a href="index.html"><img alt="KOBOOK" src="/kobook/images/logo.png" /></a>
-									</h1>									
-								</c:otherwise>
-							</c:choose>
-						
+									</h1>								
 							
 						</div>
 					</div>
@@ -131,7 +122,7 @@
 											<li><a href="404-page.html">404 Page</a></li>
 										</ul></li>
 
-									<li><a href="/kobook/admin/insertBoard.do">공지사항관리</a>
+									<li><a href="/kobook/admin/notiAdmin.do">공지사항관리</a>
 										<ul class="dropdown-menu">
 											<li><a href="#">Portfolio Classic</a>
 												<ul class="dropdown-menu">

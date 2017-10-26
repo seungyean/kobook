@@ -13,7 +13,7 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%
 	PersonModel personModel = (PersonModel) request.getAttribute("personModel");
-	int person_id = Integer.parseInt((String)request.getSession().getAttribute("person_id"));
+	request.getSession().getAttribute("person_id");
 %>
 <!DOCTYPE html>
 <!--[if IE 8 ]><html class="ie ie8" class="no-js" lang="en"> <![endif]-->

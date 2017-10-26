@@ -37,18 +37,25 @@ public class ListBoardAction implements Action{
 		System.out.println(requestPage);
 		ListModel listModel = service.listBoardService(request, requestPage);
 		
-/*		HttpSession session = request.getSession();
-		session.setAttribute("person_id", request.getAttribute(""));*/
+		HttpSession session = request.getSession();
+		//String person_id = (String)session.getAttribute("person_id");
+		int person_id = Integer.parseInt((String)session.getAttribute("person_id"));
+		System.out.println(person_id);
 		
-		/*
-		int re = service.insertBoardService(board);*/
 		request.setAttribute("listModel", listModel);
 		
 		ActionForward forward = new ActionForward();
-		forward.setRedirect(false);
 		
-		forward.setPath("/admin/notiAdmin.jsp");
-
+		System.out.println(person_id);
+		
+		if(person_id == 0){
+			forward.setRedirect(false);
+			forward.setPath("/admin/notiAdmin.jsp");
+		} else {
+			forward.setRedirect(false);
+			forward.setPath("/admin/noti.jsp");
+		}
+		
 		return forward;
 		
 	}
