@@ -160,14 +160,14 @@ public class PhotoService {
 
 	public int photoDeleteService(int photo_id) {
 		int re = -1;
-		int max_id = dao.selectPhoto_id();
-		if (max_id >= photo_id) {
-			System.out.println(re);
+//		int max_id = dao.selectPhoto_id();
+//		if (max_id >= photo_id) {
+//			System.out.println(re);
 			re = dao.deletePhoto(photo_id);
-			dao.updatePhoto_id(photo_id);
-			System.out.println(re);
-		}
-		System.out.println(re);
+//			dao.updatePhoto_id(photo_id);
+//			System.out.println(re);
+//		}
+//		System.out.println(re);
 		return re;
 	}
 	

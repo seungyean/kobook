@@ -158,14 +158,7 @@ public class BlackListService {
 
 	public int blackDeleteService(int black_id) {
 		int re = -1;
-		int max_id = dao.selectBlack_id();
-		if (max_id >= black_id) {
-			System.out.println(re);
 			re = dao.deleteBlackList(black_id);
-			dao.updateBlack_id(black_id);
-			System.out.println(re);
-		}
-		System.out.println(re);
 		return re;
 	}
 }

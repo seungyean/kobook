@@ -170,15 +170,15 @@ public class DonateService {
 		if (checkReplyCount > 0) {
 			dao.deleteAllReply(donate_id);
 		}
-		int max_id = dao.selectDonate_id();
-		if (max_id >= donate_id) {
-			System.out.println(re);
+//		int max_id = dao.selectDonate_id();
+//		if (max_id >= donate_id) {
+//			System.out.println(re);
 			re = dao.deleteDonate(donate_id);
-			dao.updateReply_id(donate_id);
-			dao.updateDonate_id(donate_id);
-			System.out.println(re);
-		}
-		System.out.println(re);
+//			dao.updateReply_id(donate_id);
+//			dao.updateDonate_id(donate_id);
+//			System.out.println(re);
+//		}
+//		System.out.println(re);
 		return re;
 	}
 
