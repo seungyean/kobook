@@ -55,7 +55,7 @@
                                     </li>
 
                                     <li><a href="/kobook/book/listAction.do">전체검색</a></li>
-                                    <li><a href="/kobook/book/locationAction.do">지역검색</a></li>
+                                    <li><a href="/kobook/book/locationAction.do?check=1">지역검색</a></li>
 
                                     <li><a href="/kobook/community/blackList.do" >커뮤니티</a>
                                         <ul class="dropdown-menu">
