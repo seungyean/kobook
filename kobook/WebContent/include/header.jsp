@@ -4,6 +4,13 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
+<script type="text/javascript">
+
+	function popup(){
+		var child = window.open('/kobook/message/sendMessageForm.jsp','childWindow', 'width=630, height=300, menubar=yes, statebar=yes, scrollbar=yes');	
+	}
+	
+</script>
 </head>
 <body>
 <header id="header">
@@ -16,7 +23,7 @@
                     </div>
                     <div class="col-sm-4 top-info">
                         <ul>
-                            <li><a href="" class="my-tweet"><i class="fa fa-twitter"></i></a></li>
+                            <li><a href="" class="my-envelope"><i class="fa fa-envlope" onclick="popup()"></i></a></li>
                             <li><a href="" class="my-facebook"><i class="fa fa-facebook"></i></a></li>
                             <li><a href="" class="my-skype"><i class="fa fa-skype"></i></a></li>
                             <li><a href="" class="my-pint"><i class="fa fa-pinterest"></i></a></li>
