@@ -16,107 +16,19 @@
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, maximum-scale=1" />
 
-<!-- CSS FILES -->
-<link rel="stylesheet" href="../css/bootstrap.min.css" />
-<link rel="stylesheet" href="../css/style.css">
-<link rel="stylesheet" type="text/css" href="../css/style.css"
-	media="screen" data-name="skins">
-<link rel="stylesheet" href="../css/layout/wide.css" data-name="layout">
-<link rel="stylesheet" href="../css/animate.css" type="text/css" />
+ <!-- CSS FILES -->
+    <link rel="stylesheet" href="/kobook/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="/kobook/css/style.css">
+    <link rel="stylesheet" type="text/css" href="/kobook/css/style.css" media="screen" data-name="skins">
+    <link rel="stylesheet" href="/kobook/css/layout/wide.css" data-name="layout">
 
-<link rel="stylesheet" type="text/css" href="../css/switcher.css"
-	media="screen" />
-<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-<!--[if lt IE 9]>
-    <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
+    <link rel="stylesheet" type="text/css" href="/kobook/css/switcher.css" media="screen" />
 </head>
 <body class="home">
-	<header id="header">
-		<div id="top-bar">
-			<div class="container">
-				<div class="row">
-					<div class="col-sm-8 top-info hidden-xs">
-						<span><i class="fa fa-phone"></i>Phone: (123) 456-7890</span> <span><i
-							class="fa fa-envelope"></i>Email: kobook@kobook.com</span>
-					</div>
-					<div class="col-sm-4 top-info">
-						<ul>
-							<li><a href="" class="my-tweet"><i class="fa fa-twitter"></i></a></li>
-							<li><a href="" class="my-facebook"><i
-									class="fa fa-facebook"></i></a></li>
-							<li><a href="" class="my-skype"><i class="fa fa-skype"></i></a></li>
-							<li><a href="" class="my-pint"><i
-									class="fa fa-pinterest"></i></a></li>
-							<li><a href="" class="my-rss"><i class="fa fa-rss"></i></a></li>
-							<li><a href="" class="my-google"><i
-									class="fa fa-google-plus"></i></a></li>
-						</ul>
-					</div>
-				</div>
-			</div>
-		</div>
-		<div id="logo-bar">
-			<div class="container">
-				<div class="row">
-					<!-- Logo / Mobile Menu -->
-					<div class="col-lg-3 col-sm-3 ">
-						<div id="logo">
-							<h1>
-								<a href="../main/main.jsp">KOBOOK</a>
-							</h1>
-						</div>
-					</div>
-					<!-- Navigation================================================== -->
-					<div class="col-lg-9 col-sm-9">
-						<div class="navbar navbar-default navbar-static-top"
-							role="navigation">
-							<!--  <div class="container">-->
-							<div class="navbar-header">
-								<button type="button" class="navbar-toggle"
-									data-toggle="collapse" data-target=".navbar-collapse">
-									<span class="sr-only">Toggle navigation</span> <span
-										class="icon-bar"></span> <span class="icon-bar"></span> <span
-										class="icon-bar"></span>
-								</button>
-							</div>
-							<div class="navbar-collapse collapse">
-								<ul class="nav navbar-nav">
-									<li><a href="../main/main.jsp">Home</a></li>
-
-									<li><a href="../search/allSearch.jsp">전체검색</a></li>
-									<li><a href="../search/major.jsp">전공검색</a></li>
-									<li><a href="../search/location.jsp">지역검색</a></li>
-
-									<li><a href="../community/blackList.jsp">커뮤니티</a>
-										<ul class="dropdown-menu">
-											<li><a href="blackList.do">신고합니다</a></li>
-											<li><a href="donateList.do">무료나눔</a></li>
-											<li><a href="photoReviewList.do">포토리뷰</a></li>
-											<li><a href="../community/noti.jsp">공지사항</a></li>
-											<li><a href="qna.do">자주묻는질문</a></li>
-										</ul></li>
-
-									<li><a href="../mypage/cart.jsp">마이페이지</a>
-										<ul class="dropdown-menu">
-											<li><a href="../mypage/userUpdate.jsp">회원정보수정</a></li>
-											<li><a href="../mypage/cart.jsp">장바구니</a></li>
-											<li><a href="../mypage/mileage.jsp">마일리지</a></li>
-											<li><a href="../mypage/pickList.jsp">찜 리스트</a></li>
-											<li><a href="../mypage/buyList.jsp">구매내역</a></li>
-											<li><a href="../mypage/sellList.jsp">판매내역</a></li>
-											<li><a href="../mypage/reviewList.jsp">판매후기</a></li>
-										</ul></li>
-								</ul>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</header>
+	<!-- 헤더 -->
+ 		 <jsp:include page="/include/header.jsp" />
+  	<!-- /헤더 -->
+	
 
 	<!--start wrapper-->
 	<section class="wrapper">
@@ -278,38 +190,7 @@
 	</footer>
 	<!--end footer-->
 
-	<section class="footer_bottom">
-		<div class="container">
-			<div class="row">
-				<div class="col-sm-6">
-					<p class="copyright">
-						&copy; Copyright 2017 Electrify | Powered by <a
-							href="http://www.jqueryrain.com/">jQuery Rain</a>
-					</p>
-				</div>
-
-				<div class="col-sm-6 ">
-					<div class="footer_social">
-						<ul class="footbot_social">
-							<li><a class="fb" href="#." data-placement="top"
-								data-toggle="tooltip" title="Facebook"><i
-									class="fa fa-facebook"></i></a></li>
-							<li><a class="twtr" href="#." data-placement="top"
-								data-toggle="tooltip" title="Twitter"><i
-									class="fa fa-twitter"></i></a></li>
-							<li><a class="dribbble" href="#." data-placement="top"
-								data-toggle="tooltip" title="Dribbble"><i
-									class="fa fa-dribbble"></i></a></li>
-							<li><a class="skype" href="#." data-placement="top"
-								data-toggle="tooltip" title="Skype"><i class="fa fa-skype"></i></a></li>
-							<li><a class="rss" href="#." data-placement="top"
-								data-toggle="tooltip" title="RSS"><i class="fa fa-rss"></i></a></li>
-						</ul>
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>
+	
 
 	<script type="text/javascript" src="../js/jquery-1.10.2.min.js"></script>
 	<script src="../js/bootstrap.min.js"></script>
