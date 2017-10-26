@@ -118,8 +118,19 @@ public class AdminController {
 				forward = action.execute(request, response);
 			} catch (Exception e) {
 				e.printStackTrace();
-			}
+			} 
+			
+		} else if (command2.equals("notiAdmin.do")) {
 
+				action = new ListBoardAction();
+				
+				try {
+					forward = action.execute(request, response);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			
+			
 			//공지사항 글입력 출력
 		} else if (command2.equals("insertBoard.do")) {
 

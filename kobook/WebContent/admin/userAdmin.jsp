@@ -13,6 +13,7 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%
 	PersonModel personModel = (PersonModel) request.getAttribute("personModel");
+	int person_id = Integer.parseInt((String)request.getSession().getAttribute("person_id"));
 %>
 <!DOCTYPE html>
 <!--[if IE 8 ]><html class="ie ie8" class="no-js" lang="en"> <![endif]-->
@@ -129,7 +130,7 @@
 											<li><a href="404-page.html">404 Page</a></li>
 										</ul></li>
 
-									<li><a href="/kobook/admin/noti.do">공지사항관리</a>
+									<li><a href="/kobook/admin/notiAdmin.do">공지사항관리</a>
 										<ul class="dropdown-menu">
 											<li><a href="#">Portfolio Classic</a>
 												<ul class="dropdown-menu">
@@ -138,6 +139,7 @@
 													<li><a href="portfolio_4.html">Portfolio 4</a></li>
 												</ul></li>
 										</ul></li>
+
 								</ul>
 							</div>
 						</div>

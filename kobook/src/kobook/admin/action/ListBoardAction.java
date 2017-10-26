@@ -4,6 +4,8 @@ import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+import javax.websocket.Session;
 
 import kobook.action.Action;
 import kobook.action.ActionForward;
@@ -35,6 +37,8 @@ public class ListBoardAction implements Action{
 		System.out.println(requestPage);
 		ListModel listModel = service.listBoardService(request, requestPage);
 		
+/*		HttpSession session = request.getSession();
+		session.setAttribute("person_id", request.getAttribute(""));*/
 		
 		/*
 		int re = service.insertBoardService(board);*/
@@ -42,7 +46,8 @@ public class ListBoardAction implements Action{
 		
 		ActionForward forward = new ActionForward();
 		forward.setRedirect(false);
-		forward.setPath("/admin/noti.jsp");
+		
+		forward.setPath("/admin/notiAdmin.jsp");
 
 		return forward;
 		
