@@ -111,6 +111,8 @@ public class BookService {
 	     
 	      if(request.getParameterValues("area") != null){
 	    	 search.setArea(request.getParameterValues("area"));
+	    	 search.setSearchKey("%"+request.getParameter("searchKey")+"%");
+	         session.setAttribute("search", search);
 	      }
 	       if(request.getParameterValues("safe_yn") != null){
 	    	 search.setSafe_yn(request.getParameterValues("safe_yn"));
@@ -124,11 +126,9 @@ public class BookService {
 	      else if (session.getAttribute("search") != null) {
 	         search = (BookSearch) session.getAttribute("search");
 	      }
-	      else {
-		       	search.setSearchKey("%"+request.getParameter("searchKey")+"%");
-		         session.setAttribute("search", search);
-		       }
 	      
+	       
+	       
 	      //�럹�씠吏��떦 湲�媛��닔, 珥앷�媛��닔, 珥앺럹�씠吏��닔, �떆�옉�럹�씠吏�, 留덉�留됲럹�씠吏�, �쁽�옱�럹�씠吏�
 	      int totalCount = dao.countBook(search);
 	      int totalPageCount = totalCount/PAGE_SIZE;
@@ -207,7 +207,9 @@ public class BookService {
 	   
 	   
 	   
-	   
+	   public Book pickBookService(int book_id){
+		   return dao.pickBook(book_id);
+	   }
 	   
 	   
 	   

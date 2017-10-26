@@ -14,6 +14,7 @@ import kobook.book.action.BookinsertAction;
 import kobook.book.action.BookinsertFormAction;
 import kobook.book.action.BooklistAction;
 import kobook.book.action.BooklocationAction;
+import kobook.book.action.BookpickAction;
 import kobook.book.action.BookupdateAction;
 import kobook.book.action.BookupdateFormAction;
 
@@ -115,7 +116,16 @@ public class BookController {
 	            e.printStackTrace();
 	         }
 	         
-	      } 
+	      }  else if (command2.equals("pickAction.do")) {
+	    	  
+		         action = new BookpickAction();
+		         try {
+		            forward = action.execute(request, response);
+		         } catch (Exception e) {
+		            e.printStackTrace();
+		         }
+		         
+		      } 
 
 		
 		

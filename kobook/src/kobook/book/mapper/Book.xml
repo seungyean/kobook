@@ -20,6 +20,18 @@
 		)		
 	</insert>
 	
+	<insert id="pickBook"  parameterType="int">
+	insert into pick(pick_id,book_id, person_id)
+
+	values((select max(pick_id) from pick)+1,
+	(select book.book_id from book join person on book.person_id = person.person_id 
+	<where>
+	 book.book_id = #{book_id}
+	</where>
+	),1)
+	</insert>
+	
+	
 	<select id="listBook" resultType="Book" parameterType="BookSearch">
 		select * from book
 			<choose>
@@ -61,15 +73,20 @@
 				
 		<choose>
 						<when test="sort=='book_m_price'">
-							order by b.book_m_price ASC
+							order by book_m_price ASC
 						</when>
 		
 						<when test="sort=='book_status'">
-							order by b.book_status DESC
+							order by book_status DESC
 						</when>
 		</choose>
 				<!-- order by book_date desc -->
 	</select>	
+	
+	
+	
+	
+	
 	
 	  <select id="locationBook" parameterType="BookSearch" resultType="Book">
 		select
@@ -135,18 +152,39 @@
 				</when>
 			</choose> -->
 
-	
-	
-	<select id="countBook" resultType="int" parameterType="BookSearch">
+
+		<select id="countBook" resultType="int" parameterType="BookSearch">
 		select count(*) from book
-		<if test="area != null">
-			<where>
-				<!-- book_name LIKE %검색하고자하는 제목(입력값)% OR person_id LIKE %검색하고싶은 작성자(입력값)% -->
-				<foreach collection="area" item="item" separator="OR" open="(" close=")">
-					${item} LIKE #{searchKey}
-				</foreach>
-			</where>
-		</if>
+				<if test="area != null">
+					<where>
+						<!-- book_name LIKE %검색하고자하는 제목(입력값)% OR person_id LIKE %검색하고싶은 작성자(입력값)% -->
+						
+						  <foreach collection="area" item="item" separator="OR" open="(" close=")">
+							 ${item} LIKE #{searchKey} or book_hash  LIKE #{searchKey}
+						</foreach>
+
+						<choose>
+							<when test="safe_yn!=null">
+								AND book_safe_yn='Y'
+							</when>
+						</choose>
+						
+					</where>	
+				</if>
+				
+				
+		<choose>
+						<when test="sort=='book_m_price'">
+							order by book_m_price ASC
+						</when>
+		
+						<when test="sort=='book_status'">
+							order by book_status DESC
+						</when>
+		</choose>
+				<!-- order by book_date desc -->
+
+		
 	</select>
 	
 		<select id="countlocationBook" resultType="int" parameterType="BookSearch">

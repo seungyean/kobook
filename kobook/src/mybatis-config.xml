@@ -29,6 +29,7 @@
 		<!-- 책: 민주 -->
 		<typeAlias alias="BookSearch" type="kobook.book.domain.BookSearch" />
 		<typeAlias alias="Book" type="kobook.book.domain.Book" />
+		<typeAlias alias="BookPick" type="kobook.book.domain.BookPick" />
 
 		<!-- 커뮤니티: 동길 -->
 		<typeAlias alias="Donate" type="kobook.community.domain.Donate" />

@@ -105,6 +105,22 @@ public class BookDAO {
 	      return book;
 	   }
 	   
+	   
+	   
+	   public Book pickBook(int book_id) {
+		      SqlSession sqlSession = getSqlSessionFactory().openSession();
+		      Book book = null;
+		      try {
+		         book = sqlSession.getMapper(BookMapper.class).pickBook(book_id);
+		      } catch (Exception e) {
+		         e.printStackTrace();
+		      } finally {
+		         sqlSession.close();
+		      }
+		      return book;
+		   }
+	   
+	   
 	/*   public int searchBook(Book book){
 	      int re = -1;
 	      SqlSession sqlSession = getSqlSessionFactory().openSession();

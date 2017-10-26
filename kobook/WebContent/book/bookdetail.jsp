@@ -304,6 +304,13 @@
 								<input type="submit" value="수정하기" id="submit" class="btn btn-default btn-lg button">
 							</form>
 		
+	
+							<form action="/kobook/book/pickAction.do" method="post">
+							<input type="hidden" name="book_id" value="${book.book_id}" />
+							<input type="submit" value="찜하기" id="submit" class="btn btn-default btn-lg button">
+							</form>
+							
+							
 							<!-- 	<input type="button" value="장바구니" id="submit"
 									class="btn btn-default btn-lg button">
 								<input type="button" value="찜" id="submit"
