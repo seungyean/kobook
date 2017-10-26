@@ -103,6 +103,10 @@
 								<c:choose>
 									<c:when test="${person_id == 0}">
 										<h4>관리자 로그인</h4>
+										<form action="/kobook/admin/listUser.do">
+            					  		<%-- 	<input type="hidden" name="person_id" value="${person_id }"> --%>
+											<input type="submit" value="회원관리이동">
+										</form>
 									</c:when>
 									<c:otherwise>
 										<h4>${person_id }님  환영합니다앙~^0^</h4>

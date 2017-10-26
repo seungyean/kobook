@@ -27,22 +27,28 @@ public class LoginAction implements Action {
 		String person_pwd = request.getParameter("pw");
 		System.out.println(person_email);
 		System.out.println(person_pwd);
-		System.out.println("·Î±×ÀÎ ¾×¼Ç ÁøÀÔ");
+		System.out.println("ï¿½Î±ï¿½ï¿½ï¿½ ï¿½×¼ï¿½ ï¿½ï¿½ï¿½ï¿½");
 		
 		Person person = new Person();
 		person = service.loginCheck(person_email);
 		
 		ActionForward forward = new ActionForward();
 		
-		if(person_email.equals(person.getPerson_email()) && person_pwd.equals(person.getPerson_pwd())){
-			System.out.println("·Î±×ÀÎ ¼º°ø");
+		if(person_email.equals("admin") && person_pwd.equals("1234")){
+			System.out.println("ê´€ë¦¬ì ë¡œê·¸ì¸ ì„±ê³µ");
+			forward.setPath("/admin/listUser.do");
+			forward.setRedirect(false);
+		}
+		
+		else if(person_email.equals(person.getPerson_email()) && person_pwd.equals(person.getPerson_pwd())){
+			System.out.println("ï¿½Î±ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½");
 			String person_id = (service.loginService(person_email)) + "";
 			session.setAttribute("person_id", person_id);
 			
 			forward.setRedirect(false);
 			forward.setPath("/recom/recommendAction.do");	
 		}else{
-			System.out.println("È¸¿øÁ¤º¸°¡ Á¤È®ÇÏÁö ¾Ê½À´Ï´Ù.");
+			System.out.println("È¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È®ï¿½ï¿½ï¿½ï¿½ ï¿½Ê½ï¿½ï¿½Ï´ï¿½.");
 			forward.setRedirect(false);
 			forward.setPath("/main.jsp");	
 		}
