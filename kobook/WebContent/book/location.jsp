@@ -38,46 +38,43 @@
                         </div>
                         <nav id="breadcrumbs">
                             <ul>
-                                <li><a href="/kobook/index.html">Home</a></li>
-                                <!-- <li>Portfolio</li> -->
+                                <li><a href="/kobook/index.html">홈</a>/</li>
+                                <li>지역검색 /</li>
                             </ul>
                         </nav>
                     </div>
                 </div>
             </div>
         </section>
-
-	<div class="row sub_content">
-            <div class="col-lg-12 col-md-12 col-sm-12">
-                <div class="dividerHeading">
-                    <h4><span>Tables</span></h4>
-                </div>
-            </div>
-            <div class="col-lg-12 col-md-12 col-sm-12">
-                <div class="table-responsive">
-                
-                
-                <form action="/kobook/book/locationAction.do" method="post">
-                <div>
-					<input type="hidden" name="temp" value="temp">
-					<input type="hidden" name="check" value="-1">
-					<input type="text" class="input-text" name="searchKey" id="s" placeholder="지역을 입력하세요" />
-					<input type="submit" id="searchsubmit" value="search"/>	
-					
-					가격순 <input type="radio" name="sort" value="book_m_price"/>			
-					상태순 <input type="radio" name="sort" value="book_status"/>			
-
-				</div>
-                </form>
-                
-				
-                
-                    
-                      
-				<c:choose>
+        
+        <section class="content typography">
+			<div class="container">
+				<div class="row sub_content">
+					<div class="col-lg-12 col-md-12 col-sm-12">
+						<div class="dividerHeading">
+							<h4><span>지역검색 리스트</span></h4>
+							<br>
+							<br>
+							<!--  여기서 부터 민주  -->
+							
+							<form action="/kobook/book/locationAction.do" method="post" style=" margin-left: 770px">
+								<div>
+									<input type="hidden" name="temp" value="temp" >
+									<input type="hidden" name="check" value="-1"> 
+									<input type="text" class="input-text" name="searchKey" id="s" placeholder="지역을 입력하세요" /> 
+									<input type="submit" id="searchsubmit" value="search" class="btn-default"/> 
+									가격순 <input type="radio" name="sort" value="book_m_price" /> 
+									상태순 <input type="radio" name="sort" value="book_status" />
+								</div>
+							</form>
+							<br>
+							<br>
+							
+							
+							<c:choose>
 				<c:when test="${check<0}">
 				
-				<table class="table table-striped table-hover">
+				<table class="table table-hover">
                         <thead>
                         <tr>
                             <th>글번호</th>
@@ -137,18 +134,19 @@
                     
                     
                     <!-- 페이징 -->
+                    	<ul  class="pagination">
 						<!-- 이전영역 생성(start page) -->
 						<c:if test="${listModel.startPage > 5 }">
-							<a href="/kobook/book/locationAction.do?pageNum=${listModel.startPage -1}&check=1">[이전]</a>
+							<li><a href="/kobook/book/locationAction.do?pageNum=${listModel.startPage -1}&check=1">[이전]</a></li>
 						</c:if>
-
+			
 						<!-- 페이지 목록 -->
 						<c:forEach var="pageNo" begin="${listModel.startPage}"
 							end="${listModel.endPage}">
 							<c:if test="${listModel.requestPage == pageNo }">
 								<b>
 							</c:if>
-							<a href="/kobook/book/locationAction.do?pageNum=${pageNo}&check=1">[ ${pageNo} ]</a>
+							<li><a href="/kobook/book/locationAction.do?pageNum=${pageNo}&check=1" class="pagination">[ ${pageNo} ]</a></li>
 							<c:if test="${listModel.requestPage == pageNo }">
 								</b>
 							</c:if>
@@ -156,9 +154,10 @@
 
 						<!-- 이후영역 생성(end) -->
 						<c:if test="${listModel.endPage < listModel.totalPageCount}">
-							<a href="/kobook/book/locationAction.do?pageNum=${listModel.endPage +1}&check=1">[이후]</a>
+							<li><a href="/kobook/book/locationAction.do?pageNum=${listModel.endPage +1}&check=1">[이후]</a></li>
 						</c:if>
 						<br>
+						</ul>
 				</c:when>
 				
 				
@@ -249,27 +248,16 @@
 				</c:otherwise>
 				
 				</c:choose>
-				
-				
-				
-           
-						
-						
-						
-						
-
-					</div> <!--text container -->
-                    
-                    
-                </div>
-                
-            </div>
-        </div> <!--./row-->
-
- 	
-
-		
-	
+							
+							
+							
+							
+								
+						</div><!--  민주 끝  -->
+					</div>
+				</div>
+			</div>
+		</section>
 	</section>
 	<!--end wrapper-->
 
