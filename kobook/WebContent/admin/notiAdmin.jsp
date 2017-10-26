@@ -26,7 +26,6 @@
 <link rel="stylesheet" href="/kobook/css/style.css">
 <link rel="stylesheet" type="/kobook/text/css"
 	href="/kobook/css/style.css" media="screen" data-name="skins">
-<link rel="stylesheet" href="/kobook/css/animate.css" type="text/css" />
 <link rel="stylesheet" href="/kobook/css/layout/wide.css"
 	data-name="layout">
 
@@ -41,12 +40,8 @@
     <![endif]-->
 </head>
 <body>
-
-    <!-- 헤더 -->
- 		 <jsp:include page="/include/header.jsp" />
-  	<!-- /헤더 -->
-
-<!-- 	<header id="header">
+<!--Start Header-->
+	<header id="header">
 		<div id="top-bar">
 			<div class="container">
 				<div class="row">
@@ -73,23 +68,31 @@
 		<div id="logo-bar">
 			<div class="container">
 				<div class="row">
-					Logo / Mobile Menu
+					<!-- Logo / Mobile Menu -->
 					<div class="col-lg-3 col-sm-3 ">
 						<div id="logo">
+							<c:choose>
+								<c:when test="${person_id == 0 }">
+									<h1>
+										<a href="index.html"><img alt="KOBOOK - 관리자" src="/kobook/images/logo.png" /></a>
+									</h1>
+								</c:when>
+								<c:otherwise>
 									<h1>
 										<a href="index.html"><img alt="KOBOOK" src="/kobook/images/logo.png" /></a>
 									</h1>									
-
+								</c:otherwise>
+							</c:choose>
 						
 							
 						</div>
 					</div>
-					Navigation
-    ==================================================
+					<!-- Navigation
+    ================================================== -->
 					<div class="col-lg-9 col-sm-9">
 						<div class="navbar navbar-default navbar-static-top"
 							role="navigation">
-							 <div class="container">
+							<!--  <div class="container">-->
 							<div class="navbar-header">
 								<button type="button" class="navbar-toggle"
 									data-toggle="collapse" data-target=".navbar-collapse">
@@ -144,8 +147,8 @@
 				</div>
 			</div>
 		</div>
-	</header> -->
-
+	</header>
+	<!--End Header-->
 
 	<!--start wrapper-->
 	<section class="wrapper">
@@ -231,6 +234,12 @@
 			<c:if test="${listModel.endPage < listModel.totalPageCount }">
 				<a href="/kobook/admin/noti.do?pageNum=${listModel.endPage + 1 }">[이후]</a>
 			</c:if> 
+			
+			<form action="/kobook/admin/insertformBoard.do" method="post">
+				<input type="submit" value ="등록">
+			</form>
+
+
 
 			<!--Sidebar Widget-->
 			<div class="col-lg-4">
@@ -533,31 +542,34 @@
 			</div>
 		</div>
 	</section>
-	
-	<script type="text/javascript" src="/kobook/js/jquery-1.10.2.min.js"></script>
-    <script src="/kobook/js/bootstrap.min.js"></script>
-    <script src="/kobook/js/jquery.easing.1.3.js"></script>
-    <script src="/kobook/js/retina-1.1.0.min.js"></script>
-    <script type="text/javascript" src="/kobook/js/jquery.cookie.js"></script> <!-- jQuery cookie -->
-    <script type="text/javascript" src="/kobook/js/styleswitch.js"></script> <!-- Style Colors Switcher -->
-    <script src="/kobook/js/jquery.fractionslider.js" type="text/javascript" charset="utf-8"></script>
-    <script type="text/javascript" src="/kobook/js/jquery.smartmenus.min.js"></script>
-    <script type="text/javascript" src="/kobook/js/jquery.smartmenus.bootstrap.min.js"></script>
-    <script type="text/javascript" src="/kobook/js/owl.carousel.min.js"></script>
-    <script type="text/javascript" src="/kobook/js/jflickrfeed.js"></script>
-    <script type="text/javascript" src="/kobook/js/jquery.magnific-popup.min.js"></script>
-    <script type="text/javascript" src="/kobook/js/jquery.isotope.min.js"></script>
-    <script type="text/javascript" src="/kobook/js/jquery.easypiechart.min.js"></script>
-    <script type="text/javascript" src="/kobook/js/swipe.js"></script>
-    <script type="text/javascript" src="/kobook/js/jquery-hoverdirection.min.js"></script>
-    <script type="text/javascript" src="/kobook/js/jquery.matchHeight-min.js"></script>
-    <script type="text/javascript" src="/kobook/js/jquery-scrolltofixed-min.js"></script>
 
-    <script src="/kobook/js/main.js"></script>
+	<script type="/kobook/text/javascript"
+		src="/kobook/js/jquery-1.10.2.min.js"></script>
+	<script src="/kobook/js/bootstrap.min.js"></script>
+	<script src="/kobook/js/jquery.easing.1.3.js"></script>
+	<script src="/kobook/js/retina-1.1.0.min.js"></script>
+	<script type="/kobook/text/javascript"
+		src="/kobook/js/jquery.cookie.js"></script>
+	<!-- jQuery cookie -->
+	<script type="/kobook/text/javascript" src="/kobook/js/styleswitch.js"></script>
+	<!-- Style Colors Switcher -->
+	<script type="/kobook/text/javascript"
+		src="/kobook/js/jquery.smartmenus.min.js"></script>
+	<script type="/kobook/text/javascript"
+		src="/kobook/js/jquery.smartmenus.bootstrap.min.js"></script>
+	<script type="/kobook/text/javascript" src="/kobook/js/jflickrfeed.js"></script>
+	<script type="/kobook/text/javascript"
+		src="/kobook/js/jquery.magnific-popup.min.js"></script>
+	<script type="/kobook/text/javascript"
+		src="/kobook/js/jquery.isotope.min.js"></script>
+	<script type="/kobook/text/javascript" src="/kobook/js/swipe.js"></script>
+	<script type="/kobook/text/javascript"
+		src="/kobook/js/jquery-scrolltofixed-min.js"></script>
 
-    <!-- Start Style Switcher -->
-    <div class="switcher"></div>
-    <!-- End Style Switcher -->
+	<script src="/kobook/js/main.js"></script>
 
+	<!-- Start Style Switcher -->
+	<div class="switcher"></div>
+	<!-- End Style Switcher -->
 </body>
 </html>
