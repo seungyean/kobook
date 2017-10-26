@@ -5,7 +5,7 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%
 	ListModel listModel = (ListModel)request.getAttribute("listModel");
-	int person_id = Integer.parseInt((String)request.getSession().getAttribute("person_id"));
+/* 	int person_id = Integer.parseInt((String)request.getSession().getAttribute("person_id")); */
 %>
 
 <!DOCTYPE html>

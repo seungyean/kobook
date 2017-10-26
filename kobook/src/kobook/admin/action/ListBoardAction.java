@@ -34,19 +34,19 @@ public class ListBoardAction implements Action{
 		
 		int requestPage = Integer.parseInt(pageNum);
 		//현재페이지수
-		System.out.println(requestPage);
+
 		ListModel listModel = service.listBoardService(request, requestPage);
 		
 		HttpSession session = request.getSession();
 		//String person_id = (String)session.getAttribute("person_id");
 		int person_id = Integer.parseInt((String)session.getAttribute("person_id"));
-		System.out.println(person_id);
+		
+
 		
 		request.setAttribute("listModel", listModel);
 		
 		ActionForward forward = new ActionForward();
-		
-		System.out.println(person_id);
+
 		
 		if(person_id == 0){
 			forward.setRedirect(false);

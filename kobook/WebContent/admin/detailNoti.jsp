@@ -130,7 +130,7 @@
 											<li><a href="404-page.html">404 Page</a></li>
 										</ul></li>
 
-									<li><a href="/kobook/admin/insertBoard.do">공지사항관리</a>
+									<li><a href="/kobook/admin/notiAdmin.do">공지사항관리</a>
 										<ul class="dropdown-menu">
 											<li><a href="#">Portfolio Classic</a>
 												<ul class="dropdown-menu">
