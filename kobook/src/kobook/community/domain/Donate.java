@@ -11,7 +11,7 @@ public class Donate implements Serializable {
 	private int donate_hit;
 	private String donate_content;
 	private String donate_img;
-	private int user_id;
+	private int person_id;
 	
 	public Donate() {	}
 
@@ -63,12 +63,12 @@ public class Donate implements Serializable {
 		this.donate_img = donate_img;
 	}
 
-	public int getUser_id() {
-		return user_id;
+	public int getPerson_id() {
+		return person_id;
 	}
 
-	public void setUser_id(int user_id) {
-		this.user_id = user_id;
+	public void setPerson_id(int person_id) {
+		this.person_id = person_id;
 	}
 	
 }

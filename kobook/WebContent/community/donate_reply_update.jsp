@@ -11,7 +11,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<title>Kobook/photoReview</title>
+<title>Kobook/donate</title>
 <meta name="description" content="">
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, maximum-scale=1" />
@@ -22,7 +22,7 @@
 <link rel="stylesheet" type="text/css" href="../css/style.css"
 	media="screen" data-name="skins">
 <link rel="stylesheet" href="../css/layout/wide.css" data-name="layout">
-<!-- <link rel="stylesheet" href="../css/animate.css" type="text/css" /> -->
+<link rel="stylesheet" href="../css/animate.css" type="text/css" />
 
 <link rel="stylesheet" type="text/css" href="../css/switcher.css"
 	media="screen" />
@@ -125,109 +125,109 @@
 				<div class="row">
 					<div class="col-lg-12 col-md-12 col-sm-12">
 						<div class="page_title">
-							<h2>포토 리뷰 게시판</h2>
+							<h2>무료 나눔 상세보기</h2>
 						</div>
 						<nav id="breadcrumbs">
 							<ul>
 								<li><a href="index.html">홈</a>/</li>
 								<li>커뮤니티 /</li>
-								<li>포토리뷰</li>
+								<li>무료나눔</li>
 							</ul>
 						</nav>
 					</div>
 				</div>
 			</div>
 		</section>
-		<!-- 여기서부터 -->
-		<section class="content portfolio medium-images">
+
+		<section class="content blog">
 			<div class="container">
-				<div class="row sub_content">
-					<!--begin isotope -->
-							<form action="photoInsertForm.do" method="post">
-					<div class="col-lg-12 isotope">
-					
-                    <!--begin portfolio filter -->
-<!--                     <ul id="filter">
-                        <li data-filter="*" class="selected"><a href="#">All</a></li>
-                        <li data-filter=".responsive"><a href="#">Responsive</a></li>
-                        <li data-filter=".mobile"><a href="#">Mobile</a></li>
-                        <li data-filter=".branding"><a href="#">Branding</a></li>
-                    </ul> -->
-                    <!--end portfolio filter -->
-						<!--begin portfolio_masonry -->
-						<div class="mixed-container masonry_wrapper">
-							<c:forEach var="photo" items="${photoListModel.list}">
-							<div class="item responsive">
-								<div class="recent-item box">
-									<figure class="touching ">
-											<a href="photoDetail.do?photo_id=${photo.photo_id }">
-										<img src="../upload/${photo.photo_img }"
-											alt="NO IMAGE" class="img-responsive" /></a>
-										<div class="option inner">
-											<div>
-												<h5>${photo.photo_title }</h5>
-												<a href="../upload/${photo.photo_img }"
-													class="fa fa-search mfp-image"></a> <a
-													href="photoDetail.do?photo_id=${photo.photo_id}" class="fa fa-link"></a>
-													<span>${photo.person_id }</span>
-											</div>
-										</div>
-									</figure>
+				<div class="row">
+					<div class="col-xs-12 col-sm-8 col-md-8 col-lg-8">
+						<div class="blog_single">
+							<article class="post">
+								<!-- 글 이미지(있을 시) -->
+								<figure class="post_img">
+									<img src="../upload/${donate.donate_img }" alt="NO IMAGE"
+										height="500" width="600">
+								</figure>
+								<!-- 글 번호 -->
+								<div class="post_date">
+									<span class="day">${donate.donate_id }</span>
 								</div>
-							</div>
-							</c:forEach>
+								<div class="post_content">
+									<div class="post_meta">
+										<!-- 글 제목 -->
+										<h2>${donate.donate_title }</h2>
+										<div class="metaInfo">
+
+											<!-- 글 작성일,작성자(person_id),조회수,수정/삭제폼 -->
+											<span><i class="fa fa-calendar"></i> <fmt:formatDate
+													value="${donate.donate_date }" pattern="MMM dd, yyyy" /> </span>
+											<span><i class="fa fa-user"></i> By ${donate.person_id}
+											</span> <span><i class="fa fa-eye"></i> ${donate.donate_hit}
+											</span>
+											<!-- <span><i class="fa fa-comments"></i> <a href="#">12 Comments</a></span> -->
+										</div>
+									</div>
+									<!-- 글 내용 -->
+									<blockquote class="default">
+										${donate.donate_content }</blockquote>
+								</div>
+							</article>
 						</div>
-							<input type="submit" value="글쓰기" class="btn-default">
-						<!--end portfolio_masonry -->
-					</div>
+
+						<!--update Comments-->
+						<div class="news_comments">
+							<div class="dividerHeading">
+								<h4>
+									<span>Comments</span>
+								</h4>
+							</div>
+							<form action="donateReplyUpdateAction.do" method="post">
+								<input type="hidden" name="reply_id" value="${reply_id}">
+								<div id="comment">
+									<ul id="comment-list">
+										<c:forEach var="reply" items="${replyList}">
+											<li class="comment">
+												<div class="comment-container">
+													<h4 class="comment-author">
+														<span>By, ${reply.person_id}</span>
+													</h4>
+													<div class="comment-meta">
+														<a class="comment-date link-style1"><fmt:formatDate
+																value="${reply.reply_date}" pattern="yy-MM-dd, HH:mm" /></a>
+													</div>
+													<c:if test="${reply_id != null }">
+														<div class="comment-body">
+															<c:choose>
+																<c:when test="${reply.reply_id == reply_id }">
+																	<textarea cols="30" rows="3" name="reply_content"
+																		placeholder="${reply.reply_content}">${reply.reply_content}</textarea>
+																	<input type="hidden" name="donate_id"
+																		value="${reply.donate_id}">
+																	<input type="submit" class="btn btn-lg btn-default"
+																		value="수정완료">
+																</c:when>
+																<c:otherwise>
+																	<p>${reply.reply_content}</p>
+																</c:otherwise>
+															</c:choose>
+														</div>
+													</c:if>
+												</div>
+											</li>
+										</c:forEach>
+									</ul>
+								</div>
 							</form>
-					<div align="right">
-						<form action="photoReviewList.do" method="post">
-							<input type="hidden" name="temp" value="temp"> <input
-								type="checkbox" name="area" value="photo_title">제목 <input
-								type="checkbox" name="area" value="photo_content">내용 <input
-								type="checkbox" name="area" value="person_id">작성자 <input
-								type="text" name="searchKey"
-								placeholder="Enter Search keywords..." size="25"> <input
-								type="submit" class="btn-default" value="검색">
-						</form>
-					</div>
-					<div class="col-sm-12 text-center">
-						<ul class="pagination">
-							<li><a href="photoReviewList.do?pageNum=1">&#x27EA;</a></li>
-							<li class="active"><c:if
-									test="${photoListModel.startPage > 3 }">
-									<a
-										href="photoReviewList.do?pageNum=${photoListModel.startPage -1}">
-										&lang; </a>
-								</c:if></li>
-							<c:forEach var="pageNo" begin="${photoListModel.startPage}"
-								end="${photoListModel.endPage}">
-								<li><c:if test="${photoListModel.requestPage == pageNo }">
-
-									</c:if> <a href="photoReviewList.do?pageNum=${pageNo}">${pageNo}</a> <c:if
-										test="${photoListModel.requestPage == pageNo }">
-
-									</c:if></li>
-							</c:forEach>
-							<li><c:if
-									test="${photoListModel.endPage < photoListModel.totalPageCount}">
-									<a
-										href="photoReviewList.do?pageNum=${photoListModel.endPage +1}">
-										&rang; </a>
-
-								</c:if></li>
-							<li><a
-								href="photoReviewList.do?pageNum=${photoListModel.totalPageCount}">
-									&#x27EB; </a></li>
-						</ul>
+						</div>
 					</div>
 				</div>
-				<!--./row-->
+				<!--/.row-->
 			</div>
-			<!--./div-->
+			<!--/.container-->
 		</section>
-		<!-- 여기까지 -->
+
 	</section>
 	<!--end wrapper-->
 
@@ -383,60 +383,7 @@
 	<script type="text/javascript" src="../js/jquery-scrolltofixed-min.js"></script>
 
 	<script src="../js/main.js"></script>
-	<script>
-    (function ($) {
-        var $container = $('.masonry_wrapper'),
-                colWidth = function () {
-                    var w = $container.width(),
-                            columnNum = 1,
-                            columnWidth = 0;
-                    if (w > 1200) {
-                        columnNum  = 3;
-                    } else if (w > 900) {
-                        columnNum  = 3;
-                    } else if (w > 600) {
-                        columnNum  = 2;
-                    } else if (w > 300) {
-                        columnNum  = 1;
-                    }
-                    columnWidth = Math.floor(w/columnNum);
-                    $container.find('.item').each(function() {
-                        var $item = $(this),
-                                multiplier_w = $item.attr('class').match(/item-w(\d)/),
-                                multiplier_h = $item.attr('class').match(/item-h(\d)/),
-                                width = multiplier_w ? columnWidth*multiplier_w[1]-4 : columnWidth-4,
-                                height = multiplier_h ? columnWidth*multiplier_h[1]*0.5-4 : columnWidth*0.5-4;
-                        $item.css({
-                            width: width,
-                            height: height
-                        });
-                    });
-                    return columnWidth;
-                }
 
-        function refreshWaypoints() {
-            setTimeout(function() {
-            }, 1000);
-        }
-        function setPortfolio() {
-            setColumns();
-            $container.isotope('reLayout');
-        }
-
-        isotope = function () {
-            $container.isotope({
-                resizable: true,
-                itemSelector: '.item',
-                masonry: {
-                    columnWidth: colWidth(),
-                    gutterWidth: 0
-                }
-            });
-        };
-        isotope();
-        $(window).smartresize(isotope);
-    }(jQuery));
-</script>
 	<!-- Start Style Switcher -->
 	<div class="switcher"></div>
 	<!-- End Style Switcher -->

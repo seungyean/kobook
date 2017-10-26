@@ -28,7 +28,7 @@
 
 	<script type="text/javascript">
 	   function fn_login(){
-			window.open("/kobook/login.jsp","","width=400,height=300,left=550,top=200");
+			window.open("login.jsp","","width=400,height=300,left=550,top=200");
 		}
 	   function fn_logout(){
 			location.href="/kobook/logout.jsp";
@@ -95,22 +95,15 @@
 							<c:if test="${person_id == null }">
 								<a href="#" onclick="fn_login()">로그인</a>
 							</c:if>
-        					
-        					<c:if test="${person_id != null }">
+							
+							
+							<c:if test="${person_id != null }">
 								<a href="#" onclick="fn_logout()">로그아웃</a>
-								
-								<c:choose>
-									<c:when test="${person_id == 0}">
-										<h4>관리자 로그인</h4>
-									</c:when>
-									<c:otherwise>
-										<h4>${person_id }님  환영합니다앙~^0^</h4>
-            					  		<form action="/kobook/recom/alarmListAction.do">
-            					  			<input type="hidden" name="person_id" value="${person_id }">
-											<input type="submit" value="알림">
-										</form>
-									</c:otherwise>
-								</c:choose>
+            					<h4>${person_id }님  환영합니다앙~^0^</h4>
+            					  	<form action="/kobook/recom/alarmListAction.do">
+            					  		<input type="hidden" name="person_id" value="${person_id }">
+										<input type="submit" value="알림">
+									</form>
         					</c:if>
         
         <h2>알림 리스트</h2>
@@ -175,17 +168,12 @@
 		
 		<section class="super_sub_content">
             <div class="dividerHeading text-center">
-            	<c:choose>
-            		<c:when test="${person_id == 0}">
-            			<h4><span>신규 등록 도서</span></h4>
-            		</c:when>
-            		<c:when test="${list == null}">
-            			<h4><span>신규 등록 도서</span></h4>
-            		</c:when>
-            		<c:otherwise>
-            			<h4>${person_id }님을 위한 추천도서</h4>
-            		</c:otherwise>
-            	</c:choose>
+            	<c:if test="${list != null}">
+            		<h4>${list.get(0).person_id }님을 위한 추천도서</h4>
+            	</c:if>
+            	<c:if test="${list == null}">
+            		<h4><span>신규 등록 도서</span></h4>
+            	</c:if>
             </div>
 
             <nav class="clearfix">

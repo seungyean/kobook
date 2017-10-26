@@ -14,11 +14,11 @@
 	<insert id="insertDonate" parameterType="Donate">
 		insert into donate(
 			donate_id, donate_title, donate_date, donate_content
-			<if test="donate_img != null">, donate_img</if>, user_id
+			<if test="donate_img != null">, donate_img</if>, person_id
 			)values(
 			#{donate_id}, #{donate_title}, SYSDATE, #{donate_content}
 			<if test="donate_img != null">
-			, #{donate_img}</if>, #{user_id}
+			, #{donate_img}</if>, #{person_id}
 			)
 	</insert>
 	
@@ -44,6 +44,11 @@
 			</where>
 		</if>
 	</select>
+	
+<!-- 	<select id="selectPersonName" resultType="Person" parameterType="int">
+		select P.PERSON_NAME from donate D join person P on D.person_id = P.person_id
+			where D.PERSON_ID =#{person_id} and D.donate_id = #{donate_id}
+	</select> -->
 	
 	<select id="selectDonateDetail" parameterType="int" resultType="Donate">
 		select * from donate where donate_id = #{donate_id}
@@ -72,14 +77,14 @@
 	
 	<insert id="insertDonateReply" parameterType="DonateReply">
 		insert into reply(
-			reply_id, reply_content, reply_date, donate_id, user_id
+			reply_id, reply_content, reply_date, donate_id, person_id
 		)values(
-			#{reply_id}, #{reply_content}, SYSDATE, #{donate_id}, #{user_id}
+			#{reply_id}, #{reply_content}, SYSDATE, #{donate_id}, #{person_id}
 		)
 	</insert>
 	
 	<select id="listDonateReply" resultType="DonateReply" parameterType="int">
-		select * from reply where donate_id = #{donate_id}
+		select * from reply where donate_id = #{donate_id} order by reply_date DESC
 	</select>
 	
 	<update id="updateDonateReply" parameterType="DonateReply">
@@ -104,3 +109,18 @@
 	</delete>
 	
 </mapper>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

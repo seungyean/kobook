@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+
+<mapper namespace="kobook.community.mapper.PhotoMapper">
+	<cache />
+	
+	<select id="selectPhoto_id" resultType="Integer">
+		select max(photo_id) from photo
+	</select>
+	
+	<insert id="insertPhoto" parameterType="Photo">
+		insert into photo(
+			photo_id, photo_title, photo_date, photo_content, photo_img, person_id
+			)values(
+			#{photo_id}, #{photo_title}, SYSDATE, #{photo_content}, #{photo_img}, #{person_id}
+			)
+	</insert>
+	
+	<select id="listPhoto" resultType="Photo" parameterType="CommunitySearch">
+		select * from photo 
+		<if test="area != null">
+			<where>
+				<foreach collection="area" item="item" separator="OR" open="(" close=")">
+					${item} LIKE #{searchKey}
+				</foreach>
+			</where>
+		</if>
+		order by photo_id DESC
+	</select>
+	
+	<select id="countPhoto" resultType="int" parameterType="CommunitySearch">
+		select count(*) from photo
+		<if test="area != null">
+			<where>
+				<foreach collection="area" item="item" separator="OR" open="(" close=")">
+					${item} LIKE #{searchKey}
+				</foreach>
+			</where>
+		</if>
+	</select>
+
+	<select id="selectPhotoDetail" parameterType="int" resultType="Photo">
+		select * from photo where photo_id = #{photo_id}
+	</select>
+	
+	<update id="photoHitCount" parameterType="int">
+		update photo set photo_hit=photo_hit+1 where photo_id = #{photo_id}
+	</update>
+
+	<update id="updatePhoto" parameterType="Photo">
+		update photo set photo_title=#{photo_title}, photo_content=#{photo_content}
+		<if test="photo_img != null">, photo_img = #{photo_img}</if>  where photo_id = #{photo_id}
+	</update>
+	
+	<delete id="deletePhoto" parameterType="int">
+		DELETE FROM photo WHERE photo_id=#{photo_id}
+	</delete>
+	
+	<update id="updatePhoto_id" parameterType="int">
+		update photo set photo_id = photo_id-1 where photo_id > #{photo_id}
+	</update>
+	
+	<update id="photoHeartUp" parameterType="int">
+		update photo set photo_heart = photo_heart+1 where photo_id =#{photo_id}
+	</update>
+
+	<update id="photoHeartDown" parameterType="int">
+		update photo set photo_heart = photo_heart-1 where photo_id =#{photo_id}
+	</update>
+		
+<!--
+
+	<select id="selectPersonName" resultType="Person" parameterType="int">
+		select P.PERSON_NAME from photo D join person P on D.person_id = P.person_id
+			where D.PERSON_ID =#{person_id} and D.photo_id = #{photo_id}
+	</select>
+
+	 -->
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

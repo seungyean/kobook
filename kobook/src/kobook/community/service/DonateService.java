@@ -11,13 +11,12 @@ import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 
 import kobook.common.domain.ImageUtil;
 import kobook.community.dao.DonateDAO;
-import kobook.community.domain.CommunityListModel;
-import kobook.community.domain.CommunitySearch;
 import kobook.community.domain.Donate;
+import kobook.community.domain.DonateListModel;
 import kobook.community.domain.DonateReply;
+import kobook.community.domain.CommunitySearch;
 
 public class DonateService {
-	
 	private static DonateService service = new DonateService();
 	private static DonateDAO dao;
 	private static final int PAGE_SIZE = 5;
@@ -29,33 +28,33 @@ public class DonateService {
 
 	public int insertDonateService(HttpServletRequest request) throws Exception {
 		Donate donate = new Donate();
-		// ÆÄÀÏ ¾÷·Îµå(°æ·ÎÆÄ¾Ç, Å©±â, ÀÎÄÚµùÅ¸ÀÔ, ÆÄÀÏÀÌ¸§ÁßÃ¸µÇ¾úÀ»¶§ Á¤Ã¥(?))
-		String uploadPath = request.getRealPath("upload");// °æ·Î
+		// íŒŒì¼ ì—…ë¡œë“œ(ê²½ë¡œíŒŒì•…, í¬ê¸°, ì¸ì½”ë”©íƒ€ì…, íŒŒì¼ì´ë¦„ì¤‘ì²©ë˜ì—ˆì„ë•Œ ì •ì±…(?))
+		String uploadPath = request.getRealPath("upload");// ê²½ë¡œ
 		int size = 20 * 1024 * 1024; // 20Mb
 		MultipartRequest multi = new MultipartRequest(request, uploadPath, size, "utf-8",
 				new DefaultFileRenamePolicy());
 
 		donate.setDonate_title(multi.getParameter("donate_title"));
 		donate.setDonate_content(multi.getParameter("donate_content"));
-		int user_id = Integer.parseInt(multi.getParameter("user_id"));
-		donate.setUser_id(user_id);
+		int person_id = Integer.parseInt(multi.getParameter("person_id"));
+		donate.setPerson_id(person_id);
 
 		if (multi.getFilesystemName("donate_img") != null) {
 			String donate_img = multi.getFilesystemName("donate_img");
 			donate.setDonate_img(donate_img);
 
-			// ½æ³×ÀÏ ÀÌ¹ÌÁö(jpf,gif,png etc...) aaa.gif = aaa_small.gif
-			String pattern = donate_img.substring(donate_img.lastIndexOf(".") + 1);// È®ÀåÀÚ
-																					// »Ì¾Æ³»±â
-			String headName = donate_img.substring(0, donate_img.lastIndexOf("."));// ÆÄÀÏ¸í
-																					// »Ì¾Æ³»±â
+			// ì¸ë„¤ì¼ ì´ë¯¸ì§€(jpf,gif,png etc...) aaa.gif = aaa_small.gif
+			String pattern = donate_img.substring(donate_img.lastIndexOf(".") + 1);// í™•ì¥ì
+																					// ë½‘ì•„ë‚´ê¸°
+			String headName = donate_img.substring(0, donate_img.lastIndexOf("."));// íŒŒì¼ëª…
+																					// ë½‘ì•„ë‚´ê¸°
 
-			// ¿øº»ÆÄÀÏ°´Ã¼»ı¼º
-			String imagePath = uploadPath + "\\" + donate_img; // °æ·Î¼³Á¤
+			// ì›ë³¸íŒŒì¼ê°ì²´ìƒì„±
+			String imagePath = uploadPath + "\\" + donate_img; // ê²½ë¡œì„¤ì •
 			File src = new File(imagePath);
 
-			// ½æ³×ÀÏÀÌ¹ÌÁö °´Ã¼
-			String thumImagePath = uploadPath + "\\" + headName + "_small." + pattern; // °æ·Î¼³Á¤
+			// ì¸ë„¤ì¼ì´ë¯¸ì§€ ê°ì²´
+			String thumImagePath = uploadPath + "\\" + headName + "_small." + pattern; // ê²½ë¡œì„¤ì •
 			File dest = new File(thumImagePath);
 
 			if (pattern.equals("jpg") || pattern.equals("gif") || pattern.equals("png")) {
@@ -67,29 +66,34 @@ public class DonateService {
 		donate.setDonate_id(dao.selectDonate_id() + 1);
 		return dao.insertDonate(donate);
 	}
+	
+//	public Person selectPersonNameService(int person_id, int donate_id) {
+//		Person person = dao.selectPersonName(person_id, donate_id);
+//		return person;
+//	}
 
-	public CommunityListModel listDonateService(HttpServletRequest request, int requestPage) {
-		/* °Ë»ö */
+	public DonateListModel listDonateService(HttpServletRequest request, int requestPage) {
+		/* ê²€ìƒ‰ */
 		CommunitySearch search = new CommunitySearch();
 		HttpSession session = request.getSession();
 
-		// »õ·Î¿î °Ë»ö½Ãµµ
+		// ìƒˆë¡œìš´ ê²€ìƒ‰ì‹œë„
 		if (request.getParameter("temp") != null || request.getParameter("pageNum") == null) {
 			session.removeAttribute("search");
 		}
-		// °Ë»ö submit½Ã
+		// ê²€ìƒ‰ submitì‹œ
 		if (request.getParameterValues("area") != null) {
 			search.setArea(request.getParameterValues("area"));
 			search.setSearchKey("%" + request.getParameter("searchKey") + "%");
 			session.setAttribute("search", search);
 		}
-		// °Ë»öÈÄ ÆäÀÌÂ¡ ÆäÀÌÁö Å¬¸¯(ÆäÀÌÁö ÀÌµ¿)
+		// ê²€ìƒ‰í›„ í˜ì´ì§• í˜ì´ì§€ í´ë¦­(í˜ì´ì§€ ì´ë™)
 		else if (session.getAttribute("search") != null) {
 			search = (CommunitySearch) session.getAttribute("search");
 		}
 
-		/* ÆäÀÌÂ¡ */
-		// ÆäÀÌÁö´ç ±Û°¹¼ö, ÃÑ±Û°¹¼ö, ÃÑÆäÀÌÁö¼ö, ½ÃÀÛÆäÀÌÁö, ¸¶Áö¸·ÆäÀÌÁö, ÇöÀçÆäÀÌÁö
+		/* í˜ì´ì§• */
+		// í˜ì´ì§€ë‹¹ ê¸€ê°¯ìˆ˜, ì´ê¸€ê°¯ìˆ˜, ì´í˜ì´ì§€ìˆ˜, ì‹œì‘í˜ì´ì§€, ë§ˆì§€ë§‰í˜ì´ì§€, í˜„ì¬í˜ì´ì§€
 		int totalCount = dao.countDonate(search);
 		int totalPageCount = totalCount / PAGE_SIZE;
 		if (totalCount % PAGE_SIZE > 0) {
@@ -105,7 +109,7 @@ public class DonateService {
 		int startRow = (requestPage - 1) * PAGE_SIZE;
 		List<Donate> list = dao.listDonate(startRow, search);
 
-		return new CommunityListModel(list, requestPage, totalPageCount, startPage, endPage);
+		return new DonateListModel(list, requestPage, totalPageCount, startPage, endPage);
 	}
 
 	public Donate donateDetailService(int donate_id, boolean bool) {
@@ -116,9 +120,9 @@ public class DonateService {
 	}
 
 	public int donateUpdateService(HttpServletRequest request) throws Exception {
-		// ÆÄÀÏ ¾÷·Îµå(°æ·ÎÆÄ¾Ç, Å©±â, ÀÎÄÚµùÅ¸ÀÔ, ÆÄÀÏÀÌ¸§ÁßÃ¸µÇ¾úÀ»¶§ Á¤Ã¥(?))
+		// íŒŒì¼ ì—…ë¡œë“œ(ê²½ë¡œíŒŒì•…, í¬ê¸°, ì¸ì½”ë”©íƒ€ì…, íŒŒì¼ì´ë¦„ì¤‘ì²©ë˜ì—ˆì„ë•Œ ì •ì±…(?))
 
-		String uploadPath = request.getRealPath("upload");// °æ·Î
+		String uploadPath = request.getRealPath("upload");// ê²½ë¡œ
 		int size = 20 * 1024 * 1024; // 20Mb
 		MultipartRequest multi = new MultipartRequest(request, uploadPath, size, "utf-8",
 				new DefaultFileRenamePolicy());
@@ -137,18 +141,18 @@ public class DonateService {
 			String donateUimg = multi.getFilesystemName("donateUimg");
 				donate.setDonate_img(donateUimg);
 
-			// ½æ³×ÀÏ ÀÌ¹ÌÁö(jpf,gif,png etc...) aaa.gif = aaa_small.gif
-			String pattern = donateUimg.substring(donateUimg.lastIndexOf(".") + 1);// È®ÀåÀÚ
-																					// »Ì¾Æ³»±â
-			String headName = donateUimg.substring(0, donateUimg.lastIndexOf("."));// ÆÄÀÏ¸í
-																					// »Ì¾Æ³»±â
+			// ì¸ë„¤ì¼ ì´ë¯¸ì§€(jpf,gif,png etc...) aaa.gif = aaa_small.gif
+			String pattern = donateUimg.substring(donateUimg.lastIndexOf(".") + 1);// í™•ì¥ì
+																					// ë½‘ì•„ë‚´ê¸°
+			String headName = donateUimg.substring(0, donateUimg.lastIndexOf("."));// íŒŒì¼ëª…
+																					// ë½‘ì•„ë‚´ê¸°
 
-			// ¿øº»ÆÄÀÏ°´Ã¼»ı¼º
-			String imagePath = uploadPath + "\\" + donateUimg; // °æ·Î¼³Á¤
+			// ì›ë³¸íŒŒì¼ê°ì²´ìƒì„±
+			String imagePath = uploadPath + "\\" + donateUimg; // ê²½ë¡œì„¤ì •
 			File src = new File(imagePath);
 
-			// ½æ³×ÀÏÀÌ¹ÌÁö °´Ã¼
-			String thumImagePath = uploadPath + "\\" + headName + "_small." + pattern; // °æ·Î¼³Á¤
+			// ì¸ë„¤ì¼ì´ë¯¸ì§€ ê°ì²´
+			String thumImagePath = uploadPath + "\\" + headName + "_small." + pattern; // ê²½ë¡œì„¤ì •
 			File dest = new File(thumImagePath);
 
 			if (pattern.equals("jpg") || pattern.equals("gif") || pattern.equals("png")) {
@@ -196,5 +200,4 @@ public class DonateService {
 		re = dao.deleteDonateReply(reply_id);
 		return re;
 	}
-
 }

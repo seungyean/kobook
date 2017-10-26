@@ -33,8 +33,12 @@
 		<!-- 커뮤니티: 동길 -->
 		<typeAlias alias="Donate" type="kobook.community.domain.Donate"/>
 		<typeAlias alias="DonateReply" type="kobook.community.domain.DonateReply"/>
-		<typeAlias alias="CommunityListModel" type="kobook.community.domain.CommunityListModel"/>
+		<typeAlias alias="DonateListModel" type="kobook.community.domain.DonateListModel"/>
 		<typeAlias alias="CommunitySearch" type="kobook.community.domain.CommunitySearch"/>
+		<typeAlias alias="Black" type="kobook.community.domain.BlackList"/>
+		<typeAlias alias="BlackListModel" type="kobook.community.domain.BlackListModel"/>
+		<typeAlias alias="Photo" type="kobook.community.domain.Photo"/>'
+		<typeAlias alias="PhotoListModel" type="kobook.community.domain.PhotoListModel"/>
 				
 
 		<!-- 회원 -->
@@ -65,7 +69,9 @@
      	<mapper resource="kobook/recom/mapper/Recommend.xml"/>
      	<mapper resource="kobook/book/mapper/Book.xml"/>
      	<mapper resource="kobook/mypage/mapper/Mypage.xml" />
+     	<mapper resource="kobook/community/mapper/BLackList.xml" />
      	<mapper resource="kobook/community/mapper/Donate.xml" />
+     	<mapper resource="kobook/community/mapper/Photo.xml" />
       
 	</mappers>
 	

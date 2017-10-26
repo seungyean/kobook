@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+
+<mapper namespace="kobook.community.mapper.BlackListMapper">
+	<cache />
+	
+	<select id="selectBlack_id" resultType="Integer">
+		select max(black_id) from black
+	</select>
+
+	<insert id="insertBlack" parameterType="Black">
+		insert into black(
+			black_id, black_title, black_date, black_content
+			<if test="black_img != null">, black_img</if>, black_personid, person_id
+			)values(
+			#{black_id}, #{black_title}, SYSDATE, #{black_content}
+			<if test="black_img != null">
+			, #{black_img}</if>, #{black_personid}, #{person_id}
+			)
+	</insert>
+	
+	<select id="listBlackList" resultType="Black" parameterType="CommunitySearch">
+		select * from black 
+		<if test="area != null">
+			<where>
+				<foreach collection="area" item="item" separator="OR" open="(" close=")">
+					${item} LIKE #{searchKey}
+				</foreach>
+			</where>
+		</if>
+		order by black_id DESC
+	</select>
+	
+	<select id="countBlack" resultType="int" parameterType="CommunitySearch">
+		select count(*) from black
+		<if test="area != null">
+			<where>
+				<foreach collection="area" item="item" separator="OR" open="(" close=")">
+					${item} LIKE #{searchKey}
+				</foreach>
+			</where>
+		</if>
+	</select>
+	
+	<select id="selectBlackDetail" parameterType="int" resultType="Black">
+		select * from black where black_id = #{black_id}
+	</select>
+		
+	<update id="updateBlackList" parameterType="Black">
+		update black set black_title=#{black_title}, black_content=#{black_content}, black_personid=#{black_personid}
+		<if test="black_img != null">, black_img = #{black_img}</if>  where black_id = #{black_id}
+	</update>
+	
+	<delete id="deleteBlackList" parameterType="int">
+		DELETE FROM black WHERE black_id=#{black_id}
+	</delete>
+
+	<update id="updateBlack_id" parameterType="int">
+		update black set black_id = black_id-1 where black_id > #{black_id}
+	</update>
+		
+<!-- 
+	<select id="selectPersonName" resultType="Person" parameterType="int">
+		select P.PERSON_NAME from black B join person P on B.person_id = P.person_id
+			where B.PERSON_ID =#{person_id}
+	</select>
+
+	-->
+	
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

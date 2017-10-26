@@ -4,23 +4,22 @@ import java.io.Serializable;
 import java.sql.Timestamp;
 
 public class DonateReply implements Serializable {
-
 	private int reply_id;
 	private String reply_content;
 	private Timestamp reply_date;
 	private int donate_id;
-	private int user_id;
+	private int person_id;
 	
 	public DonateReply() {
 	}
 
-	public DonateReply(int reply_id, String reply_content, Timestamp reply_date, int donate_id, int user_id) {
+	public DonateReply(int reply_id, String reply_content, Timestamp reply_date, int donate_id, int person_id) {
 		super();
 		this.reply_id = reply_id;
 		this.reply_content = reply_content;
 		this.reply_date = reply_date;
 		this.donate_id = donate_id;
-		this.user_id = user_id;
+		this.person_id = person_id;
 	}
 
 	public int getReply_id() {
@@ -55,12 +54,13 @@ public class DonateReply implements Serializable {
 		this.donate_id = donate_id;
 	}
 
-	public int getUser_id() {
-		return user_id;
+	public int getPerson_id() {
+		return person_id;
 	}
 
-	public void setUser_id(int user_id) {
-		this.user_id = user_id;
+	public void setPerson_id(int person_id) {
+		this.person_id = person_id;
 	}
-	
+		
+
 }
