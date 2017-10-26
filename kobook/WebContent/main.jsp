@@ -28,7 +28,7 @@
 
 	<script type="text/javascript">
 	   function fn_login(){
-			window.open("login.jsp","","width=400,height=300,left=550,top=200");
+			window.open("/kobook/login.jsp","","width=400,height=300,left=550,top=200");
 		}
 	   function fn_logout(){
 			location.href="/kobook/logout.jsp";
