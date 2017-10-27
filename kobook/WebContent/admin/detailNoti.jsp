@@ -185,7 +185,9 @@
 				</div>
 			</div>
 
+<!-- 관리자용 -->
 			<h4>공지사항 세부</h4>
+	
 			<table border="1" cellpadding="0" cellspacing="0" >
 				<tr height="50">
 					<td align="left" width="700">글제목 : ${board.board_title } </td>

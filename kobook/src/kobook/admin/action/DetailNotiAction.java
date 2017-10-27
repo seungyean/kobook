@@ -20,10 +20,21 @@ public class DetailNotiAction implements Action{
 		Board board = service.detailNotiService(Integer.parseInt(request.getParameter("board_id")));
 		request.setAttribute("board", board);
 		
+		String person_id = (String)request.getSession().getAttribute("person_id");
+		
 		
 		ActionForward forward = new ActionForward();
+		if(person_id.equals("admin")){
+			forward.setRedirect(false);
+			forward.setPath("/admin/detailNoti.jsp");
+		} else {
+			forward.setRedirect(false);
+			forward.setPath("/admin/detailNoti.jsp");
+		}
+		
+/*		ActionForward forward = new ActionForward();
 		forward.setRedirect(false);
-		forward.setPath("/admin/detailNoti.jsp");
+		forward.setPath("/admin/detailNoti.jsp");*/
 		return forward;
 
 	}

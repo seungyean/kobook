@@ -28,7 +28,7 @@
 	href="/kobook/css/style.css" media="screen" data-name="skins">
 <link rel="stylesheet" href="/kobook/css/layout/wide.css"
 	data-name="layout">
-
+<link rel="stylesheet" href="/kobook/css/animate.css" type="text/css" />
 <link rel="stylesheet" type="/kobook/text/css"
 	href="/kobook/css/switcher.css" media="screen" />
 
@@ -39,6 +39,9 @@
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
 </head>
+<!-- <script type="text/javascript">
+alert("관리자용");
+</script> -->
 <body>
 <!--Start Header-->
 	<header id="header">

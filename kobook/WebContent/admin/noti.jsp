@@ -40,13 +40,16 @@
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
 </head>
+<!-- <script type="text/javascript">
+alert("회원용");
+</script> -->
 <body>
 
     <!-- 헤더 -->
  		 <jsp:include page="/include/header.jsp" />
   	<!-- /헤더 -->
 
-<!-- 	<header id="header">
+<!--   	<header id="header">
 		<div id="top-bar">
 			<div class="container">
 				<div class="row">
@@ -145,7 +148,6 @@
 			</div>
 		</div>
 	</header> -->
-
 
 	<!--start wrapper-->
 	<section class="wrapper">
