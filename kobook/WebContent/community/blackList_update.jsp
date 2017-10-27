@@ -78,7 +78,7 @@
 													${black.person_id} </span>
 											</div>
 										</div>
-										<span>신고ID : <input type="text" name="black_email" value="${black.black_email}"/></span>
+										<span>신고email : <input type="text" name="black_email" value="${black.black_email}"/></span>
 										<blockquote class="default">
 											<textarea cols="30" rows="3" name="black_content"
 												placeholder="${black.black_content }">${black.black_content }</textarea>

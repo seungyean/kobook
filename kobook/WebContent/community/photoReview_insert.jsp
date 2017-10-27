@@ -69,7 +69,7 @@
 							method="post" name="registerform" enctype="multipart/form-data">
 							<div class="form-group">
 								<input type="hidden" class="form-control" name="person_id"
-									value="${person_id }" placeholder="작성자 id(현재int)">
+									value="${person_id}">
 							</div>
 							<div class="form-group">
 								<input type="text" class="form-control" name="photo_title"

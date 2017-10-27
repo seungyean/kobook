@@ -50,7 +50,7 @@
 	</select>
 		
 	<update id="updateBlackList" parameterType="Black">
-		update black set black_title=#{black_title}, black_content=#{black_content}, black_personid=#{black_personid}
+		update black set black_title=#{black_title}, black_content=#{black_content}, black_email=#{black_email}
 		<if test="black_img != null">, black_img = #{black_img}</if>  where black_id = #{black_id}
 	</update>
 	

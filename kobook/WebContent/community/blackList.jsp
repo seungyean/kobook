@@ -87,7 +87,7 @@
 							<div align="right">
 								<form action="blackList.do" method="post">
 									<input type="hidden" name="temp" value="temp"> <input
-										type="checkbox" name="area" value="black_email">신고된Id
+										type="checkbox" name="area" value="black_email">신고email
 									<input type="checkbox" name="area" value="black_title">제목
 									<input type="checkbox" name="area" value="black_content">내용
 									<input type="text" name="searchKey"

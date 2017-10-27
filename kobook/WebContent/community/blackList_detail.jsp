@@ -3,6 +3,9 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
+<% 
+	int person_id = Integer.parseInt((String)(session.getAttribute("person_id")));
+%>
 <!DOCTYPE html>
 <!--[if IE 8 ]><html class="ie ie8" class="no-js" lang="en"> <![endif]-->
 <!--[if (gte IE 9)|!(IE)]><!-->
@@ -78,13 +81,16 @@
 											<div class="metaInfo">
 												<span><i class="fa fa-calendar"></i> <fmt:formatDate
 														value="${black.black_date }" pattern="MMM dd, yyyy" /> </span> <span><i
-													class="fa fa-user"></i> By ${black.person_id} </span> <span><input
-													type="button" class="btn btn-lg btn-default" value="수정"
-													onclick="fn_update()"> <input
-													class="btn btn-lg btn-default" type="submit" value="삭제"></span>
+													class="fa fa-user"></i> By ${black.person_id} </span>
+										<c:if test="${black.person_id == person_id }">			
+										<span>
+											<input type="button" class="btn btn-lg btn-default" value="수정" onclick="fn_update()">
+											<input class="btn btn-lg btn-default" type="submit" value="삭제">
+										</span>
+										</c:if>
 											</div>
 										</div>
-										<span>신고ID : <b>${black.black_email }</b></span>
+										<span>신고email : <b>${black.black_email }</b></span>
 										<blockquote class="default">
 											${black.black_content }</blockquote>
 

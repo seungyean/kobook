@@ -3,6 +3,9 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
+<% 
+	int person_id = Integer.parseInt((String)(session.getAttribute("person_id")));
+%>
 <!DOCTYPE html>
 <!--[if IE 8 ]><html class="ie ie8" class="no-js" lang="en"> <![endif]-->
 <!--[if (gte IE 9)|!(IE)]><!-->
@@ -96,15 +99,17 @@
 								<li><span><i class="fa fa-eye"></i>조회수 :</span>${photo.photo_hit }</li>
 							</ul>
 							<c:if test="${photo.photo_heart==0 }">
-							<a href="photoHeartUp.do?photo_id=${photo.photo_id}"><i class="fa fa-thumbs-o-up">추천하기</i></a>
+								<a href="photoHeartUp.do?photo_id=${photo.photo_id}"><i class="fa fa-thumbs-o-up">추천하기</i></a>
 							</c:if>
 							<c:if test="${photo.photo_heart>0 }">
-							<a href="photoHeartUp.do?photo_id=${photo.photo_id}"><i class="fa fa-thumbs-o-up">추천하기</i></a>
-							<a href="photoHeartDown.do?photo_id=${photo.photo_id}"><i class="fa fa-thumbs-o-down">추천해제</i></a>
+								<a href="photoHeartUp.do?photo_id=${photo.photo_id}"><i class="fa fa-thumbs-o-up">추천하기</i></a>
+								<a href="photoHeartDown.do?photo_id=${photo.photo_id}"><i class="fa fa-thumbs-o-down">추천해제</i></a>
+							</c:if>
+							<c:if test="${photo.person_id == person_id }">
+								<input type="button" class="btn btn-lg btn-default" value="수정" onclick="fn_update()">
+								<input type="button" class="btn btn-lg btn-default" value="삭제" onclick="fn_delete()">
 							</c:if>
 							
-							<input type="button" class="btn btn-lg btn-default" value="수정" onclick="fn_update()">
-							<input type="button" class="btn btn-lg btn-default" value="삭제" onclick="fn_delete()">
 						</div>
 					</div>
 				</div>

@@ -75,7 +75,7 @@
 							</div>
 							<div class="form-group">
 								<input type="text" class="form-control" name="black_email"
-									placeholder="신고id">
+									placeholder="신고email">
 							</div>
 							<div class="form-group">
 								<input type="file" class="form-control" name="black_img"

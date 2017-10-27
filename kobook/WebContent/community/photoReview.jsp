@@ -80,7 +80,7 @@
 												<a href="../upload/${photo.photo_img }"
 													class="fa fa-search mfp-image"></a> <a
 													href="photoDetail.do?photo_id=${photo.photo_id}" class="fa fa-link"></a>
-													<span>${photo.person_id }</span>
+													<span>${photo.person_id}</span>
 											</div>
 										</div>
 									</figure>
