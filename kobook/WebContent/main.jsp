@@ -194,7 +194,7 @@
             			<h4>${person_id }님을 위한 추천도서</h4>
             		</c:when>
             		<c:otherwise>
-            			<h4><span>신규 등록 도서</span></h4>
+            			<h4>신규 등록도서</h4>
             		</c:otherwise>
             	</c:choose>
             </div>

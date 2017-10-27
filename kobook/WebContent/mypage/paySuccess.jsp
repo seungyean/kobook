@@ -71,7 +71,7 @@
                 </form>
                 
                 <form style="float: left; width: 20%;">
-                    <a href="/kobook/main/main.do"><button type="button" class="btn btn-default">홈으로</button></a>
+                    <a href="/kobook/main/main.jsp"><button type="button" class="btn btn-default">홈으로</button></a>
                     <br>
                 </form>
             </div>

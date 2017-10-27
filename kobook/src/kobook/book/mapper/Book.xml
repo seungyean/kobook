@@ -21,8 +21,9 @@
 	</insert>
 	
 	<insert id="insertPick"  parameterType="BookPick">
-		insert into pick(pick_id,book_id, person_id)
-	values(#{pick_id},#{book_id},#{person_id})
+
+		insert into pick(pick_id,book_id, person_id,pick_state)
+	values(#{pick_id},#{book_id},#{person_id},'Y')
 	</insert>
 	
 <!-- 	<select id="Book_id" resultType="Integer"  parameterType="int">
