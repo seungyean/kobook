@@ -74,13 +74,13 @@
 					</select> &nbsp&nbsp
 			
 			책종류: <select name="kind" id="kind">
-					<option value="Social">사회계열</option>
-					<option value="Law">법학계열</option>
-					<option value="Medical">의학계열</option>
-					<option value="Engineering">공학계열</option>
-					<option value="Science">자연계열</option>
-					<option value="Art">예체능계열</option>
-					<option value="Language">어문학계열</option>
+					<option value="Business">Business</option>
+					<option value="Economy">Economy</option>
+					<option value="Computer">Computer</option>
+					<option value="Deutsch">Deutsch</option>
+					<option value="Law">Law</option>
+					<option value="History">History</option>
+					<option value="Physics">Physics</option>
 					</select><br>
 			
 			

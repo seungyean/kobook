@@ -2,8 +2,6 @@ package kobook.book.action;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
-
 import kobook.book.domain.*;
 import kobook.action.*;
 import kobook.book.service.*;
@@ -18,10 +16,6 @@ public class BookdetailAction implements Action {
       request.setCharacterEncoding("utf-8");
     
       int book_id = Integer.parseInt(request.getParameter("book_id"));
-     
-      HttpSession session = request.getSession();
-      int person_id = Integer.parseInt((String)session.getAttribute("person_id"));
-      
       BookService service = BookService.getInstance();
      
       Book book = service.selectBookService(book_id, false);  //false媛� 留욌굹�슜???

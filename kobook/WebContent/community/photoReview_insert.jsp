@@ -3,6 +3,10 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
+
+<% 
+	int person_id = Integer.parseInt((String)(session.getAttribute("person_id")));
+%>
 <!DOCTYPE html>
 <!--[if IE 8 ]><html class="ie ie8" class="no-js" lang="en"> <![endif]-->
 <!--[if (gte IE 9)|!(IE)]><!-->
@@ -64,8 +68,8 @@
 						<form action="photoInsertAction.do" id="registerform"
 							method="post" name="registerform" enctype="multipart/form-data">
 							<div class="form-group">
-								<input type="text" class="form-control" name="person_id"
-									value="3" placeholder="작성자 id(현재int)">
+								<input type="hidden" class="form-control" name="person_id"
+									value="${person_id }" placeholder="작성자 id(현재int)">
 							</div>
 							<div class="form-group">
 								<input type="text" class="form-control" name="photo_title"

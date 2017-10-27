@@ -7,7 +7,7 @@
 <script type="text/javascript">
 
 	function popup(){
-		var child = window.open('/kobook/message/sendMessageForm.jsp','childWindow', 'width=630, height=300, menubar=yes, statebar=yes, scrollbar=yes');	
+		var child = window.open('/kobook/message/sendMessageForm.jsp','', 'width=630, height=300, menubar=yes, statebar=yes, scrollbar=yes');	
 	}
 	
 </script>

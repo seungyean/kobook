@@ -28,8 +28,8 @@ public class BlackListService {
 
 	public int insertBlackListService(HttpServletRequest request) throws Exception {
 		BlackList black = new BlackList();
-		// 파일 업로드(경로파악, 크기, 인코딩타입, 파일이름중첩되었을때 정책(?))
-		String uploadPath = request.getRealPath("upload");// 경로
+		// �뙆�씪 �뾽濡쒕뱶(寃쎈줈�뙆�븙, �겕湲�, �씤肄붾뵫���엯, �뙆�씪�씠由꾩쨷泥⑸릺�뿀�쓣�븣 �젙梨�(?))
+		String uploadPath = request.getRealPath("upload");// 寃쎈줈
 		int size = 20 * 1024 * 1024; // 20Mb
 		MultipartRequest multi = new MultipartRequest(request, uploadPath, size, "utf-8",
 				new DefaultFileRenamePolicy());
@@ -38,24 +38,24 @@ public class BlackListService {
 		black.setPerson_id(person_id);
 		black.setBlack_title(multi.getParameter("black_title"));
 		black.setBlack_content(multi.getParameter("black_content"));
-		black.setBlack_personid(multi.getParameter("black_personid"));
+		black.setBlack_email(multi.getParameter("black_email"));
 
 		if (multi.getFilesystemName("black_img") != null) {
 			String black_img = multi.getFilesystemName("black_img");
 			black.setBlack_img(black_img);
 
-			// 썸네일 이미지(jpf,gif,png etc...) aaa.gif = aaa_small.gif
-			String pattern = black_img.substring(black_img.lastIndexOf(".") + 1);// 확장자
-																					// 뽑아내기
-			String headName = black_img.substring(0, black_img.lastIndexOf("."));// 파일명
-																					// 뽑아내기
+			// �뜽�꽕�씪 �씠誘몄�(jpf,gif,png etc...) aaa.gif = aaa_small.gif
+			String pattern = black_img.substring(black_img.lastIndexOf(".") + 1);// �솗�옣�옄
+																					// 戮묒븘�궡湲�
+			String headName = black_img.substring(0, black_img.lastIndexOf("."));// �뙆�씪紐�
+																					// 戮묒븘�궡湲�
 
-			// 원본파일객체생성
-			String imagePath = uploadPath + "\\" + black_img; // 경로설정
+			// �썝蹂명뙆�씪媛앹껜�깮�꽦
+			String imagePath = uploadPath + "\\" + black_img; // 寃쎈줈�꽕�젙
 			File src = new File(imagePath);
 
-			// 썸네일이미지 객체
-			String thumImagePath = uploadPath + "\\" + headName + "_small." + pattern; // 경로설정
+			// �뜽�꽕�씪�씠誘몄� 媛앹껜
+			String thumImagePath = uploadPath + "\\" + headName + "_small." + pattern; // 寃쎈줈�꽕�젙
 			File dest = new File(thumImagePath);
 
 			if (pattern.equals("jpg") || pattern.equals("gif") || pattern.equals("png")) {
@@ -69,27 +69,27 @@ public class BlackListService {
 	}
 
 	public BlackListModel listBlackService(HttpServletRequest request, int requestPage) {
-		// 검색
+		// 寃��깋
 		CommunitySearch search = new CommunitySearch();
 		HttpSession session = request.getSession();
 
-		// 새로운 검색시도
+		// �깉濡쒖슫 寃��깋�떆�룄
 		if (request.getParameter("temp") != null || request.getParameter("pageNum") == null) {
 			session.removeAttribute("search");
 		}
-		// 검색 submit시
+		// 寃��깋 submit�떆
 		if (request.getParameterValues("area") != null) {
 			search.setArea(request.getParameterValues("area"));
 			search.setSearchKey("%" + request.getParameter("searchKey") + "%");
 			session.setAttribute("search", search);
 		}
-		// 검색후 페이징 페이지 클릭(페이지 이동)
+		// 寃��깋�썑 �럹�씠吏� �럹�씠吏� �겢由�(�럹�씠吏� �씠�룞)
 		else if (session.getAttribute("search") != null) {
 			search = (CommunitySearch) session.getAttribute("search");
 		}
 
-		// 페이징
-		// 페이지당 글갯수, 총글갯수, 총페이지수, 시작페이지, 마지막페이지, 현재페이지
+		// �럹�씠吏�
+		// �럹�씠吏��떦 湲�媛��닔, 珥앷�媛��닔, 珥앺럹�씠吏��닔, �떆�옉�럹�씠吏�, 留덉�留됲럹�씠吏�, �쁽�옱�럹�씠吏�
 		int totalCount = dao.countBlack(search);
 		int totalPageCount = totalCount / PAGE_SIZE;
 		if (totalCount % PAGE_SIZE > 0) {
@@ -131,7 +131,7 @@ public class BlackListService {
 		black.setBlack_id(black_id);
 		black.setBlack_title(multi.getParameter("black_title"));
 		black.setBlack_content(multi.getParameter("black_content"));
-		black.setBlack_personid(multi.getParameter("black_personid"));
+		black.setBlack_email(multi.getParameter("black_email"));
 
 		String black_img = multi.getParameter("black_img");
 		if (multi.getFilesystemName("blackUimg") != null) {

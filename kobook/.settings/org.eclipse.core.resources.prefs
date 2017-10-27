@@ -3,4 +3,5 @@ encoding//WebContent/main.jsp=UTF-8
 encoding//src/kobook/admin/service/AdminService.java=UTF-8
 encoding//src/kobook/book/action/BookdetailAction.java=UTF-8
 encoding//src/kobook/book/service/BookService.java=UTF-8
+encoding//src/kobook/community/service/BlackListService.java=UTF-8
 encoding//src/kobook/controller/BookController.java=UTF-8

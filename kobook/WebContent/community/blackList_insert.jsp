@@ -3,6 +3,10 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
+
+<% 
+	int person_id = Integer.parseInt((String)(session.getAttribute("person_id")));
+%>
 <!DOCTYPE html>
 <!--[if IE 8 ]><html class="ie ie8" class="no-js" lang="en"> <![endif]-->
 <!--[if (gte IE 9)|!(IE)]><!-->
@@ -62,15 +66,15 @@
 						<form action="blackInsertAction.do" id="registerform"
 							method="post" name="registerform" enctype="multipart/form-data">
 							<div class="form-group">
-								<input type="text" class="form-control" name="person_id"
-									value="" placeholder="작성자 id">
+								<input type="hidden" class="form-control" name="person_id"
+									value="${person_id}">
 							</div>
 							<div class="form-group">
 								<input type="text" class="form-control" name="black_title"
 									placeholder="글 제목">
 							</div>
 							<div class="form-group">
-								<input type="text" class="form-control" name="black_personid"
+								<input type="text" class="form-control" name="black_email"
 									placeholder="신고id">
 							</div>
 							<div class="form-group">

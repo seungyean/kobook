@@ -61,7 +61,7 @@
 									<input type="hidden" name="black_id"
 										value="${black.black_id}">
 									<figure class="post_img">
-										<img src="../upload/${black.black_img }" alt="NO IMAGE"
+										<img src="/kobook/upload/${black.black_img }" alt="NO IMAGE"
 											height="300" width="400">
 									</figure>
 									<div class="post_date">
@@ -78,7 +78,7 @@
 													${black.person_id} </span>
 											</div>
 										</div>
-										<span>신고ID : <input type="text" name="black_personid" value="${black.black_personid}"/></span>
+										<span>신고ID : <input type="text" name="black_email" value="${black.black_email}"/></span>
 										<blockquote class="default">
 											<textarea cols="30" rows="3" name="black_content"
 												placeholder="${black.black_content }">${black.black_content }</textarea>

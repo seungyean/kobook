@@ -66,7 +66,7 @@
 								<form action="blackDelete.do" method="post">
 									<input type="hidden" name="black_id" value="${black.black_id}">
 									<figure class="post_img">
-										<img src="../upload/${black.black_img }" alt="NO IMAGE"
+										<img src="/kobook/upload/${black.black_img }" alt="NO IMAGE"
 											height="350" width="400">
 									</figure>
 									<div class="post_date">
@@ -84,7 +84,7 @@
 													class="btn btn-lg btn-default" type="submit" value="삭제"></span>
 											</div>
 										</div>
-										<span>신고ID : <b>${black.black_personid }</b></span>
+										<span>신고ID : <b>${black.black_email }</b></span>
 										<blockquote class="default">
 											${black.black_content }</blockquote>
 

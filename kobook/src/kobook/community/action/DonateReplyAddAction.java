@@ -16,7 +16,7 @@ public class DonateReplyAddAction implements Action {
 		DonateReply reply = new DonateReply();
 		request.setCharacterEncoding("utf-8");
 		int rDonate_id = Integer.parseInt(request.getParameter("rDonate_id"));
-		int rperson_id = Integer.parseInt(request.getParameter("rperson_id"));
+		int rperson_id = Integer.parseInt((String)(request.getSession().getAttribute("person_id")));
 		DonateService service = DonateService.getInstance();
 		reply.setDonate_id(rDonate_id);
 		reply.setPerson_id(rperson_id);

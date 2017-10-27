@@ -93,19 +93,6 @@ public class BlackListDAO {
 		return re;
 	}
 
-	// public Person selectPersonName(int person_id) {
-	// SqlSession sqlSession = getSqlSessionFactory().openSession();
-	// Person person = null;
-	// try {
-	// person =
-	// sqlSession.getMapper(BlackListMapper.class).selectPersonName(person_id);
-	// } catch (Exception e) {
-	// e.printStackTrace();
-	// } finally {
-	// sqlSession.close();
-	// }
-	// return person;
-	// }
 
 	public BlackList selectBlackDetail(int black_id) {
 		SqlSession sqlSession = getSqlSessionFactory().openSession();

@@ -3,6 +3,10 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
+
+<% 
+	int person_id = Integer.parseInt((String)(session.getAttribute("person_id")));
+%>
 <!DOCTYPE html>
 <!--[if IE 8 ]><html class="ie ie8" class="no-js" lang="en"> <![endif]-->
 <!--[if (gte IE 9)|!(IE)]><!-->
@@ -146,8 +150,8 @@
 								<div class="comment_form">
 									<div class="row">
 										<div class="col-sm-4">
-											<input class="col-lg-4 col-md-4 form-control" type="text"
-												size="30" id="name" name="rperson_id" value=""
+											<input class="col-lg-4 col-md-4 form-control" type="hidden"
+												size="30" id="name" name="rperson_id" value="${person_id}"
 												placeholder="person_id">
 										</div>
 									</div>

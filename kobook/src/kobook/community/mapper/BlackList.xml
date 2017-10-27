@@ -14,11 +14,11 @@
 	<insert id="insertBlack" parameterType="Black">
 		insert into black(
 			black_id, black_title, black_date, black_content
-			<if test="black_img != null">, black_img</if>, black_personid, person_id
+			<if test="black_img != null">, black_img</if>, black_email, person_id
 			)values(
 			#{black_id}, #{black_title}, SYSDATE, #{black_content}
 			<if test="black_img != null">
-			, #{black_img}</if>, #{black_personid}, #{person_id}
+			, #{black_img}</if>, #{black_email}, #{person_id}
 			)
 	</insert>
 	
