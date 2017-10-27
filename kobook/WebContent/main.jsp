@@ -208,12 +208,12 @@
 		                <c:if test="${f.favorite_major == 'M' }">
 			                	<div class="portfolio-item mockups">
 			                        <div class="box">
-			                            <img src="/kobook/images/${f.book_name }.png" alt="">
+			                            <img src="/kobook/img/bookImg/${f.book_id }.PNG" alt="">
 			                            <div class="option inner">
 			                                <div>
 			                                    <h5>전공 상세보기</h5>
-			                                    <a href="/kobook/images/${f.book_name }.png" class="fa fa-search mfp-image"></a>
-			                                    <a href="/kobook/search/book_detail.jsp" class="fa fa-link"></a>
+			                                    <a href="/kobook/img/bookImg/${f.book_id }.PNG" class="fa fa-search mfp-image"></a>
+			                                    <a href="/kobook/book/detailAction.do?book_id=${f.book_id}" class="fa fa-link"></a>
 			                                    <a href="/kobook/recom/recomDeleteAction.do?book_id=${f.book_id }&favorite_id=${f.favorite_id}&favorite_major=${f.favorite_major}&favorite_name=${f.favorite_name}" class="fa fa-times"></a>
 			                                </div>
 			                            </div>
@@ -229,11 +229,11 @@
 						
 		                	<div class="portfolio-item graphic-design">
 		                        <div class="box">
-		                            <img src="/kobook/images/${f.book_name }.png" alt="">
+		                            <img src="/kobook/images/${f.book_id }.png" alt="">
 		                            <div class="option inner">
 		                                <div>
 		                                    <h5>기타 상세보기</h5>
-		                                    <a href="/kobook/images/${f.book_name }.png" class="fa fa-search mfp-image"></a>
+		                                    <a href="/kobook/img/bookImg/${f.book_id }.PNG" class="fa fa-search mfp-image"></a>
 		                                    <a href="/kobook/search/book_detail.jsp" class="fa fa-link"></a>
 		                                    <a href="/kobook/recom/recomDeleteAction.do?book_id=${f.book_id }&favorite_id=${f.favorite_id}&favorite_major=${f.favorite_major}&favorite_name=${f.favorite_name}" class="fa fa-times"></a>
 		                                </div>

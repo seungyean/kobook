@@ -16,7 +16,7 @@
 		)values(
 			#{book_id}, #{book_name}, #{book_o_price}, #{book_m_price},#{book_kind}, #{book_edition},#{book_publish},
 			#{book_hash}, #{book_safe_yn}, #{book_sell_state}, #{book_content}, 
-			#{book_img},SYSDATE,#{book_status},2
+			#{book_img},SYSDATE,#{book_status},#{person_id}
 		)		
 	</insert>
 	
