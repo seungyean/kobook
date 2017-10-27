@@ -11,7 +11,7 @@
 	<meta http-equiv="content-type" content="text/html; charset=UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-	<title>Electrify Responsive Multipurpose Template</title>
+	<title>도서검색[지역]</title>
 	<meta name="description" content="">
 
     <!-- CSS FILES -->
@@ -134,30 +134,29 @@
                     
                     
                     <!-- 페이징 -->
+                    <div class="col-sm-12 text-center">
                     	<ul  class="pagination">
 						<!-- 이전영역 생성(start page) -->
 						<c:if test="${listModel.startPage > 5 }">
-							<li><a href="/kobook/book/locationAction.do?pageNum=${listModel.startPage -1}&check=1">[이전]</a></li>
+							<li><a href="/kobook/book/locationAction.do?pageNum=${listModel.startPage -1}&check=1">이전</a></li>
 						</c:if>
 			
 						<!-- 페이지 목록 -->
 						<c:forEach var="pageNo" begin="${listModel.startPage}"
 							end="${listModel.endPage}">
 							<c:if test="${listModel.requestPage == pageNo }">
-								<b>
 							</c:if>
-							<li><a href="/kobook/book/locationAction.do?pageNum=${pageNo}&check=1" class="pagination">[ ${pageNo} ]</a></li>
+							<li><a href="/kobook/book/locationAction.do?pageNum=${pageNo}&check=1" class="pagination"> ${pageNo}</a></li>
 							<c:if test="${listModel.requestPage == pageNo }">
-								</b>
 							</c:if>
 						</c:forEach>
 
 						<!-- 이후영역 생성(end) -->
 						<c:if test="${listModel.endPage < listModel.totalPageCount}">
-							<li><a href="/kobook/book/locationAction.do?pageNum=${listModel.endPage +1}&check=1">[이후]</a></li>
+							<li><a href="/kobook/book/locationAction.do?pageNum=${listModel.endPage +1}&check=1">이후</a></li>
 						</c:if>
-						<br>
 						</ul>
+						</div>
 				</c:when>
 				
 				
@@ -220,31 +219,31 @@
 		</c:forEach> 
                     </table>
                     
-                    
+                    <div class="col-sm-12 text-center">
+                        <ul class="pagination">
                     			<!-- 페이징 -->
 						<!-- 이전영역 생성(start page) -->
 						<c:if test="${listModel2.startPage > 5 }">
-							<a href="/kobook/book/locationAction.do?pageNum=${listModel2.startPage -1}&check=-1">[이전]</a>
+						<li><a href="/kobook/book/locationAction.do?pageNum=${listModel2.startPage -1}&check=-1">이전</a></li>
 						</c:if>
 
 						<!-- 페이지 목록 -->
 						<c:forEach var="pageNo" begin="${listModel2.startPage}"
 							end="${listModel2.endPage}">
 							<c:if test="${listModel2.requestPage == pageNo }">
-								<b>
 							</c:if>
-							<a href="/kobook/book/locationAction.do?pageNum=${pageNo}&check=-1">[ ${pageNo} ]</a>
+							<li><a href="/kobook/book/locationAction.do?pageNum=${pageNo}&check=-1"> ${pageNo}</a></li>
 							<c:if test="${listModel2.requestPage == pageNo }">
-								</b>
 							</c:if>
 						</c:forEach>
 
 						<!-- 이후영역 생성(end) -->
 						<c:if test="${listModel2.endPage < listModel2.totalPageCount}">
-							<a href="/kobook/book/locationAction.do?pageNum=${listModel2.endPage +1}&check=-1">[이후]</a>
+							<li><a href="/kobook/book/locationAction.do?pageNum=${listModel2.endPage +1}&check=-1">이후</a></li>
 						</c:if>
-						<br>
-				
+		
+				</ul>
+				</div>
 				</c:otherwise>
 				
 				</c:choose>

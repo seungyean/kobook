@@ -6,9 +6,26 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 
-<%-- <%
+<%
+	String book_kind = "";
 	Book book = (Book)request.getAttribute("book");
-%> --%>
+	if(book.getBook_kind().equals("Social")){
+		book_kind = "사회계열";
+	} else if(book.getBook_kind().equals("Law")){
+		book_kind = "법학계열";
+	} else if(book.getBook_kind().equals("Medical")){
+		book_kind = "의학계열";
+	} else if(book.getBook_kind().equals("Engineering")){
+		book_kind = "공학계열";
+	} else if(book.getBook_kind().equals("Science")){
+		book_kind = "자연계열";
+	} else if(book.getBook_kind().equals("Art")){
+		book_kind = "예체능계열";
+	} else if(book.getBook_kind().equals("Language")){
+		book_kind = "어문학계열";
+	}
+
+%>
 <!DOCTYPE html>
 <!--[if IE 8 ]><html class="ie ie8" class="no-js" lang="en"> <![endif]-->
 <!--[if (gte IE 9)|!(IE)]><!-->
@@ -107,7 +124,7 @@
 							
 							<ul class="details">
 								<li><span>책이름 :</span>${book.book_name}</li>
-								<li><span>책종류 :</span>${book.book_kind}</li>
+								<li><span>책종류 :</span><%= book_kind %></li>
 								<li><span>부가설명 :</span>${book.book_hash}</li>
 								<li><span> 원가:</span> ${book.book_o_price}</li>
 								<li><span> 판매가:</span> ${book.book_m_price}</li>

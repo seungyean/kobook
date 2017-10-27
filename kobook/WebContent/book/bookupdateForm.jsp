@@ -5,7 +5,19 @@
 	pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<% 
+	
+	Book book = (Book)request.getAttribute("book");
+	String book_safe_yn = book.getBook_safe_yn();
+	String book_status = book.getBook_status();
+	String book_sell_state = book.getBook_sell_state();
+	String book_kind = book.getBook_kind();
+	System.out.println(book_safe_yn);
+	System.out.println(book_status);
+	System.out.println(book_sell_state);
+	System.out.println(book_kind);
 
+%>
 
 
 
@@ -70,28 +82,28 @@
                       <input type="text" name="publish"  value="${book.book_publish}" class="form-control" placeholder="출판사">
                     <textarea rows="10" cols="70" name="content" class="form-control" placeholder="내용을 입력하세요">${book.book_content} </textarea>
                     
-                                  안심여부: <input type="radio" name="safe_yn" value="Y">Y 
-					<input type="radio" name="safe_yn" value="N">N &nbsp;&nbsp;
+                                  안심여부: <input type="radio" name="safe_yn" value="Y" <c:if test="${book_safe_yn eq 'Y'}">checked="checked"</c:if>>Y 
+					<input type="radio" name="safe_yn" value="N" <c:if test="${book_safe_yn eq 'N'}">checked="checked"</c:if>>N &nbsp;&nbsp;
 					
 				책상태: <select name="status">
-						<option value="N">보통</option>
-						<option value="G">양호</option>
-						<option value="B">미흡</option>
+						<option value="B" <c:if test="${book_status eq 'B'}"> selected</c:if>>보통</option>
+						<option value="A" <c:if test="${book_status eq 'A'}"> selected</c:if>>양호</option>
+						<option value="C" <c:if test="${book_status eq 'C'}"> selected</c:if>>미흡</option>
 					</select> &nbsp;&nbsp;
 			
 				판매상태: <select name="sell_state">
-							<option value="I">판매중</option>
-							<option value="C">판매완료</option>
+							<option value="I" <c:if test="${book_sell_state eq 'I'}"> selected</c:if>>판매중</option>
+							<option value="C" <c:if test="${book_sell_state eq 'C'}"> selected</c:if>>판매완료</option>
 					</select> &nbsp;&nbsp;
 					
 			책종류: <select name="kind">
-					<option value="Business">Business</option>
-					<option value="Economy">Economy</option>
-					<option value="Computer">Computer</option>
-					<option value="Deutsch">Deutsch</option>
-					<option value="Law">Law</option>
-					<option value="History">History</option>
-					<option value="Physics">Physics</option>
+					<option value="Social" <c:if test="${book_kind == 'Social'}"> selected</c:if>>사회계열</option>
+					<option value="Law"<c:if test="${book_kind == 'Law'}"> selected</c:if>>법학계열</option>
+					<option value="Medical"<c:if test="${book_kind == 'Medical'}"> selected</c:if>>의학계열</option>
+					<option value="Engineering"<c:if test="${book_kind == 'Engineering'}"> selected</c:if>>공학계열</option>
+					<option value="Science"<c:if test="${book_kind == 'Science'}"> selected</c:if>>자연계열</option>
+					<option value="Art"<c:if test="${book_kind == 'Art'}"> selected</c:if>>예체능계열</option>
+					<option value="Language"<c:if test="${book_kind eq 'Language'}"> selected</c:if>>어문학계열</option>
 					</select><br>
 			
            
