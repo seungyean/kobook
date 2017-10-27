@@ -28,7 +28,7 @@
 
 	<script type="text/javascript">
 	   function fn_login(){
-			var loginForm = window.open("/kobook/login.jsp","","width=400,height=300,left=550,top=200");
+			window.open("/kobook/login.jsp","","width=400,height=300,left=550,top=200");
 		}
 	   function fn_logout(){
 			location.href="/kobook/logout.jsp";
@@ -46,7 +46,7 @@
             <div class="slider">
                 <div class="fs_loader"></div>
                 <div class="slide">
-                    <img src="/kobook/images/main_1.png" width="1920" height="auto" data-in="fade" data-out="fade" />
+                    <img src="/kobook/img/main/main_1.png" width="1920" height="auto" data-in="fade" data-out="fade" />
 
                     <!-- <img src="images/fraction-slider/slider-boy.png" width="600" height="600" data-position="30,1100" data-in="left" data-out="right" data-delay="700"/>
 
@@ -61,7 +61,7 @@
                 </div>
 
                 <div class="slide">
-                    <img src="/kobook/images/a.png" width="1920" height="auto" data-in="fade" data-out="fade" />
+                    <img src="/kobook/img/main/main_3.png" width="1920" height="auto" data-in="fade" data-out="fade" />
 
                     <!-- <img src="images/fraction-slider/slider-girl.png" width="600" height="545" data-position="20,400" data-in="right" data-0ut="bottom" data-delay="500"/>
 
@@ -71,7 +71,7 @@
                 </div>
 
                 <div class="slide">
-                    <img src="images/fraction-slider/base_3.jpg"  width="1920" height="auto" data-in="fade" data-out="fade" />
+                    <img src="/kobook/img/main/a.png"  width="1920" height="auto" data-in="fade" data-out="fade" />
 
                     <!-- <p class="slide-heading" data-position="130,370" data-in="top" data-out="top" data-ease-in="easeOutBounce" data-delay="1500">Electrify theme</p>
 
@@ -109,7 +109,13 @@
 										</form>
 									</c:when>
 									<c:otherwise>
-										<h4>${person_id }님  환영합니다앙~^0^</h4>
+										<h4>${person_id }님  환영합니다앙~^0^</h4> 
+											    <c:forEach var="z" items="${alarmList }">
+	    											<c:if test="${z.hit_yn == 'N' }">
+	             											<% alarm_new += 1;%>
+	        										</c:if> 
+	    										</c:forEach>
+        								<h4>새로운 알람의 갯수 : [ <%=alarm_new %> ]</h4>
             					  		<form action="/kobook/recom/alarmListAction.do">
             					  			<input type="hidden" name="person_id" value="${person_id }">
 											<input type="submit" value="알림">
@@ -118,9 +124,9 @@
 								</c:choose>
         					</c:if>
         
-        <h2>알림 리스트</h2>
+<%--         <h2>알림 리스트</h2>
         
-        <h4>현재 사용자 : ${person_id}</h4>
+        <h4>현재 사용자 : ${person_id}</h4>ㄹ
  	    <c:forEach var="z" items="${alarmList }">
 	    	<c:if test="${z.hit_yn == 'N' }">
 	             <% alarm_new += 1;%>
@@ -147,10 +153,10 @@
 
 			</tr>
 			</c:forEach>
-		</table>
+		</table> --%>
 		
 		
-		<br>
+<%-- 		<br>
       <h2>추천도서</h2>
 		<table border="1">
 			<tr>
@@ -174,7 +180,7 @@
 
 			</tr>
 			</c:forEach>
-		</table>
+		</table> --%>
 		
 		
 		
@@ -184,11 +190,11 @@
             		<c:when test="${person_id == 0}">
             			<h4><span>신규 등록 도서</span></h4>
             		</c:when>
-            		<c:when test="${list == null}">
-            			<h4><span>신규 등록 도서</span></h4>
+            		<c:when test="${list != null}">
+            			<h4>${person_id }님을 위한 추천도서</h4>
             		</c:when>
             		<c:otherwise>
-            			<h4>${person_id }님을 위한 추천도서</h4>
+            			<h4><span>신규 등록 도서</span></h4>
             		</c:otherwise>
             	</c:choose>
             </div>
@@ -208,12 +214,12 @@
 		                <c:if test="${f.favorite_major == 'M' }">
 			                	<div class="portfolio-item mockups">
 			                        <div class="box">
-			                            <img src="/kobook/images/${f.book_name }.png" alt="">
+			                            <img src="/kobook/img/bookImg/${f.book_id }.PNG" alt="">
 			                            <div class="option inner">
 			                                <div>
 			                                    <h5>전공 상세보기</h5>
-			                                    <a href="/kobook/images/${f.book_name }.png" class="fa fa-search mfp-image"></a>
-			                                    <a href="/kobook/search/book_detail.jsp" class="fa fa-link"></a>
+			                                    <a href="/kobook/img/bookImg/${f.book_id }.PNG" class="fa fa-search mfp-image"></a>
+			                                    <a href="/kobook/book/detailAction.do?book_id=${f.book_id}" class="fa fa-link"></a>
 			                                    <a href="/kobook/recom/recomDeleteAction.do?book_id=${f.book_id }&favorite_id=${f.favorite_id}&favorite_major=${f.favorite_major}&favorite_name=${f.favorite_name}" class="fa fa-times"></a>
 			                                </div>
 			                            </div>
@@ -229,11 +235,11 @@
 						
 		                	<div class="portfolio-item graphic-design">
 		                        <div class="box">
-		                            <img src="/kobook/images/${f.book_name }.png" alt="">
+		                            <img src="/kobook/img/bookImg/${f.book_id }.PNG" alt="">
 		                            <div class="option inner">
 		                                <div>
 		                                    <h5>기타 상세보기</h5>
-		                                    <a href="/kobook/images/${f.book_name }.png" class="fa fa-search mfp-image"></a>
+		                                    <a href="/kobook/img/bookImg/${f.book_id }.PNG" class="fa fa-search mfp-image"></a>
 		                                    <a href="/kobook/search/book_detail.jsp" class="fa fa-link"></a>
 		                                    <a href="/kobook/recom/recomDeleteAction.do?book_id=${f.book_id }&favorite_id=${f.favorite_id}&favorite_major=${f.favorite_major}&favorite_name=${f.favorite_name}" class="fa fa-times"></a>
 		                                </div>
