@@ -5,7 +5,9 @@
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 
 <% 
+if(session.getAttribute("person_id") != null) {
 	int person_id = Integer.parseInt((String)(session.getAttribute("person_id")));
+}
 %>
 <!DOCTYPE html>
 <!--[if IE 8 ]><html class="ie ie8" class="no-js" lang="en"> <![endif]-->
