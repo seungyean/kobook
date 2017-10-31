@@ -11,7 +11,7 @@
 	<insert id="insertBook" parameterType="Book">
 		insert into book(
 			book_id,book_name,book_o_price,book_m_price,book_kind,book_edition,book_publish,book_hash,book_safe_yn,book_sell_state,book_content,
-			book_img,book_date,book_status, person_id
+			book_img,book_date,book_status,person_id
 			
 		)values(
 			#{book_id}, #{book_name}, #{book_o_price}, #{book_m_price},#{book_kind}, #{book_edition},#{book_publish},
@@ -54,9 +54,7 @@
 						
 					</where>	
 				</when>
-				</choose>
-				
-				
+				</choose>				
 		<choose>
 						<when test="sort=='book_m_price'">
 							order by book_m_price ASC

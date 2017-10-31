@@ -1,4 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<% 
+	int person_id = Integer.parseInt((String)(session.getAttribute("person_id")));
+%>
 <!DOCTYPE html>
 <!--[if IE 8 ]><html class="ie ie8" class="no-js" lang="en"> <![endif]-->
 <!--[if (gte IE 9)|!(IE)]><!--><html class="no-js" lang="en"> <!--<![endif]-->
@@ -51,6 +54,7 @@
                 </div>
    
                 <form  action="/kobook/book/insertAction.do" id="subscribe"  name="subscribe" method="post" enctype="multipart/form-data">
+                	<input type="hidden" class="form-control" name="person_id" value="${person_id}">
                     <input type="text" name="name" id="name" class="form-control" placeholder="책이름">
                     <input type="text" name="hash" id="hash" class="form-control" placeholder="부가설명(간단검색어를 입력하세요)">
                     <input type="text" name="o_price" id="name" class="form-control" placeholder="원가">

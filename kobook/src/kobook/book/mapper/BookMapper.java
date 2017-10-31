@@ -9,7 +9,7 @@ import kobook.book.domain.BookPick;
 import kobook.book.domain.BookSearch;
 
 public interface BookMapper {
-		int insertBook(Book book);
+		public int insertBook(Book book);
 	   public Integer selectBook_id();
 	   public List<Book> listBook(RowBounds row, BookSearch bookSearch);
 	   public List<Book> locationBook(RowBounds row, BookSearch bookSearch);

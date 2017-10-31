@@ -38,7 +38,8 @@ public class BookService {
 	            new MultipartRequest(request, uploadPath, size, "utf-8", new DefaultFileRenamePolicy());
 	      
 	      book.setBook_name(multi.getParameter("name"));
-	      
+	      int person_id = Integer.parseInt(multi.getParameter("person_id"));
+	      book.setPerson_id(person_id);
 	      int o_price=Integer.parseInt(multi.getParameter("o_price"));
 	      book.setBook_o_price(o_price);
 	      int m_price=Integer.parseInt(multi.getParameter("m_price"));

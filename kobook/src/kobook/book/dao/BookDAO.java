@@ -52,8 +52,10 @@ public class BookDAO {
 	   public int insertBook(Book book) {
 	      int re = -1;
 	      SqlSession sqlSession = getSqlSessionFactory().openSession();
+	      System.out.println(re);
 	      try {
 	         re = sqlSession.getMapper(BookMapper.class).insertBook(book);
+	         System.out.println(re);
 	         if(re > 0) {
 	            sqlSession.commit();
 	         }else {
