@@ -5,7 +5,9 @@
 	pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
-
+<% 
+	int person_id = Integer.parseInt((String)(session.getAttribute("person_id")));
+%>
 <%-- <%
 	Book book = (Book)request.getAttribute("book");
 %> --%>
@@ -143,14 +145,19 @@
 								</c:when>
 								</c:choose>
 								</li>
-								<input type="submit" value="수정하기" id="submit" class="btn btn-default btn-lg button">
+								</ul> 
+								<span><input type="submit" value="수정하기" id="submit" class="btn btn-default btn-lg button">
+								</span>
 							</form>
 		
 	
+							
 							<form action="/kobook/book/pickAction.do" method="post">
 							<input type="hidden" name="book_id" value="${book.book_id}" />
-							<input type="text" name = "person_id" value="3" >
+							<input type="hidden" name = "person_id" value="${person_id}" >
+							<span>
 							<input type="submit" value="찜하기" id="submit" class="btn btn-default btn-lg button">
+							</span>
 							</form>
 							
 							
@@ -158,7 +165,7 @@
 									class="btn btn-default btn-lg button">
 								<input type="button" value="찜" id="submit"
 									class="btn btn-default btn-lg button"> -->
-							 </ul> 
+							 
 						</div>
 					</div>
 				</div>

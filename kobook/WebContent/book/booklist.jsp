@@ -159,8 +159,8 @@
                   
                   <!--begin List Item -->
                      <c:forEach var="b" items="${listModel.list}">
-                     <c:set var="b.book_kind" value="의학계열" />
-                      <c:if test="${b.book_kind=='Medical'}">
+                     <c:set var="b.book_kind" value="Medical" />
+                      <c:if test="${b.book_kind=='의학계열'}">
                         <li class="list_item col-lg-3 col-md-4 col-sm-6 Medical">
                            <div class="recent-item box">
                               <figure class="touching ">
@@ -232,7 +232,7 @@
                   <!--begin List Item -->
                      <c:forEach var="b" items="${listModel.list}">
                      <c:set var="b.book_kind" value="Science" />
-                      <c:if test="${b.book_kind=='자연과학계열'}">
+                      <c:if test="${b.book_kind=='자연계열'}">
                         <li class="list_item col-lg-3 col-md-4 col-sm-6 Science">
                            <div class="recent-item box">
                               <figure class="touching ">
