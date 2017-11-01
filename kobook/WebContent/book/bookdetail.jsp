@@ -53,7 +53,7 @@
 						<nav id="breadcrumbs">
 							<ul>
 								<li><a href="index.html">Home</a>/</li>
-								<li>Portfolio</li>
+								<li>상세보기</li>
 							</ul>
 						</nav>
 					</div>

@@ -87,12 +87,12 @@
                            <div class="recent-item box">
                               <figure class="touching ">
                               
-                              <img src="/kobook/upload/${b.book_img }" alt="aa" height="280" />
+                              <img src="/kobook/upload/${b.book_img}" alt="aa" height="280" />
                                  <a href="/kobook/book/detailAction.do?book_id=${b.book_id}"></a>
                                  <div class="option inner">
                                     <div>
                                        <h5>${b.book_name}</h5>
-                                       <a href="/kobook/upload/${b.book_img }" class="fa fa-search mfp-image"></a> 
+                                       <a href="/kobook/upload/${b.book_img}" class="fa fa-search mfp-image"></a> 
                                        <a href="/kobook/book/detailAction.do?book_id=${b.book_id}" class="fa fa-link"></a> 
                                        <span>${b.book_m_price}원</span>
                                        
