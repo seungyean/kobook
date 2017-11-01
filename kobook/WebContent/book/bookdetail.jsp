@@ -150,6 +150,8 @@
 								</span>
 							</form>
 		
+<%-- 		<a href = "http://www.yes24.com/searchcorner/Search?keywordAd=&keyword=&domain=ALL&qdomain=%C0%FC%C3%BC&query=" ${book.book_name}></a>  --%>
+						
 	
 							
 							<form action="/kobook/book/pickAction.do" method="post">
