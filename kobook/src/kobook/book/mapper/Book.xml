@@ -67,6 +67,11 @@
 				<!-- order by book_date desc -->
 	</select>	
 	
+	<!-- 
+	<select id="personlist" resultType="Book" >
+	 select * from book where person_id=#{person_id} 
+	</select> -->
+	
 	
 	
 	

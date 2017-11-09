@@ -75,7 +75,6 @@
 					<div class="col-lg-8 col-md-8 col-sm-8">
 						<!--Project Details Page-->
 						<div class="porDetCarousel">
-						
 							<div class="carousel-content">
 							
 				
@@ -93,26 +92,22 @@
 					<div class="col-lg-4 col-md-4 col-sm-4">
 						<div class="project_description">
 							<div class="widget_title">
-								<h4>
-									<span>내용</span>
-								</h4>
+								<h4><span>내용</span></h4>
 							</div>
 						<p>${book.book_content}</p>
 						</div>
 
 					<div class="project_details">
 							<div class="widget_title">
-								<h4>
-									<span>상세내용</span>
-								</h4>
+								<h4><span>상세내용</span></h4>
 							</div>
 							
-							<ul class="details">
+					<ul class="details">
 								<li><span>책이름 :</span>${book.book_name}</li>
 								<li><span>책종류 :</span>${book.book_kind}</li>
 								<li><span>부가설명 :</span>${book.book_hash}</li>
 								<li><span> 원가:</span> ${book.book_o_price}</li>
-								<li><span> 판매가:</span> ${book.book_m_price}</li>
+								<li><span> 판매가:</span> ${book.book_m_price} 할인:<b>${(book.book_o_price-book.book_m_price)/100}%</b></li>
 								<li><span> 판 :</span>${book.book_edition}</li>
 								<li><span>출판사 :</span>${book.book_publish}</li>
 								<li><span>안심여부사용 :</span>${book.book_safe_yn}</li>
@@ -121,177 +116,72 @@
 								<c:when test="${book.book_status=='A'}">
 								양호
 								</c:when>
-								
 								<c:when test="${book.book_status=='B'}">
 								보통
 								</c:when>
-								
 								<c:when test="${book.book_status=='C'}">
 								나쁨
 								</c:when>
-								
 								</c:choose>
 								</li>
-								
-								
+		
 								<li><span>판매상태</span>
 								<c:choose>
 								<c:when test="${book.book_sell_state=='I'}">
 								판매중
 								</c:when>
-								
 								<c:when test="${book.book_sell_state=='C'}">
 								판매완료
 								</c:when>
 								</c:choose>
 								</li>
-								</ul> 
-								<span><input type="submit" value="수정하기" id="submit" class="btn btn-default btn-lg button">
-								</span>
+						</ul> 
+				</div>  <!--/project_details  -->
+		</div>  <!--/col-lg-4 col-md-4 col-sm-4  -->
+  
+								<span><input type="submit" value="수정하기" id="submit" class="btn btn-default btn-lg button"></span>
 							</form>
-		
-<%-- 		<a href = "http://www.yes24.com/searchcorner/Search?keywordAd=&keyword=&domain=ALL&qdomain=%C0%FC%C3%BC&query=" ${book.book_name}></a>  --%>
-						
-	
-							
-							<form action="/kobook/book/pickAction.do" method="post">
+									
+						<form action="/kobook/book/pickAction.do" method="post">
 							<input type="hidden" name="book_id" value="${book.book_id}" />
 							<input type="hidden" name = "person_id" value="${person_id}" >
 							<span>
 							<input type="submit" value="찜하기" id="submit" class="btn btn-default btn-lg button">
 							</span>
-							</form>
+						</form>
 							
-							
-							<!-- 	<input type="button" value="장바구니" id="submit"
-									class="btn btn-default btn-lg button">
-								<input type="button" value="찜" id="submit"
-									class="btn btn-default btn-lg button"> -->
-							 
-						</div>
-					</div>
-				</div>
-
-
-
-				<div class="row sub_content">
-					<div class="col-md-12">
-						<div class="dividerHeading">
-							<h4>
-								<span>판매자에 대한 후기</span>
-							</h4>
-						</div>
-						<div id="recent-work-slider" class="owl-carousel">
-							<div class="recent-item box">
-								<figure class="touching ">
-									<img src="images/portfolio/portfolio_1.png" alt="" />
-									<div class="option inner">
-										<div>
-											<h5>Touch and Swipe</h5>
-											<a href="images/portfolio/full/portfolio_1.png"
-												class="fa fa-search mfp-image"></a> <a
-												href="portfolio_single.html" class="fa fa-link"></a> <span>Mobile</span>
-										</div>
-									</div>
-								</figure>
-							</div>
-							<div class="recent-item box">
-								<figure class="touching ">
-									<img src="images/portfolio/portfolio_2.png" alt="" />
-									<div class="option inner">
-										<div>
-											<h5>Touch and Swipe</h5>
-											<a href="images/portfolio/full/portfolio_2.png"
-												class="fa fa-search mfp-image"></a> <a
-												href="portfolio_single.html" class="fa fa-link"></a> <span>Mobile</span>
-										</div>
-									</div>
-								</figure>
-							</div>
-							<div class="recent-item box">
-								<figure class="touching ">
-									<img src="images/portfolio/portfolio_3.png" alt="" />
-									<div class="option inner">
-										<div>
-											<h5>Touch and Swipe</h5>
-											<a href="images/portfolio/full/portfolio_3.png"
-												class="fa fa-search mfp-image"></a> <a
-												href="portfolio_single.html" class="fa fa-link"></a> <span>Mobile</span>
-										</div>
-									</div>
-								</figure>
-							</div>
-							<div class="recent-item box">
-								<figure class="touching ">
-									<img src="images/portfolio/portfolio_4.png" alt="" />
-									<div class="option inner">
-										<div>
-											<h5>Touch and Swipe</h5>
-											<a href="images/portfolio/full/portfolio_4.png"
-												class="fa fa-search mfp-image"></a> <a
-												href="portfolio_single.html" class="fa fa-link"></a> <span>Mobile</span>
-										</div>
-									</div>
-								</figure>
-							</div>
-							<div class="recent-item box">
-								<figure class="touching ">
-									<img src="images/portfolio/portfolio_5.png" alt="" />
-									<div class="option inner">
-										<div>
-											<h5>Touch and Swipe</h5>
-											<a href="images/portfolio/full/portfolio_5.png"
-												class="fa fa-search mfp-image"></a> <a
-												href="portfolio_single.html" class="fa fa-link"></a> <span>Mobile</span>
-										</div>
-									</div>
-								</figure>
-							</div>
-							<div class="recent-item box">
-								<figure class="touching ">
-									<img src="images/portfolio/portfolio_6.png" alt="" />
-									<div class="option inner">
-										<div>
-											<h5>Touch and Swipe</h5>
-											<a href="images/portfolio/full/portfolio_6.png"
-												class="fa fa-search mfp-image"></a> <a
-												href="portfolio_single.html" class="fa fa-link"></a> <span>Mobile</span>
-										</div>
-									</div>
-								</figure>
-							</div>
-
-							<div class="recent-item box">
-								<figure class="touching ">
-									<img src="images/portfolio/portfolio_7.png" alt="" />
-									<div class="option inner">
-										<div>
-											<h5>Touch and Swipe</h5>
-											<a href="images/portfolio/full/portfolio_7.png"
-												class="fa fa-search mfp-image"></a> <a
-												href="portfolio_single.html" class="fa fa-link"></a> <span>Mobile</span>
-										</div>
-									</div>
-								</figure>
-							</div>
-
-							<div class="recent-item box">
-								<figure class="touching ">
-									<img src="images/portfolio/portfolio_8.png" alt="" />
-									<div class="option inner">
-										<div>
-											<h5>Touch and Swipe</h5>
-											<a href="images/portfolio/full/portfolio_8.png"
-												class="fa fa-search mfp-image"></a> <a
-												href="portfolio_single.html" class="fa fa-link"></a> <span>Mobile</span>
-										</div>
-									</div>
-								</figure>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
+		</div>  <!--/row sub_content  -->
+		
+<%--  <img src="/kobook/upload/${b.book_img}" alt="aa" height="280" />
+                                 <a href="/kobook/book/detailAction.do?book_id=${b.book_id}"></a> --%>
+ 	
+			<div class="row sub_content">
+                    <div class="col-md-12">
+                        <div class="dividerHeading">
+                            <h4><span>Recent Work</span></h4>
+                        </div>
+                        <div id="recent-work-slider" class="owl-carousel">
+                            <div class="recent-item box">
+                                <figure class="touching ">
+                                	<c:forEach var="b" items="${listModel.list}">
+                                    <img src="/kobook/upload/${b.book_img}" alt=""/>
+                                    <div class="option inner">
+                                        <div>
+                                            <h5>${b.book_name}</h5>
+                                            <a href="/kobook/upload/${b.book_img}" class="fa fa-search mfp-image"></a> 
+                                      		<a href="/kobook/book/detailAction.do?book_id=${b.book_id}" class="fa fa-link"></a> 
+                                            <span>${b.book_m_price}원</span>
+                                        </div>
+                                    </div>
+                                     </c:forEach>
+                                </figure>
+                            </div> <!--/recent-item box  -->
+                            
+                        </div> <!--/recent-work-slider  -->
+                    </div> <!--/col-md-12  -->
+                </div> <!--/row sub_content  -->
+               
+			</div> <!--/container  -->
 		</section>
 	</section>
 	<!--end wrapper-->
